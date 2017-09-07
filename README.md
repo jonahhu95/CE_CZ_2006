@@ -1,8 +1,7 @@
 # CE_CZ_2006
 
 CE_CZ_2006
-App Name: ITJWI (Is This Job Worth It)
-IDE: Android Studio (https://developer.android.com/studio/install.html)
+
 
 
 How to use GitHub
