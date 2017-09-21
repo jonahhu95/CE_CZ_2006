@@ -37,9 +37,9 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <!--<li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
-                    </li>
-                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#portfolio">Calculate Job Satisfaction Index</a>
+                    </li>-->
+                    <!--<li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#about">About</a>
                     </li>
                     <li class="nav-item">
@@ -63,10 +63,24 @@
                     <h4 class="modal-title">Login</h4>
                 </div>
                 <div class="modal-body">
-                    <p>
-                        Username:<br />
-                        Password:
-                    </p>
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input">
+                                Check me out
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -76,7 +90,7 @@
         </div>
     </div>
 
-    <image src="img/scrolldownbutton.gif" style="position:fixed; bottom:10px; right: 10px; height:100px; width: 100px;" ></image>
+    <image src="img/scrolldownbutton.gif" style="position:fixed; bottom:10px; right: 10px; height:90px; border-radius: 90px; background-color: black; opacity: 0.7;"></image>
     <!-- Header -->
     <header class="masthead">
         <div class="container">
@@ -84,15 +98,58 @@
             <div class="intro-text">
                 <span class="name">Is the job worth it?</span>
                 <hr class="star-light">
-                <span class="skills">Ever wondered if the job offer is worth your effort and time?<br />Now you can find the answer here!</span><br />
+                <span class="skills">Ever wondered if the job offer is worth your effort and time?<br />Now you can find the answer here!</span><br /><br/>
+                <a class="btn btn-primary js-scroll-trigger" href="#JSI">Calculate Job Satisfaction Index</a>
+                
             </div>
         </div>
     </header>
 
-    <!-- Portfolio Grid Section -->
-    <section id="portfolio">
+    <section id="JSI">
         <div class="container">
-            <h2 class="text-center">Description</h2>
+            <h2 class="text-center">Calculate Job Satisfaction Index</h2>
+            <hr class="star-primary">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                    <form name="sentMessage" id="contactForm" novalidate>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls">
+                                <label>Home Location</label>
+                                <input class="form-control" id="name" type="text" placeholder="Home Location" required data-validation-required-message="Please enter your home location.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls">
+                                <label>Job Location</label>
+                                <input class="form-control" id="email" type="email" placeholder="Job Location" required data-validation-required-message="Please enter your job location.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls">
+                                <label>Salary</label>
+                                <input class="form-control" id="phone" type="tel" placeholder="Salary" required data-validation-required-message="Please enter your salary.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="success"></div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success btn-lg" id="sendMessageButton">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid Section -->
+    <!--<section id="portfolio">
+        <div class="container">
+            <h2 class="text-center">Portfolio</h2>
             <hr class="star-primary">
             <div class="row">
 
@@ -119,8 +176,7 @@
 
                     </a>
                 </div>
-
-                <!--
+                
                 <div class="col-sm-4 portfolio-item">
                   <a class="portfolio-link" href="#portfolioModal3" data-toggle="modal">
                     <div class="caption">
@@ -164,10 +220,10 @@
                     <img class="img-fluid" src="img/portfolio/submarine.png" alt="">
                   </a>
                 </div>
-                 -->
+                 
             </div>
         </div>
-    </section>
+    </section>-->
 
     <!-- About Section -->
     <section class="success" id="Description">
