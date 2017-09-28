@@ -1,3 +1,8 @@
+package Entities;
+
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Created by jonah on 21/9/2017.
  */
@@ -5,6 +10,10 @@ public class Salary extends Criteria {
 
     private int salary;
     private int medianSalary;
+    private int point = -1;
+    private List<String> explanations = Arrays.asList("Description 1", "Description 2", "Description 3",
+            "Description 4", "Description 5", "Description 6", "Description 7", "Description 8",
+            "Description 9", "Description 10");
 
     public Salary(int medianSalary, int salary){
         weightage = 20;
@@ -15,7 +24,6 @@ public class Salary extends Criteria {
     @Override
     public double calculateSubScore() {
         int difference = 0;
-        int point;
         difference = salary - medianSalary;
         difference = difference/1000;
         switch (difference){
@@ -55,6 +63,13 @@ public class Salary extends Criteria {
                 break;
         }
         return point/9 * weightage;
+    }
+
+    @Override
+    public String getExplanation() {
+        if(point != -1)
+            return explanations.get(point);
+        return super.getExplanation();
     }
 
     public int getMedianSalary() {
