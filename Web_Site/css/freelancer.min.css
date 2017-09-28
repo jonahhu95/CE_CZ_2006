@@ -570,3 +570,9 @@ footer {
 .btn.active, .btn:active, .btn:focus {
     outline: 0;
 }
+
+img.round {
+	border-radius: 50%;
+	height : 85%;
+	width : 100%;
+}
