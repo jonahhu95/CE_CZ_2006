@@ -208,8 +208,11 @@ public class Calculation {
     public double[] getCriteriaMark_CommuteComfort(){
         double[] ret = {0.0, 0.0};
         for(int n = 0; n < criteriaList.size(); n++){
-            if(criteriaList.get(n).getClass() == CommuteComfort.class)
+            if(criteriaList.get(n).getClass() == CommuteComfort.class){
                 ret[0] = criteriaList.get(n).calculateSubScore();
+                ret[1] = criteriaList.get(n).getWeightage();
+            }
+
         }
         return ret;
     }
@@ -217,8 +220,10 @@ public class Calculation {
     public double[] getCriteriaMark_CommuteTime(){
         double[] ret = {0.0, 0.0};
         for(int n = 0; n < criteriaList.size(); n++){
-            if(criteriaList.get(n).getClass() == CommuteTime.class)
+            if(criteriaList.get(n).getClass() == CommuteTime.class){
                 ret[0] = criteriaList.get(n).calculateSubScore();
+                ret[1] = criteriaList.get(n).getWeightage();
+            }
         }
         return ret;
     }
@@ -226,8 +231,10 @@ public class Calculation {
     public double[] getCriteriaMark_CommuteCost(){
         double[] ret = {0.0, 0.0};
         for(int n = 0; n < criteriaList.size(); n++){
-            if(criteriaList.get(n).getClass() == CommuteCost.class)
+            if(criteriaList.get(n).getClass() == CommuteCost.class){
                 ret[0] = criteriaList.get(n).calculateSubScore();
+                ret[1] = criteriaList.get(n).getWeightage();
+            }
         }
         return ret;
     }
@@ -235,8 +242,10 @@ public class Calculation {
     public double[] getCriteriaMark_JobInterest(){
         double[] ret = {0.0, 0.0};
         for(int n = 0; n < criteriaList.size(); n++){
-            if(criteriaList.get(n).getClass() == JobInterest.class)
+            if(criteriaList.get(n).getClass() == JobInterest.class){
                 ret[0] = criteriaList.get(n).calculateSubScore();
+                ret[1] = criteriaList.get(n).getWeightage();
+            }
         }
         return ret;
     }
@@ -244,8 +253,10 @@ public class Calculation {
     public double[] getCriteriaMark_SalarySatisfaction(){
         double[] ret = {0.0, 0.0};
         for(int n = 0; n < criteriaList.size(); n++){
-            if(criteriaList.get(n).getClass() == SalarySatisfaction.class)
+            if(criteriaList.get(n).getClass() == SalarySatisfaction.class){
                 ret[0] = criteriaList.get(n).calculateSubScore();
+                ret[1] = criteriaList.get(n).getWeightage();
+            }
         }
         return ret;
     }
