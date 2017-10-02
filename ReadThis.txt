@@ -1,0 +1,10 @@
+
+1. Open folder in netbean named JavaSide
+https://blogs.msdn.microsoft.com/bursteg/2008/07/19/how-to-call-a-java-ee-web-service-from-a-net-client/
+
+2. Open JavaSide>WebServices>Service> Right click Test Web Service
+
+3. Open folder named ASPWebsite in visual studio under ASP
+
+4. Run Home.aspx, click on Submit button if 'Nothing' changed to 'Success' means it works
+
