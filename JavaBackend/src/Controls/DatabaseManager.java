@@ -1,5 +1,6 @@
 package Controls;
-
+import java.util.ArrayList;
+import java.util.Scanner;
 import java.sql.*;
 
 /**
@@ -7,21 +8,78 @@ import java.sql.*;
  */
 public class DatabaseManager {
     
-    public DatabaseManager(){}
+	private static ArrayList<String> name= new ArrayList<String>();
     
-    public int getCalculatedRecord(String username){
-        return 0;
+    //getCalculatedRecord = get past calculated record??
+	public int getCalculatedRecord(String username){ 
+        	int score=-1;
+        	//-1 condition if the user don't have past record
+    		//create table to store all the scores
+    		//username and datetime as primary key
+    		//sql statement to compare overall score
+    		//SELECT score FROM score_t WHERE username='' ORDER BY DESC LIMIT 2
+    		//or
+    		//SELECT top 2 score FROM score_t WHERE username='' ORDER BY DESC
+    		//or
+		//SELECT top(2) score FROM score_t WHERE username='' ORDER BY DESC
+    		ArrayList<Integer> mark=new ArrayList<Integer>();
+    		try {
+    			Connection con=getConnection();
+    			PreparedStatement got=con.prepareStatement("SELECT top 2 score FROM score_t WHERE username='"+username+"' ORDER BY DESC");
+    			ResultSet result=got.executeQuery();
+    			while(result.next()) {
+    			mark.add(result.getInt("score"));
+    			}
+    			//assumption made such that new calculation record will be appended before retrieve past calculated record
+    			//the second record is the one that we are looking for
+    			score=mark.get(1);
+    		}catch(Exception e) {System.out.println(e);}
+    		return score;
     }
+	
+	
     public void storeCalculationResult(int score, String username){
-        
+    	try {
+    		Connection con=getConnection();
+    		PreparedStatement update=con.prepareStatement("INSERT INTO score_t (username,score) VALUES ('"+username+"','"+score+"')");
+    		update.executeUpdate();
+    	}catch(Exception e) {System.out.println(e);}
     }
+    
+    
     public boolean validateLogin(String username, String password){
-        return true;
+    		String pws=null;
+		try {
+			Connection con=getConnection();
+			PreparedStatement got=con.prepareStatement("SELECT pws FROM user_t WHERE username='"+username+"'");
+			ResultSet result=got.executeQuery();
+			while(result.next()) {
+			pws=result.getString("pws");
+			}
+			if(pws==password)
+				return true;
+		}catch(Exception e) {System.out.println(e);}
+        return false;
     }
+    
     public boolean createAccount(String username, String password){
-        return true;
+    		//auto increment is set for primary key(id)
+    		//check for duplicate username 
+    		for(int i=0;i<name.size();i++) {
+    			if(username==name.get(i))
+    				return false;
+    		}
+    		
+    	try {
+    		Connection con=getConnection();
+    		PreparedStatement newAccount=con.prepareStatement("INSERT INTO user_t (username,pws) VALUES ('"+username+"','"+password+"')");
+    		newAccount.executeUpdate();
+    		name.add(username);
+    	}catch(Exception e) {System.out.println(e);}
+    	return true;
     }
     public static Connection getConnection() throws Exception{
+    	//always check whether there is valid access to database
     	try {
     		String driver= "com.mysql.jdbc.Driver";
     		String url="jdbc:mysql://localhost:3306/job?autoReconnect=true&useSSL=false";
@@ -69,14 +127,21 @@ public class DatabaseManager {
     		PreparedStatement posted=con.prepareStatement("INSERT INTO user_t (id,username,pws) VALUES ('1','"+username+"','"+pws+"')");
     		posted.executeUpdate();
     	}catch(Exception e) {System.out.println(e);}
-    	finally {System.out.println("Insert completed");}
+    	//finally {System.out.println("Insert completed");}
     }
     
+    
+    //for testing case only
     public static void main(String arg[]) throws Exception {
-    	String u="one";
-    	String p="two";
+    
+    	Scanner in=new Scanner(System.in);
+    System.out.println("Username?");
+    	String u=in.next();
+    	System.out.println("Password?");
+    	String p=in.next();
     getConnection();
     	post(u,p);
     	getPassword(u);
+    	in.close();
     }
 }
