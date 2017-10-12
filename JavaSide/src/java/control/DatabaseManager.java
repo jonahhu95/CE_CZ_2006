@@ -50,7 +50,7 @@ public class DatabaseManager {
     }
     
     
-    public static boolean validateLogin(String username, String password){
+/*    public static boolean validateLogin(String username, String password){
     		String pws=null;
 		try {
 			Connection con=getConnection();
@@ -58,8 +58,8 @@ public class DatabaseManager {
                 }catch(Exception e) {System.out.println(e);}
     	return true;
    }	
-
-    public boolean validateLogin(String username, String password){
+*/
+    public static boolean validateLogin(String username, String password){
     		String pws=null;
 		try {
 			Connection con=getConnection();
@@ -76,7 +76,7 @@ public class DatabaseManager {
     }
     
 
-    public boolean createAccount(String username, String password){
+/*    public boolean createAccount(String username, String password){
     		//auto increment is set for primary key(id)
     		//check for duplicate username 
     		for(int i=0;i<name.size();i++) {
@@ -84,7 +84,7 @@ public class DatabaseManager {
     				return false;
     		}
 
-
+*/
     
     
     //auto increment is set for primary key(id)
@@ -141,11 +141,11 @@ public class DatabaseManager {
     		String driver= "com.mysql.jdbc.Driver";
     		String url="jdbc:mysql://localhost:3306/job?autoReconnect=true&useSSL=false";
     		String username="root";
-//<<<<<<< HEAD
+
     		String password="joey";
-//=======
-    		String password="041100";
-//>>>>>>> 471748de7e56a1b34f27d4617318ca65cdf8ffca
+
+ 
+
     		Class.forName(driver);
     		
     		Connection con=DriverManager.getConnection(url,username,password);
