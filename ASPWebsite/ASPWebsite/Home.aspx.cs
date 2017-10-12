@@ -14,7 +14,6 @@ namespace ASPWebsite
         {
 
         }
-
         protected void sendMessage_Click(object sender, EventArgs e)
         {
             Label1.Text = se.hellothere();
@@ -28,6 +27,5 @@ namespace ASPWebsite
             if (t)
                 Response.Redirect("Try.aspx");
         }
-
     }
 }

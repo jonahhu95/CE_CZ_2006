@@ -5,31 +5,31 @@
       <xsd:import schemaLocation="http://localhost:8080/JavaSide/ServiceService?xsd=1" namespace="http://border/" />
     </xsd:schema>
   </types>
-  <message name="hellothere">
-    <part name="parameters" element="tns:hellothere" />
-  </message>
-  <message name="hellothereResponse">
-    <part name="parameters" element="tns:hellothereResponse" />
-  </message>
   <message name="checkUser">
     <part name="parameters" element="tns:checkUser" />
   </message>
   <message name="checkUserResponse">
     <part name="parameters" element="tns:checkUserResponse" />
   </message>
+  <message name="hellothere">
+    <part name="parameters" element="tns:hellothere" />
+  </message>
+  <message name="hellothereResponse">
+    <part name="parameters" element="tns:hellothereResponse" />
+  </message>
   <portType name="Service">
-    <operation name="hellothere">
-      <input wsam:Action="http://border/Service/hellothereRequest" message="tns:hellothere" />
-      <output wsam:Action="http://border/Service/hellothereResponse" message="tns:hellothereResponse" />
-    </operation>
     <operation name="checkUser">
       <input wsam:Action="http://border/Service/checkUserRequest" message="tns:checkUser" />
       <output wsam:Action="http://border/Service/checkUserResponse" message="tns:checkUserResponse" />
     </operation>
+    <operation name="hellothere">
+      <input wsam:Action="http://border/Service/hellothereRequest" message="tns:hellothere" />
+      <output wsam:Action="http://border/Service/hellothereResponse" message="tns:hellothereResponse" />
+    </operation>
   </portType>
   <binding name="ServicePortBinding" type="tns:Service">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="hellothere">
+    <operation name="checkUser">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -38,7 +38,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="checkUser">
+    <operation name="hellothere">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

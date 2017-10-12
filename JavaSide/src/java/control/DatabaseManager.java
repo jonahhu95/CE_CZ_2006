@@ -54,7 +54,7 @@ public class DatabaseManager {
         }
     }
 
-    public boolean validateLogin(String username, String password) {
+    public static boolean validateLogin(String username, String password) {
         String pws = null;
         try {
             Connection con = getConnection();
@@ -63,7 +63,8 @@ public class DatabaseManager {
             while (result.next()) {
                 pws = result.getString("pws");
             }
-            if (pws == password) {
+            
+            if (pws.equals(password)) {
                 return true;
             }
         } catch (Exception e) {
@@ -125,7 +126,7 @@ public class DatabaseManager {
             String driver = "com.mysql.jdbc.Driver";
             String url = "jdbc:mysql://localhost:3306/job?autoReconnect=true&useSSL=false";
             String username = "root";
-            String password = "041100";
+            String password = "joey";
             Class.forName(driver);
 
             Connection con = DriverManager.getConnection(url, username, password);
@@ -176,8 +177,10 @@ public class DatabaseManager {
         System.out.println("Password?");
         String p = in.next();
         getConnection();
-        post(u, p);
-        getPassword(u);
+//        post(u, p);
+//        getPassword(u);
+boolean t = validateLogin(u, p);
+System.out.println(t);
         in.close();
 
     }

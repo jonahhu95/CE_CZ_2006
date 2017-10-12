@@ -60,6 +60,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Home.aspx" />
+    <Content Include="HomePage.aspx" />
     <Content Include="mail\contact_me.php" />
     <Content Include="scss\freelancer.scss" />
     <Content Include="scss\_bootstrap-overrides.scss" />
@@ -71,6 +73,7 @@
     <Content Include="scss\_portfolio.scss" />
     <Content Include="scss\_variables.scss" />
     <Content Include="Try.aspx" />
+    <Content Include="UserPage.aspx" />
     <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.ttf" />
     <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.woff" />
@@ -107,6 +110,7 @@
     <Content Include="Service References\SEService\ASPWebsite.SEService.checkUserResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="MainPage.Master" />
     <None Include="Service References\SEService\ServiceService.wsdl" />
     <None Include="Service References\SEService\ServiceService.xsd">
       <SubType>Designer</SubType>
@@ -121,7 +125,6 @@
   <ItemGroup>
     <Content Include="css\freelancer.css" />
     <Content Include="css\freelancer.min.css" />
-    <Content Include="Home.aspx" />
     <Content Include="img\distance.jpg" />
     <Content Include="img\icon.png" />
     <Content Include="img\interest.jpg" />
@@ -181,6 +184,20 @@
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="HomePage.aspx.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePage.aspx.designer.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.Master.cs">
+      <DependentUpon>MainPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MainPage.Master.designer.cs">
+      <DependentUpon>MainPage.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\SEService\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -193,6 +210,13 @@
     </Compile>
     <Compile Include="Try.aspx.designer.cs">
       <DependentUpon>Try.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserPage.aspx.cs">
+      <DependentUpon>UserPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserPage.aspx.designer.cs">
+      <DependentUpon>UserPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

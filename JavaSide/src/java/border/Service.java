@@ -7,6 +7,7 @@ package border;
 
 import control.ApiFetcher;
 import control.DatabaseManager;
+import control.UserManager;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -24,17 +25,10 @@ public class Service {
     }
 
     @WebMethod
-    public boolean checkUser(String username, String password) {
-        boolean t = false;
-        try {
-            String u = username;
-            String p = password;
-            DatabaseManager.getConnection();
-            //t = DatabaseManager.validateLogin(u, p);
-        } catch (Exception ex) {
-
-        }
-
-        return t;
+    public boolean checkUser(String u, String p) {
+        UserManager um = new UserManager();
+        
+        return um.loginUser(u, p);
     }
+    
 }
