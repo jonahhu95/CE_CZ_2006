@@ -8,8 +8,6 @@ import java.sql.*;
  */
 public class DatabaseManager {
     
-	private static ArrayList<String> name= new ArrayList<String>();
-    
     //getCalculatedRecord = get past calculated record??
 	public int getCalculatedRecord(String username){ 
         	int score=-1;
@@ -69,7 +67,6 @@ public class DatabaseManager {
     		Connection con=getConnection();
     		PreparedStatement newAccount=con.prepareStatement("INSERT INTO user_t (username,pws) VALUES ('"+username+"','"+password+"')");
     		newAccount.executeUpdate();
-    		name.add(username);
     	}catch(Exception e) {System.out.println(e);}
     	return true;
     }
@@ -108,18 +105,7 @@ public class DatabaseManager {
     	
     	return null;
     }
-    
-  /*  testing purpose
-    public static void createTable() throws Exception{
-    	try {
-    		Connection con=getConnection();
-    		PreparedStatement create=con.prepareStatement("CREATE TABLE IF NOT EXISTS user_T(id INT NOT NULL,username	VARCHAR(40)	NOT NULL,pws				VARCHAR(20)	NOT NULL,\n" + 
-    				"PRIMARY KEY (id)");
-    		create.executeUpdate();
-    	}catch(Exception e) {System.out.println(e);}
-    	finally {System.out.println("Function has been completed");}
-    }
-    */
+
     public static String getPassword(String username) throws Exception{
     		String name=null;
     		try {

@@ -47,4 +47,10 @@ public class UserManager {
 		return false; //fail to edit user
 	}
 	
+	public boolean loginUser(String username,String password) {
+
+		return valid.validateLogin(username,password);
+		//return false if password does not match or user not found
+	}
+	
 }
