@@ -34,9 +34,8 @@
 
 </head>
 
-
-
 <body id="page-top">
+    <form runat="server">
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container">
@@ -77,12 +76,14 @@
                     <form>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            <asp:TextBox ID="tbEmail" class="form-control" runat="server" TextMode="Email"></asp:TextBox>
+                            <%--<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">--%>
                             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            <asp:TextBox ID="tbPassword" class="form-control" runat="server" TextMode="Password"></asp:TextBox>
+                            <%--<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">--%>
                         </div>
                         <div class="form-check">
                             <label class="form-check-label">
@@ -90,7 +91,8 @@
                                 Check me out
                             </label>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <asp:Button ID="loginBtn" class="btn btn-primary" runat="server" Text="Login" />
+                        <%--<button type="submit" class="btn btn-primary">Submit</button>--%>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -149,10 +151,11 @@
                         <br>
                         <div id="success"></div>
                         <div class="form-group">
-                            <form runat="server">
+                                Home Location: <asp:TextBox ID="TextBox1" class="form-control" runat="server"></asp:TextBox><br />
+                                Job Location: <asp:TextBox ID="TextBox2" class="form-control" runat="server"></asp:TextBox><br />
+                                Salary: <asp:TextBox ID="TextBox3" class="form-control" runat="server"></asp:TextBox><br />
                                 <asp:Button ID="sendMessage" class="btn btn-success btn-lg" runat="server" Text="Submit" OnClick="sendMessage_Click" />
                                 <asp:Label ID="Label1" runat="server" Text="Nothing"></asp:Label>
-                            </form>
                             <%--<button type="submit" class="btn btn-success btn-lg" id="sendMessageButton" >Submit</button>--%>
                         </div>
                     </form>
@@ -749,6 +752,7 @@
             </div>
         </div>
     </div>
+    </form>
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
