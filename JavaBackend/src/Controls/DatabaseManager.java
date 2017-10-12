@@ -64,12 +64,7 @@ public class DatabaseManager {
     
     public boolean createAccount(String username, String password){
     		//auto increment is set for primary key(id)
-    		//check for duplicate username 
-    		for(int i=0;i<name.size();i++) {
-    			if(username==name.get(i))
-    				return false;
-    		}
-    		
+    		//assume no duplicate username
     	try {
     		Connection con=getConnection();
     		PreparedStatement newAccount=con.prepareStatement("INSERT INTO user_t (username,pws) VALUES ('"+username+"','"+password+"')");
@@ -78,6 +73,25 @@ public class DatabaseManager {
     	}catch(Exception e) {System.out.println(e);}
     	return true;
     }
+    
+    public boolean deleteAccount(String username){
+	try {
+		Connection con=getConnection();
+		PreparedStatement delete=con.prepareStatement("DELETE FROM user_t,score_t,optional_t WHERE username='"+username+"'");
+		delete.executeUpdate();
+	}catch(Exception e) {System.out.println(e);}
+	return true;
+}
+    
+    public boolean editAccount(String username,String password){
+    	try {
+    		Connection con=getConnection();
+    		PreparedStatement change=con.prepareStatement("UPDATE user_t SET pws='"+password+"' WHERE username='"+username+"'");
+    		change.executeUpdate();
+    	}catch(Exception e) {System.out.println(e);}
+    	return true;
+    }
+    
     public static Connection getConnection() throws Exception{
     	//always check whether there is valid access to database
     	try {
