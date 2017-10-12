@@ -71,6 +71,8 @@ public class DatabaseManager {
     	return true;
     }
     
+    
+    
     public boolean deleteAccount(String username){
 	try {
 		Connection con=getConnection();
@@ -80,11 +82,22 @@ public class DatabaseManager {
 	return true;
 }
     
+    
+    
     public boolean editAccount(String username,String password){
     	try {
     		Connection con=getConnection();
     		PreparedStatement change=con.prepareStatement("UPDATE user_t SET pws='"+password+"' WHERE username='"+username+"'");
     		change.executeUpdate();
+    	}catch(Exception e) {System.out.println(e);}
+    	return true;
+    }
+    
+    public boolean addFeedback(String username,String feedback){
+    	try {
+    		Connection con=getConnection();
+    		PreparedStatement comment=con.prepareStatement("INSERT INTO feedback_t (username,feedback) VALUES ('"+username+"','"+feedback+"')");
+    		comment.executeUpdate();
     	}catch(Exception e) {System.out.println(e);}
     	return true;
     }
