@@ -26,7 +26,7 @@ public class CalculationManager {
 	}
 	
 	public boolean saveCalculation(Calculation calculation, User user) {
-		//valid.saveCalculation(); //new method on databaseManager
+		valid.saveCalculation(); //new method on databaseManager
 		return false;
 	}
 }
