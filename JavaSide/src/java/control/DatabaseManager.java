@@ -50,19 +50,21 @@ public class DatabaseManager {
     }
     
     
-<<<<<<< HEAD
     public static boolean validateLogin(String username, String password){
     		String pws=null;
 		try {
 			Connection con=getConnection();
 			PreparedStatement got=con.prepareStatement("SELECT username, pws FROM user_t WHERE username='"+username+"'");
-=======
+                }catch(Exception e) {System.out.println(e);}
+    	return true;
+   }	
+
     public boolean validateLogin(String username, String password){
     		String pws=null;
 		try {
 			Connection con=getConnection();
 			PreparedStatement got=con.prepareStatement("SELECT pws FROM user_t WHERE username='"+username+"'");
->>>>>>> 471748de7e56a1b34f27d4617318ca65cdf8ffca
+
 			ResultSet result=got.executeQuery();
 			while(result.next()) {
 			pws=result.getString("pws");
@@ -73,7 +75,7 @@ public class DatabaseManager {
         return false;
     }
     
-<<<<<<< HEAD
+
     public boolean createAccount(String username, String password){
     		//auto increment is set for primary key(id)
     		//check for duplicate username 
@@ -81,27 +83,25 @@ public class DatabaseManager {
     			if(username==name.get(i))
     				return false;
     		}
-    		
-=======
+
+
     
     
     //auto increment is set for primary key(id)
 	//assume no duplicate username
     public boolean createAccount(String username, String password){
->>>>>>> 471748de7e56a1b34f27d4617318ca65cdf8ffca
+
     	try {
     		Connection con=getConnection();
     		PreparedStatement newAccount=con.prepareStatement("INSERT INTO user_t (username,pws) VALUES ('"+username+"','"+password+"')");
     		newAccount.executeUpdate();
-<<<<<<< HEAD
+
     		name.add(username);
     	}catch(Exception e) {System.out.println(e);}
     	return true;
     }
-=======
-    	}catch(Exception e) {System.out.println(e);}
-    	return true;
-    }
+
+
     
     
     
@@ -134,18 +134,18 @@ public class DatabaseManager {
     	return true;
     }
     
->>>>>>> 471748de7e56a1b34f27d4617318ca65cdf8ffca
+
     public static Connection getConnection() throws Exception{
     	//always check whether there is valid access to database
     	try {
     		String driver= "com.mysql.jdbc.Driver";
     		String url="jdbc:mysql://localhost:3306/job?autoReconnect=true&useSSL=false";
     		String username="root";
-<<<<<<< HEAD
+//<<<<<<< HEAD
     		String password="joey";
-=======
+//=======
     		String password="041100";
->>>>>>> 471748de7e56a1b34f27d4617318ca65cdf8ffca
+//>>>>>>> 471748de7e56a1b34f27d4617318ca65cdf8ffca
     		Class.forName(driver);
     		
     		Connection con=DriverManager.getConnection(url,username,password);
@@ -155,7 +155,7 @@ public class DatabaseManager {
     	
     	return null;
     }
-<<<<<<< HEAD
+
     
   /*  testing purpose
     public static void createTable() throws Exception{
@@ -168,9 +168,7 @@ public class DatabaseManager {
     	finally {System.out.println("Function has been completed");}
     }
     */
-=======
 
->>>>>>> 471748de7e56a1b34f27d4617318ca65cdf8ffca
     public static String getPassword(String username) throws Exception{
     		String name=null;
     		try {
@@ -195,7 +193,9 @@ public class DatabaseManager {
     	//finally {System.out.println("Insert completed");}
     }
     
+    /*public boolean saveCalculation（）{
     
+    }*/
     //for testing case only
     public static void main(String arg[]) throws Exception {
     
@@ -208,9 +208,7 @@ public class DatabaseManager {
     	post(u,p);
     	getPassword(u);
     	in.close();
-<<<<<<< HEAD
         
-=======
->>>>>>> 471748de7e56a1b34f27d4617318ca65cdf8ffca
+
     }
 }
