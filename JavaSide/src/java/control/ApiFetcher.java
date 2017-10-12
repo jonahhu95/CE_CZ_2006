@@ -32,14 +32,15 @@ public class ApiFetcher {
     }
 
     public int getAverageNumberOfRiders() {
-        String url = "https://developers.onemap.sg/privateapi/popapi/getModeOfTransportWork?";
-        url = url + "token=" + accessToken;
-        url = url + "&year=" + String.valueOf(Calendar.getInstance().get(Calendar.YEAR));
+
+        String url;
         List<String> areas = getAllPlanningArea();
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+
         int totalRiders = 0;
         for (int n = 0; n < areas.size(); n++) {
             int temp = getNumberOfRiders(areas.get(n));
-            if (temp != -1) {
+            if (temp > 0) {
                 totalRiders = totalRiders + temp;
             }
         }
@@ -55,12 +56,16 @@ public class ApiFetcher {
         while (year > 1965) {
             try {
                 url = generateCall_NumberOfRiders(area, year);
-                obj = new JSONObject(doGetRequest(url));
-                if (obj.getString("Result").equals("No Data Available!")) {
+                String res = doGetRequest(url);
+                if(checkJSONResponse(res)){
+                    obj = new JSONArray(res).getJSONObject(0);
+                }else{
                     year--;
                     continue;
                 }
-                return obj.getInt("mrt_bus");
+                return obj.getInt("mrt_bus") + obj.getInt("mrt") + 
+                        obj.getInt("bus") + obj.getInt("mrt_car") + 
+                        obj.getInt("mrt_other");
             } catch (Exception ex) {
                 break;
             }
@@ -82,13 +87,13 @@ public class ApiFetcher {
         String url;
         JSONArray jsAr;
         List<String> ret = new ArrayList();
-        //int year = Calendar.getInstance().get(Calendar.YEAR);
-        int year = 1000;
+        int year = Calendar.getInstance().get(Calendar.YEAR);
 
-        while (true) {
+        while (year > 1965) {
             try {
                 url = generateCall_GetAllPlanningArea(year);
-                jsAr = new JSONArray(doGetRequest(url));
+                String response = doGetRequest(url);
+                jsAr = new JSONArray(response);
                 if (jsAr.length() < 2) {
                     year--;
                     continue;
@@ -99,6 +104,7 @@ public class ApiFetcher {
                 }
                 return ret;
             } catch (Exception ex) {
+                System.out.println(ex.getMessage());
                 break;
             }
         }
@@ -134,6 +140,37 @@ public class ApiFetcher {
             return response.body().string();
         }
         return null;
+    }
+
+    private boolean checkJSONResponse(String res) {
+        JSONObject obj = null;
+        JSONArray jArray = null;
+        boolean objTrue = false;
+        try {
+            jArray = new JSONArray(res);
+        } catch (Exception e) {
+            try {
+                obj = new JSONObject(res);
+                objTrue = true;
+            } catch (Exception f) {
+                return false;
+            }
+        }
+        try {
+            JSONObject temp;
+            if (objTrue)
+                temp = obj;
+            else
+                temp = jArray.getJSONObject(0);
+            if (temp.has("Result")) {
+                    if (temp.getString("Result").equals("No Data Available!")) {
+                        return false;
+                    }
+                }
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
 
     private void getAccessToken() {
