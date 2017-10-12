@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8080/JavaSide/ServiceService?WSDL" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8080/JavaSide/ServiceService?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ServiceService1.wsdl" MetadataType="Wsdl" ID="b1e7a6a3-53db-49e3-949d-9e157f40d11f" SourceId="1" SourceUrl="http://localhost:8080/JavaSide/ServiceService?WSDL" />
     <MetadataFile FileName="ServiceService.xsd" MetadataType="Schema" ID="d1510504-fca4-4c2d-8bd1-307e9a96f125" SourceId="1" SourceUrl="http://localhost:8080/JavaSide/ServiceService?xsd=1" />
+    <MetadataFile FileName="ServiceService.wsdl" MetadataType="Wsdl" ID="8ce4a19c-4e75-4822-94da-19dd74ef0150" SourceId="1" SourceUrl="http://localhost:8080/JavaSide/ServiceService?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

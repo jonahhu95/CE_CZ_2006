@@ -3,13 +3,4 @@ C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\ASPWebsite.dll
 C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\ASPWebsite.pdb
 C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\obj\Debug\ASPWebsite.dll
 C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\obj\Debug\ASPWebsite.pdb
-<<<<<<< HEAD
-C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\bin\ASPWebsite.dll.config
-C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\bin\ASPWebsite.dll
-C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\bin\ASPWebsite.pdb
-C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\obj\Debug\ASPWebsite.csprojResolveAssemblyReference.cache
-C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\obj\Debug\ASPWebsite.dll
-C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\obj\Debug\ASPWebsite.pdb
-=======
 C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\obj\Debug\ASPWebsite.csprojResolveAssemblyReference.cache
->>>>>>> c1b67f2edc2cd9f55460027bcf5c12e52286e14c

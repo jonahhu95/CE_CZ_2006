@@ -35,7 +35,7 @@
 </head>
 
 <body id="page-top">
-    <form runat="server">
+    <form id="form1" runat="server">
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container">
@@ -73,27 +73,27 @@
                     <h4 class="modal-title">Login</h4>
                 </div>
                 <div class="modal-body">
-                    <form>
-                        <div class="form-group">
+                        <%--<div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
-                            <asp:TextBox ID="tbEmail" class="form-control" runat="server" TextMode="Email"></asp:TextBox>
+                            <asp:TextBox ID="tbEmail" class="form-control" runat="server"></asp:TextBox>
                             <%--<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">--%>
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                          <%--  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Password</label>
-                            <asp:TextBox ID="tbPassword" class="form-control" runat="server" TextMode="Password"></asp:TextBox>
+                            <asp:TextBox ID="tbPassword" class="form-control" runat="server"></asp:TextBox>
                             <%--<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">--%>
-                        </div>
+                       <%-- </div>
                         <div class="form-check">
                             <label class="form-check-label">
                                 <input type="checkbox" class="form-check-input">
                                 Check me out
                             </label>
-                        </div>
-                        <asp:Button ID="loginBtn" class="btn btn-primary" runat="server" Text="Login" />
+                        </div>--%>
+                    <asp:TextBox ID="tbEmail" runat="server"></asp:TextBox><br />
+                    <asp:TextBox ID="tbPassword" runat="server"></asp:TextBox><br />
+                        <asp:Button ID="loginBtn" class="btn btn-primary" runat="server" Text="Login" OnClick="loginBtn_Click1" />
                         <%--<button type="submit" class="btn btn-primary">Submit</button>--%>
-                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -126,8 +126,8 @@
                 <div class="col-lg-8 mx-auto">
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                     <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                    <form name="sentMessage" id="contactForm" novalidate>
-                        <div class="control-group">
+                    <%--<form name="sentMessage" id="contactForm" novalidate>--%>
+                        <%--<div class="control-group">
                             <div class="form-group floating-label-form-group controls">
                                 <label>Home Location</label>
                                 <input class="form-control" id="name" type="text" placeholder="Home Location" required data-validation-required-message="Please enter your home location.">
@@ -147,7 +147,7 @@
                                 <input class="form-control" id="phone" type="tel" placeholder="Salary" required data-validation-required-message="Please enter your salary.">
                                 <p class="help-block text-danger"></p>
                             </div>
-                        </div>
+                        </div>--%>
                         <br>
                         <div id="success"></div>
                         <div class="form-group">
@@ -158,90 +158,11 @@
                                 <asp:Label ID="Label1" runat="server" Text="Nothing"></asp:Label>
                             <%--<button type="submit" class="btn btn-success btn-lg" id="sendMessageButton" >Submit</button>--%>
                         </div>
-                    </form>
+                    <%--</form>--%>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Portfolio Grid Section -->
-    <!--<section id="portfolio">
-        <div class="container">
-            <h2 class="text-center">Portfolio</h2>
-            <hr class="star-primary">
-            <div class="row">
-
-                <div class="col-sm-4 portfolio-item">
-                    <a class="portfolio-link" href="#portfolioModal1" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img class="img-fluid" src="img/portfolio/cabin.png" alt="">
-
-                    </a>
-                </div>
-
-                <div class="col-sm-4 portfolio-item">
-                    <a class="portfolio-link" href="#portfolioModal2" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img class="img-fluid" src="img/portfolio/cake.png" alt="">
-
-                    </a>
-                </div>
-                
-                <div class="col-sm-4 portfolio-item">
-                  <a class="portfolio-link" href="#portfolioModal3" data-toggle="modal">
-                    <div class="caption">
-                      <div class="caption-content">
-                        <i class="fa fa-search-plus fa-3x"></i>
-                      </div>
-                    </div>
-                    <img class="img-fluid" src="img/portfolio/circus.png" alt="">
-                  </a>
-                </div>
-
-                <div class="col-sm-4 portfolio-item">
-                  <a class="portfolio-link" href="#portfolioModal4" data-toggle="modal">
-                    <div class="caption">
-                      <div class="caption-content">
-                        <i class="fa fa-search-plus fa-3x"></i>
-                      </div>
-                    </div>
-                    <img class="img-fluid" src="img/portfolio/game.png" alt="">
-                  </a>
-                </div>
-
-                <div class="col-sm-4 portfolio-item">
-                  <a class="portfolio-link" href="#portfolioModal5" data-toggle="modal">
-                    <div class="caption">
-                      <div class="caption-content">
-                        <i class="fa fa-search-plus fa-3x"></i>
-                      </div>
-                    </div>
-                    <img class="img-fluid" src="img/portfolio/safe.png" alt="">
-                  </a>
-                </div>
-
-                <div class="col-sm-4 portfolio-item">
-                  <a class="portfolio-link" href="#portfolioModal6" data-toggle="modal">
-                    <div class="caption">
-                      <div class="caption-content">
-                        <i class="fa fa-search-plus fa-3x"></i>
-                      </div>
-                    </div>
-                    <img class="img-fluid" src="img/portfolio/submarine.png" alt="">
-                  </a>
-                </div>
-                 
-            </div>
-        </div>
-    </section>-->
 
     <!-- About Section -->
     <section class="success" id="Description">

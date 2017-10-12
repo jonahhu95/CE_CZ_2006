@@ -70,6 +70,7 @@
     <Content Include="scss\_navbar.scss" />
     <Content Include="scss\_portfolio.scss" />
     <Content Include="scss\_variables.scss" />
+    <Content Include="Try.aspx" />
     <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.ttf" />
     <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.woff" />
@@ -103,10 +104,13 @@
     <Content Include="vendor\font-awesome\scss\_screen-reader.scss" />
     <Content Include="vendor\font-awesome\scss\_stacked.scss" />
     <Content Include="vendor\font-awesome\scss\_variables.scss" />
+    <Content Include="Service References\SEService\ASPWebsite.SEService.checkUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\SEService\ServiceService.wsdl" />
     <None Include="Service References\SEService\ServiceService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\SEService\ServiceService1.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -182,6 +186,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Try.aspx.cs">
+      <DependentUpon>Try.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Try.aspx.designer.cs">
+      <DependentUpon>Try.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
