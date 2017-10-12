@@ -6,8 +6,8 @@ import java.util.List;
 
 public class CommuteTime extends Criteria {
 
-    private int averageTravelTime;
-    private int travelTime;
+    private int aveCommuteTime;
+    private int commuteTime;
     private int point = -1;
     private List<String> explanations = Arrays.asList("Description 1", "Description 2", "Description 3",
             "Description 4", "Description 5", "Description 6", "Description 7", "Description 8",
@@ -15,13 +15,13 @@ public class CommuteTime extends Criteria {
 
     CommuteTime(int averageTravelTime, int travelTime) {
         weightage = 20;
-        setAverageTravelTime(averageTravelTime);
-        setTravelTime(travelTime);
+        setAveCommuteTime(averageTravelTime);
+        setCommuteTime(travelTime);
     }
 
     @Override
     public double calculateSubScore() {
-        int difference = travelTime - averageTravelTime;
+        int difference = commuteTime - aveCommuteTime;
         if (difference >= -15) {
             if (difference <= 15) {
                 point = 4;
@@ -59,19 +59,19 @@ public class CommuteTime extends Criteria {
         return super.getExplanation();
     }
 
-    public int getAverageTravelTime() {
-        return averageTravelTime;
+    public int getAveCommuteTime() {
+        return aveCommuteTime;
     }
 
-    public void setAverageTravelTime(int averageTravelTime) {
-        this.averageTravelTime = averageTravelTime;
+    public void setAveCommuteTime(int aveCommuteTime) {
+        this.aveCommuteTime = aveCommuteTime;
     }
 
-    public int getTravelTime() {
-        return travelTime;
+    public int getCommuteTime() {
+        return commuteTime;
     }
 
-    public void setTravelTime(int travelTime) {
-        this.travelTime = travelTime;
+    public void setCommuteTime(int commuteTime) {
+        this.commuteTime = commuteTime;
     }
 }

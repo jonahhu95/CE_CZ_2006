@@ -2,6 +2,7 @@ package control;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 import java.util.logging.Level;
@@ -51,35 +52,77 @@ public class ApiFetcher {
 
         String url;
         JSONObject obj = null;
+        int total = -1;
         int year = Calendar.getInstance().get(Calendar.YEAR);
+         List<String> key = new ArrayList<>(Arrays.asList("mrt_bus", "mrt", 
+                 "bus", "mrt_car", "mrt_other"));
+
 
         while (year > 1965) {
             try {
                 url = generateCall_NumberOfRiders(area, year);
                 String res = doGetRequest(url);
-                if(checkJSONResponse(res)){
+                if (checkJSONResponse(res)) {
                     obj = new JSONArray(res).getJSONObject(0);
-                }else{
+                } else {
                     year--;
                     continue;
                 }
-                return obj.getInt("mrt_bus") + obj.getInt("mrt") + 
-                        obj.getInt("bus") + obj.getInt("mrt_car") + 
-                        obj.getInt("mrt_other");
+                int check;
+                total = 0;
+                for(check = 0; check < key.size(); check++){
+                    if(!obj.isNull(key.get(check))){
+                        total = total + obj.getInt(key.get(check));
+                    }
+                }
             } catch (Exception ex) {
                 break;
             }
         }
 
-        return -1;
+        return total;
     }
 
-    private String generateCall_NumberOfRiders(String area, int year) {
-        String url = "https://developers.onemap.sg/privateapi/popapi/getModeOfTransportWork?";
-        url = url + "token=" + accessToken;
-        url = url + "&year=" + String.valueOf(year);
-        url = url + "&planningArea=" + area;
-        return url;
+    public int getMedianSalary(String area) {
+        String url;
+        JSONObject obj = null;
+        int totalAreaPopulation = 0, median = 0, salaryRange = 0;;
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+        List<String> key = new ArrayList<>(Arrays.asList("below_sgd_1000",
+                "sgd_1000_to_1499", "sgd_1500_to_1999", "sgd_2000_to_2499",
+                "sgd_2500_to_2999", "sgd_3000_to_3999", "sgd_4000_to_4999",
+                "sgd_5000_to_5999", "sgd_6000_to_6999", "sgd_7000_to_7999",
+                "sgd_8000_over"));
+
+        while (year > 1965) {
+            try {
+                url = generateCall_GetMedianSalary(area, year);
+                String res = doGetRequest(url);
+                if (checkJSONResponse(res)) {
+                    obj = new JSONArray(res).getJSONObject(0);
+                    for (int n = 0; n < key.size(); n++) {
+                        if (!obj.isNull(key.get(n))) {
+                            totalAreaPopulation = totalAreaPopulation + obj.getInt(key.get(n));
+                        }
+                    }
+                    median = totalAreaPopulation / 2;
+                    for (salaryRange = 0; salaryRange < key.size(); salaryRange++) {
+                        if (!obj.isNull(key.get(salaryRange))) {
+                            median = median - obj.getInt(key.get(salaryRange));
+                        }
+                        if (median < 0) {
+                            return 750 + (salaryRange * 500);
+                        }
+                    }
+                } else {
+                    year--;
+                    continue;
+                }
+            } catch (Exception ex) {
+                break;
+            }
+        }
+        return -1;
     }
 
     private List<String> getAllPlanningArea() {
@@ -112,9 +155,26 @@ public class ApiFetcher {
         return null;
     }
 
+    //-----------Helper Methods-----------
+    private String generateCall_NumberOfRiders(String area, int year) {
+        String url = "https://developers.onemap.sg/privateapi/popapi/getModeOfTransportWork?";
+        url = url + "token=" + accessToken;
+        url = url + "&year=" + String.valueOf(year);
+        url = url + "&planningArea=" + area;
+        return url;
+    }
+
     private String generateCall_GetAllPlanningArea(int year) {
         String url = "https://developers.onemap.sg/privateapi/popapi/getPlanningareaNames?";
         url = url + "token=" + accessToken;
+        url = url + "&year=" + String.valueOf(year);
+        return url;
+    }
+
+    private String generateCall_GetMedianSalary(String area, int year) {
+        String url = "https://developers.onemap.sg/privateapi/popapi/getIncomeFromWork?";
+        url = url + "token=" + accessToken;
+        url = url + "&planningArea=" + area;
         url = url + "&year=" + String.valueOf(year);
         return url;
     }
@@ -158,15 +218,16 @@ public class ApiFetcher {
         }
         try {
             JSONObject temp;
-            if (objTrue)
+            if (objTrue) {
                 temp = obj;
-            else
+            } else {
                 temp = jArray.getJSONObject(0);
+            }
             if (temp.has("Result")) {
-                    if (temp.getString("Result").equals("No Data Available!")) {
-                        return false;
-                    }
+                if (temp.getString("Result").equals("No Data Available!")) {
+                    return false;
                 }
+            }
         } catch (Exception e) {
             return false;
         }
@@ -193,5 +254,4 @@ public class ApiFetcher {
             //ERROR HANDLING
         }
     }
-
 }
