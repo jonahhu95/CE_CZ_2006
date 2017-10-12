@@ -17,28 +17,24 @@ import javax.jws.WebParam;
  */
 @WebService
 public class Service {
+
     @WebMethod
-    public String hellothere(){
+    public String hellothere() {
         return "Success";
     }
-    
+
     @WebMethod
-    public boolean checkUser(String username, String password)
-    {
+    public boolean checkUser(String username, String password) {
         boolean t = false;
-        try{
-        String u = username;
-        String p = password;
-        
-       DatabaseManager.getConnection();
-    	t = DatabaseManager.validateLogin(u,p);
+        try {
+            String u = username;
+            String p = password;
+            DatabaseManager.getConnection();
+            //t = DatabaseManager.validateLogin(u, p);
+        } catch (Exception ex) {
+
         }
-        catch (Exception ex)
-        {
-            
-        }
-        
+
         return t;
     }
 }
-
