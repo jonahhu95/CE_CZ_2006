@@ -12,14 +12,14 @@ namespace ASPWebsite.SEService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://javabackend/", ConfigurationName="SEService.Service")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://border/", ConfigurationName="SEService.Service")]
     public interface Service {
         
         // CODEGEN: Generating message contract since element name return from namespace  is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://javabackend/Service/hellothereRequest", ReplyAction="http://javabackend/Service/hellothereResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://border/Service/hellothereRequest", ReplyAction="http://border/Service/hellothereResponse")]
         ASPWebsite.SEService.hellothereResponse hellothere(ASPWebsite.SEService.hellothereRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://javabackend/Service/hellothereRequest", ReplyAction="http://javabackend/Service/hellothereResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://border/Service/hellothereRequest", ReplyAction="http://border/Service/hellothereResponse")]
         System.Threading.Tasks.Task<ASPWebsite.SEService.hellothereResponse> hellothereAsync(ASPWebsite.SEService.hellothereRequest request);
     }
     
@@ -29,7 +29,7 @@ namespace ASPWebsite.SEService {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class hellothereRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="hellothere", Namespace="http://javabackend/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="hellothere", Namespace="http://border/", Order=0)]
         public ASPWebsite.SEService.hellothereRequestBody Body;
         
         public hellothereRequest() {
@@ -56,7 +56,7 @@ namespace ASPWebsite.SEService {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class hellothereResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="hellothereResponse", Namespace="http://javabackend/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="hellothereResponse", Namespace="http://border/", Order=0)]
         public ASPWebsite.SEService.hellothereResponseBody Body;
         
         public hellothereResponse() {
