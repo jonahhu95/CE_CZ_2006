@@ -6,7 +6,7 @@ public class Feedback {
     private User submitter;
     private String message;
 
-    Feedback(User submitter, String message){
+    public Feedback(User submitter, String message){
         setSubmitter(submitter);
         setMessage(message);
     }
