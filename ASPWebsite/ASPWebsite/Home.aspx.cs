@@ -14,15 +14,9 @@ namespace ASPWebsite
         {
 
         }
-        protected void sendMessage_Click(object sender, EventArgs e)
-        {
-            Label1.Text = se.hellothere();
-        }
-
         protected void loginBtn_Click1(object sender, EventArgs e)
         {
             Boolean t = se.checkUser(tbEmail.Text, tbPassword.Text);
-            Label1.Text = t.ToString();
 
             if (t)
                 Response.Redirect("Try.aspx");

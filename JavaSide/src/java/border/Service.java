@@ -18,17 +18,23 @@ import javax.jws.WebParam;
  */
 @WebService
 public class Service {
-
-    @WebMethod
-    public String hellothere() {
-        return "Success";
-    }
-
+    UserManager um = new UserManager();
+    
     @WebMethod
     public boolean checkUser(String u, String p) {
-        UserManager um = new UserManager();
-        
         return um.loginUser(u, p);
+    }
+    
+    @WebMethod
+    public boolean createUserAccount(String u, String p)
+    {
+        return um.createUser(u, p);
+    }
+    
+    @WebMethod
+    public boolean changePassword(String u, String p)
+    {
+        return um.editUser(u, p);
     }
     
 }

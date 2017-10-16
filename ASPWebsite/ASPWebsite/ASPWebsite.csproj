@@ -61,7 +61,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Home.aspx" />
-    <Content Include="HomePage.aspx" />
     <Content Include="mail\contact_me.php" />
     <Content Include="scss\freelancer.scss" />
     <Content Include="scss\_bootstrap-overrides.scss" />
@@ -125,9 +124,7 @@
   <ItemGroup>
     <Content Include="css\freelancer.css" />
     <Content Include="css\freelancer.min.css" />
-    <Content Include="img\distance.jpg" />
     <Content Include="img\icon.png" />
-    <Content Include="img\interest.jpg" />
     <Content Include="img\landing.png" />
     <Content Include="img\main.jpg" />
     <Content Include="img\portfolio\cabin.png" />
@@ -137,9 +134,7 @@
     <Content Include="img\portfolio\safe.png" />
     <Content Include="img\portfolio\submarine.png" />
     <Content Include="img\profile.png" />
-    <Content Include="img\salary.jpg" />
     <Content Include="img\scrolldownbutton.gif" />
-    <Content Include="img\time.jpg" />
     <Content Include="js\contact_me.js" />
     <Content Include="js\freelancer.js" />
     <Content Include="js\freelancer.min.js" />
@@ -183,13 +178,6 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="HomePage.aspx.cs">
-      <DependentUpon>HomePage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="HomePage.aspx.designer.cs">
-      <DependentUpon>HomePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="MainPage.Master.cs">
       <DependentUpon>MainPage.Master</DependentUpon>

@@ -21,16 +21,13 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
     <!-- Custom styles for this template -->
-    <link href="css/freelancer.min.css" rel="stylesheet">
+    <link href="css/freelancer.min.css" rel="stylesheet" />
 
-    <style>
-        #map {
-            width: 100%;
-            height: 400px;
-            background-color: grey;
+    <style type="text/css">
+        ::-webkit-scrollbar {
+            display: none;
         }
     </style>
-
 
 </head>
 
@@ -46,17 +43,11 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        <!--<li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#portfolio">Calculate Job Satisfaction Index</a>
-                    </li>-->
-                        <!--<li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-                    </li>-->
                         <li class="nav-item">
-                            <a class="nav-link btn-info btn-lg" data-toggle="modal" style="" href="#Login">Login</a>
+                            <a class="nav-link btn-info btn-lg" data-toggle="modal" style="margin-right: 10px;" href="#Login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn-info btn-lg" data-toggle="modal" href="#Sign">Sign Up</a>
                         </li>
                     </ul>
                 </div>
@@ -73,27 +64,10 @@
                         <h4 class="modal-title">Login</h4>
                     </div>
                     <div class="modal-body">
-                        <%--<div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <asp:TextBox ID="tbEmail" class="form-control" runat="server"></asp:TextBox>
-                            <%--<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">--%>
-                        <%--  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <asp:TextBox ID="tbPassword" class="form-control" runat="server"></asp:TextBox>
-                            <%--<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">--%>
-                        <%-- </div>
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input">
-                                Check me out
-                            </label>
-                        </div>--%>
                         <asp:Label ID="exampleInputEmail1" runat="server" Text="Email address"></asp:Label>
                         <asp:TextBox ID="tbEmail" class="form-control" runat="server"></asp:TextBox>
                         <%--<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">--%>
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small><br />
 
                         <asp:Label ID="exampleInputPassword1" runat="server" Text="Password"></asp:Label>
                         <%--<label for="exampleInputPassword1">Password</label>--%>
@@ -104,26 +78,63 @@
                         <asp:Button ID="loginBtn" class="btn btn-primary" runat="server" Text="Login" OnClick="loginBtn_Click1" />
 
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+         <div class="modal fade" id="Sign" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Sign Up</h4>
+                    </div>
+                    <div class="modal-body">
+                        <asp:Label ID="Label1" runat="server" Text="Email address"></asp:Label>
+                        <asp:TextBox ID="TextBox4" class="form-control" runat="server"></asp:TextBox>
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small><br />
+
+                        <asp:Label ID="Label2" runat="server" Text="Password"></asp:Label>
+                        <%--<label for="exampleInputPassword1">Password</label>--%>
+                        <asp:TextBox ID="TextBox5" class="form-control" runat="server"></asp:TextBox><br />
+                        <%--<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">--%>
+
+                        <asp:Label ID="Label3" runat="server" Text="Confirm Password"></asp:Label>
+                        <%--<label for="exampleInputPassword1">Password</label>--%>
+                        <asp:TextBox ID="TextBox6" class="form-control" runat="server"></asp:TextBox><br />
+                        <%--<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">--%>
+
+                        <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Confirm"/>
+
                     </div>
                 </div>
 
             </div>
         </div>
 
-        <image src="img/scrolldownbutton.gif" style="position: fixed; bottom: 10px; right: 10px; height: 90px; border-radius: 90px; background-color: black; opacity: 0.7;"></image>
+
+        <%--<img src="img/scrolldown.gif" style="position: fixed; bottom: 20px; height: 50px; width: 50px; right: 20px; background-color: black; opacity: 0.7; border-radius: 50%; border: 3px solid white;"></img>--%>
         <!-- Header -->
         <header class="masthead">
             <div class="container">
-                <img class="img-fluid" src="img/main.jpg" alt="" height="420" width="500">
                 <div class="intro-text">
-                    <span class="name">Is the job worth it?</span>
+                </div>
+                <%--<img class="img-fluid" src="img/main.gif" alt="" height="300" width="300">--%>
+                <div class="intro-text">
+                    <span class="name" style="font-size: 50px;">Is the job worth it?</span>
+                    <h1 style="font-size: 20px;">Based on your Job Interest, Salary & Commute</h1>
                     <hr class="star-light">
-                    <span class="skills">Is the job offer worth the effort and time?<br />
-                        Find your answers here!</span><br />
+                    <span class="skills">Find your answers here!</span><br />
                     <br />
+                    <a class="btn btn-primary js-scroll-trigger" href="#desc">Find out more</a>
                     <a class="btn btn-primary js-scroll-trigger" href="#JSI">Calculate Job Satisfaction Index</a>
+                    <div style="margin-top: 50px; margin-bottom: -70px;">
+                        <a href="#JSI" class="js-scroll-trigger">
+                            <asp:Image ID="Image1" runat="server" ImageUrl="~/img/scrolldown.gif" Width="30" /></a>
+                    </div>
+
 
                 </div>
             </div>
@@ -168,18 +179,15 @@
                             <asp:TextBox ID="TextBox2" class="form-control" runat="server"></asp:TextBox><br />
                             Salary:
                             <asp:TextBox ID="TextBox3" class="form-control" runat="server"></asp:TextBox><br />
-                            <asp:Button ID="sendMessage" class="btn btn-success btn-lg" runat="server" Text="Submit" OnClick="sendMessage_Click" />
-                            <asp:Label ID="Label1" runat="server" Text="Nothing"></asp:Label>
-                            <%--<button type="submit" class="btn btn-success btn-lg" id="sendMessageButton" >Submit</button>--%>
+                            <asp:Button ID="sendMessage" class="btn btn-success btn-lg" runat="server" Text="Submit" />
                         </div>
-                        <%--</form>--%>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- About Section -->
-        <section class="success" id="Description">
+        <section class="success" id="desc">
             <div class="container">
                 <h2 class="text-center">CRITERIA</h2>
                 <hr class="star-light">
@@ -203,7 +211,7 @@
                                     <span class="fa-stack fa-4x">
                                         <!--<i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-cloud fa-stack-1x text-primary"></i> -->
-                                        <img src="img/time.jpg" class="round" />
+                                        <img src="img/time.png" class="round" />
                                     </span>
                                     <h4>
                                         <strong>COMMUTE TIME</strong>
@@ -217,7 +225,7 @@
                                     <span class="fa-stack fa-4x">
                                         <!--<i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-compass fa-stack-1x text-primary"></i> -->
-                                        <img src="img/distance.jpg" class="round" />
+                                        <img src="img/dist.png" class="round" />
                                     </span>
                                     <h4>
                                         <strong>COMMUTE DISTANCE</strong>
@@ -231,7 +239,7 @@
                                     <span class="fa-stack fa-4x">
                                         <!--<i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-flask fa-stack-1x text-primary"></i>-->
-                                        <img src="img/salary.jpg" class="round" />
+                                        <img src="img/sal.png" class="round" />
                                     </span>
                                     <h4>
                                         <strong>SALARY</strong>
@@ -245,7 +253,7 @@
                                     <span class="fa-stack fa-4x">
                                         <!--<i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-shield fa-stack-1x text-primary"></i>-->
-                                        <img src="img/interest.jpg" class="round" />
+                                        <img src="img/thumbs.png" class="round" />
                                     </span>
                                     <h4>
                                         <strong>INTEREST</strong>
@@ -317,7 +325,7 @@
     </section>-->
 
         <!-- Footer -->
-        <footer class="text-center">
+        <%--        <footer class="text-center">
             <div class="footer-above">
                 <div class="container">
                     <div class="row">
@@ -622,7 +630,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>--%>
         <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
