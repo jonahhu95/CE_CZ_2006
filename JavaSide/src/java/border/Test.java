@@ -15,7 +15,7 @@ public class Test {
     
     public static void main(String arg[]){
         ApiFetcher apifet = new ApiFetcher();
-        int test = apifet.getAverageNumberOfRiders();        
+        int test = apifet.getMedianSalary("BEDOK");
         test--;
     }
 }
