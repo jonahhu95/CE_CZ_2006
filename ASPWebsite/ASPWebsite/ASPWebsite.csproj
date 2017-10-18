@@ -39,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\packages\AjaxControlToolkit.17.1.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -71,7 +74,6 @@
     <Content Include="scss\_navbar.scss" />
     <Content Include="scss\_portfolio.scss" />
     <Content Include="scss\_variables.scss" />
-    <Content Include="Try.aspx" />
     <Content Include="UserPage.aspx" />
     <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.ttf" />
@@ -110,6 +112,13 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="MainPage.Master" />
+    <Content Include="Service References\SEService\ASPWebsite.SEService.changePasswordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SEService\ASPWebsite.SEService.createUserAccountResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="packages.config" />
     <None Include="Service References\SEService\ServiceService.wsdl" />
     <None Include="Service References\SEService\ServiceService.xsd">
       <SubType>Designer</SubType>
@@ -140,9 +149,6 @@
     <Content Include="js\freelancer.min.js" />
     <Content Include="js\httpRequest.js" />
     <Content Include="js\jqBootstrapValidation.js" />
-    <Content Include="Service References\SEService\ASPWebsite.SEService.hellothereResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <None Include="Service References\SEService\configuration91.svcinfo" />
     <None Include="Service References\SEService\configuration.svcinfo" />
     <None Include="Service References\SEService\Reference.svcmap">
@@ -191,13 +197,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Try.aspx.cs">
-      <DependentUpon>Try.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Try.aspx.designer.cs">
-      <DependentUpon>Try.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserPage.aspx.cs">
       <DependentUpon>UserPage.aspx</DependentUpon>

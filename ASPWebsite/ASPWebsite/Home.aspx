@@ -1,9 +1,11 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="ASPWebsite.Home" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head id="head1" runat="server">
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,6 +22,28 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
+    
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/freelancer.min.js"></script>
+
+    <!-- Optional JavaScript plugins, jQuery, and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+
     <!-- Custom styles for this template -->
     <link href="css/freelancer.min.css" rel="stylesheet" />
 
@@ -28,6 +52,11 @@
             display: none;
         }
     </style>
+    <script>
+        function openModal() {
+            $('#Sign').modal({ show: true });
+        }
+    </script>
 
 </head>
 
@@ -54,14 +83,15 @@
             </div>
         </nav>
 
-        <div class="modal fade" id="Login" role="dialog">
-            <div class="modal-dialog">
-
-                <!-- Modal content-->
+        <!-- Modal -->
+         <div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Login</h4>
+                        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                     <div class="modal-body">
                         <asp:Label ID="exampleInputEmail1" runat="server" Text="Email address"></asp:Label>
@@ -73,46 +103,51 @@
                         <%--<label for="exampleInputPassword1">Password</label>--%>
                         <asp:TextBox ID="tbPassword" class="form-control" runat="server"></asp:TextBox><br />
                         <%--<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">--%>
-
-
-                        <asp:Button ID="loginBtn" class="btn btn-primary" runat="server" Text="Login" OnClick="loginBtn_Click1" />
-
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button ID="loginBtn" class="btn btn-primary" runat="server" Text="Login" OnClick="loginBtn_Click1" ClientIDMode="Static" data-toggle="modal" data-target="#requestSpareModalId" OnClientClick="return  false" />
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
-
             </div>
         </div>
-         <div class="modal fade" id="Sign" role="dialog">
-            <div class="modal-dialog">
 
-                <!-- Modal content-->
+        <!-- Modal -->
+        <div class="modal fade" id="Sign" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Sign Up</h4>
+                        <h5 class="modal-title">Login</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                     <div class="modal-body">
                         <asp:Label ID="Label1" runat="server" Text="Email address"></asp:Label>
-                        <asp:TextBox ID="TextBox4" class="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="tbEmail2" class="form-control" runat="server"></asp:TextBox>
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small><br />
 
                         <asp:Label ID="Label2" runat="server" Text="Password"></asp:Label>
                         <%--<label for="exampleInputPassword1">Password</label>--%>
-                        <asp:TextBox ID="TextBox5" class="form-control" runat="server"></asp:TextBox><br />
+                        <asp:TextBox ID="tbPassword2" class="form-control" runat="server"></asp:TextBox><br />
                         <%--<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">--%>
 
                         <asp:Label ID="Label3" runat="server" Text="Confirm Password"></asp:Label>
                         <%--<label for="exampleInputPassword1">Password</label>--%>
-                        <asp:TextBox ID="TextBox6" class="form-control" runat="server"></asp:TextBox><br />
+                        <asp:TextBox ID="tbConfirmPW" class="form-control" runat="server"></asp:TextBox><br />
                         <%--<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">--%>
 
-                        <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Confirm"/>
-
+                        <asp:Label ID="LabelWarning" runat="server"></asp:Label>
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button ID="Button1" type="button" class="btn btn-primary" runat="server" Text="Confirm" OnClick="Button1_Click" />
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
-
             </div>
         </div>
+
+
 
 
         <%--<img src="img/scrolldown.gif" style="position: fixed; bottom: 20px; height: 50px; width: 50px; right: 20px; background-color: black; opacity: 0.7; border-radius: 50%; border: 3px solid white;"></img>--%>
@@ -679,27 +714,6 @@
             </div>
         </div>
     </form>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/popper/popper.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Contact Form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
-
-    <!-- Custom scripts for this template -->
-    <script src="js/freelancer.min.js"></script>
-
-    <!-- Optional JavaScript plugins, jQuery, and Popper.js -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-
 </body>
 
 </html>
