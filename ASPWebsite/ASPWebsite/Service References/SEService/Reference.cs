@@ -16,11 +16,11 @@ namespace ASPWebsite.SEService {
     public interface Service {
         
         // CODEGEN: Generating message contract since element name arg0 from namespace  is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://border/Service/createUserAccountRequest", ReplyAction="http://border/Service/createUserAccountResponse")]
-        ASPWebsite.SEService.createUserAccountResponse createUserAccount(ASPWebsite.SEService.createUserAccountRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://border/Service/checkUserRequest", ReplyAction="http://border/Service/checkUserResponse")]
+        ASPWebsite.SEService.checkUserResponse checkUser(ASPWebsite.SEService.checkUserRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://border/Service/createUserAccountRequest", ReplyAction="http://border/Service/createUserAccountResponse")]
-        System.Threading.Tasks.Task<ASPWebsite.SEService.createUserAccountResponse> createUserAccountAsync(ASPWebsite.SEService.createUserAccountRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://border/Service/checkUserRequest", ReplyAction="http://border/Service/checkUserResponse")]
+        System.Threading.Tasks.Task<ASPWebsite.SEService.checkUserResponse> checkUserAsync(ASPWebsite.SEService.checkUserRequest request);
         
         // CODEGEN: Generating message contract since element name arg0 from namespace  is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://border/Service/changePasswordRequest", ReplyAction="http://border/Service/changePasswordResponse")]
@@ -30,26 +30,26 @@ namespace ASPWebsite.SEService {
         System.Threading.Tasks.Task<ASPWebsite.SEService.changePasswordResponse> changePasswordAsync(ASPWebsite.SEService.changePasswordRequest request);
         
         // CODEGEN: Generating message contract since element name arg0 from namespace  is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://border/Service/checkUserRequest", ReplyAction="http://border/Service/checkUserResponse")]
-        ASPWebsite.SEService.checkUserResponse checkUser(ASPWebsite.SEService.checkUserRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://border/Service/createUserAccountRequest", ReplyAction="http://border/Service/createUserAccountResponse")]
+        ASPWebsite.SEService.createUserAccountResponse createUserAccount(ASPWebsite.SEService.createUserAccountRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://border/Service/checkUserRequest", ReplyAction="http://border/Service/checkUserResponse")]
-        System.Threading.Tasks.Task<ASPWebsite.SEService.checkUserResponse> checkUserAsync(ASPWebsite.SEService.checkUserRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://border/Service/createUserAccountRequest", ReplyAction="http://border/Service/createUserAccountResponse")]
+        System.Threading.Tasks.Task<ASPWebsite.SEService.createUserAccountResponse> createUserAccountAsync(ASPWebsite.SEService.createUserAccountRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class createUserAccountRequest {
+    public partial class checkUserRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="createUserAccount", Namespace="http://border/", Order=0)]
-        public ASPWebsite.SEService.createUserAccountRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="checkUser", Namespace="http://border/", Order=0)]
+        public ASPWebsite.SEService.checkUserRequestBody Body;
         
-        public createUserAccountRequest() {
+        public checkUserRequest() {
         }
         
-        public createUserAccountRequest(ASPWebsite.SEService.createUserAccountRequestBody Body) {
+        public checkUserRequest(ASPWebsite.SEService.checkUserRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -58,7 +58,7 @@ namespace ASPWebsite.SEService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class createUserAccountRequestBody {
+    public partial class checkUserRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
         public string arg0;
@@ -66,10 +66,10 @@ namespace ASPWebsite.SEService {
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
         public string arg1;
         
-        public createUserAccountRequestBody() {
+        public checkUserRequestBody() {
         }
         
-        public createUserAccountRequestBody(string arg0, string arg1) {
+        public checkUserRequestBody(string arg0, string arg1) {
             this.arg0 = arg0;
             this.arg1 = arg1;
         }
@@ -79,15 +79,15 @@ namespace ASPWebsite.SEService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class createUserAccountResponse {
+    public partial class checkUserResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="createUserAccountResponse", Namespace="http://border/", Order=0)]
-        public ASPWebsite.SEService.createUserAccountResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="checkUserResponse", Namespace="http://border/", Order=0)]
+        public ASPWebsite.SEService.checkUserResponseBody Body;
         
-        public createUserAccountResponse() {
+        public checkUserResponse() {
         }
         
-        public createUserAccountResponse(ASPWebsite.SEService.createUserAccountResponseBody Body) {
+        public checkUserResponse(ASPWebsite.SEService.checkUserResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -96,15 +96,15 @@ namespace ASPWebsite.SEService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class createUserAccountResponseBody {
+    public partial class checkUserResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
         public bool @return;
         
-        public createUserAccountResponseBody() {
+        public checkUserResponseBody() {
         }
         
-        public createUserAccountResponseBody(bool @return) {
+        public checkUserResponseBody(bool @return) {
             this.@return = @return;
         }
     }
@@ -185,15 +185,15 @@ namespace ASPWebsite.SEService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class checkUserRequest {
+    public partial class createUserAccountRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="checkUser", Namespace="http://border/", Order=0)]
-        public ASPWebsite.SEService.checkUserRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="createUserAccount", Namespace="http://border/", Order=0)]
+        public ASPWebsite.SEService.createUserAccountRequestBody Body;
         
-        public checkUserRequest() {
+        public createUserAccountRequest() {
         }
         
-        public checkUserRequest(ASPWebsite.SEService.checkUserRequestBody Body) {
+        public createUserAccountRequest(ASPWebsite.SEService.createUserAccountRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -202,7 +202,7 @@ namespace ASPWebsite.SEService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class checkUserRequestBody {
+    public partial class createUserAccountRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
         public string arg0;
@@ -210,10 +210,10 @@ namespace ASPWebsite.SEService {
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
         public string arg1;
         
-        public checkUserRequestBody() {
+        public createUserAccountRequestBody() {
         }
         
-        public checkUserRequestBody(string arg0, string arg1) {
+        public createUserAccountRequestBody(string arg0, string arg1) {
             this.arg0 = arg0;
             this.arg1 = arg1;
         }
@@ -223,15 +223,15 @@ namespace ASPWebsite.SEService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class checkUserResponse {
+    public partial class createUserAccountResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="checkUserResponse", Namespace="http://border/", Order=0)]
-        public ASPWebsite.SEService.checkUserResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="createUserAccountResponse", Namespace="http://border/", Order=0)]
+        public ASPWebsite.SEService.createUserAccountResponseBody Body;
         
-        public checkUserResponse() {
+        public createUserAccountResponse() {
         }
         
-        public checkUserResponse(ASPWebsite.SEService.checkUserResponseBody Body) {
+        public createUserAccountResponse(ASPWebsite.SEService.createUserAccountResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -240,15 +240,15 @@ namespace ASPWebsite.SEService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class checkUserResponseBody {
+    public partial class createUserAccountResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
         public bool @return;
         
-        public checkUserResponseBody() {
+        public createUserAccountResponseBody() {
         }
         
-        public checkUserResponseBody(bool @return) {
+        public createUserAccountResponseBody(bool @return) {
             this.@return = @return;
         }
     }
@@ -281,30 +281,30 @@ namespace ASPWebsite.SEService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ASPWebsite.SEService.createUserAccountResponse ASPWebsite.SEService.Service.createUserAccount(ASPWebsite.SEService.createUserAccountRequest request) {
-            return base.Channel.createUserAccount(request);
+        ASPWebsite.SEService.checkUserResponse ASPWebsite.SEService.Service.checkUser(ASPWebsite.SEService.checkUserRequest request) {
+            return base.Channel.checkUser(request);
         }
         
-        public bool createUserAccount(string arg0, string arg1) {
-            ASPWebsite.SEService.createUserAccountRequest inValue = new ASPWebsite.SEService.createUserAccountRequest();
-            inValue.Body = new ASPWebsite.SEService.createUserAccountRequestBody();
+        public bool checkUser(string arg0, string arg1) {
+            ASPWebsite.SEService.checkUserRequest inValue = new ASPWebsite.SEService.checkUserRequest();
+            inValue.Body = new ASPWebsite.SEService.checkUserRequestBody();
             inValue.Body.arg0 = arg0;
             inValue.Body.arg1 = arg1;
-            ASPWebsite.SEService.createUserAccountResponse retVal = ((ASPWebsite.SEService.Service)(this)).createUserAccount(inValue);
+            ASPWebsite.SEService.checkUserResponse retVal = ((ASPWebsite.SEService.Service)(this)).checkUser(inValue);
             return retVal.Body.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ASPWebsite.SEService.createUserAccountResponse> ASPWebsite.SEService.Service.createUserAccountAsync(ASPWebsite.SEService.createUserAccountRequest request) {
-            return base.Channel.createUserAccountAsync(request);
+        System.Threading.Tasks.Task<ASPWebsite.SEService.checkUserResponse> ASPWebsite.SEService.Service.checkUserAsync(ASPWebsite.SEService.checkUserRequest request) {
+            return base.Channel.checkUserAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ASPWebsite.SEService.createUserAccountResponse> createUserAccountAsync(string arg0, string arg1) {
-            ASPWebsite.SEService.createUserAccountRequest inValue = new ASPWebsite.SEService.createUserAccountRequest();
-            inValue.Body = new ASPWebsite.SEService.createUserAccountRequestBody();
+        public System.Threading.Tasks.Task<ASPWebsite.SEService.checkUserResponse> checkUserAsync(string arg0, string arg1) {
+            ASPWebsite.SEService.checkUserRequest inValue = new ASPWebsite.SEService.checkUserRequest();
+            inValue.Body = new ASPWebsite.SEService.checkUserRequestBody();
             inValue.Body.arg0 = arg0;
             inValue.Body.arg1 = arg1;
-            return ((ASPWebsite.SEService.Service)(this)).createUserAccountAsync(inValue);
+            return ((ASPWebsite.SEService.Service)(this)).checkUserAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -335,30 +335,30 @@ namespace ASPWebsite.SEService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ASPWebsite.SEService.checkUserResponse ASPWebsite.SEService.Service.checkUser(ASPWebsite.SEService.checkUserRequest request) {
-            return base.Channel.checkUser(request);
+        ASPWebsite.SEService.createUserAccountResponse ASPWebsite.SEService.Service.createUserAccount(ASPWebsite.SEService.createUserAccountRequest request) {
+            return base.Channel.createUserAccount(request);
         }
         
-        public bool checkUser(string arg0, string arg1) {
-            ASPWebsite.SEService.checkUserRequest inValue = new ASPWebsite.SEService.checkUserRequest();
-            inValue.Body = new ASPWebsite.SEService.checkUserRequestBody();
+        public bool createUserAccount(string arg0, string arg1) {
+            ASPWebsite.SEService.createUserAccountRequest inValue = new ASPWebsite.SEService.createUserAccountRequest();
+            inValue.Body = new ASPWebsite.SEService.createUserAccountRequestBody();
             inValue.Body.arg0 = arg0;
             inValue.Body.arg1 = arg1;
-            ASPWebsite.SEService.checkUserResponse retVal = ((ASPWebsite.SEService.Service)(this)).checkUser(inValue);
+            ASPWebsite.SEService.createUserAccountResponse retVal = ((ASPWebsite.SEService.Service)(this)).createUserAccount(inValue);
             return retVal.Body.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ASPWebsite.SEService.checkUserResponse> ASPWebsite.SEService.Service.checkUserAsync(ASPWebsite.SEService.checkUserRequest request) {
-            return base.Channel.checkUserAsync(request);
+        System.Threading.Tasks.Task<ASPWebsite.SEService.createUserAccountResponse> ASPWebsite.SEService.Service.createUserAccountAsync(ASPWebsite.SEService.createUserAccountRequest request) {
+            return base.Channel.createUserAccountAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ASPWebsite.SEService.checkUserResponse> checkUserAsync(string arg0, string arg1) {
-            ASPWebsite.SEService.checkUserRequest inValue = new ASPWebsite.SEService.checkUserRequest();
-            inValue.Body = new ASPWebsite.SEService.checkUserRequestBody();
+        public System.Threading.Tasks.Task<ASPWebsite.SEService.createUserAccountResponse> createUserAccountAsync(string arg0, string arg1) {
+            ASPWebsite.SEService.createUserAccountRequest inValue = new ASPWebsite.SEService.createUserAccountRequest();
+            inValue.Body = new ASPWebsite.SEService.createUserAccountRequestBody();
             inValue.Body.arg0 = arg0;
             inValue.Body.arg1 = arg1;
-            return ((ASPWebsite.SEService.Service)(this)).checkUserAsync(inValue);
+            return ((ASPWebsite.SEService.Service)(this)).createUserAccountAsync(inValue);
         }
     }
 }

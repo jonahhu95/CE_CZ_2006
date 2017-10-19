@@ -1,7 +1,6 @@
 C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\ASPWebsite.dll.config
 C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\ASPWebsite.dll
 C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\ASPWebsite.pdb
+C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\AjaxControlToolkit.dll
 C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\obj\Debug\ASPWebsite.dll
 C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\obj\Debug\ASPWebsite.pdb
-C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\obj\Debug\ASPWebsite.csprojResolveAssemblyReference.cache
-C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\AjaxControlToolkit.dll

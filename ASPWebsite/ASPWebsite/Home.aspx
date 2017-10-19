@@ -22,7 +22,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
-    
+
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper/popper.min.js"></script>
@@ -51,10 +51,20 @@
         ::-webkit-scrollbar {
             display: none;
         }
+
+        .validatestyle {
+            font-size: 10px;
+            font-family: sans-serif;
+            color: red;
+            font-style: italic;
+        }
     </style>
     <script>
         function openModal() {
             $('#Sign').modal({ show: true });
+        }
+        function openLoginModal() {
+            $('#Login').modal({ show: true });
         }
     </script>
 
@@ -84,7 +94,7 @@
         </nav>
 
         <!-- Modal -->
-         <div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -96,16 +106,22 @@
                     <div class="modal-body">
                         <asp:Label ID="exampleInputEmail1" runat="server" Text="Email address"></asp:Label>
                         <asp:TextBox ID="tbEmail" class="form-control" runat="server"></asp:TextBox>
-                        <%--<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">--%>
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small><br />
+                        <asp:RequiredFieldValidator runat="server"
+                            ControlToValidate="tbEmail"
+                            ErrorMessage="Email is required." CssClass="validatestyle" ValidationGroup="group1"> Email is required
+                        </asp:RequiredFieldValidator><br />
 
                         <asp:Label ID="exampleInputPassword1" runat="server" Text="Password"></asp:Label>
-                        <%--<label for="exampleInputPassword1">Password</label>--%>
-                        <asp:TextBox ID="tbPassword" class="form-control" runat="server"></asp:TextBox><br />
-                        <%--<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">--%>
+                        <asp:TextBox ID="tbPassword" class="form-control" runat="server" TextMode="Password"></asp:TextBox>
+                        <asp:RequiredFieldValidator runat="server"
+                            ControlToValidate="tbPassword"
+                            ErrorMessage="Password is required." CssClass="validatestyle" ValidationGroup="group1"> Password is required
+                        </asp:RequiredFieldValidator>
+                        <br />
+                        <asp:Label ID="lblLoginWarning" runat="server"></asp:Label><br />
                     </div>
                     <div class="modal-footer">
-                        <asp:Button ID="loginBtn" class="btn btn-primary" runat="server" Text="Login" OnClick="loginBtn_Click1" ClientIDMode="Static" data-toggle="modal" data-target="#requestSpareModalId" OnClientClick="return  false" />
+                        <asp:Button ID="loginBtn" class="btn btn-primary" runat="server" Text="Login" OnClick="loginBtn_Click1" ValidationGroup="group1" />
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
@@ -125,22 +141,31 @@
                     <div class="modal-body">
                         <asp:Label ID="Label1" runat="server" Text="Email address"></asp:Label>
                         <asp:TextBox ID="tbEmail2" class="form-control" runat="server"></asp:TextBox>
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small><br />
+                        <asp:RequiredFieldValidator runat="server"
+                            ControlToValidate="tbEmail2"
+                            ErrorMessage="Email is required." CssClass="validatestyle" ValidationGroup="group2"> Email is required
+                        </asp:RequiredFieldValidator>
+                        <br />
 
                         <asp:Label ID="Label2" runat="server" Text="Password"></asp:Label>
-                        <%--<label for="exampleInputPassword1">Password</label>--%>
-                        <asp:TextBox ID="tbPassword2" class="form-control" runat="server"></asp:TextBox><br />
-                        <%--<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">--%>
+                        <asp:TextBox ID="tbPassword2" class="form-control" runat="server" TextMode="Password"></asp:TextBox>
+                        <asp:RequiredFieldValidator runat="server"
+                            ControlToValidate="tbPassword2"
+                            ErrorMessage="Password is required." CssClass="validatestyle" ValidationGroup="group2"> Password is required
+                        </asp:RequiredFieldValidator><br />
 
                         <asp:Label ID="Label3" runat="server" Text="Confirm Password"></asp:Label>
-                        <%--<label for="exampleInputPassword1">Password</label>--%>
-                        <asp:TextBox ID="tbConfirmPW" class="form-control" runat="server"></asp:TextBox><br />
-                        <%--<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">--%>
+                        <asp:TextBox ID="tbConfirmPW" class="form-control" runat="server" TextMode="Password"></asp:TextBox>
+                        <asp:RequiredFieldValidator runat="server"
+                            ControlToValidate="tbConfirmPW"
+                            ErrorMessage="Confirm password is required." CssClass="validatestyle" ValidationGroup="group2"> Please enter confirm password
+                        </asp:RequiredFieldValidator><br />
 
                         <asp:Label ID="LabelWarning" runat="server"></asp:Label>
                     </div>
                     <div class="modal-footer">
-                        <asp:Button ID="Button1" type="button" class="btn btn-primary" runat="server" Text="Confirm" OnClick="Button1_Click" />
+                         <%--<asp:Button ID="Button2" class="btn btn-primary" runat="server" Text="Login" OnClick="loginBtn_Click1" />--%>
+                        <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Confirm" OnClick="Button1_Click" ValidationGroup="group2"/>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>

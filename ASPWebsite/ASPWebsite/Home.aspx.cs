@@ -19,6 +19,12 @@ namespace ASPWebsite
 
             if (t)
                 Response.Redirect("UserPage.aspx?Username=" + tbEmail.Text);
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openLoginModal();", true);
+                lblLoginWarning.Text = "Invalid username or password";
+                tbPassword.Text = null;
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
