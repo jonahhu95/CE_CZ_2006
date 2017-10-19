@@ -32,11 +32,18 @@ namespace ASPWebsite
             if (tbPassword2.Text == tbConfirmPW.Text)
             {
                 if (se.createUserAccount(tbEmail2.Text, tbPassword2.Text))
+                {
                     Response.Redirect("UserPage.aspx?Username=" + tbEmail2.Text);
+                }
+
                 else
+                {
                     //when email exist in database
                     //need a method here to check
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
                     LabelWarning.Text = "Username exist in database";
+                }
+                    
             }
             else
             {

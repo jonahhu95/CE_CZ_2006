@@ -53,6 +53,7 @@ public class DatabaseManager {
             System.out.println(e);
         }
     }
+    
 
     public static boolean validateLogin(String username, String password) {
         String pws = null;
@@ -76,11 +77,26 @@ public class DatabaseManager {
     //auto increment is set for primary key(id)
     //assume no duplicate username
     public boolean createAccount(String username, String password) {
+        String un = null;
         try {
             Connection con = getConnection();
+            
+            //check if username exist in database
+            PreparedStatement checkAccount = con.prepareStatement("SELECT username FROM user_t WHERE username='" +username+"'");
+            ResultSet result = checkAccount.executeQuery();
+            while(result.next())
+            {
+                un = result.getString("username");
+            }
+            
+            if (un.toString() != null)
+                return false;
+            else
+            {
             PreparedStatement newAccount = con.prepareStatement("INSERT INTO user_t (username,pws) VALUES ('" + username + "','" + password + "')");
             newAccount.executeUpdate();
             name.add(username);
+            }
         } catch (Exception e) {
             System.out.println(e);
         }

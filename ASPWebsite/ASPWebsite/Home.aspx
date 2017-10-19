@@ -83,10 +83,10 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link btn-info btn-lg" data-toggle="modal" style="margin-right: 10px;" href="#Login">Login</a>
+                            <a class="nav-link" data-toggle="modal" style="margin-right: 10px;" href="#Login">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn-info btn-lg" data-toggle="modal" href="#Sign">Sign Up</a>
+                            <a class="nav-link" data-toggle="modal" href="#Sign">Sign Up</a>
                         </li>
                     </ul>
                 </div>
@@ -108,14 +108,15 @@
                         <asp:TextBox ID="tbEmail" class="form-control" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server"
                             ControlToValidate="tbEmail"
-                            ErrorMessage="Email is required." CssClass="validatestyle" ValidationGroup="group1"> Email is required
-                        </asp:RequiredFieldValidator><br />
+                            ErrorMessage="Email is required." CssClass="help-block text-danger" Font-Size="12px" ValidationGroup="group1"> Email is required
+                        </asp:RequiredFieldValidator>
 
+                        <br />
                         <asp:Label ID="exampleInputPassword1" runat="server" Text="Password"></asp:Label>
                         <asp:TextBox ID="tbPassword" class="form-control" runat="server" TextMode="Password"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server"
                             ControlToValidate="tbPassword"
-                            ErrorMessage="Password is required." CssClass="validatestyle" ValidationGroup="group1"> Password is required
+                            ErrorMessage="Password is required." CssClass="help-block text-danger" Font-Size="12px" ValidationGroup="group1"> Password is required
                         </asp:RequiredFieldValidator>
                         <br />
                         <asp:Label ID="lblLoginWarning" runat="server"></asp:Label><br />
@@ -143,29 +144,30 @@
                         <asp:TextBox ID="tbEmail2" class="form-control" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server"
                             ControlToValidate="tbEmail2"
-                            ErrorMessage="Email is required." CssClass="validatestyle" ValidationGroup="group2"> Email is required
+                            ErrorMessage="Email is required." CssClass="help-block text-danger" Font-Size="12px" ValidationGroup="group2"> Email is required
                         </asp:RequiredFieldValidator>
-                        <br />
 
+                        <br />
                         <asp:Label ID="Label2" runat="server" Text="Password"></asp:Label>
                         <asp:TextBox ID="tbPassword2" class="form-control" runat="server" TextMode="Password"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server"
                             ControlToValidate="tbPassword2"
-                            ErrorMessage="Password is required." CssClass="validatestyle" ValidationGroup="group2"> Password is required
-                        </asp:RequiredFieldValidator><br />
+                            ErrorMessage="Password is required." CssClass="help-block text-danger" Font-Size="12px" ValidationGroup="group2"> Password is required
+                        </asp:RequiredFieldValidator>
 
+                        <br />
                         <asp:Label ID="Label3" runat="server" Text="Confirm Password"></asp:Label>
                         <asp:TextBox ID="tbConfirmPW" class="form-control" runat="server" TextMode="Password"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server"
                             ControlToValidate="tbConfirmPW"
-                            ErrorMessage="Confirm password is required." CssClass="validatestyle" ValidationGroup="group2"> Please enter confirm password
+                            ErrorMessage="Confirm password is required." CssClass="help-block text-danger" Font-Size="12px" ValidationGroup="group2"> Please enter confirm password
                         </asp:RequiredFieldValidator><br />
 
                         <asp:Label ID="LabelWarning" runat="server"></asp:Label>
                     </div>
                     <div class="modal-footer">
-                         <%--<asp:Button ID="Button2" class="btn btn-primary" runat="server" Text="Login" OnClick="loginBtn_Click1" />--%>
-                        <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Confirm" OnClick="Button1_Click" ValidationGroup="group2"/>
+                        <%--<asp:Button ID="Button2" class="btn btn-primary" runat="server" Text="Login" OnClick="loginBtn_Click1" />--%>
+                        <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Confirm" OnClick="Button1_Click" ValidationGroup="group2" />
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
@@ -222,22 +224,19 @@
                                 <input class="form-control" id="email" type="email" placeholder="Job Location" required data-validation-required-message="Please enter your job location.">
                                 <p class="help-block text-danger"></p>
                             </div>
-                        </div>
-                        <div class="control-group">
-                            <div class="form-group floating-label-form-group controls">
-                                <label>Salary</label>
-                                <input class="form-control" id="phone" type="tel" placeholder="Salary" required data-validation-required-message="Please enter your salary.">
-                                <p class="help-block text-danger"></p>
-                            </div>
                         </div>--%>
-                        <br>
                         <div id="success"></div>
                         <div class="form-group">
-                            Home Location:
+                            <label>
+                                <asp:Label ID="Label4" runat="server" Text="Home Location"></asp:Label></label>
                             <asp:TextBox ID="TextBox1" class="form-control" runat="server"></asp:TextBox><br />
-                            Job Location:
+
+                            <label>
+                                <asp:Label ID="Label5" runat="server" Text="Job Location"></asp:Label></label>
                             <asp:TextBox ID="TextBox2" class="form-control" runat="server"></asp:TextBox><br />
-                            Salary:
+
+                            <label>
+                                <asp:Label ID="Label6" runat="server" Text="Salary"></asp:Label></label>
                             <asp:TextBox ID="TextBox3" class="form-control" runat="server"></asp:TextBox><br />
                             <asp:Button ID="sendMessage" class="btn btn-success btn-lg" runat="server" Text="Submit" />
                         </div>
