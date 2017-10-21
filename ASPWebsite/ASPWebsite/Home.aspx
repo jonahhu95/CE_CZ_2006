@@ -58,6 +58,11 @@
             color: red;
             font-style: italic;
         }
+
+        .radiocss input[type="radio"] {
+            margin-left: 10px;
+            margin-right: 1px;
+        }
     </style>
     <script>
         function openModal() {
@@ -208,37 +213,90 @@
                 <hr class="star-primary">
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
-                        <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-                        <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                        <%--<form name="sentMessage" id="contactForm" novalidate>--%>
-                        <%--<div class="control-group">
-                            <div class="form-group floating-label-form-group controls">
-                                <label>Home Location</label>
-                                <input class="form-control" id="name" type="text" placeholder="Home Location" required data-validation-required-message="Please enter your home location.">
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <div class="form-group floating-label-form-group controls">
-                                <label>Job Location</label>
-                                <input class="form-control" id="email" type="email" placeholder="Job Location" required data-validation-required-message="Please enter your job location.">
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>--%>
                         <div id="success"></div>
                         <div class="form-group">
                             <label>
+                                <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyC7PqtJwkmY1fKaO0RE3qj7JWhA7m36jfk"></script>
+                                <script type="text/javascript">
+                                    var source, destination;
+
+                                    var directionsService = new google.maps.DirectionsService();
+                                    google.maps.event.addDomListener(window, 'load', function () {
+                                        new google.maps.places.SearchBox(document.getElementById('txt_Source'));
+                                        new google.maps.places.SearchBox(document.getElementById('txt_Destination'));
+
+
+                                    });
+
+                                    function getdistance() {
+                                        source = document.getElementById("txt_Source").value;
+                                        destination = document.getElementById("txt_Destination").value;
+                                        var service = new google.maps.DistanceMatrixService();
+                                        service.getDistanceMatrix({
+                                            origins: [source],
+                                            destinations: [destination],
+                                            travelMode: google.maps.TravelMode.DRIVING,
+                                            unitSystem: google.maps.UnitSystem.METRIC,
+                                            avoidHighways: false,
+                                            avoidTolls: false
+                                        }, function (response, status) {
+                                            if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
+                                                var distance = response.rows[0].elements[0].distance.text;
+                                                // var duration = response.rows[0].elements[0].duration.text;  
+                                                var lbl_distance = "Distance: " + distance;
+                                                document.getElementById('lbl_distance').innerHTML = lbl_distance;
+
+
+                                            }
+                                            else {
+                                                alert("Unable to calculate distance.");
+                                            }
+                                        });
+                                    }
+                                </script>
                                 <asp:Label ID="Label4" runat="server" Text="Home Location"></asp:Label></label>
-                            <asp:TextBox ID="TextBox1" class="form-control" runat="server"></asp:TextBox><br />
+                            <asp:TextBox ID="txt_Source" class="form-control" runat="server"></asp:TextBox><br />
 
                             <label>
                                 <asp:Label ID="Label5" runat="server" Text="Job Location"></asp:Label></label>
-                            <asp:TextBox ID="TextBox2" class="form-control" runat="server"></asp:TextBox><br />
+                            <asp:TextBox ID="txt_Destination" class="form-control" runat="server"></asp:TextBox><br />
 
                             <label>
                                 <asp:Label ID="Label6" runat="server" Text="Salary"></asp:Label></label>
                             <asp:TextBox ID="TextBox3" class="form-control" runat="server"></asp:TextBox><br />
-                            <asp:Button ID="sendMessage" class="btn btn-success btn-lg" runat="server" Text="Submit" />
+
+                            <asp:Label ID="Label7" runat="server" Text="Salary Satisfaction Rating "></asp:Label>
+                            <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal" CssClass="radiocss">
+                                <asp:ListItem>1</asp:ListItem>
+                                <asp:ListItem>2</asp:ListItem>
+                                <asp:ListItem>3</asp:ListItem>
+                                <asp:ListItem>4</asp:ListItem>
+                                <asp:ListItem>5</asp:ListItem>
+                                <asp:ListItem>6</asp:ListItem>
+                                <asp:ListItem>7</asp:ListItem>
+                                <asp:ListItem>8</asp:ListItem>
+                                <asp:ListItem>9</asp:ListItem>
+                                <asp:ListItem>10</asp:ListItem>
+                            </asp:RadioButtonList>
+                            <br />
+
+                            <asp:Label ID="Label8" runat="server" Text="Job Interest Rating "></asp:Label>
+                            <asp:RadioButtonList ID="RadioButtonList2" runat="server" RepeatDirection="Horizontal" CssClass="radiocss">
+                                <asp:ListItem>1</asp:ListItem>
+                                <asp:ListItem>2</asp:ListItem>
+                                <asp:ListItem>3</asp:ListItem>
+                                <asp:ListItem>4</asp:ListItem>
+                                <asp:ListItem>5</asp:ListItem>
+                                <asp:ListItem>6</asp:ListItem>
+                                <asp:ListItem>7</asp:ListItem>
+                                <asp:ListItem>8</asp:ListItem>
+                                <asp:ListItem>9</asp:ListItem>
+                                <asp:ListItem>10</asp:ListItem>
+                            </asp:RadioButtonList><br />
+
+                            <asp:Button ID="sendMessage" class="btn btn-success btn-lg" runat="server" Text="Submit" /><br />
+
+
                         </div>
                     </div>
                 </div>
