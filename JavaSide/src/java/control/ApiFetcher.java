@@ -1,5 +1,6 @@
 package control;
 
+import entity.address;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -169,6 +170,31 @@ public class ApiFetcher {
         return null;
     }
 
+    public String getCommuteTime (address homeLocation, address workLocation, String method, String vehicle){
+        try{
+            String startLon = homeLocation.getLongitude();
+            String startLat = homeLocation.getLatitude();
+            String endLon = workLocation.getLongitude();
+            String endLat = workLocation.getLatitude();
+//            methods	Methods (driving, taxi, bustrain, all)	 
+//            vehicle	Vehicle (bus, both)
+            String url = generateCall_CommuteTime(startLon, endLon, startLat, endLat, method, vehicle);
+            OkHttpClient clientCommuteTime = new OkHttpClient();
+            Request requestCommuteTime = new Request.Builder().url(url).build();
+            Response responseCommuteTime = clientCommuteTime.newCall(requestCommuteTime).execute();
+            if(responseCommuteTime.isSuccessful()){
+                String resultCommuteTime = responseCommuteTime.body().string();
+                JSONObject resultObject = new JSONObject(resultCommuteTime);
+                String resultTime = (resultObject.getJSONObject("total_data")).getString("tm");
+                return resultTime;
+            }
+        }
+        catch(Exception e){
+
+        }
+       return "0min";
+    }
+    
     //-----------Helper Methods-----------
     private String generateCall_NumberOfRiders(String area, int year) {
         String url = "https://developers.onemap.sg/privateapi/popapi/getModeOfTransportWork?";
@@ -267,5 +293,27 @@ public class ApiFetcher {
         } catch (Exception e) {
             //ERROR HANDLING
         }
+    }
+    private String generateCall_CommuteTime(String startLon, String endLon, String startLat, String endLat, String method, String vehicle){
+        /*
+        mode	journey	 
+		output	Return type (js, json, xml)	 
+		country	Country (sg)	 
+		startlon	Start longitude position	This four parameter must be send together
+		endlon	End longitude position
+		startlat	Start latitude position
+		endlat	End latitude position
+		q	Search text (place to place / long,lat to long,lat)	You can use this parameter OR the four parameter above
+		methods	Methods (driving, taxi, bustrain, all)	 
+		vehicle	Vehicle (bus, both)	Required if methods is bustrain
+        */
+        String url = "http://www.streetdirectory.com/api/?mode=journey&output=json&country=sg&&q=";
+        url = url + startLon + "," + startLat + "%20to%20" + endLon + "," + endLat;
+        url = url + "&methods=" + method;
+        if("bustrain".equals(method))   
+            url = url + "&vehicle=both";
+        url = url + "&info=1";
+        System.out.println(url);
+        return url;
     }
 }
