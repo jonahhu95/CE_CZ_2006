@@ -28,6 +28,21 @@ public class ApiFetcher {
 
     }
 
+    public void test() {
+        String location = ""; //input
+        String APIKey = "AIzaSyCpfcGTHKxaYAJA_n_5jCVkJCeG9zBiJwA";
+        String url = "https://maps.googleapis.com/maps/api/geocode/json?address=";
+        url = url + location;
+        url = url + "&key=" + APIKey;
+        String test;
+        try {
+            test = doGetRequest(url);
+        } catch (IOException ex) {
+            Logger.getLogger(ApiFetcher.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        int m = 1;
+    }
+
     public double getAverageCommuteTime() {
         return 40.0;
     }
@@ -54,9 +69,8 @@ public class ApiFetcher {
         JSONObject obj = null;
         int total = -1;
         int year = Calendar.getInstance().get(Calendar.YEAR);
-         List<String> key = new ArrayList<>(Arrays.asList("mrt_bus", "mrt", 
-                 "bus", "mrt_car", "mrt_other"));
-
+        List<String> key = new ArrayList<>(Arrays.asList("mrt_bus", "mrt",
+                "bus", "mrt_car", "mrt_other"));
 
         while (year > 1965) {
             try {
@@ -70,8 +84,8 @@ public class ApiFetcher {
                 }
                 int check;
                 total = 0;
-                for(check = 0; check < key.size(); check++){
-                    if(!obj.isNull(key.get(check))){
+                for (check = 0; check < key.size(); check++) {
+                    if (!obj.isNull(key.get(check))) {
                         total = total + obj.getInt(key.get(check));
                     }
                 }
