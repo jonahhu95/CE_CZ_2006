@@ -6,6 +6,7 @@
 package border;
 
 import control.ApiFetcher;
+import control.CalculationManager;
 
 /**
  *
@@ -14,8 +15,8 @@ import control.ApiFetcher;
 public class Test {
     
     public static void main(String arg[]){
-        ApiFetcher apifet = new ApiFetcher();
-        apifet.test();
+        CalculationManager cm = new CalculationManager();
+        cm.createNewCalculation("Nanayang Technological University", "Evergreen Park Singapore", 4500, 'p', 5, 5);
         //test--;
         
     }

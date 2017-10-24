@@ -17,6 +17,7 @@ public class CommuteComfort extends Criteria {
         setAverageRidersArea(averageRidersArea);
         setRidersArea(ridersArea);
         setTravelMode(travelMode);
+        calculateSubScore();
     }
 
     @Override

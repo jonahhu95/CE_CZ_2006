@@ -6,22 +6,23 @@ import java.util.List;
 
 public class CommuteTime extends Criteria {
 
-    private int aveCommuteTime;
-    private int commuteTime;
+    private double aveCommuteTime;
+    private double commuteTime;
     private int point = -1;
     private List<String> explanations = Arrays.asList("Description 1", "Description 2", "Description 3",
             "Description 4", "Description 5", "Description 6", "Description 7", "Description 8",
             "Description 9");
 
-    CommuteTime(int averageTravelTime, int travelTime) {
+    CommuteTime(double averageTravelTime, double travelTime) {
         weightage = 20;
         setAveCommuteTime(averageTravelTime);
         setCommuteTime(travelTime);
+        calculateSubScore();
     }
 
     @Override
     public double calculateSubScore() {
-        int difference = commuteTime - aveCommuteTime;
+        double difference = commuteTime - aveCommuteTime;
         if (difference >= -15) {
             if (difference <= 15) {
                 point = 4;
@@ -59,19 +60,19 @@ public class CommuteTime extends Criteria {
         return super.getExplanation();
     }
 
-    public int getAveCommuteTime() {
+    public double getAveCommuteTime() {
         return aveCommuteTime;
     }
 
-    public void setAveCommuteTime(int aveCommuteTime) {
+    public void setAveCommuteTime(double aveCommuteTime) {
         this.aveCommuteTime = aveCommuteTime;
     }
 
-    public int getCommuteTime() {
+    public double getCommuteTime() {
         return commuteTime;
     }
 
-    public void setCommuteTime(int commuteTime) {
+    public void setCommuteTime(double commuteTime) {
         this.commuteTime = commuteTime;
     }
 }

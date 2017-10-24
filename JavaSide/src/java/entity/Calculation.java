@@ -7,6 +7,7 @@ import java.util.List;
 import javafx.util.Pair;
 
 public class Calculation {
+
     /*
     public final static Class COMMUTE_COMFORT = CommuteComfort.class, COMMUTE_COST = CommuteCost.class,
             COMMUTE_TIME = CommuteTime.class, JOB_INTEREST = JobInterest.class, 
@@ -14,13 +15,13 @@ public class Calculation {
     private final static List<Criteria> criterias = 
             new ArrayList(Arrays.asList(COMMUTE_COMFORT, COMMUTE_COST, 
                     COMMUTE_TIME, JOB_INTEREST, SALARY, SALARY_SATISFACTION));
-    */
-    
+     */
+
     private List<Criteria> criteriaList;
     private double JSIScore;
     private long createdTime;
-    private Pair workLocation;
-    private Pair homeLoction;
+    private Address workLocation;
+    private Address homeLoction;
     private int salary;
     private char commuteType;
     private int jobInterest;
@@ -29,18 +30,18 @@ public class Calculation {
     private int medianSalary;
     private int ridersArea;
     private int aveRidersArea;
-    private int commuteTime;
-    private int aveCommuteTime;
-    private int monthlyCommuteCost;
+    private double commuteTime;
+    private double aveCommuteTime;
+    private double monthlyCommuteCost;
 
     private boolean initializationComplete = false;
 
     private ApiFetcher apiFetch;
 
-    public Calculation(Pair workLocation, Pair homeLoction, int salary, char commuteType,
+    public Calculation(Address workLocation, Address homeLoction, int salary, char commuteType,
             int jobInterest, int salarySatisfaction, long createdTime, int medianSalary,
-            int ridersArea, int aveRidersArea, int commuteTime, int aveCommuteTime,
-            int monthlyCommuteCost) throws Exception {
+            int ridersArea, int aveRidersArea, double commuteTime, double aveCommuteTime,
+            double monthlyCommuteCost) throws Exception {
         setCreatedTime(createdTime);
         setWorkLocation(workLocation);
         setHomeLoction(homeLoction);
@@ -56,7 +57,6 @@ public class Calculation {
         setMonthlyCommuteCost(monthlyCommuteCost);
         criteriaList = new ArrayList<>();
 
-        
         try {
             createCriteria_Salary(); //0
             createCriteria_CommuteComfort(); //1
@@ -70,11 +70,11 @@ public class Calculation {
         }
     }
 
-    public Pair getWorkLocation() {
+    public Address getWorkLocation() {
         return workLocation;
     }
 
-    public Pair getHomeLoction() {
+    public Address getHomeLoction() {
         return homeLoction;
     }
 
@@ -106,15 +106,15 @@ public class Calculation {
         return aveRidersArea;
     }
 
-    public int getCommuteTime() {
+    public double getCommuteTime() {
         return commuteTime;
     }
 
-    public int getAveCommuteTime() {
+    public double getAveCommuteTime() {
         return aveCommuteTime;
     }
 
-    public int getMonthlyCommuteCost() {
+    public double getMonthlyCommuteCost() {
         return monthlyCommuteCost;
     }
 
@@ -126,11 +126,11 @@ public class Calculation {
         return total;
     }
 
-    public void setWorkLocation(Pair workLocation) {
+    public void setWorkLocation(Address workLocation) {
         this.workLocation = workLocation;
     }
 
-    public void setHomeLoction(Pair homeLoction) {
+    public void setHomeLoction(Address homeLoction) {
         this.homeLoction = homeLoction;
     }
 
@@ -166,18 +166,18 @@ public class Calculation {
         this.aveRidersArea = aveRidersArea;
     }
 
-    public void setCommuteTime(int commuteTime) {
+    public void setCommuteTime(double commuteTime) {
         this.commuteTime = commuteTime;
     }
 
-    public void setAveCommuteTime(int aveCommuteTime) {
+    public void setAveCommuteTime(double aveCommuteTime) {
         this.aveCommuteTime = aveCommuteTime;
     }
 
-    public void setMonthlyCommuteCost(int monthlyCommuteCost) {
+    public void setMonthlyCommuteCost(double monthlyCommuteCost) {
         this.monthlyCommuteCost = monthlyCommuteCost;
     }
-    
+
     public void createCriteria_Salary() throws Exception {
         if (!checkIfExist(Salary.class)) {
             Criteria hold = new Salary(medianSalary, salary);
@@ -235,7 +235,7 @@ public class Calculation {
     public String getCriteriaExplanation_Salary() throws Exception {
         if (checkInitialization()) {
             for (int n = 0; n < criteriaList.size(); n++) {
-                if (criteriaList.get(n).getClass() == Salary.class) {
+                if (criteriaList.get(n) instanceof Salary) {
                     return criteriaList.get(n).getExplanation();
                 }
             }
@@ -246,7 +246,7 @@ public class Calculation {
     public String getCriteriaExplanation_CommuteComfort() throws Exception {
         if (checkInitialization()) {
             for (int n = 0; n < criteriaList.size(); n++) {
-                if (criteriaList.get(n).getClass() == CommuteComfort.class) {
+                if (criteriaList.get(n) instanceof CommuteComfort) {
                     return criteriaList.get(n).getExplanation();
                 }
             }
@@ -257,7 +257,7 @@ public class Calculation {
     public String getCriteriaExplanation_CommuteTime() throws Exception {
         if (checkInitialization()) {
             for (int n = 0; n < criteriaList.size(); n++) {
-                if (criteriaList.get(n).getClass() == CommuteTime.class) {
+                if (criteriaList.get(n) instanceof CommuteTime) {
                     return criteriaList.get(n).getExplanation();
                 }
             }
@@ -268,7 +268,7 @@ public class Calculation {
     public String getCriteriaExplanation_CommuteCost() throws Exception {
         if (checkInitialization()) {
             for (int n = 0; n < criteriaList.size(); n++) {
-                if (criteriaList.get(n).getClass() == CommuteCost.class) {
+                if (criteriaList.get(n) instanceof CommuteCost) {
                     return criteriaList.get(n).getExplanation();
                 }
             }
@@ -279,7 +279,7 @@ public class Calculation {
     public String getCriteriaExplanation_JobInterest() throws Exception {
         if (checkInitialization()) {
             for (int n = 0; n < criteriaList.size(); n++) {
-                if (criteriaList.get(n).getClass() == JobInterest.class) {
+                if (criteriaList.get(n) instanceof JobInterest) {
                     return criteriaList.get(n).getExplanation();
                 }
             }
@@ -287,19 +287,22 @@ public class Calculation {
         return "Error";
     }
 
-    public String getCriteriaExplanation_SalarySatisfaction() {
-        for (int n = 0; n < criteriaList.size(); n++) {
-            if (criteriaList.get(n).getClass() == SalarySatisfaction.class) {
-                return criteriaList.get(n).getExplanation();
+    public String getCriteriaExplanation_SalarySatisfaction() throws Exception {
+        if (checkInitialization()) {
+            for (int n = 0; n < criteriaList.size(); n++) {
+                if (criteriaList.get(n) instanceof SalarySatisfaction) {
+                    return criteriaList.get(n).getExplanation();
+                }
             }
         }
+
         return "Error";
     }
 
     public double[] getCriteriaMark_Salary() {
         double[] ret = {0.0, 0.0};
         for (int n = 0; n < criteriaList.size(); n++) {
-            if (criteriaList.get(n).getClass() == Salary.class) {
+            if (criteriaList.get(n) instanceof Salary) {
                 ret[0] = criteriaList.get(n).calculateSubScore();
             }
         }
@@ -309,7 +312,7 @@ public class Calculation {
     public double[] getCriteriaMark_CommuteComfort() {
         double[] ret = {0.0, 0.0};
         for (int n = 0; n < criteriaList.size(); n++) {
-            if (criteriaList.get(n).getClass() == CommuteComfort.class) {
+            if (criteriaList.get(n) instanceof CommuteComfort) {
                 ret[0] = criteriaList.get(n).calculateSubScore();
                 ret[1] = criteriaList.get(n).getWeightage();
             }
@@ -321,7 +324,7 @@ public class Calculation {
     public double[] getCriteriaMark_CommuteTime() {
         double[] ret = {0.0, 0.0};
         for (int n = 0; n < criteriaList.size(); n++) {
-            if (criteriaList.get(n).getClass() == CommuteTime.class) {
+            if (criteriaList.get(n) instanceof CommuteTime) {
                 ret[0] = criteriaList.get(n).calculateSubScore();
                 ret[1] = criteriaList.get(n).getWeightage();
             }
@@ -332,7 +335,7 @@ public class Calculation {
     public double[] getCriteriaMark_CommuteCost() {
         double[] ret = {0.0, 0.0};
         for (int n = 0; n < criteriaList.size(); n++) {
-            if (criteriaList.get(n).getClass() == CommuteCost.class) {
+            if (criteriaList.get(n) instanceof CommuteCost) {
                 ret[0] = criteriaList.get(n).calculateSubScore();
                 ret[1] = criteriaList.get(n).getWeightage();
             }
@@ -343,7 +346,7 @@ public class Calculation {
     public double[] getCriteriaMark_JobInterest() {
         double[] ret = {0.0, 0.0};
         for (int n = 0; n < criteriaList.size(); n++) {
-            if (criteriaList.get(n).getClass() == JobInterest.class) {
+            if (criteriaList.get(n) instanceof JobInterest) {
                 ret[0] = criteriaList.get(n).calculateSubScore();
                 ret[1] = criteriaList.get(n).getWeightage();
             }
@@ -354,7 +357,7 @@ public class Calculation {
     public double[] getCriteriaMark_SalarySatisfaction() {
         double[] ret = {0.0, 0.0};
         for (int n = 0; n < criteriaList.size(); n++) {
-            if (criteriaList.get(n).getClass() == SalarySatisfaction.class) {
+            if (criteriaList.get(n) instanceof SalarySatisfaction) {
                 ret[0] = criteriaList.get(n).calculateSubScore();
                 ret[1] = criteriaList.get(n).getWeightage();
             }

@@ -17,6 +17,7 @@ public class Salary extends Criteria {
         weightage = 20;
         setMedianSalary(medianSalary);
         setSalary(salary);
+        calculateSubScore();
     }
 
     @Override

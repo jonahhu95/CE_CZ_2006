@@ -14,6 +14,7 @@ public class SalarySatisfaction extends Criteria {
     SalarySatisfaction(int salaryInterest){
         weightage = 10;
         setSalaryInterest(salaryInterest);
+        calculateSubScore();
     }
 
     @Override

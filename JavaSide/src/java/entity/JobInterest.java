@@ -14,6 +14,7 @@ public class JobInterest extends Criteria {
     JobInterest(int jobInterest){
         weightage = 20;
         setJobInterest(jobInterest);
+        calculateSubScore();
     }
 
     @Override

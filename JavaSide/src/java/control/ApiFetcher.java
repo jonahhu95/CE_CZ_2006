@@ -1,6 +1,6 @@
 package control;
 
-import entity.address;
+import entity.Address;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,12 +14,12 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ApiFetcher {
 
     private String accessToken = null;
+    private String googleApiKey = "AIzaSyDh0GkxyS2a9Sc1Uy-u0Z8Q-7_LBhYeHPk";
 
     public ApiFetcher() {
         getAccessToken();
@@ -42,6 +42,31 @@ public class ApiFetcher {
             Logger.getLogger(ApiFetcher.class.getName()).log(Level.SEVERE, null, ex);
         }
         int m = 1;
+    }
+
+    public String getArea(double longitude, double latitude) {
+        String url;
+        JSONObject obj = null;
+        String ret = null;
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+
+        while (year > 1965) {
+            try {
+                url = generateCall_GetArea(longitude, latitude, year);
+                String res = doGetRequest(url);
+                if (checkJSONResponse_oneMap(res)) {
+                    obj = new JSONArray(res).getJSONObject(0);
+                    ret = obj.getString("pln_area_n");
+                    break;
+                } else {
+                    year--;
+                    continue;
+                }
+            } catch (Exception ex) {
+                break;
+            }
+        }
+        return ret;
     }
 
     public double getAverageCommuteTime() {
@@ -77,7 +102,7 @@ public class ApiFetcher {
             try {
                 url = generateCall_NumberOfRiders(area, year);
                 String res = doGetRequest(url);
-                if (checkJSONResponse(res)) {
+                if (checkJSONResponse_oneMap(res)) {
                     obj = new JSONArray(res).getJSONObject(0);
                 } else {
                     year--;
@@ -90,11 +115,11 @@ public class ApiFetcher {
                         total = total + obj.getInt(key.get(check));
                     }
                 }
+                break;
             } catch (Exception ex) {
                 break;
             }
         }
-
         return total;
     }
 
@@ -113,7 +138,7 @@ public class ApiFetcher {
             try {
                 url = generateCall_GetMedianSalary(area, year);
                 String res = doGetRequest(url);
-                if (checkJSONResponse(res)) {
+                if (checkJSONResponse_oneMap(res)) {
                     obj = new JSONArray(res).getJSONObject(0);
                     for (int n = 0; n < key.size(); n++) {
                         if (!obj.isNull(key.get(n))) {
@@ -140,6 +165,49 @@ public class ApiFetcher {
         return -1;
     }
 
+    public double[] getCoordinates(String locationName) {
+        String url;
+        JSONObject obj;
+        double[] geo = new double[2];
+        try {
+            url = generateCall_GetCoordinates(locationName);
+            String res = doGetRequest(url);
+            if (checkJSONResponse_google(res)) {
+                obj = new JSONObject(res);
+                JSONArray ar = obj.getJSONArray("results");
+                JSONObject hold = ar.getJSONObject(0);
+                JSONObject hold2 = hold.getJSONObject("geometry");
+                JSONObject hold3 = hold2.getJSONObject("location");
+                geo[0] = (Double) hold3.get("lng");
+                geo[1] = (Double) hold3.get("lat");
+            }
+        } catch (Exception ex) {
+            geo = null;
+        }
+        return geo;
+    }
+
+    public double[] getCommuteTimeCost(Address homeLocation, Address workLocation) {
+        String url;
+        JSONObject obj;
+        double[] ret = new double[2];
+        try {
+            url = generateCall_GetCommuteTimeCost(homeLocation.getLongitude(), homeLocation.getLatitude(),
+                    workLocation.getLongitude(), workLocation.getLatitude());
+            String res = doGetRequest(url);
+            if (checkJSONResponse_streetDirectory(res)) {
+                obj = new JSONObject(res);
+                JSONObject hold = obj.getJSONObject("total_data");
+                ret[0] = (Double) hold.get("tm");
+                ret[1] = (Double) hold.get("tr");
+            }
+        } catch (Exception ex) {
+            ret = null;
+        }
+        return ret;
+    }
+
+    //-----------Helper Methods-----------
     private List<String> getAllPlanningArea() {
 
         String url;
@@ -170,32 +238,6 @@ public class ApiFetcher {
         return null;
     }
 
-    public String getCommuteTime (address homeLocation, address workLocation, String method, String vehicle){
-        try{
-            String startLon = homeLocation.getLongitude();
-            String startLat = homeLocation.getLatitude();
-            String endLon = workLocation.getLongitude();
-            String endLat = workLocation.getLatitude();
-//            methods	Methods (driving, taxi, bustrain, all)	 
-//            vehicle	Vehicle (bus, both)
-            String url = generateCall_CommuteTime(startLon, endLon, startLat, endLat, method, vehicle);
-            OkHttpClient clientCommuteTime = new OkHttpClient();
-            Request requestCommuteTime = new Request.Builder().url(url).build();
-            Response responseCommuteTime = clientCommuteTime.newCall(requestCommuteTime).execute();
-            if(responseCommuteTime.isSuccessful()){
-                String resultCommuteTime = responseCommuteTime.body().string();
-                JSONObject resultObject = new JSONObject(resultCommuteTime);
-                String resultTime = (resultObject.getJSONObject("total_data")).getString("tm");
-                return resultTime;
-            }
-        }
-        catch(Exception e){
-
-        }
-       return "0min";
-    }
-    
-    //-----------Helper Methods-----------
     private String generateCall_NumberOfRiders(String area, int year) {
         String url = "https://developers.onemap.sg/privateapi/popapi/getModeOfTransportWork?";
         url = url + "token=" + accessToken;
@@ -216,6 +258,30 @@ public class ApiFetcher {
         url = url + "token=" + accessToken;
         url = url + "&planningArea=" + area;
         url = url + "&year=" + String.valueOf(year);
+        return url;
+    }
+
+    private String generateCall_GetArea(double longitude, double latitude, int year) {
+        String url = "https://developers.onemap.sg/privateapi/popapi/getPlanningarea?";
+        url = url + "token=" + accessToken;
+        url = url + "&lat=" + String.valueOf(latitude);
+        url = url + "&lng=" + String.valueOf(longitude);
+        url = url + "&year=" + String.valueOf(year);
+        return url;
+    }
+
+    private String generateCall_GetCoordinates(String locationName) {
+        String url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=";
+        url = url + "qury=" + locationName.replace(" ", "+");
+        url = url + "&key=" + googleApiKey;
+        return url;
+    }
+
+    private String generateCall_GetCommuteTimeCost(double start_lng, double start_lat, double end_lng, double end_lat) {
+
+        String url = "http://www.streetdirectory.com/api/?mode=journey&output=json&country=sg&";
+        url = url + "q=" + start_lng + "," + start_lat + "%20to%" + end_lng + "," + end_lat;
+        url = url + "&methods=bustrain&info=1&time=08:00%00AM";
         return url;
     }
 
@@ -242,7 +308,21 @@ public class ApiFetcher {
         return null;
     }
 
-    private boolean checkJSONResponse(String res) {
+    private boolean checkJSONResponse_google(String res) {
+        JSONObject obj = null;
+        JSONArray jArray = null;
+        try {
+            obj = new JSONObject(res);
+            if (obj.get("status").equals("OK")) {
+                return true;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+        return false;
+    }
+
+    private boolean checkJSONResponse_oneMap(String res) {
         JSONObject obj = null;
         JSONArray jArray = null;
         boolean objTrue = false;
@@ -274,6 +354,20 @@ public class ApiFetcher {
         return true;
     }
 
+    private boolean checkJSONResponse_streetDirectory(String res) {
+        JSONObject obj = null;
+        JSONArray jArray = null;
+        try {
+            obj = new JSONObject(res);
+            if (obj.isNull("routes")) {
+                return false;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
+
     private void getAccessToken() {
         try {
             OkHttpClient client = new OkHttpClient();
@@ -294,26 +388,5 @@ public class ApiFetcher {
             //ERROR HANDLING
         }
     }
-    private String generateCall_CommuteTime(String startLon, String endLon, String startLat, String endLat, String method, String vehicle){
-        /*
-        mode	journey	 
-		output	Return type (js, json, xml)	 
-		country	Country (sg)	 
-		startlon	Start longitude position	This four parameter must be send together
-		endlon	End longitude position
-		startlat	Start latitude position
-		endlat	End latitude position
-		q	Search text (place to place / long,lat to long,lat)	You can use this parameter OR the four parameter above
-		methods	Methods (driving, taxi, bustrain, all)	 
-		vehicle	Vehicle (bus, both)	Required if methods is bustrain
-        */
-        String url = "http://www.streetdirectory.com/api/?mode=journey&output=json&country=sg&&q=";
-        url = url + startLon + "," + startLat + "%20to%20" + endLon + "," + endLat;
-        url = url + "&methods=" + method;
-        if("bustrain".equals(method))   
-            url = url + "&vehicle=both";
-        url = url + "&info=1";
-        System.out.println(url);
-        return url;
-    }
+
 }

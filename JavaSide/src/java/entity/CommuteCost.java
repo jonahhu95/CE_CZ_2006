@@ -18,6 +18,7 @@ public class CommuteCost extends Criteria {
         weightage = 10;
         setMonthlyTravelCost(monthlyTravelCost);
         setSalary(salary);
+        calculateSubScore();
     }
 
     @Override
