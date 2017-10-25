@@ -3,7 +3,10 @@ package entity;
 import java.util.Arrays;
 import java.util.List;
 
-
+/**
+ *
+ * @author jonah
+ */
 public class SalarySatisfaction extends Criteria {
 
     int salaryInterest = -1;
@@ -17,11 +20,19 @@ public class SalarySatisfaction extends Criteria {
         calculateSubScore();
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public double calculateSubScore() {
         return super.calculateSubScore();
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String getExplanation() {
         if(salaryInterest != -1)
@@ -29,10 +40,18 @@ public class SalarySatisfaction extends Criteria {
         return super.getExplanation();
     }
 
+    /**
+     *
+     * @return
+     */
     public int getSalaryInterest() {
         return salaryInterest;
     }
 
+    /**
+     *
+     * @param salaryInterest
+     */
     public void setSalaryInterest(int salaryInterest) {
         this.salaryInterest = salaryInterest;
     }

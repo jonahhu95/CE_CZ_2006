@@ -3,7 +3,10 @@ package entity;
 import java.util.Arrays;
 import java.util.List;
 
-
+/**
+ *
+ * @author jonah
+ */
 public class CommuteCost extends Criteria {
 
     private double monthlyTravelCost;
@@ -21,6 +24,10 @@ public class CommuteCost extends Criteria {
         calculateSubScore();
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public double calculateSubScore() {
         double ratio = monthlyTravelCost / salary;
@@ -66,6 +73,10 @@ public class CommuteCost extends Criteria {
         return point/10 * weightage;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String getExplanation() {
         if(point != -1)
@@ -73,26 +84,50 @@ public class CommuteCost extends Criteria {
         return super.getExplanation();
     }
 
+    /**
+     *
+     * @return
+     */
     public double getMonthlyTravelCost() {
         return monthlyTravelCost;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getSalary() {
         return salary;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getAverageSalaryToCommuteRatio() {
         return averageSalaryToCommuteRatio;
     }
 
+    /**
+     *
+     * @param monthlyTravelCost
+     */
     public void setMonthlyTravelCost(double monthlyTravelCost) {
         this.monthlyTravelCost = monthlyTravelCost;
     }
 
+    /**
+     *
+     * @param salary
+     */
     public void setSalary(int salary) {
         this.salary = salary;
     }
 
+    /**
+     *
+     * @param averageSalaryToCommuteRatio
+     */
     public void setAverageSalaryToCommuteRatio(double averageSalaryToCommuteRatio) {
         this.averageSalaryToCommuteRatio = averageSalaryToCommuteRatio;
     }

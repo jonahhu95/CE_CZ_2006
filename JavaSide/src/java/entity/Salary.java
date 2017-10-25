@@ -3,7 +3,10 @@ package entity;
 import java.util.Arrays;
 import java.util.List;
 
-
+/**
+ *
+ * @author jonah
+ */
 public class Salary extends Criteria {
 
     private int salary;
@@ -13,6 +16,11 @@ public class Salary extends Criteria {
             "Description 4", "Description 5", "Description 6", "Description 7", "Description 8",
             "Description 9", "Description 10");
 
+    /**
+     *
+     * @param medianSalary
+     * @param salary
+     */
     public Salary(int medianSalary, int salary){
         weightage = 20;
         setMedianSalary(medianSalary);
@@ -20,6 +28,10 @@ public class Salary extends Criteria {
         calculateSubScore();
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public double calculateSubScore() {
         int difference = 0;
@@ -64,6 +76,10 @@ public class Salary extends Criteria {
         return point/9 * weightage;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String getExplanation() {
         if(point != -1)
@@ -71,18 +87,34 @@ public class Salary extends Criteria {
         return super.getExplanation();
     }
 
+    /**
+     *
+     * @return
+     */
     public int getMedianSalary() {
         return medianSalary;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getSalary() {
         return getSalary();
     }
 
+    /**
+     *
+     * @param medianSalary
+     */
     public void setMedianSalary(int medianSalary) {
         this.medianSalary = medianSalary;
     }
 
+    /**
+     *
+     * @param salary
+     */
     public void setSalary(int salary) {
         this.salary = salary;
     }

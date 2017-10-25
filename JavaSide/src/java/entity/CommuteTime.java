@@ -3,7 +3,10 @@ package entity;
 import java.util.Arrays;
 import java.util.List;
 
-
+/**
+ *
+ * @author jonah
+ */
 public class CommuteTime extends Criteria {
 
     private double aveCommuteTime;
@@ -20,6 +23,10 @@ public class CommuteTime extends Criteria {
         calculateSubScore();
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public double calculateSubScore() {
         double difference = commuteTime - aveCommuteTime;
@@ -53,6 +60,10 @@ public class CommuteTime extends Criteria {
         return point/8 * weightage;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String getExplanation() {
         if(point != -1)
@@ -60,18 +71,34 @@ public class CommuteTime extends Criteria {
         return super.getExplanation();
     }
 
+    /**
+     *
+     * @return
+     */
     public double getAveCommuteTime() {
         return aveCommuteTime;
     }
 
+    /**
+     *
+     * @param aveCommuteTime
+     */
     public void setAveCommuteTime(double aveCommuteTime) {
         this.aveCommuteTime = aveCommuteTime;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getCommuteTime() {
         return commuteTime;
     }
 
+    /**
+     *
+     * @param commuteTime
+     */
     public void setCommuteTime(double commuteTime) {
         this.commuteTime = commuteTime;
     }

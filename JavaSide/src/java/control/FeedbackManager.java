@@ -12,6 +12,13 @@ public class FeedbackManager {
 	private Feedback[] FeedbackList=new Feedback[100];
 	
 	//assume that feedback cannot be deleted
+
+    /**
+     *
+     * @param user
+     * @param message
+     * @return
+     */
 	public boolean addFeedback(User user, String message) {
 		int i=0;
 		
