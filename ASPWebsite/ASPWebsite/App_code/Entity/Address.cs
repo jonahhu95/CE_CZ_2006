@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace ASPWebsite.App_code.Entity
+namespace ASPWebsite.App_Code.Entity
 {
     public class Address
     {

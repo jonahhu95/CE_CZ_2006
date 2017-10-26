@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javafx.util.Pair;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 /**
  *
@@ -595,7 +599,8 @@ public class Calculation {
 
 		// root elements
 		Document doc = docBuilder.newDocument();
-		Element rootElement = doc.createElement("company");
+		Element rootElement = doc.createElement("cnotealculation");
+                rootElement.createAttribute()
 		doc.appendChild(rootElement);
 
 		// staff elements
