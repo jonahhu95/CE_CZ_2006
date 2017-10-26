@@ -185,6 +185,11 @@ public class Calculation {
     public double getMonthlyCommuteCost() {
         return monthlyCommuteCost;
     }
+    
+    public int getSalarySatisfaction() {
+    		return salarySatisfaction;
+    }
+
 
     /**
      *
