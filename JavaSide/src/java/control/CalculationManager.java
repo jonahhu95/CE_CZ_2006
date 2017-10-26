@@ -16,8 +16,8 @@ public class CalculationManager {
     private ApiFetcher apiManager = new ApiFetcher();
     private List<Calculation> CalculationList = new ArrayList();
 
-    public Calculation getUserCalculation(User user) {
-        dbManager.getCalculatedRecord(user.getUsername());
+    public Calculation getUserCalculation(User user,int choice) {
+        dbManager.getCalculation(user.getUsername(),choice);
         return null;
     }
 

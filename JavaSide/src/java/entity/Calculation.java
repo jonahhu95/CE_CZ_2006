@@ -117,6 +117,11 @@ public class Calculation {
     public double getMonthlyCommuteCost() {
         return monthlyCommuteCost;
     }
+    
+    public int getSalarySatisfaction() {
+    		return salarySatisfaction;
+    }
+
 
     public double getJSIScore() {
         double total = 0;
