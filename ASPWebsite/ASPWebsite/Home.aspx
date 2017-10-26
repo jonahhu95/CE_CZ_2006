@@ -139,7 +139,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Login</h5>
+                        <h5 class="modal-title">Register</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -263,10 +263,10 @@
 
                             <label>
                                 <asp:Label ID="Label6" runat="server" Text="Salary"></asp:Label></label>
-                            <asp:TextBox ID="TextBox3" class="form-control" runat="server"></asp:TextBox><br />
+                            <asp:TextBox ID="txt_Salary" class="form-control" runat="server"></asp:TextBox><br />
 
                             <asp:Label ID="Label7" runat="server" Text="Salary Satisfaction Rating "></asp:Label>
-                            <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal" CssClass="radiocss">
+                            <asp:RadioButtonList ID="rbSalary" runat="server" RepeatDirection="Horizontal" CssClass="radiocss">
                                 <asp:ListItem>1</asp:ListItem>
                                 <asp:ListItem>2</asp:ListItem>
                                 <asp:ListItem>3</asp:ListItem>
@@ -281,7 +281,7 @@
                             <br />
 
                             <asp:Label ID="Label8" runat="server" Text="Job Interest Rating "></asp:Label>
-                            <asp:RadioButtonList ID="RadioButtonList2" runat="server" RepeatDirection="Horizontal" CssClass="radiocss">
+                            <asp:RadioButtonList ID="rbInterest" runat="server" RepeatDirection="Horizontal" CssClass="radiocss">
                                 <asp:ListItem>1</asp:ListItem>
                                 <asp:ListItem>2</asp:ListItem>
                                 <asp:ListItem>3</asp:ListItem>
@@ -294,7 +294,9 @@
                                 <asp:ListItem>10</asp:ListItem>
                             </asp:RadioButtonList><br />
 
-                            <asp:Button ID="sendMessage" class="btn btn-success btn-lg" runat="server" Text="Submit" /><br />
+                            <asp:Label ID="Label9" runat="server" Text="Label"></asp:Label>
+
+                            <asp:Button ID="sendMessage" class="btn btn-success btn-lg" runat="server" Text="Submit" OnClick="sendMessage_Click" /><br />
 
 
                         </div>

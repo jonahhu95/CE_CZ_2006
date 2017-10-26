@@ -15,96 +15,360 @@ namespace ASPWebsite.SEService {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://border/", ConfigurationName="SEService.Service")]
     public interface Service {
         
-        // CODEGEN: Generating message contract since element name arg0 from namespace  is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://border/Service/changePasswordRequest", ReplyAction="http://border/Service/changePasswordResponse")]
-        ASPWebsite.SEService.changePasswordResponse changePassword(ASPWebsite.SEService.changePasswordRequest request);
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://border/Service/calculateJSRequest", ReplyAction="http://border/Service/calculateJSResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ASPWebsite.SEService.calculateJSResponse calculateJS(ASPWebsite.SEService.calculateJSRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://border/Service/changePasswordRequest", ReplyAction="http://border/Service/changePasswordResponse")]
-        System.Threading.Tasks.Task<ASPWebsite.SEService.changePasswordResponse> changePasswordAsync(ASPWebsite.SEService.changePasswordRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://border/Service/calculateJSRequest", ReplyAction="http://border/Service/calculateJSResponse")]
+        System.Threading.Tasks.Task<ASPWebsite.SEService.calculateJSResponse> calculateJSAsync(ASPWebsite.SEService.calculateJSRequest request);
         
-        // CODEGEN: Generating message contract since element name arg0 from namespace  is not marked nillable
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://border/Service/checkUserRequest", ReplyAction="http://border/Service/checkUserResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ASPWebsite.SEService.checkUserResponse checkUser(ASPWebsite.SEService.checkUserRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://border/Service/checkUserRequest", ReplyAction="http://border/Service/checkUserResponse")]
         System.Threading.Tasks.Task<ASPWebsite.SEService.checkUserResponse> checkUserAsync(ASPWebsite.SEService.checkUserRequest request);
         
-        // CODEGEN: Generating message contract since element name arg0 from namespace  is not marked nillable
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://border/Service/changePasswordRequest", ReplyAction="http://border/Service/changePasswordResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ASPWebsite.SEService.changePasswordResponse changePassword(ASPWebsite.SEService.changePasswordRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://border/Service/changePasswordRequest", ReplyAction="http://border/Service/changePasswordResponse")]
+        System.Threading.Tasks.Task<ASPWebsite.SEService.changePasswordResponse> changePasswordAsync(ASPWebsite.SEService.changePasswordRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://border/Service/createUserAccountRequest", ReplyAction="http://border/Service/createUserAccountResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ASPWebsite.SEService.createUserAccountResponse createUserAccount(ASPWebsite.SEService.createUserAccountRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://border/Service/createUserAccountRequest", ReplyAction="http://border/Service/createUserAccountResponse")]
         System.Threading.Tasks.Task<ASPWebsite.SEService.createUserAccountResponse> createUserAccountAsync(ASPWebsite.SEService.createUserAccountRequest request);
     }
     
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class changePasswordRequest {
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://border/")]
+    public partial class calculation : object, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="changePassword", Namespace="http://border/", Order=0)]
-        public ASPWebsite.SEService.changePasswordRequestBody Body;
+        private double aveCommuteTimeField;
         
-        public changePasswordRequest() {
+        private int aveRidersAreaField;
+        
+        private double commuteTimeField;
+        
+        private ushort commuteTypeField;
+        
+        private long createdTimeField;
+        
+        private address homeLoctionField;
+        
+        private int jobInterestField;
+        
+        private int medianSalaryField;
+        
+        private double monthlyCommuteCostField;
+        
+        private int ridersAreaField;
+        
+        private int salaryField;
+        
+        private address workLocationField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public double aveCommuteTime {
+            get {
+                return this.aveCommuteTimeField;
+            }
+            set {
+                this.aveCommuteTimeField = value;
+                this.RaisePropertyChanged("aveCommuteTime");
+            }
         }
         
-        public changePasswordRequest(ASPWebsite.SEService.changePasswordRequestBody Body) {
-            this.Body = Body;
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public int aveRidersArea {
+            get {
+                return this.aveRidersAreaField;
+            }
+            set {
+                this.aveRidersAreaField = value;
+                this.RaisePropertyChanged("aveRidersArea");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public double commuteTime {
+            get {
+                return this.commuteTimeField;
+            }
+            set {
+                this.commuteTimeField = value;
+                this.RaisePropertyChanged("commuteTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public ushort commuteType {
+            get {
+                return this.commuteTypeField;
+            }
+            set {
+                this.commuteTypeField = value;
+                this.RaisePropertyChanged("commuteType");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public long createdTime {
+            get {
+                return this.createdTimeField;
+            }
+            set {
+                this.createdTimeField = value;
+                this.RaisePropertyChanged("createdTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public address homeLoction {
+            get {
+                return this.homeLoctionField;
+            }
+            set {
+                this.homeLoctionField = value;
+                this.RaisePropertyChanged("homeLoction");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        public int jobInterest {
+            get {
+                return this.jobInterestField;
+            }
+            set {
+                this.jobInterestField = value;
+                this.RaisePropertyChanged("jobInterest");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+        public int medianSalary {
+            get {
+                return this.medianSalaryField;
+            }
+            set {
+                this.medianSalaryField = value;
+                this.RaisePropertyChanged("medianSalary");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+        public double monthlyCommuteCost {
+            get {
+                return this.monthlyCommuteCostField;
+            }
+            set {
+                this.monthlyCommuteCostField = value;
+                this.RaisePropertyChanged("monthlyCommuteCost");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
+        public int ridersArea {
+            get {
+                return this.ridersAreaField;
+            }
+            set {
+                this.ridersAreaField = value;
+                this.RaisePropertyChanged("ridersArea");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
+        public int salary {
+            get {
+                return this.salaryField;
+            }
+            set {
+                this.salaryField = value;
+                this.RaisePropertyChanged("salary");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
+        public address workLocation {
+            get {
+                return this.workLocationField;
+            }
+            set {
+                this.workLocationField = value;
+                this.RaisePropertyChanged("workLocation");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://border/")]
+    public partial class address : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string areaField;
+        
+        private double latitudeField;
+        
+        private string locationNameField;
+        
+        private double longitudeField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public string area {
+            get {
+                return this.areaField;
+            }
+            set {
+                this.areaField = value;
+                this.RaisePropertyChanged("area");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public double latitude {
+            get {
+                return this.latitudeField;
+            }
+            set {
+                this.latitudeField = value;
+                this.RaisePropertyChanged("latitude");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string locationName {
+            get {
+                return this.locationNameField;
+            }
+            set {
+                this.locationNameField = value;
+                this.RaisePropertyChanged("locationName");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public double longitude {
+            get {
+                return this.longitudeField;
+            }
+            set {
+                this.longitudeField = value;
+                this.RaisePropertyChanged("longitude");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class changePasswordRequestBody {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="calculateJS", WrapperNamespace="http://border/", IsWrapped=true)]
+    public partial class calculateJSRequest {
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://border/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string arg0;
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://border/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string arg1;
         
-        public changePasswordRequestBody() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://border/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int arg2;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://border/", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ushort arg3;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://border/", Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int arg4;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://border/", Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int arg5;
+        
+        public calculateJSRequest() {
         }
         
-        public changePasswordRequestBody(string arg0, string arg1) {
+        public calculateJSRequest(string arg0, string arg1, int arg2, ushort arg3, int arg4, int arg5) {
             this.arg0 = arg0;
             this.arg1 = arg1;
+            this.arg2 = arg2;
+            this.arg3 = arg3;
+            this.arg4 = arg4;
+            this.arg5 = arg5;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class changePasswordResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="calculateJSResponse", WrapperNamespace="http://border/", IsWrapped=true)]
+    public partial class calculateJSResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="changePasswordResponse", Namespace="http://border/", Order=0)]
-        public ASPWebsite.SEService.changePasswordResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://border/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ASPWebsite.SEService.calculation @return;
         
-        public changePasswordResponse() {
+        public calculateJSResponse() {
         }
         
-        public changePasswordResponse(ASPWebsite.SEService.changePasswordResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class changePasswordResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool @return;
-        
-        public changePasswordResponseBody() {
-        }
-        
-        public changePasswordResponseBody(bool @return) {
+        public calculateJSResponse(ASPWebsite.SEService.calculation @return) {
             this.@return = @return;
         }
     }
@@ -112,36 +376,21 @@ namespace ASPWebsite.SEService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="checkUser", WrapperNamespace="http://border/", IsWrapped=true)]
     public partial class checkUserRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="checkUser", Namespace="http://border/", Order=0)]
-        public ASPWebsite.SEService.checkUserRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://border/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string arg0;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://border/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string arg1;
         
         public checkUserRequest() {
         }
         
-        public checkUserRequest(ASPWebsite.SEService.checkUserRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class checkUserRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string arg0;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string arg1;
-        
-        public checkUserRequestBody() {
-        }
-        
-        public checkUserRequestBody(string arg0, string arg1) {
+        public checkUserRequest(string arg0, string arg1) {
             this.arg0 = arg0;
             this.arg1 = arg1;
         }
@@ -150,33 +399,17 @@ namespace ASPWebsite.SEService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="checkUserResponse", WrapperNamespace="http://border/", IsWrapped=true)]
     public partial class checkUserResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="checkUserResponse", Namespace="http://border/", Order=0)]
-        public ASPWebsite.SEService.checkUserResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://border/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public bool @return;
         
         public checkUserResponse() {
         }
         
-        public checkUserResponse(ASPWebsite.SEService.checkUserResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class checkUserResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool @return;
-        
-        public checkUserResponseBody() {
-        }
-        
-        public checkUserResponseBody(bool @return) {
+        public checkUserResponse(bool @return) {
             this.@return = @return;
         }
     }
@@ -184,36 +417,21 @@ namespace ASPWebsite.SEService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class createUserAccountRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="changePassword", WrapperNamespace="http://border/", IsWrapped=true)]
+    public partial class changePasswordRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="createUserAccount", Namespace="http://border/", Order=0)]
-        public ASPWebsite.SEService.createUserAccountRequestBody Body;
-        
-        public createUserAccountRequest() {
-        }
-        
-        public createUserAccountRequest(ASPWebsite.SEService.createUserAccountRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class createUserAccountRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://border/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string arg0;
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://border/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string arg1;
         
-        public createUserAccountRequestBody() {
+        public changePasswordRequest() {
         }
         
-        public createUserAccountRequestBody(string arg0, string arg1) {
+        public changePasswordRequest(string arg0, string arg1) {
             this.arg0 = arg0;
             this.arg1 = arg1;
         }
@@ -222,33 +440,58 @@ namespace ASPWebsite.SEService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class createUserAccountResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="changePasswordResponse", WrapperNamespace="http://border/", IsWrapped=true)]
+    public partial class changePasswordResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="createUserAccountResponse", Namespace="http://border/", Order=0)]
-        public ASPWebsite.SEService.createUserAccountResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://border/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public bool @return;
         
-        public createUserAccountResponse() {
+        public changePasswordResponse() {
         }
         
-        public createUserAccountResponse(ASPWebsite.SEService.createUserAccountResponseBody Body) {
-            this.Body = Body;
+        public changePasswordResponse(bool @return) {
+            this.@return = @return;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class createUserAccountResponseBody {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="createUserAccount", WrapperNamespace="http://border/", IsWrapped=true)]
+    public partial class createUserAccountRequest {
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool @return;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://border/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string arg0;
         
-        public createUserAccountResponseBody() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://border/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string arg1;
+        
+        public createUserAccountRequest() {
         }
         
-        public createUserAccountResponseBody(bool @return) {
+        public createUserAccountRequest(string arg0, string arg1) {
+            this.arg0 = arg0;
+            this.arg1 = arg1;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="createUserAccountResponse", WrapperNamespace="http://border/", IsWrapped=true)]
+    public partial class createUserAccountResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://border/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public bool @return;
+        
+        public createUserAccountResponse() {
+        }
+        
+        public createUserAccountResponse(bool @return) {
             this.@return = @return;
         }
     }
@@ -281,30 +524,36 @@ namespace ASPWebsite.SEService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ASPWebsite.SEService.changePasswordResponse ASPWebsite.SEService.Service.changePassword(ASPWebsite.SEService.changePasswordRequest request) {
-            return base.Channel.changePassword(request);
+        ASPWebsite.SEService.calculateJSResponse ASPWebsite.SEService.Service.calculateJS(ASPWebsite.SEService.calculateJSRequest request) {
+            return base.Channel.calculateJS(request);
         }
         
-        public bool changePassword(string arg0, string arg1) {
-            ASPWebsite.SEService.changePasswordRequest inValue = new ASPWebsite.SEService.changePasswordRequest();
-            inValue.Body = new ASPWebsite.SEService.changePasswordRequestBody();
-            inValue.Body.arg0 = arg0;
-            inValue.Body.arg1 = arg1;
-            ASPWebsite.SEService.changePasswordResponse retVal = ((ASPWebsite.SEService.Service)(this)).changePassword(inValue);
-            return retVal.Body.@return;
+        public ASPWebsite.SEService.calculation calculateJS(string arg0, string arg1, int arg2, ushort arg3, int arg4, int arg5) {
+            ASPWebsite.SEService.calculateJSRequest inValue = new ASPWebsite.SEService.calculateJSRequest();
+            inValue.arg0 = arg0;
+            inValue.arg1 = arg1;
+            inValue.arg2 = arg2;
+            inValue.arg3 = arg3;
+            inValue.arg4 = arg4;
+            inValue.arg5 = arg5;
+            ASPWebsite.SEService.calculateJSResponse retVal = ((ASPWebsite.SEService.Service)(this)).calculateJS(inValue);
+            return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ASPWebsite.SEService.changePasswordResponse> ASPWebsite.SEService.Service.changePasswordAsync(ASPWebsite.SEService.changePasswordRequest request) {
-            return base.Channel.changePasswordAsync(request);
+        System.Threading.Tasks.Task<ASPWebsite.SEService.calculateJSResponse> ASPWebsite.SEService.Service.calculateJSAsync(ASPWebsite.SEService.calculateJSRequest request) {
+            return base.Channel.calculateJSAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ASPWebsite.SEService.changePasswordResponse> changePasswordAsync(string arg0, string arg1) {
-            ASPWebsite.SEService.changePasswordRequest inValue = new ASPWebsite.SEService.changePasswordRequest();
-            inValue.Body = new ASPWebsite.SEService.changePasswordRequestBody();
-            inValue.Body.arg0 = arg0;
-            inValue.Body.arg1 = arg1;
-            return ((ASPWebsite.SEService.Service)(this)).changePasswordAsync(inValue);
+        public System.Threading.Tasks.Task<ASPWebsite.SEService.calculateJSResponse> calculateJSAsync(string arg0, string arg1, int arg2, ushort arg3, int arg4, int arg5) {
+            ASPWebsite.SEService.calculateJSRequest inValue = new ASPWebsite.SEService.calculateJSRequest();
+            inValue.arg0 = arg0;
+            inValue.arg1 = arg1;
+            inValue.arg2 = arg2;
+            inValue.arg3 = arg3;
+            inValue.arg4 = arg4;
+            inValue.arg5 = arg5;
+            return ((ASPWebsite.SEService.Service)(this)).calculateJSAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -314,11 +563,10 @@ namespace ASPWebsite.SEService {
         
         public bool checkUser(string arg0, string arg1) {
             ASPWebsite.SEService.checkUserRequest inValue = new ASPWebsite.SEService.checkUserRequest();
-            inValue.Body = new ASPWebsite.SEService.checkUserRequestBody();
-            inValue.Body.arg0 = arg0;
-            inValue.Body.arg1 = arg1;
+            inValue.arg0 = arg0;
+            inValue.arg1 = arg1;
             ASPWebsite.SEService.checkUserResponse retVal = ((ASPWebsite.SEService.Service)(this)).checkUser(inValue);
-            return retVal.Body.@return;
+            return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -328,10 +576,34 @@ namespace ASPWebsite.SEService {
         
         public System.Threading.Tasks.Task<ASPWebsite.SEService.checkUserResponse> checkUserAsync(string arg0, string arg1) {
             ASPWebsite.SEService.checkUserRequest inValue = new ASPWebsite.SEService.checkUserRequest();
-            inValue.Body = new ASPWebsite.SEService.checkUserRequestBody();
-            inValue.Body.arg0 = arg0;
-            inValue.Body.arg1 = arg1;
+            inValue.arg0 = arg0;
+            inValue.arg1 = arg1;
             return ((ASPWebsite.SEService.Service)(this)).checkUserAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ASPWebsite.SEService.changePasswordResponse ASPWebsite.SEService.Service.changePassword(ASPWebsite.SEService.changePasswordRequest request) {
+            return base.Channel.changePassword(request);
+        }
+        
+        public bool changePassword(string arg0, string arg1) {
+            ASPWebsite.SEService.changePasswordRequest inValue = new ASPWebsite.SEService.changePasswordRequest();
+            inValue.arg0 = arg0;
+            inValue.arg1 = arg1;
+            ASPWebsite.SEService.changePasswordResponse retVal = ((ASPWebsite.SEService.Service)(this)).changePassword(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ASPWebsite.SEService.changePasswordResponse> ASPWebsite.SEService.Service.changePasswordAsync(ASPWebsite.SEService.changePasswordRequest request) {
+            return base.Channel.changePasswordAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ASPWebsite.SEService.changePasswordResponse> changePasswordAsync(string arg0, string arg1) {
+            ASPWebsite.SEService.changePasswordRequest inValue = new ASPWebsite.SEService.changePasswordRequest();
+            inValue.arg0 = arg0;
+            inValue.arg1 = arg1;
+            return ((ASPWebsite.SEService.Service)(this)).changePasswordAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -341,11 +613,10 @@ namespace ASPWebsite.SEService {
         
         public bool createUserAccount(string arg0, string arg1) {
             ASPWebsite.SEService.createUserAccountRequest inValue = new ASPWebsite.SEService.createUserAccountRequest();
-            inValue.Body = new ASPWebsite.SEService.createUserAccountRequestBody();
-            inValue.Body.arg0 = arg0;
-            inValue.Body.arg1 = arg1;
+            inValue.arg0 = arg0;
+            inValue.arg1 = arg1;
             ASPWebsite.SEService.createUserAccountResponse retVal = ((ASPWebsite.SEService.Service)(this)).createUserAccount(inValue);
-            return retVal.Body.@return;
+            return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -355,9 +626,8 @@ namespace ASPWebsite.SEService {
         
         public System.Threading.Tasks.Task<ASPWebsite.SEService.createUserAccountResponse> createUserAccountAsync(string arg0, string arg1) {
             ASPWebsite.SEService.createUserAccountRequest inValue = new ASPWebsite.SEService.createUserAccountRequest();
-            inValue.Body = new ASPWebsite.SEService.createUserAccountRequestBody();
-            inValue.Body.arg0 = arg0;
-            inValue.Body.arg1 = arg1;
+            inValue.arg0 = arg0;
+            inValue.arg1 = arg1;
             return ((ASPWebsite.SEService.Service)(this)).createUserAccountAsync(inValue);
         }
     }

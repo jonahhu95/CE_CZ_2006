@@ -6,8 +6,10 @@
 package border;
 
 import control.ApiFetcher;
+import control.CalculationManager;
 import control.DatabaseManager;
 import control.UserManager;
+import entity.Calculation;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -53,5 +55,17 @@ public class Service {
     public boolean changePassword(String u, String p) {
         return um.editUser(u, p);
     }
+<<<<<<< HEAD
 
+=======
+    
+    @WebMethod
+    public Calculation calculateJS(String workLocation, String homeLocation,
+            int salary, char commuteType, int jobInterest, int salarySatisfaction)
+    {
+        return cm.createNewCalculation(workLocation, homeLocation, salary, commuteType, jobInterest, salarySatisfaction);
+    }
+    
+    
+>>>>>>> 9447e542dd3a9240a7e4c62ab956790d13841585
 }
