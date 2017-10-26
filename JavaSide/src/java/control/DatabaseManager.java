@@ -26,12 +26,6 @@ public class DatabaseManager {
      * @param username
      * @return
      */
-    public int getCalculatedRecord(String username) {
-        int score = -1;
-        //-1 condition if the user don't have past record
-        //create table to store all the scores
-        //username and datetime as primary key
-        //sql statement to compare overall score
     public Calculation getCalculation(String username, int count) {
         //SELECT score FROM score_t WHERE username='' ORDER BY DESC LIMIT 2
         //or
@@ -85,7 +79,6 @@ public class DatabaseManager {
      * @param score
      * @param username
      */
-    public void storeCalculationResult(int score, String username) {
     public void storeCalculation(Calculation calculation, String username) {
         try {
             Connection con = getConnection();
