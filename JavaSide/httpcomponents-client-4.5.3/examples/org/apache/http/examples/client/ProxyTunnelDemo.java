@@ -24,7 +24,6 @@
  * <http://www.apache.org/>.
  *
  */
-
 package org.apache.http.examples.client;
 
 import java.io.BufferedReader;
@@ -39,7 +38,8 @@ import org.apache.http.impl.client.ProxyClient;
 import org.apache.http.protocol.HTTP;
 
 /**
- * Example code for using {@link ProxyClient} in order to establish a tunnel through an HTTP proxy.
+ * Example code for using {@link ProxyClient} in order to establish a tunnel
+ * through an HTTP proxy.
  */
 public class ProxyTunnelDemo {
 
@@ -70,4 +70,3 @@ public class ProxyTunnelDemo {
     }
 
 }
-

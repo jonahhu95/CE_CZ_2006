@@ -37,8 +37,8 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
 /**
- * A simple example that uses HttpClient to execute an HTTP request against
- * a target site that requires user authentication.
+ * A simple example that uses HttpClient to execute an HTTP request against a
+ * target site that requires user authentication.
  */
 public class ClientAuthentication {
 

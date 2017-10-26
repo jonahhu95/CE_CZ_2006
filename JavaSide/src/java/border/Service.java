@@ -18,8 +18,9 @@ import javax.jws.WebParam;
  */
 @WebService
 public class Service {
+
     UserManager um = new UserManager();
-    
+
     /**
      *
      * @param u
@@ -30,7 +31,7 @@ public class Service {
     public boolean checkUser(String u, String p) {
         return um.loginUser(u, p);
     }
-    
+
     /**
      *
      * @param u
@@ -38,11 +39,10 @@ public class Service {
      * @return
      */
     @WebMethod
-    public boolean createUserAccount(String u, String p)
-    {
+    public boolean createUserAccount(String u, String p) {
         return um.createUser(u, p);
     }
-    
+
     /**
      *
      * @param u
@@ -50,9 +50,8 @@ public class Service {
      * @return
      */
     @WebMethod
-    public boolean changePassword(String u, String p)
-    {
+    public boolean changePassword(String u, String p) {
         return um.editUser(u, p);
     }
-    
+
 }

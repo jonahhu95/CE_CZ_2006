@@ -45,14 +45,14 @@ import org.apache.http.util.EntityUtils;
 public class ClientMultipartFormPost {
 
     public static void main(String[] args) throws Exception {
-        if (args.length != 1)  {
+        if (args.length != 1) {
             System.out.println("File path not given");
             System.exit(1);
         }
         CloseableHttpClient httpclient = HttpClients.createDefault();
         try {
-            HttpPost httppost = new HttpPost("http://localhost:8080" +
-                    "/servlets-examples/servlet/RequestInfoExample");
+            HttpPost httppost = new HttpPost("http://localhost:8080"
+                    + "/servlets-examples/servlet/RequestInfoExample");
 
             FileBody bin = new FileBody(new File(args[0]));
             StringBody comment = new StringBody("A binary file of some kind", ContentType.TEXT_PLAIN);
@@ -61,7 +61,6 @@ public class ClientMultipartFormPost {
                     .addPart("bin", bin)
                     .addPart("comment", comment)
                     .build();
-
 
             httppost.setEntity(reqEntity);
 

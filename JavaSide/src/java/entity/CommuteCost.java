@@ -17,7 +17,7 @@ public class CommuteCost extends Criteria {
             "Description 4", "Description 5", "Description 6", "Description 7", "Description 8",
             "Description 9", "Description 10", "Description 11");
 
-   CommuteCost(double monthlyTravelCost, int salary){
+    CommuteCost(double monthlyTravelCost, int salary) {
         weightage = 10;
         setMonthlyTravelCost(monthlyTravelCost);
         setSalary(salary);
@@ -31,46 +31,46 @@ public class CommuteCost extends Criteria {
     @Override
     public double calculateSubScore() {
         double ratio = monthlyTravelCost / salary;
-        if(ratio < 1.75){
-            if(ratio < 1.35){
-                if(ratio < 0.95 ){
-                    if(ratio < 0.75){
+        if (ratio < 1.75) {
+            if (ratio < 1.35) {
+                if (ratio < 0.95) {
+                    if (ratio < 0.75) {
                         point = 10;
-                    }else{
+                    } else {
                         point = 9;
                     }
-                }else{
-                    if(ratio < 1.15) {
+                } else {
+                    if (ratio < 1.15) {
                         point = 8;
-                    }else{
+                    } else {
                         point = 7;
                     }
                 }
-            }else{
-                if(ratio < 1.55){
+            } else {
+                if (ratio < 1.55) {
                     point = 6;
-                }else{
+                } else {
                     point = 5;
                 }
             }
-        }else{
-            if(ratio < 2.15){
-                if(ratio < 1.95) {
+        } else {
+            if (ratio < 2.15) {
+                if (ratio < 1.95) {
                     point = 4;
-                }else{
+                } else {
                     point = 3;
                 }
-            }else if(ratio < 2.45) {
-                if(ratio < 2.25){
+            } else if (ratio < 2.45) {
+                if (ratio < 2.25) {
                     point = 2;
-                }else{
+                } else {
                     point = 1;
                 }
-            }else{
+            } else {
                 point = 0;
             }
         }
-        return point/10 * weightage;
+        return point / 10 * weightage;
     }
 
     /**
@@ -79,8 +79,9 @@ public class CommuteCost extends Criteria {
      */
     @Override
     public String getExplanation() {
-        if(point != -1)
+        if (point != -1) {
             return explanations.get(point);
+        }
         return super.getExplanation();
     }
 

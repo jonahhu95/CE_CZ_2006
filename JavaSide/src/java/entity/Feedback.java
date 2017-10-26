@@ -14,7 +14,7 @@ public class Feedback {
      * @param submitter
      * @param message
      */
-    public Feedback(User submitter, String message){
+    public Feedback(User submitter, String message) {
         setSubmitter(submitter);
         setMessage(message);
     }
@@ -52,4 +52,3 @@ public class Feedback {
     }
 
 }
-

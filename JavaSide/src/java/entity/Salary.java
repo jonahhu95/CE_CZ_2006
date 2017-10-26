@@ -21,7 +21,7 @@ public class Salary extends Criteria {
      * @param medianSalary
      * @param salary
      */
-    public Salary(int medianSalary, int salary){
+    public Salary(int medianSalary, int salary) {
         weightage = 20;
         setMedianSalary(medianSalary);
         setSalary(salary);
@@ -36,8 +36,8 @@ public class Salary extends Criteria {
     public double calculateSubScore() {
         int difference = 0;
         difference = salary - medianSalary;
-        difference = difference/1000;
-        switch (difference){
+        difference = difference / 1000;
+        switch (difference) {
             case -4:
                 point = 0;
                 break;
@@ -66,14 +66,14 @@ public class Salary extends Criteria {
                 point = 8;
                 break;
             default:
-                if(difference > 4)
+                if (difference > 4) {
                     point = 9;
-                else{
+                } else {
                     point = 0;
                 }
                 break;
         }
-        return point/9 * weightage;
+        return point / 9 * weightage;
     }
 
     /**
@@ -82,8 +82,9 @@ public class Salary extends Criteria {
      */
     @Override
     public String getExplanation() {
-        if(point != -1)
+        if (point != -1) {
             return explanations.get(point);
+        }
         return super.getExplanation();
     }
 

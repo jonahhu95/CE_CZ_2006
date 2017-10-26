@@ -57,8 +57,7 @@ public class ClientMultiThreadedExecution {
             String[] urisToGet = {
                 "http://hc.apache.org/",
                 "http://hc.apache.org/httpcomponents-core-ga/",
-                "http://hc.apache.org/httpcomponents-client-ga/",
-            };
+                "http://hc.apache.org/httpcomponents-client-ga/",};
 
             // create a thread for each URI
             GetThread[] threads = new GetThread[urisToGet.length];

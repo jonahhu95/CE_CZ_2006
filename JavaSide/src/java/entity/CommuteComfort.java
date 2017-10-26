@@ -15,7 +15,7 @@ public class CommuteComfort extends Criteria {
     private double point = -1;
     private List<String> explanations = Arrays.asList("Description 1", "Description 2", "Description 3");
 
-    CommuteComfort(int averageRidersArea, int ridersArea, char travelMode){
+    CommuteComfort(int averageRidersArea, int ridersArea, char travelMode) {
         weightage = 15;
         setAverageRidersArea(averageRidersArea);
         setRidersArea(ridersArea);
@@ -29,17 +29,17 @@ public class CommuteComfort extends Criteria {
      */
     @Override
     public double calculateSubScore() {
-        if(travelMode == 'p'){
+        if (travelMode == 'p') {
             int difference = ridersArea - averageRidersArea;
-            if(difference>8000){
+            if (difference > 8000) {
                 point = 0;
-            }else if(difference < -8000){
+            } else if (difference < -8000) {
                 point = 1;
-            }else{
+            } else {
                 point = 0.5;
             }
-            return point*weightage;
-        }else if(travelMode == 'c'){
+            return point * weightage;
+        } else if (travelMode == 'c') {
             return weightage;
         }
         return super.calculateSubScore();
@@ -51,12 +51,15 @@ public class CommuteComfort extends Criteria {
      */
     @Override
     public String getExplanation() {
-        if(point == 0)
+        if (point == 0) {
             return explanations.get(0);
-        if(point == 0.5)
+        }
+        if (point == 0.5) {
             return explanations.get(1);
-        if(point == 1)
+        }
+        if (point == 1) {
             return explanations.get(2);
+        }
         return super.getExplanation();
     }
 

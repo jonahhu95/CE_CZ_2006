@@ -24,7 +24,6 @@
  * <http://www.apache.org/>.
  *
  */
-
 package org.apache.http.examples.client.win;
 
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -34,8 +33,8 @@ import org.apache.http.impl.client.WinHttpClients;
 import org.apache.http.util.EntityUtils;
 
 /**
- * This example demonstrates how to create HttpClient pre-configured
- * with support for integrated Windows authentication.
+ * This example demonstrates how to create HttpClient pre-configured with
+ * support for integrated Windows authentication.
  */
 public class ClientWinAuth {
 
@@ -67,4 +66,3 @@ public class ClientWinAuth {
     }
 
 }
-

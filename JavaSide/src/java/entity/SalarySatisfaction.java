@@ -14,7 +14,7 @@ public class SalarySatisfaction extends Criteria {
             "Description 4", "Description 5", "Description 6", "Description 7", "Description 8",
             "Description 9", "Description 10");
 
-    SalarySatisfaction(int salaryInterest){
+    SalarySatisfaction(int salaryInterest) {
         weightage = 10;
         setSalaryInterest(salaryInterest);
         calculateSubScore();
@@ -35,8 +35,9 @@ public class SalarySatisfaction extends Criteria {
      */
     @Override
     public String getExplanation() {
-        if(salaryInterest != -1)
-            return explanations.get(salaryInterest-1);
+        if (salaryInterest != -1) {
+            return explanations.get(salaryInterest - 1);
+        }
         return super.getExplanation();
     }
 

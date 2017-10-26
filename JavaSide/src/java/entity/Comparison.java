@@ -10,5 +10,5 @@ package entity;
  * @author jonah
  */
 public class Comparison {
-    
+
 }

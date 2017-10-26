@@ -46,18 +46,18 @@ public class CommuteTime extends Criteria {
             }
         } else {
             if (difference >= -45) {
-                if(difference >= -30){
-                    point = 5 ;
-                }else{
+                if (difference >= -30) {
+                    point = 5;
+                } else {
                     point = 6;
                 }
-            }else if(difference <= -60){
+            } else if (difference <= -60) {
                 point = 7;
-            }else{
+            } else {
                 point = 8;
             }
         }
-        return point/8 * weightage;
+        return point / 8 * weightage;
     }
 
     /**
@@ -66,8 +66,9 @@ public class CommuteTime extends Criteria {
      */
     @Override
     public String getExplanation() {
-        if(point != -1)
+        if (point != -1) {
             return explanations.get(point);
+        }
         return super.getExplanation();
     }
 

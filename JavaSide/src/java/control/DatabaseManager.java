@@ -20,18 +20,11 @@ public class DatabaseManager {
     private static ArrayList<String> name = new ArrayList<String>();
 
     //getCalculatedRecord = get past calculated record??
-
     /**
      *
      * @param username
      * @return
      */
-    public int getCalculatedRecord(String username) {
-        int score = -1;
-        //-1 condition if the user don't have past record
-        //create table to store all the scores
-        //username and datetime as primary key
-        //sql statement to compare overall score
     public Calculation getCalculation(String username, int count) {
         //SELECT score FROM score_t WHERE username='' ORDER BY DESC LIMIT 2
         //or
@@ -42,42 +35,43 @@ public class DatabaseManager {
         try {
             Connection con = getConnection();
             PreparedStatement got = con.prepareStatement("SELECT top 2 datet,workLocation,workLongitude,workLatitude,workArea,homeLocation,homeLongitude,"
-            		+ "homeLatitude,homeArea,salary,salarySat,medianSalary,jobInterest,commuteType,ridersArea,AvgRidersArea,commuteTime,AvgCommuteTime,monthCost FROM score_t WHERE username='" + 
-            		username + "' ORDER BY datet DESC");
+                    + "homeLatitude,homeArea,salary,salarySat,medianSalary,jobInterest,commuteType,ridersArea,AvgRidersArea,commuteTime,AvgCommuteTime,monthCost FROM score_t WHERE username='"
+                    + username + "' ORDER BY datet DESC");
             ResultSet result = got.executeQuery();
             while (result.next()) {
-                int salary=result.getInt("salary");
-                char commuteType=result.getString("commuteType").charAt(0);
-                int jobInterest=result.getInt("jobInterest");
-                int salarySatisfaction=result.getInt("salarySat");
-                long createdTime= (result.getTimestamp("datet")).getTime();
-                	int	medianSalary= result.getInt("medianSalary");
-                	int ridersArea=result.getInt("ridersArea") ;
-                	int aveRidersArea=result.getInt("AvgRidersArea");
-                	double commuteTime= result.getDouble("commuteTime");
-                	double aveCommuteTime=result.getDouble("AvgCommuteTime") ;
-                	double monthlyCommuteCost=result.getDouble("monthCost");
-                Address workLocation=new Address(result.getString("workLocation"),result.getDouble("workLongitude"),result.getDouble("workLatitude"),result.getString("workArea"));
-                Address homeLocation=new Address(result.getString("homeLocation"),result.getDouble("homeLongitude"),result.getDouble("homeLatitude"),result.getString("homeArea"));
-                
-                Calculation calculation=new Calculation(workLocation, homeLocation, salary,commuteType,
+                int salary = result.getInt("salary");
+                char commuteType = result.getString("commuteType").charAt(0);
+                int jobInterest = result.getInt("jobInterest");
+                int salarySatisfaction = result.getInt("salarySat");
+                long createdTime = (result.getTimestamp("datet")).getTime();
+                int medianSalary = result.getInt("medianSalary");
+                int ridersArea = result.getInt("ridersArea");
+                int aveRidersArea = result.getInt("AvgRidersArea");
+                double commuteTime = result.getDouble("commuteTime");
+                double aveCommuteTime = result.getDouble("AvgCommuteTime");
+                double monthlyCommuteCost = result.getDouble("monthCost");
+                Address workLocation = new Address(result.getString("workLocation"), result.getDouble("workLongitude"), result.getDouble("workLatitude"), result.getString("workArea"));
+                Address homeLocation = new Address(result.getString("homeLocation"), result.getDouble("homeLongitude"), result.getDouble("homeLatitude"), result.getString("homeArea"));
+
+                Calculation calculation = new Calculation(workLocation, homeLocation, salary, commuteType,
                         jobInterest, salarySatisfaction, createdTime, medianSalary,
                         ridersArea, aveRidersArea, commuteTime, aveCommuteTime,
                         monthlyCommuteCost);
-                
+
                 record.add(calculation);
             }
-            
+
         } catch (Exception e) {
             System.out.println(e);
         }
-        if(count==1)
-        		return record.get(0);
-        else if(count==2)
-        		return record.get(1);
-        else 
-        		return null;
-        
+        if (count == 1) {
+            return record.get(0);
+        } else if (count == 2) {
+            return record.get(1);
+        } else {
+            return null;
+        }
+
     }
 
     /**
@@ -85,24 +79,23 @@ public class DatabaseManager {
      * @param score
      * @param username
      */
-    public void storeCalculationResult(int score, String username) {
     public void storeCalculation(Calculation calculation, String username) {
         try {
             Connection con = getConnection();
             PreparedStatement update = con.prepareStatement("INSERT INTO score_t (username,datet,workLocation,workLongitude,workLatitude,workArea,homeLocation,homeLongitude,"
-            		+ "homeLatitude,homeArea,salary,salarySat,medianSalary,jobInterest,commuteType,ridersArea,AvgRidersArea,commuteTime,AvgCommuteTime,monthCost) VALUES "
-            		+ "('" + username + "','" + (new Timestamp(calculation.getCreatedTime())) + "','" + calculation.getWorkLocation().getLocationName()  + "','" + calculation.getWorkLocation().getLongitude() + "','" + 
-            		calculation.getWorkLocation().getLatitude()  + "','" + calculation.getWorkLocation().getArea() + "','" + calculation.getHomeLoction().getLocationName() + "','" + 
-            		calculation.getHomeLoction().getLongitude() + "','" + calculation.getHomeLoction().getLatitude() + "','" + calculation.getHomeLoction().getArea() + "','" + 
-            		calculation.getSalary() + "','" + calculation.getSalarySatisfaction() + "','" + calculation.getMedianSalary() + "','" + calculation.getJobInterest() + "','" + calculation.getCommuteType() + "','" + 
-            		calculation.getRidersArea() + "','" + calculation.getAveRidersArea() + "','" + calculation.getCommuteTime() + "','" + calculation.getAveCommuteTime() + "','" + 
-            		calculation.getMonthlyCommuteCost()+"')");
+                    + "homeLatitude,homeArea,salary,salarySat,medianSalary,jobInterest,commuteType,ridersArea,AvgRidersArea,commuteTime,AvgCommuteTime,monthCost) VALUES "
+                    + "('" + username + "','" + (new Timestamp(calculation.getCreatedTime())) + "','" + calculation.getWorkLocation().getLocationName() + "','" + calculation.getWorkLocation().getLongitude() + "','"
+                    + calculation.getWorkLocation().getLatitude() + "','" + calculation.getWorkLocation().getArea() + "','" + calculation.getHomeLoction().getLocationName() + "','"
+                    + calculation.getHomeLoction().getLongitude() + "','" + calculation.getHomeLoction().getLatitude() + "','" + calculation.getHomeLoction().getArea() + "','"
+                    + calculation.getSalary() + "','" + calculation.getSalarySatisfaction() + "','" + calculation.getMedianSalary() + "','" + calculation.getJobInterest() + "','" + calculation.getCommuteType() + "','"
+                    + calculation.getRidersArea() + "','" + calculation.getAveRidersArea() + "','" + calculation.getCommuteTime() + "','" + calculation.getAveCommuteTime() + "','"
+                    + calculation.getMonthlyCommuteCost() + "')");
             update.executeUpdate();
         } catch (Exception e) {
             System.out.println(e);
         }
     }
-    
+
     /**
      *
      * @param username
@@ -118,7 +111,7 @@ public class DatabaseManager {
             while (result.next()) {
                 pws = result.getString("pws");
             }
-            
+
             if (pws.equals(password)) {
                 return true;
             }
@@ -130,7 +123,6 @@ public class DatabaseManager {
 
     //auto increment is set for primary key(id)
     //assume no duplicate username
-
     /**
      *
      * @param username
@@ -141,22 +133,20 @@ public class DatabaseManager {
         String un = null;
         try {
             Connection con = getConnection();
-            
+
             //check if username exist in database
-            PreparedStatement checkAccount = con.prepareStatement("SELECT username FROM user_t WHERE username='" +username+"'");
+            PreparedStatement checkAccount = con.prepareStatement("SELECT username FROM user_t WHERE username='" + username + "'");
             ResultSet result = checkAccount.executeQuery();
-            while(result.next())
-            {
+            while (result.next()) {
                 un = result.getString("username");
             }
-            
-            if (un.toString() != null)
+
+            if (un.toString() != null) {
                 return false;
-            else
-            {
-            PreparedStatement newAccount = con.prepareStatement("INSERT INTO user_t (username,pws) VALUES ('" + username + "','" + password + "')");
-            newAccount.executeUpdate();
-            name.add(username);
+            } else {
+                PreparedStatement newAccount = con.prepareStatement("INSERT INTO user_t (username,pws) VALUES ('" + username + "','" + password + "')");
+                newAccount.executeUpdate();
+                name.add(username);
             }
         } catch (Exception e) {
             System.out.println(e);
@@ -216,8 +206,7 @@ public class DatabaseManager {
 
     /**
      *
-     * @return
-     * @throws Exception
+     * @return @throws Exception
      */
     public static Connection getConnection() throws Exception {
         //always check whether there is valid access to database
@@ -280,7 +269,6 @@ public class DatabaseManager {
     }
 
     //for testing case only
-
     /**
      *
      * @param arg
@@ -296,8 +284,8 @@ public class DatabaseManager {
         getConnection();
 //        post(u, p);
 //        getPassword(u);
-boolean t = validateLogin(u, p);
-System.out.println(t);
+        boolean t = validateLogin(u, p);
+        System.out.println(t);
         in.close();
 
     }

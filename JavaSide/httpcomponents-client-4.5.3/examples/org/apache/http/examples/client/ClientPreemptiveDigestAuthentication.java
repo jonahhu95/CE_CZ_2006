@@ -42,12 +42,11 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
 /**
- * An example of HttpClient can be customized to authenticate
- * preemptively using DIGEST scheme.
+ * An example of HttpClient can be customized to authenticate preemptively using
+ * DIGEST scheme.
  * <p>
- * Generally, preemptive authentication can be considered less
- * secure than a response to an authentication challenge
- * and therefore discouraged.
+ * Generally, preemptive authentication can be considered less secure than a
+ * response to an authentication challenge and therefore discouraged.
  * </p>
  */
 public class ClientPreemptiveDigestAuthentication {

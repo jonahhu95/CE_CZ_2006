@@ -45,47 +45,47 @@ import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
 /**
- * This example demonstrates how the HttpClient fluent API can be used to handle HTTP responses
- * without buffering content body in memory.
+ * This example demonstrates how the HttpClient fluent API can be used to handle
+ * HTTP responses without buffering content body in memory.
  */
 public class FluentResponseHandling {
 
-    public static void main(String[] args)throws Exception {
+    public static void main(String[] args) throws Exception {
         Document result = Request.Get("http://somehost/content")
                 .execute().handleResponse(new ResponseHandler<Document>() {
 
-            @Override
-            public Document handleResponse(final HttpResponse response) throws IOException {
-                StatusLine statusLine = response.getStatusLine();
-                HttpEntity entity = response.getEntity();
-                if (statusLine.getStatusCode() >= 300) {
-                    throw new HttpResponseException(
-                            statusLine.getStatusCode(),
-                            statusLine.getReasonPhrase());
-                }
-                if (entity == null) {
-                    throw new ClientProtocolException("Response contains no content");
-                }
-                DocumentBuilderFactory dbfac = DocumentBuilderFactory.newInstance();
-                try {
-                    DocumentBuilder docBuilder = dbfac.newDocumentBuilder();
-                    ContentType contentType = ContentType.getOrDefault(entity);
-                    if (!contentType.equals(ContentType.APPLICATION_XML)) {
-                        throw new ClientProtocolException("Unexpected content type:" + contentType);
+                    @Override
+                    public Document handleResponse(final HttpResponse response) throws IOException {
+                        StatusLine statusLine = response.getStatusLine();
+                        HttpEntity entity = response.getEntity();
+                        if (statusLine.getStatusCode() >= 300) {
+                            throw new HttpResponseException(
+                                    statusLine.getStatusCode(),
+                                    statusLine.getReasonPhrase());
+                        }
+                        if (entity == null) {
+                            throw new ClientProtocolException("Response contains no content");
+                        }
+                        DocumentBuilderFactory dbfac = DocumentBuilderFactory.newInstance();
+                        try {
+                            DocumentBuilder docBuilder = dbfac.newDocumentBuilder();
+                            ContentType contentType = ContentType.getOrDefault(entity);
+                            if (!contentType.equals(ContentType.APPLICATION_XML)) {
+                                throw new ClientProtocolException("Unexpected content type:" + contentType);
+                            }
+                            Charset charset = contentType.getCharset();
+                            if (charset == null) {
+                                charset = Consts.ISO_8859_1;
+                            }
+                            return docBuilder.parse(entity.getContent(), charset.name());
+                        } catch (ParserConfigurationException ex) {
+                            throw new IllegalStateException(ex);
+                        } catch (SAXException ex) {
+                            throw new ClientProtocolException("Malformed XML document", ex);
+                        }
                     }
-                    Charset charset = contentType.getCharset();
-                    if (charset == null) {
-                        charset = Consts.ISO_8859_1;
-                    }
-                    return docBuilder.parse(entity.getContent(), charset.name());
-                } catch (ParserConfigurationException ex) {
-                    throw new IllegalStateException(ex);
-                } catch (SAXException ex) {
-                    throw new ClientProtocolException("Malformed XML document", ex);
-                }
-            }
 
-            });
+                });
         // Do something useful with the result
         System.out.println(result);
     }
