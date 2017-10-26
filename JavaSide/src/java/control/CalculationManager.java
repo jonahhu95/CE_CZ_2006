@@ -16,11 +16,26 @@ public class CalculationManager {
     private ApiFetcher apiManager = new ApiFetcher();
     private List<Calculation> CalculationList = new ArrayList();
 
+    /**
+     *
+     * @param user
+     * @return
+     */
     public Calculation getUserCalculation(User user) {
         dbManager.getCalculatedRecord(user.getUsername());
         return null;
     }
 
+    /**
+     *
+     * @param workLocation
+     * @param homeLocation
+     * @param salary
+     * @param commuteType
+     * @param jobInterest
+     * @param salarySatisfaction
+     * @return
+     */
     public Calculation createNewCalculation(String workLocation, String homeLocation,
             int salary, char commuteType, int jobInterest, int salarySatisfaction) {
 
@@ -74,12 +89,23 @@ public class CalculationManager {
         return null;
     }
 
+    /**
+     *
+     * @param calculation1
+     * @param calculation2
+     */
     public void compareCalculations(Calculation calculation1, Calculation calculation2) {
         //receive the most recent calculation
         //retrieve data from the score_t table in database
 
     }
 
+    /**
+     *
+     * @param calculation
+     * @param user
+     * @return
+     */
     public boolean saveCalculation(Calculation calculation, User user) {
         //valid.saveCalculation(); //new method on databaseManager
         return false;

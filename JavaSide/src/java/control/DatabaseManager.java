@@ -16,6 +16,12 @@ public class DatabaseManager {
     private static ArrayList<String> name = new ArrayList<String>();
 
     //getCalculatedRecord = get past calculated record??
+
+    /**
+     *
+     * @param username
+     * @return
+     */
     public int getCalculatedRecord(String username) {
         int score = -1;
         //-1 condition if the user don't have past record
@@ -44,6 +50,11 @@ public class DatabaseManager {
         return score;
     }
 
+    /**
+     *
+     * @param score
+     * @param username
+     */
     public void storeCalculationResult(int score, String username) {
         try {
             Connection con = getConnection();
@@ -54,7 +65,12 @@ public class DatabaseManager {
         }
     }
     
-
+    /**
+     *
+     * @param username
+     * @param password
+     * @return
+     */
     public static boolean validateLogin(String username, String password) {
         String pws = null;
         try {
@@ -76,6 +92,13 @@ public class DatabaseManager {
 
     //auto increment is set for primary key(id)
     //assume no duplicate username
+
+    /**
+     *
+     * @param username
+     * @param password
+     * @return
+     */
     public boolean createAccount(String username, String password) {
         String un = null;
         try {
@@ -103,6 +126,11 @@ public class DatabaseManager {
         return true;
     }
 
+    /**
+     *
+     * @param username
+     * @return
+     */
     public boolean deleteAccount(String username) {
         try {
             Connection con = getConnection();
@@ -114,6 +142,12 @@ public class DatabaseManager {
         return true;
     }
 
+    /**
+     *
+     * @param username
+     * @param password
+     * @return
+     */
     public boolean editAccount(String username, String password) {
         try {
             Connection con = getConnection();
@@ -125,6 +159,12 @@ public class DatabaseManager {
         return true;
     }
 
+    /**
+     *
+     * @param username
+     * @param feedback
+     * @return
+     */
     public boolean addFeedback(String username, String feedback) {
         try {
             Connection con = getConnection();
@@ -136,6 +176,11 @@ public class DatabaseManager {
         return true;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public static Connection getConnection() throws Exception {
         //always check whether there is valid access to database
         try {
@@ -155,6 +200,12 @@ public class DatabaseManager {
         return null;
     }
 
+    /**
+     *
+     * @param username
+     * @return
+     * @throws Exception
+     */
     public static String getPassword(String username) throws Exception {
         String name = null;
         try {
@@ -173,6 +224,12 @@ public class DatabaseManager {
         return name;
     }
 
+    /**
+     *
+     * @param username
+     * @param pws
+     * @throws Exception
+     */
     public static void post(String username, String pws) throws Exception {
         try {
             Connection con = getConnection();
@@ -185,6 +242,12 @@ public class DatabaseManager {
     }
 
     //for testing case only
+
+    /**
+     *
+     * @param arg
+     * @throws Exception
+     */
     public static void main(String arg[]) throws Exception {
 
         Scanner in = new Scanner(System.in);
