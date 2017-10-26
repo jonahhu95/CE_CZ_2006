@@ -3,7 +3,10 @@ package entity;
 import java.util.Arrays;
 import java.util.List;
 
-
+/**
+ *
+ * @author jonah
+ */
 public class CommuteComfort extends Criteria {
 
     private int averageRidersArea;
@@ -20,6 +23,10 @@ public class CommuteComfort extends Criteria {
         calculateSubScore();
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public double calculateSubScore() {
         if(travelMode == 'p'){
@@ -38,6 +45,10 @@ public class CommuteComfort extends Criteria {
         return super.calculateSubScore();
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String getExplanation() {
         if(point == 0)
@@ -49,26 +60,50 @@ public class CommuteComfort extends Criteria {
         return super.getExplanation();
     }
 
+    /**
+     *
+     * @return
+     */
     public int getAverageRidersArea() {
         return averageRidersArea;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getRidersArea() {
         return ridersArea;
     }
 
+    /**
+     *
+     * @return
+     */
     public char getTravelMode() {
         return travelMode;
     }
 
+    /**
+     *
+     * @param averageRidersArea
+     */
     public void setAverageRidersArea(int averageRidersArea) {
         this.averageRidersArea = averageRidersArea;
     }
 
+    /**
+     *
+     * @param ridersArea
+     */
     public void setRidersArea(int ridersArea) {
         this.ridersArea = ridersArea;
     }
 
+    /**
+     *
+     * @param travelMode
+     */
     public void setTravelMode(char travelMode) {
         this.travelMode = travelMode;
     }

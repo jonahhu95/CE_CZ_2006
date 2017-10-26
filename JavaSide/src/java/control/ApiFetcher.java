@@ -16,11 +16,18 @@ import okhttp3.Response;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+/**
+ *
+ * @
+ */
 public class ApiFetcher {
 
     private String accessToken = null;
     private String googleApiKey = "AIzaSyDh0GkxyS2a9Sc1Uy-u0Z8Q-7_LBhYeHPk";
 
+    /**
+     *
+     */
     public ApiFetcher() {
         getAccessToken();
         if (accessToken == null) {
@@ -29,6 +36,9 @@ public class ApiFetcher {
 
     }
 
+    /**
+     *
+     */
     public void test() {
         String location = ""; //input
         String APIKey = "AIzaSyCpfcGTHKxaYAJA_n_5jCVkJCeG9zBiJwA";
@@ -44,6 +54,18 @@ public class ApiFetcher {
         int m = 1;
     }
 
+    /**
+     * Returns area name based on oneMap's planning area.
+     * The longitude argument must specify the longitude of the location
+     * The latitude argument must specify the latitude of the location
+     * <p>
+     * This method does a HTTP get request to the relevant API before it
+     * returns the area name
+     *
+     * @param longitude longitude of the location
+     * @param latitude latitude of the location
+     * @return planning area name of the location
+     */
     public String getArea(double longitude, double latitude) {
         String url;
         JSONObject obj = null;
@@ -69,10 +91,18 @@ public class ApiFetcher {
         return ret;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getAverageCommuteTime() {
         return 40.0;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getAverageNumberOfRiders() {
 
         String url;
@@ -89,6 +119,11 @@ public class ApiFetcher {
         return totalRiders / areas.size();
     }
 
+    /**
+     *
+     * @param area
+     * @return
+     */
     public int getNumberOfRiders(String area) {
 
         String url;
@@ -123,6 +158,11 @@ public class ApiFetcher {
         return total;
     }
 
+    /**
+     *
+     * @param area
+     * @return
+     */
     public int getMedianSalary(String area) {
         String url;
         JSONObject obj = null;
@@ -165,6 +205,11 @@ public class ApiFetcher {
         return -1;
     }
 
+    /**
+     *
+     * @param locationName
+     * @return
+     */
     public double[] getCoordinates(String locationName) {
         String url;
         JSONObject obj;
@@ -187,6 +232,12 @@ public class ApiFetcher {
         return geo;
     }
 
+    /**
+     *
+     * @param homeLocation
+     * @param workLocation
+     * @return
+     */
     public double[] getCommuteTimeCost(Address homeLocation, Address workLocation) {
         String url;
         JSONObject obj;

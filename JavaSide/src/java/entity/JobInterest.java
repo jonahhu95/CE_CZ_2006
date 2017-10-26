@@ -3,7 +3,10 @@ package entity;
 import java.util.Arrays;
 import java.util.List;
 
-
+/**
+ *
+ * @author jonah
+ */
 public class JobInterest extends Criteria {
 
     private int jobInterest = -1;
@@ -17,11 +20,19 @@ public class JobInterest extends Criteria {
         calculateSubScore();
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public double calculateSubScore() {
         return (jobInterest-1)/10 * weightage;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String getExplanation() {
         if(jobInterest != -1)
@@ -29,10 +40,18 @@ public class JobInterest extends Criteria {
         return super.getExplanation();
     }
 
+    /**
+     *
+     * @return
+     */
     public int getJobInterest() {
         return jobInterest;
     }
 
+    /**
+     *
+     * @param jobInterest
+     */
     public void setJobInterest(int jobInterest) {
         this.jobInterest = jobInterest;
     }

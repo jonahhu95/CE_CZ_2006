@@ -14,6 +14,10 @@ import control.CalculationManager;
  */
 public class Test {
     
+    /**
+     *
+     * @param arg
+     */
     public static void main(String arg[]){
         CalculationManager cm = new CalculationManager();
         cm.createNewCalculation("Nanayang Technological University", "Evergreen Park Singapore", 4500, 'p', 5, 5);

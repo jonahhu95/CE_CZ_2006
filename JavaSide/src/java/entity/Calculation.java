@@ -6,6 +6,10 @@ import java.util.Arrays;
 import java.util.List;
 import javafx.util.Pair;
 
+/**
+ *
+ * @author jonah
+ */
 public class Calculation {
 
     /*
@@ -16,7 +20,6 @@ public class Calculation {
             new ArrayList(Arrays.asList(COMMUTE_COMFORT, COMMUTE_COST, 
                     COMMUTE_TIME, JOB_INTEREST, SALARY, SALARY_SATISFACTION));
      */
-
     private List<Criteria> criteriaList;
     private double JSIScore;
     private long createdTime;
@@ -38,6 +41,23 @@ public class Calculation {
 
     private ApiFetcher apiFetch;
 
+    /**
+     *
+     * @param workLocation
+     * @param homeLoction
+     * @param salary
+     * @param commuteType
+     * @param jobInterest
+     * @param salarySatisfaction
+     * @param createdTime
+     * @param medianSalary
+     * @param ridersArea
+     * @param aveRidersArea
+     * @param commuteTime
+     * @param aveCommuteTime
+     * @param monthlyCommuteCost
+     * @throws Exception
+     */
     public Calculation(Address workLocation, Address homeLoction, int salary, char commuteType,
             int jobInterest, int salarySatisfaction, long createdTime, int medianSalary,
             int ridersArea, int aveRidersArea, double commuteTime, double aveCommuteTime,
@@ -70,54 +90,111 @@ public class Calculation {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public Address getWorkLocation() {
         return workLocation;
     }
 
+    /**
+     *
+     * @return
+     */
     public Address getHomeLoction() {
         return homeLoction;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getSalary() {
         return salary;
     }
 
+    /**
+     *
+     * @return
+     */
     public char getCommuteType() {
         return commuteType;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getJobInterest() {
         return jobInterest;
     }
 
+    /**
+     *
+     * @return
+     */
     public long getCreatedTime() {
         return createdTime;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getMedianSalary() {
         return medianSalary;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getRidersArea() {
         return ridersArea;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getAveRidersArea() {
         return aveRidersArea;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getCommuteTime() {
         return commuteTime;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getAveCommuteTime() {
         return aveCommuteTime;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getMonthlyCommuteCost() {
         return monthlyCommuteCost;
     }
+    
+    public int getSalarySatisfaction() {
+    		return salarySatisfaction;
+    }
 
+
+    /**
+     *
+     * @return
+     */
     public double getJSIScore() {
         double total = 0;
         for (int n = 0; n < criteriaList.size(); n++) {
@@ -126,58 +203,114 @@ public class Calculation {
         return total;
     }
 
+    /**
+     *
+     * @param workLocation
+     */
     public void setWorkLocation(Address workLocation) {
         this.workLocation = workLocation;
     }
 
+    /**
+     *
+     * @param homeLoction
+     */
     public void setHomeLoction(Address homeLoction) {
         this.homeLoction = homeLoction;
     }
 
+    /**
+     *
+     * @param salary
+     */
     public void setSalary(int salary) {
         this.salary = salary;
     }
 
+    /**
+     *
+     * @param commuteType
+     */
     public void setCommuteType(char commuteType) {
         this.commuteType = commuteType;
     }
 
+    /**
+     *
+     * @param jobInterest
+     */
     public void setJobInterest(int jobInterest) {
         this.jobInterest = jobInterest;
     }
 
+    /**
+     *
+     * @param salarySatisfaction
+     */
     public void setSalarySatisfaction(int salarySatisfaction) {
         this.salarySatisfaction = salarySatisfaction;
     }
 
+    /**
+     *
+     * @param createdTime
+     */
     public void setCreatedTime(long createdTime) {
         this.createdTime = createdTime;
     }
 
+    /**
+     *
+     * @param medianSalary
+     */
     public void setMedianSalary(int medianSalary) {
         this.medianSalary = medianSalary;
     }
 
+    /**
+     *
+     * @param ridersArea
+     */
     public void setRidersArea(int ridersArea) {
         this.ridersArea = ridersArea;
     }
 
+    /**
+     *
+     * @param aveRidersArea
+     */
     public void setAveRidersArea(int aveRidersArea) {
         this.aveRidersArea = aveRidersArea;
     }
 
+    /**
+     *
+     * @param commuteTime
+     */
     public void setCommuteTime(double commuteTime) {
         this.commuteTime = commuteTime;
     }
 
+    /**
+     *
+     * @param aveCommuteTime
+     */
     public void setAveCommuteTime(double aveCommuteTime) {
         this.aveCommuteTime = aveCommuteTime;
     }
 
+    /**
+     *
+     * @param monthlyCommuteCost
+     */
     public void setMonthlyCommuteCost(double monthlyCommuteCost) {
         this.monthlyCommuteCost = monthlyCommuteCost;
     }
 
+    /**
+     *
+     * @throws Exception
+     */
     public void createCriteria_Salary() throws Exception {
         if (!checkIfExist(Salary.class)) {
             Criteria hold = new Salary(medianSalary, salary);
@@ -187,6 +320,10 @@ public class Calculation {
         }
     }
 
+    /**
+     *
+     * @throws Exception
+     */
     public void createCriteria_CommuteComfort() throws Exception {
         if (!checkIfExist(CommuteComfort.class)) {
             Criteria hold = new CommuteComfort(aveRidersArea, ridersArea, commuteType);
@@ -196,6 +333,10 @@ public class Calculation {
         }
     }
 
+    /**
+     *
+     * @throws Exception
+     */
     public void createCriteria_CommuteTime() throws Exception {
         if (!checkIfExist(CommuteTime.class)) {
             Criteria hold = new CommuteTime(aveCommuteTime, commuteTime);
@@ -205,6 +346,10 @@ public class Calculation {
         }
     }
 
+    /**
+     *
+     * @throws Exception
+     */
     public void createCriteria_CommuteCost() throws Exception {
         if (!checkIfExist(CommuteCost.class)) {
             Criteria hold = new CommuteCost(monthlyCommuteCost, salary);
@@ -214,6 +359,10 @@ public class Calculation {
         }
     }
 
+    /**
+     *
+     * @throws Exception
+     */
     public void createCriteria_JobInterest() throws Exception {
         if (!checkIfExist(JobInterest.class)) {
             Criteria hold = new JobInterest(jobInterest);
@@ -223,6 +372,10 @@ public class Calculation {
         }
     }
 
+    /**
+     *
+     * @throws Exception
+     */
     public void createCriteria_SalarySatisfaction() throws Exception {
         if (!checkIfExist(SalarySatisfaction.class)) {
             Criteria hold = new SalarySatisfaction(salarySatisfaction);
@@ -232,6 +385,10 @@ public class Calculation {
         }
     }
 
+    /**
+     *
+     * @return @throws Exception
+     */
     public String getCriteriaExplanation_Salary() throws Exception {
         if (checkInitialization()) {
             for (int n = 0; n < criteriaList.size(); n++) {
@@ -243,6 +400,10 @@ public class Calculation {
         return "Error";
     }
 
+    /**
+     *
+     * @return @throws Exception
+     */
     public String getCriteriaExplanation_CommuteComfort() throws Exception {
         if (checkInitialization()) {
             for (int n = 0; n < criteriaList.size(); n++) {
@@ -254,6 +415,10 @@ public class Calculation {
         return "Error";
     }
 
+    /**
+     *
+     * @return @throws Exception
+     */
     public String getCriteriaExplanation_CommuteTime() throws Exception {
         if (checkInitialization()) {
             for (int n = 0; n < criteriaList.size(); n++) {
@@ -265,6 +430,10 @@ public class Calculation {
         return "Error";
     }
 
+    /**
+     *
+     * @return @throws Exception
+     */
     public String getCriteriaExplanation_CommuteCost() throws Exception {
         if (checkInitialization()) {
             for (int n = 0; n < criteriaList.size(); n++) {
@@ -276,6 +445,10 @@ public class Calculation {
         return "Error";
     }
 
+    /**
+     *
+     * @return @throws Exception
+     */
     public String getCriteriaExplanation_JobInterest() throws Exception {
         if (checkInitialization()) {
             for (int n = 0; n < criteriaList.size(); n++) {
@@ -287,6 +460,10 @@ public class Calculation {
         return "Error";
     }
 
+    /**
+     *
+     * @return @throws Exception
+     */
     public String getCriteriaExplanation_SalarySatisfaction() throws Exception {
         if (checkInitialization()) {
             for (int n = 0; n < criteriaList.size(); n++) {
@@ -299,6 +476,10 @@ public class Calculation {
         return "Error";
     }
 
+    /**
+     *
+     * @return
+     */
     public double[] getCriteriaMark_Salary() {
         double[] ret = {0.0, 0.0};
         for (int n = 0; n < criteriaList.size(); n++) {
@@ -309,6 +490,10 @@ public class Calculation {
         return ret;
     }
 
+    /**
+     *
+     * @return
+     */
     public double[] getCriteriaMark_CommuteComfort() {
         double[] ret = {0.0, 0.0};
         for (int n = 0; n < criteriaList.size(); n++) {
@@ -321,6 +506,10 @@ public class Calculation {
         return ret;
     }
 
+    /**
+     *
+     * @return
+     */
     public double[] getCriteriaMark_CommuteTime() {
         double[] ret = {0.0, 0.0};
         for (int n = 0; n < criteriaList.size(); n++) {
@@ -332,6 +521,10 @@ public class Calculation {
         return ret;
     }
 
+    /**
+     *
+     * @return
+     */
     public double[] getCriteriaMark_CommuteCost() {
         double[] ret = {0.0, 0.0};
         for (int n = 0; n < criteriaList.size(); n++) {
@@ -343,6 +536,10 @@ public class Calculation {
         return ret;
     }
 
+    /**
+     *
+     * @return
+     */
     public double[] getCriteriaMark_JobInterest() {
         double[] ret = {0.0, 0.0};
         for (int n = 0; n < criteriaList.size(); n++) {
@@ -354,6 +551,10 @@ public class Calculation {
         return ret;
     }
 
+    /**
+     *
+     * @return
+     */
     public double[] getCriteriaMark_SalarySatisfaction() {
         double[] ret = {0.0, 0.0};
         for (int n = 0; n < criteriaList.size(); n++) {

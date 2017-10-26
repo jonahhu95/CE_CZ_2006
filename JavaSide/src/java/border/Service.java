@@ -23,17 +23,35 @@ public class Service {
     UserManager um = new UserManager();
     CalculationManager cm = new CalculationManager();
     
+    /**
+     *
+     * @param u
+     * @param p
+     * @return
+     */
     @WebMethod
     public boolean checkUser(String u, String p) {
         return um.loginUser(u, p);
     }
     
+    /**
+     *
+     * @param u
+     * @param p
+     * @return
+     */
     @WebMethod
     public boolean createUserAccount(String u, String p)
     {
         return um.createUser(u, p);
     }
     
+    /**
+     *
+     * @param u
+     * @param p
+     * @return
+     */
     @WebMethod
     public boolean changePassword(String u, String p)
     {

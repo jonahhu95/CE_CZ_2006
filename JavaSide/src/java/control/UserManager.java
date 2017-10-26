@@ -3,13 +3,23 @@ package control;
 import control.DatabaseManager;
 import entity.User;
 
+/**
+ *
+ * @author jonah
+ */
 public class UserManager {
 	
 	private static User[] UserList=new User[100]; // ???
 	
 	DatabaseManager valid=new DatabaseManager();
 	
-	public boolean createUser(String username, String password) {
+    /**
+     *
+     * @param username
+     * @param password
+     * @return
+     */
+    public boolean createUser(String username, String password) {
 		int i=0;
 		
 		for(i=0;i<UserList.length;i++) {
@@ -23,7 +33,12 @@ public class UserManager {
 		return result;
 	}
 	
-	public boolean deleteUser(String username) {
+    /**
+     *
+     * @param username
+     * @return
+     */
+    public boolean deleteUser(String username) {
 		int i=0;
 
 		for(i=0;i<UserList.length;i++) {
@@ -36,6 +51,13 @@ public class UserManager {
 	}
 	
 	//only password can be altered
+
+    /**
+     *
+     * @param username
+     * @param password
+     * @return
+     */
 	public boolean editUser(String username,String password) {
 		int i=0;
 
@@ -48,7 +70,13 @@ public class UserManager {
 		return false; //fail to edit user
 	}
 	
-	public boolean loginUser(String username,String password) {
+    /**
+     *
+     * @param username
+     * @param password
+     * @return
+     */
+    public boolean loginUser(String username,String password) {
 
 		return valid.validateLogin(username,password);
 		//return false if password does not match or user not found
