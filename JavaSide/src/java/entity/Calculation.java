@@ -84,6 +84,7 @@ public class Calculation {
             createCriteria_CommuteTime(); //3
             createCriteria_JobInterest(); //4
             createCriteria_SalarySatisfaction(); //5
+            calculateJSIScore();
             initializationComplete = true;
         } catch (Exception e) {
             throw new Exception("Something went wrong");
@@ -190,16 +191,21 @@ public class Calculation {
         return salarySatisfaction;
     }
 
+    public double getJSIScore() {
+        return JSIScore;
+    }
+
+    
     /**
      *
      * @return
      */
-    public double getJSIScore() {
+    private void calculateJSIScore() {
         double total = 0;
         for (int n = 0; n < criteriaList.size(); n++) {
             total = total + criteriaList.get(n).calculateSubScore();
         }
-        return total;
+        JSIScore = total;
     }
 
     /**
@@ -579,6 +585,67 @@ public class Calculation {
             throw new Exception("Please initialize all criteria");
         }
         return true;
+    }
+    
+    public String toXML(){
+        try {
+
+		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+
+		// root elements
+		Document doc = docBuilder.newDocument();
+		Element rootElement = doc.createElement("company");
+		doc.appendChild(rootElement);
+
+		// staff elements
+		Element staff = doc.createElement("Staff");
+		rootElement.appendChild(staff);
+
+		// set attribute to staff element
+		Attr attr = doc.createAttribute("id");
+		attr.setValue("1");
+		staff.setAttributeNode(attr);
+
+		// shorten way
+		// staff.setAttribute("id", "1");
+
+		// firstname elements
+		Element firstname = doc.createElement("firstname");
+		firstname.appendChild(doc.createTextNode("yong"));
+		staff.appendChild(firstname);
+
+		// lastname elements
+		Element lastname = doc.createElement("lastname");
+		lastname.appendChild(doc.createTextNode("mook kim"));
+		staff.appendChild(lastname);
+
+		// nickname elements
+		Element nickname = doc.createElement("nickname");
+		nickname.appendChild(doc.createTextNode("mkyong"));
+		staff.appendChild(nickname);
+
+		// salary elements
+		Element salary = doc.createElement("salary");
+		salary.appendChild(doc.createTextNode("100000"));
+		staff.appendChild(salary);
+
+		// write the content into xml file
+		TransformerFactory transformerFactory = TransformerFactory.newInstance();
+		Transformer transformer = transformerFactory.newTransformer();
+		DOMSource source = new DOMSource(doc);
+		StreamResult result = new StreamResult(new File("C:\\file.xml"));
+
+		// Output to console for testing
+		// StreamResult result = new StreamResult(System.out);
+
+		transformer.transform(source, result);
+
+		System.out.println("File saved!");
+
+	  } catch (Exception ex) {
+		//ERROR HANDLING
+	  }
     }
 
 }

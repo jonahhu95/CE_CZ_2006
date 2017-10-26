@@ -21,8 +21,8 @@ import javax.jws.WebParam;
 @WebService
 public class Service {
 
-    UserManager um = new UserManager();
-    CalculationManager cm = new CalculationManager();
+    static UserManager um = new UserManager();
+    static CalculationManager cm = new CalculationManager();
 
     /**
      *
@@ -58,10 +58,11 @@ public class Service {
     }
 
     @WebMethod
-    public Calculation calculateJS(String workLocation, String homeLocation,
-            int salary, char commuteType, int jobInterest, int salarySatisfaction)
-    {
-        return cm.createNewCalculation(workLocation, homeLocation, salary, commuteType, jobInterest, salarySatisfaction);
+    public Calculation createCalculation(String workLocation, String homeLocation,
+            int salary, char commuteType, int jobInterest, int salarySatisfaction){
+            Calculation cal = cm.createNewCalculation(workLocation, homeLocation, salary, commuteType, jobInterest, salarySatisfaction);
+            
+        return 
     }
     
 }

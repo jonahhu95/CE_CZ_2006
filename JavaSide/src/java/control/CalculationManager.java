@@ -74,15 +74,8 @@ public class CalculationManager {
         Calculation cal;
         try {
             cal = new Calculation(workLoc, homeLoc,
-                    salary, commuteType, jobInterest, salarySatisfaction, time, medianSalary,
+                    salary, 'p', jobInterest, salarySatisfaction, time, medianSalary,
                     ridersArea, aveRidersArea, commuteTime, aveCommuteTime, monthlyCommuteCost);
-            String test = cal.getCriteriaExplanation_CommuteComfort();
-//            test = cal.getCriteriaExplanation_CommuteCost();
-//            test = cal.getCriteriaExplanation_CommuteTime();
-//            test = cal.getCriteriaExplanation_JobInterest();
-//            test = cal.getCriteriaExplanation_Salary();
-//            test = cal.getCriteriaExplanation_SalarySatisfaction();
-            int m = 0;
         } catch (Exception e) {
             return null;
         }

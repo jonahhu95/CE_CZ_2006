@@ -9,8 +9,8 @@
     <message name="hellothereResponse"/>
     <message name="checkUser"/>
     <message name="checkUserResponse"/>
-    <message name="calculateJS"/>
-    <message name="calculateJSResponse"/>
+    <message name="createCalculation"/>
+    <message name="createCalculationResponse"/>
     <portType name="Service">
         <operation name="hellothere">
             <input message="tns:hellothere"/>
@@ -20,9 +20,9 @@
             <input message="tns:checkUser"/>
             <output message="tns:checkUserResponse"/>
         </operation>
-        <operation name="calculateJS">
-            <input message="tns:calculateJS"/>
-            <output message="tns:calculateJSResponse"/>
+        <operation name="createCalculation">
+            <input message="tns:createCalculation"/>
+            <output message="tns:createCalculationResponse"/>
         </operation>
     </portType>
     <binding name="ServicePortBinding" type="tns:Service">
@@ -34,7 +34,7 @@
             <input/>
             <output/>
         </operation>
-        <operation name="calculateJS">
+        <operation name="createCalculation">
             <input/>
             <output/>
         </operation>
@@ -55,6 +55,30 @@
         </wsp:ExactlyOne>
     </wsp:Policy>
     <wsp:Policy wsu:Id="ServicePortBinding_checkUser_Output_Policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:EncryptedParts>
+                    <sp:Body/>
+                </sp:EncryptedParts>
+                <sp:SignedParts>
+                    <sp:Body/>
+                </sp:SignedParts>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsp:Policy wsu:Id="ServicePortBinding_calculateJS_Input_Policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:EncryptedParts>
+                    <sp:Body/>
+                </sp:EncryptedParts>
+                <sp:SignedParts>
+                    <sp:Body/>
+                </sp:SignedParts>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsp:Policy wsu:Id="ServicePortBinding_calculateJS_Output_Policy">
         <wsp:ExactlyOne>
             <wsp:All>
                 <sp:EncryptedParts>
