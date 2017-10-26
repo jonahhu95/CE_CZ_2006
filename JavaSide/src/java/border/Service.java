@@ -22,6 +22,7 @@ import javax.jws.WebParam;
 public class Service {
 
     UserManager um = new UserManager();
+    CalculationManager cm = new CalculationManager();
 
     /**
      *
@@ -55,10 +56,7 @@ public class Service {
     public boolean changePassword(String u, String p) {
         return um.editUser(u, p);
     }
-<<<<<<< HEAD
 
-=======
-    
     @WebMethod
     public Calculation calculateJS(String workLocation, String homeLocation,
             int salary, char commuteType, int jobInterest, int salarySatisfaction)
@@ -66,6 +64,4 @@ public class Service {
         return cm.createNewCalculation(workLocation, homeLocation, salary, commuteType, jobInterest, salarySatisfaction);
     }
     
-    
->>>>>>> 9447e542dd3a9240a7e4c62ab956790d13841585
 }

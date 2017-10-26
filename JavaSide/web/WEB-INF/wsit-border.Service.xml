@@ -9,6 +9,8 @@
     <message name="hellothereResponse"/>
     <message name="checkUser"/>
     <message name="checkUserResponse"/>
+    <message name="calculateJS"/>
+    <message name="calculateJSResponse"/>
     <portType name="Service">
         <operation name="hellothere">
             <input message="tns:hellothere"/>
@@ -18,6 +20,10 @@
             <input message="tns:checkUser"/>
             <output message="tns:checkUserResponse"/>
         </operation>
+        <operation name="calculateJS">
+            <input message="tns:calculateJS"/>
+            <output message="tns:calculateJSResponse"/>
+        </operation>
     </portType>
     <binding name="ServicePortBinding" type="tns:Service">
         <operation name="hellothere">
@@ -25,6 +31,10 @@
             <output></output>
         </operation>
         <operation name="checkUser">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="calculateJS">
             <input/>
             <output/>
         </operation>
