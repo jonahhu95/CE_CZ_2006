@@ -211,13 +211,13 @@ namespace ASPWebsite {
         protected global::System.Web.UI.WebControls.Label Label6;
         
         /// <summary>
-        /// TextBox3 control.
+        /// txt_Salary control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox txt_Salary;
         
         /// <summary>
         /// Label7 control.
@@ -229,13 +229,13 @@ namespace ASPWebsite {
         protected global::System.Web.UI.WebControls.Label Label7;
         
         /// <summary>
-        /// RadioButtonList1 control.
+        /// rbSalary control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList1;
+        protected global::System.Web.UI.WebControls.RadioButtonList rbSalary;
         
         /// <summary>
         /// Label8 control.
@@ -247,13 +247,22 @@ namespace ASPWebsite {
         protected global::System.Web.UI.WebControls.Label Label8;
         
         /// <summary>
-        /// RadioButtonList2 control.
+        /// rbInterest control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList2;
+        protected global::System.Web.UI.WebControls.RadioButtonList rbInterest;
+        
+        /// <summary>
+        /// Label9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label9;
         
         /// <summary>
         /// sendMessage control.
