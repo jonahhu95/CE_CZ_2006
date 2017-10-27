@@ -14,7 +14,7 @@ namespace ASPWebsite
         protected void Page_Load(object sender, EventArgs e)
         {
             ApiFetcher apiFetch = new ApiFetcher();
-            apiFetch.getMedianSalary("Hougang");
+            apiFetch.getCoordinates("Evergreen Park Singapore");
         }
         protected void loginBtn_Click1(object sender, EventArgs e)
         {
