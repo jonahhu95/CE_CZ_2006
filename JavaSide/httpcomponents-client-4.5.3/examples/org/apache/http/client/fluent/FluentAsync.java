@@ -36,27 +36,26 @@ import java.util.concurrent.Future;
 import org.apache.http.concurrent.FutureCallback;
 
 /**
- * This example demonstrates how the he HttpClient fluent API can be used to execute multiple
- * requests asynchronously using background threads.
+ * This example demonstrates how the he HttpClient fluent API can be used to
+ * execute multiple requests asynchronously using background threads.
  */
 public class FluentAsync {
 
-    public static void main(String[] args)throws Exception {
+    public static void main(String[] args) throws Exception {
         // Use pool of two threads
         ExecutorService threadpool = Executors.newFixedThreadPool(2);
         Async async = Async.newInstance().use(threadpool);
 
-        Request[] requests = new Request[] {
-                Request.Get("http://www.google.com/"),
-                Request.Get("http://www.yahoo.com/"),
-                Request.Get("http://www.apache.com/"),
-                Request.Get("http://www.apple.com/")
+        Request[] requests = new Request[]{
+            Request.Get("http://www.google.com/"),
+            Request.Get("http://www.yahoo.com/"),
+            Request.Get("http://www.apache.com/"),
+            Request.Get("http://www.apple.com/")
         };
-
 
         Queue<Future<Content>> queue = new LinkedList<Future<Content>>();
         // Execute requests asynchronously
-        for (final Request request: requests) {
+        for (final Request request : requests) {
             Future<Content> future = async.execute(request, new FutureCallback<Content>() {
 
                 @Override
@@ -77,7 +76,7 @@ public class FluentAsync {
             queue.add(future);
         }
 
-        while(!queue.isEmpty()) {
+        while (!queue.isEmpty()) {
             Future<Content> future = queue.remove();
             try {
                 future.get();

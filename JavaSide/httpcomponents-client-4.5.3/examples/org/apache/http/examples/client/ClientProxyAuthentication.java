@@ -39,8 +39,8 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
 /**
- * A simple example that uses HttpClient to execute an HTTP request
- * over a secure connection tunneled through an authenticating proxy.
+ * A simple example that uses HttpClient to execute an HTTP request over a
+ * secure connection tunneled through an authenticating proxy.
  */
 public class ClientProxyAuthentication {
 
@@ -59,8 +59,8 @@ public class ClientProxyAuthentication {
             HttpHost proxy = new HttpHost("localhost", 8888);
 
             RequestConfig config = RequestConfig.custom()
-                .setProxy(proxy)
-                .build();
+                    .setProxy(proxy)
+                    .build();
             HttpGet httpget = new HttpGet("/basic-auth/user/passwd");
             httpget.setConfig(config);
 

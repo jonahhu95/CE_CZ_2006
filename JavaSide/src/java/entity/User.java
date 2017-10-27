@@ -8,23 +8,23 @@ public class User {
 
     private String userName;
     private String password;
-    
+
     /**
      *
      * @param username
      * @param password
      */
-    public User(String username,String password) {
-    		this.userName=username;
-    		this.password=password;
+    public User(String username, String password) {
+        this.userName = username;
+        this.password = password;
     }
-    
+
     /**
      *
      * @return
      */
     public String getUsername() {
-    		return userName;
+        return userName;
     }
 
     /**
@@ -32,15 +32,15 @@ public class User {
      * @return
      */
     public String getPassword() {
-		return password;
-}
-    
+        return password;
+    }
+
     /**
      *
      * @param password
      */
     public void changePassword(String password) {
-    		this.password=password;
+        this.password = password;
     }
-    
+
 }

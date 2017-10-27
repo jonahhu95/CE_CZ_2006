@@ -34,9 +34,9 @@ public class FluentQuickStart {
         // response content in memory in some cases.
 
         Request.Get("http://targethost/homepage")
-            .execute().returnContent();
+                .execute().returnContent();
         Request.Post("http://targethost/login")
-            .bodyForm(Form.form().add("username",  "vip").add("password",  "secret").build())
-            .execute().returnContent();
+                .bodyForm(Form.form().add("username", "vip").add("password", "secret").build())
+                .execute().returnContent();
     }
 }

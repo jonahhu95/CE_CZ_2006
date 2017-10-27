@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?> 
- <definitions 
- xmlns="http://schemas.xmlsoap.org/wsdl/" 
- xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
- xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
- xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="ServiceService" targetNamespace="http://border/" xmlns:tns="http://border/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" xmlns:sc="http://schemas.sun.com/2006/03/wss/server" xmlns:wspp="http://java.sun.com/xml/ns/wsit/policy" xmlns:wsrm="http://docs.oasis-open.org/ws-rx/wsrmp/200702" 
- >
+<definitions 
+    xmlns="http://schemas.xmlsoap.org/wsdl/" 
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="ServiceService" targetNamespace="http://border/" xmlns:tns="http://border/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" xmlns:sc="http://schemas.sun.com/2006/03/wss/server" xmlns:wspp="http://java.sun.com/xml/ns/wsit/policy" xmlns:wsrm="http://docs.oasis-open.org/ws-rx/wsrmp/200702" 
+>
     <message name="hellothere"/>
     <message name="hellothereResponse"/>
     <message name="checkUser"/>
     <message name="checkUserResponse"/>
+    <message name="createCalculation"/>
+    <message name="createCalculationResponse"/>
     <portType name="Service">
         <operation name="hellothere">
             <input message="tns:hellothere"/>
@@ -18,6 +20,10 @@
             <input message="tns:checkUser"/>
             <output message="tns:checkUserResponse"/>
         </operation>
+        <operation name="createCalculation">
+            <input message="tns:createCalculation"/>
+            <output message="tns:createCalculationResponse"/>
+        </operation>
     </portType>
     <binding name="ServicePortBinding" type="tns:Service">
         <operation name="hellothere">
@@ -25,6 +31,10 @@
             <output></output>
         </operation>
         <operation name="checkUser">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="createCalculation">
             <input/>
             <output/>
         </operation>
@@ -45,6 +55,30 @@
         </wsp:ExactlyOne>
     </wsp:Policy>
     <wsp:Policy wsu:Id="ServicePortBinding_checkUser_Output_Policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:EncryptedParts>
+                    <sp:Body/>
+                </sp:EncryptedParts>
+                <sp:SignedParts>
+                    <sp:Body/>
+                </sp:SignedParts>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsp:Policy wsu:Id="ServicePortBinding_calculateJS_Input_Policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:EncryptedParts>
+                    <sp:Body/>
+                </sp:EncryptedParts>
+                <sp:SignedParts>
+                    <sp:Body/>
+                </sp:SignedParts>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsp:Policy wsu:Id="ServicePortBinding_calculateJS_Output_Policy">
         <wsp:ExactlyOne>
             <wsp:All>
                 <sp:EncryptedParts>

@@ -57,7 +57,6 @@ public class ClientCustomPublicSuffixList {
 
         // Please use the publicsuffix.org URL to download the list no more than once per day !!!
         // Please consider making a local copy !!!
-
         DefaultHostnameVerifier hostnameVerifier = new DefaultHostnameVerifier(publicSuffixMatcher);
 
         RFC6265CookieSpecProvider cookieSpecProvider = new RFC6265CookieSpecProvider(publicSuffixMatcher);

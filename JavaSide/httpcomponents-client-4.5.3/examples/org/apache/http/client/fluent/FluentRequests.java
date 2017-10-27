@@ -33,11 +33,12 @@ import org.apache.http.HttpVersion;
 import org.apache.http.entity.ContentType;
 
 /**
- * This example demonstrates basics of request execution with the HttpClient fluent API.
+ * This example demonstrates basics of request execution with the HttpClient
+ * fluent API.
  */
 public class FluentRequests {
 
-    public static void main(String[] args)throws Exception {
+    public static void main(String[] args) throws Exception {
         // Execute a GET with timeout settings and return response content as String.
         Request.Get("http://somehost/")
                 .connectTimeout(1000)

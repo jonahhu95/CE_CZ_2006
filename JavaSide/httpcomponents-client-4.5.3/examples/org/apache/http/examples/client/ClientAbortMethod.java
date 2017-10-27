@@ -24,7 +24,6 @@
  * <http://www.apache.org/>.
  *
  */
-
 package org.apache.http.examples.client;
 
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -33,7 +32,8 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 
 /**
- * This example demonstrates how to abort an HTTP method before its normal completion.
+ * This example demonstrates how to abort an HTTP method before its normal
+ * completion.
  */
 public class ClientAbortMethod {
 
@@ -59,4 +59,3 @@ public class ClientAbortMethod {
     }
 
 }
-

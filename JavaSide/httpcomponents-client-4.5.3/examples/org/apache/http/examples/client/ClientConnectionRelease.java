@@ -24,7 +24,6 @@
  * <http://www.apache.org/>.
  *
  */
-
 package org.apache.http.examples.client;
 
 import java.io.IOException;
@@ -37,8 +36,8 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 
 /**
- * This example demonstrates the recommended way of using API to make sure
- * the underlying connection gets released back to the connection manager.
+ * This example demonstrates the recommended way of using API to make sure the
+ * underlying connection gets released back to the connection manager.
  */
 public class ClientConnectionRelease {
 
@@ -81,4 +80,3 @@ public class ClientConnectionRelease {
     }
 
 }
-

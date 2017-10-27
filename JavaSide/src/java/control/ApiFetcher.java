@@ -55,12 +55,12 @@ public class ApiFetcher {
     }
 
     /**
-     * Returns area name based on oneMap's planning area.
-     * The longitude argument must specify the longitude of the location
-     * The latitude argument must specify the latitude of the location
+     * Returns area name based on oneMap's planning area. The longitude argument
+     * must specify the longitude of the location The latitude argument must
+     * specify the latitude of the location
      * <p>
-     * This method does a HTTP get request to the relevant API before it
-     * returns the area name
+     * This method does a HTTP get request to the relevant API before it returns
+     * the area name
      *
      * @param longitude longitude of the location
      * @param latitude latitude of the location

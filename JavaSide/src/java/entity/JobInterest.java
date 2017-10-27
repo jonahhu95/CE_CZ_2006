@@ -14,7 +14,7 @@ public class JobInterest extends Criteria {
             "Description 4", "Description 5", "Description 6", "Description 7", "Description 8",
             "Description 9", "Description 10");
 
-    JobInterest(int jobInterest){
+    JobInterest(int jobInterest) {
         weightage = 20;
         setJobInterest(jobInterest);
         calculateSubScore();
@@ -26,7 +26,7 @@ public class JobInterest extends Criteria {
      */
     @Override
     public double calculateSubScore() {
-        return (jobInterest-1)/10 * weightage;
+        return (jobInterest - 1) / 10 * weightage;
     }
 
     /**
@@ -35,8 +35,9 @@ public class JobInterest extends Criteria {
      */
     @Override
     public String getExplanation() {
-        if(jobInterest != -1)
-            return explanations.get(jobInterest-1);
+        if (jobInterest != -1) {
+            return explanations.get(jobInterest - 1);
+        }
         return super.getExplanation();
     }
 

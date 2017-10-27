@@ -20,9 +20,10 @@ import javax.jws.WebParam;
  */
 @WebService
 public class Service {
-    UserManager um = new UserManager();
-    CalculationManager cm = new CalculationManager();
-    
+
+    static UserManager um = new UserManager();
+    static CalculationManager cm = new CalculationManager();
+
     /**
      *
      * @param u
@@ -33,7 +34,7 @@ public class Service {
     public boolean checkUser(String u, String p) {
         return um.loginUser(u, p);
     }
-    
+
     /**
      *
      * @param u
@@ -41,11 +42,10 @@ public class Service {
      * @return
      */
     @WebMethod
-    public boolean createUserAccount(String u, String p)
-    {
+    public boolean createUserAccount(String u, String p) {
         return um.createUser(u, p);
     }
-    
+
     /**
      *
      * @param u
@@ -53,17 +53,16 @@ public class Service {
      * @return
      */
     @WebMethod
-    public boolean changePassword(String u, String p)
-    {
+    public boolean changePassword(String u, String p) {
         return um.editUser(u, p);
     }
-    
+
     @WebMethod
-    public Calculation calculateJS(String workLocation, String homeLocation,
-            int salary, char commuteType, int jobInterest, int salarySatisfaction)
-    {
-        return cm.createNewCalculation(workLocation, homeLocation, salary, commuteType, jobInterest, salarySatisfaction);
+    public Calculation createCalculation(String workLocation, String homeLocation,
+            int salary, char commuteType, int jobInterest, int salarySatisfaction){
+            Calculation cal = cm.createNewCalculation(workLocation, homeLocation, salary, commuteType, jobInterest, salarySatisfaction);
+            
+        return 
     }
-    
     
 }

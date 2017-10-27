@@ -24,7 +24,6 @@
  * <http://www.apache.org/>.
  *
  */
-
 package org.apache.http.examples.client;
 
 import java.util.List;
@@ -78,4 +77,3 @@ public class ClientCustomContext {
     }
 
 }
-

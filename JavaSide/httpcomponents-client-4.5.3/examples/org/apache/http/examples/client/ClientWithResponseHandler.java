@@ -24,7 +24,6 @@
  * <http://www.apache.org/>.
  *
  */
-
 package org.apache.http.examples.client;
 
 import java.io.IOException;
@@ -40,7 +39,8 @@ import org.apache.http.util.EntityUtils;
 
 /**
  * This example demonstrates the use of the {@link ResponseHandler} to simplify
- * the process of processing the HTTP response and releasing associated resources.
+ * the process of processing the HTTP response and releasing associated
+ * resources.
  */
 public class ClientWithResponseHandler {
 
@@ -76,4 +76,3 @@ public class ClientWithResponseHandler {
     }
 
 }
-

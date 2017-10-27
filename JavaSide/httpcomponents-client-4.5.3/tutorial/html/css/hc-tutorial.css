@@ -252,58 +252,58 @@ td code {
 }
 
 div.note * td,
-    div.tip * td,
-    div.warning * td,
-    div.calloutlist * td {
+div.tip * td,
+div.warning * td,
+div.calloutlist * td {
     text-align: justify;
     font-size: 100%;
 }
 
 .programlisting .interfacename,
-    .programlisting .literal,
-    .programlisting .classname {
+.programlisting .literal,
+.programlisting .classname {
     font-size: 95%;
 }
 
 .title .interfacename,
-    .title .literal,
-    .title .classname {
+.title .literal,
+.title .classname {
     font-size: 130%;
 }
 
 .programlisting * .lineannotation,
-    .programlisting * .lineannotation * {
+.programlisting * .lineannotation * {
     color: blue;
 }
 
 .bannerLeft, .bannerRight {
-  font-size: xx-large;
-  font-weight: bold;
+    font-size: xx-large;
+    font-weight: bold;
 }
 
 .bannerLeft img, .bannerRight img {
-  margin: 0px;
+    margin: 0px;
 }
 
 .bannerLeft img {
-  float:left;
-  text-shadow: #7CFC00;
+    float:left;
+    text-shadow: #7CFC00;
 }
 
 .bannerRight img {
-  float:right;
-  text-shadow: #7CFC00;
+    float:right;
+    text-shadow: #7CFC00;
 }
 
 .banner {
-  padding: 0px;
+    padding: 0px;
 }
 
 .banner img {
-  border: none;
+    border: none;
 }
 
 .clear  {
-  clear:both;
-  visibility: hidden;
+    clear:both;
+    visibility: hidden;
 }

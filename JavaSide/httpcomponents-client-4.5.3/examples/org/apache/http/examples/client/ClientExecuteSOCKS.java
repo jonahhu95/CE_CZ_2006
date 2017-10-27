@@ -24,7 +24,6 @@
  * <http://www.apache.org/>.
  *
  */
-
 package org.apache.http.examples.client;
 
 import java.io.IOException;
@@ -54,7 +53,7 @@ import org.apache.http.util.EntityUtils;
  */
 public class ClientExecuteSOCKS {
 
-    public static void main(String[] args)throws Exception {
+    public static void main(String[] args) throws Exception {
         Registry<ConnectionSocketFactory> reg = RegistryBuilder.<ConnectionSocketFactory>create()
                 .register("http", new MyConnectionSocketFactory())
                 .build();

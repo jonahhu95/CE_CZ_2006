@@ -13,11 +13,12 @@ import org.json.*;
  * @author xy
  */
 public class Address {
+
     private double longitude;
     private double latitude;
     private String locationName;
     private String area;
-    
+
     /**
      *
      * @param locationName
@@ -25,13 +26,13 @@ public class Address {
      * @param latitude
      * @param area
      */
-    public Address(String locationName, double longitude, double latitude, String area){
+    public Address(String locationName, double longitude, double latitude, String area) {
         setLocationName(locationName);
         setLongitude(longitude);
         setLatitude(latitude);
         setArea(area);
     }
-    
+
     /**
      *
      * @return
@@ -63,7 +64,7 @@ public class Address {
     public String getArea() {
         return area;
     }
-    
+
     /**
      *
      * @param longitude
@@ -95,6 +96,5 @@ public class Address {
     public void setArea(String area) {
         this.area = area;
     }
-    
-    
+
 }

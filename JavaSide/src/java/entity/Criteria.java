@@ -31,7 +31,7 @@ public abstract class Criteria {
      *
      * @return
      */
-    public double getWeightage(){
+    public double getWeightage() {
         return weightage;
     }
 }
