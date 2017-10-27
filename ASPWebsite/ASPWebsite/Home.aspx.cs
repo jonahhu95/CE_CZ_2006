@@ -13,8 +13,10 @@ namespace ASPWebsite
         //SEService.ServiceClient se = new SEService.ServiceClient();
         protected void Page_Load(object sender, EventArgs e)
         {
-            ApiFetcher apiFetch = new ApiFetcher();
-            apiFetch.getCoordinates("Evergreen Park Singapore");
+            //ApiManager apiFetch = new ApiManager();
+            //apiFetch.getCoordinates("Evergreen Park Singapore");
+            DatabaseManager dbManager = new DatabaseManager();
+            dbManager.getConnection();
         }
         protected void loginBtn_Click1(object sender, EventArgs e)
         {

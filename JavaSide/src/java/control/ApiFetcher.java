@@ -103,21 +103,7 @@ public class ApiFetcher {
      *
      * @return
      */
-    public int getAverageNumberOfRiders() {
-
-        String url;
-        List<String> areas = getAllPlanningArea();
-        int year = Calendar.getInstance().get(Calendar.YEAR);
-
-        int totalRiders = 0;
-        for (int n = 0; n < areas.size(); n++) {
-            int temp = getNumberOfRiders(areas.get(n));
-            if (temp > 0) {
-                totalRiders = totalRiders + temp;
-            }
-        }
-        return totalRiders / areas.size();
-    }
+    c
 
     /**
      *

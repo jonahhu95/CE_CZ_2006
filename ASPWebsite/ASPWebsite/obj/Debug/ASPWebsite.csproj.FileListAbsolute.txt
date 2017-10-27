@@ -15,3 +15,11 @@ C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEER
 C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\obj\Debug\ASPWebsite.dll
 C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\obj\Debug\ASPWebsite.pdb
 C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\obj\Debug\ASPWebsite.csprojResolveAssemblyReference.cache
+C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\bin\EntityFramework.dll
+C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\bin\EntityFramework.SqlServer.dll
+C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\bin\System.Data.SQLite.dll
+C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\bin\System.Data.SQLite.EF6.dll
+C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\bin\System.Data.SQLite.Linq.dll
+C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\bin\EntityFramework.xml
+C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\bin\EntityFramework.SqlServer.xml
+C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\bin\System.Data.SQLite.xml
