@@ -58,6 +58,8 @@ public class Calculation {
      * @param monthlyCommuteCost
      * @throws Exception
      */
+    
+    public Calculation(){}
     public Calculation(Address workLocation, Address homeLoction, int salary, char commuteType,
             int jobInterest, int salarySatisfaction, long createdTime, int medianSalary,
             int ridersArea, int aveRidersArea, double commuteTime, double aveCommuteTime,
