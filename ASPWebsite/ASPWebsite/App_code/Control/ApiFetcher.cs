@@ -12,6 +12,10 @@ namespace ASPWebsite.App_Code.Control
         private String oneMapAccessToken = null;
         private long oneMapAccessToken_expiryTime = 0;
         private String googleApiKey = "AIzaSyDh0GkxyS2a9Sc1Uy-u0Z8Q-7_LBhYeHPk";
+        private List<string> allPlanningArea = null;
+        private int allPlanningArea_expiryYear = 0;
+        private List<KeyValuePair<string,int>> planningAreaRiders = null;
+        private int planningAreaRiders_expiryYear = 0;
 
         public int getMedianSalary(String area)
         {
@@ -31,7 +35,7 @@ namespace ASPWebsite.App_Code.Control
                 try
                 {
                     url = generateCall_GetMedianSalary(area, 2010);
-                    String res = doGetRequest(url);
+                    string res = doGetRequest(url);
                     JArray obj = JArray.Parse(res);
                     for (int n = 0; n < key.Count; n++)
                     {
@@ -60,6 +64,162 @@ namespace ASPWebsite.App_Code.Control
                 }
             }
             return -1;
+        }
+        public string getArea(double longitude, double latitude)
+        {
+            string url;
+            JObject obj = null;
+            int year = DateTime.Now.Year;
+            if (!checkOneMapAccessToken())
+                return null;
+
+            while (year > 1965)
+            {
+                try
+                {
+                    url = generateCall_GetArea(longitude, latitude, year);
+                    string res = doGetRequest(url);
+                    obj = (JObject)(JArray.Parse(res)).First;
+                    return (string)obj["pln_area_n"];
+                }
+                catch (Exception ex)
+                {
+                    year--;
+                    continue;
+                }
+            }
+            return null;
+        }
+        public double getAverageCommuteTime()
+        {
+            return 40.0;
+        }
+        public int getAverageNumberOfRiders()
+        {
+            List<KeyValuePair<string, int>> ret = getAllAreaRiders();
+            int total = 0;
+            for(int n = 0; n < ret.Count; n++)
+            {
+                total = total + ret[n].Value;
+            }
+            return total / ret.Count;
+            
+        }
+        public int getNumberOfRiders(String area)
+        {
+            string url;
+            JObject obj = null;
+            int total = -1;
+            int year = DateTime.Now.Year;
+            List<string> key = new List<string> { "mrt_bus", "mrt", "bus", "mrt_car", "mrt_other" };
+
+            if (!checkOneMapAccessToken())
+                return -1;
+            while (year > 1965)
+            {
+                try
+                {
+                    url = generateCall_NumberOfRiders(area, year);
+                    string res = doGetRequest(url);
+                    obj = (JObject)(JArray.Parse(res)).First;
+                    total = 0;
+                    for (int m = 0; m < key.Count; m++)
+                    {
+                        if (obj[key[m]] != null)
+                        {
+                            total = total + (int)obj[key[m]];
+                        }
+                    }
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    year--;
+                    continue;
+                }
+            }
+            return total;
+        }
+        public double[] getCoordinates(String locationName)
+        {
+            String url;
+            JObject obj;
+            double[] geo = new double[2];
+            try
+            {
+                url = generateCall_GetCoordinates(locationName);
+                String res = doGetRequest(url);
+                obj = JObject.Parse(res);
+                JArray ar = (JArray)obj["results"];
+                JObject hold = (JObject)ar.First["geometry"]["location"];
+                geo[0] = (Double)hold["lng"];
+                geo[1] = (Double)hold["lat"];
+            }
+            catch (Exception ex)
+            {
+                geo = null;
+            }
+            return geo;
+        }
+
+
+        private List<string> getAllPlanningArea()
+        {
+            string url;
+            JArray jsAr;
+            List<string> ret = new List<string>();
+            int year = DateTime.Now.Year;
+            if (allPlanningArea == null || allPlanningArea_expiryYear < DateTime.Now.Year)
+            {
+                if (!checkOneMapAccessToken())
+                    return null;
+                while (year > 1965)
+                {
+                    try
+                    {
+                        url = generateCall_GetAllPlanningArea(year);
+                        string response = doGetRequest(url);
+                        jsAr = JArray.Parse(response);
+                        if (jsAr.Count < 2)
+                        {
+                            year--;
+                            continue;
+                        }
+                        for (int n = 0; n < jsAr.Count; n++)
+                        {
+                            ret.Add((string)(jsAr[n])["pln_area_n"]);
+                        }
+                        allPlanningArea = ret;
+                        allPlanningArea_expiryYear = DateTime.Now.Year;
+                    }
+                    catch (Exception ex)
+                    {
+                        break;
+                    }
+                }
+            }
+            return allPlanningArea;
+        }
+        private List<KeyValuePair<string, int>> getAllAreaRiders()
+        {
+            String url;
+            List<String> areas = getAllPlanningArea();
+            int year = DateTime.Now.Year;
+            int totalRiders = 0;
+            if(planningAreaRiders == null || allPlanningArea_expiryYear < DateTime.Now.Year)
+            for (int n = 0; n < areas.Count; n++)
+            {
+                int temp = getNumberOfRiders(areas[n]);
+                if (temp > 0)
+                {
+                    planningAreaRiders.Add(new KeyValuePair<string, int>(areas[n], temp));
+                }else
+                {
+                    //ERROR HANDLING
+                }
+            }
+            planningAreaRiders_expiryYear = DateTime.Now.Year;
+            return planningAreaRiders;
         }
 
         private string doGetRequest(string url)
@@ -138,7 +298,7 @@ namespace ASPWebsite.App_Code.Control
                 return false;
             if (res.ErrorException != null)
                 return false;
-            if (checkJsonResponse_google(res) || checkJsonResponse_oneMap(res) 
+            if (checkJsonResponse_google(res) || checkJsonResponse_oneMap(res)
                 || checkJsonResponse_streetDirectory(res))
                 return true;
             return false;
