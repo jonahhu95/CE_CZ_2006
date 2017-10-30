@@ -39,6 +39,10 @@ namespace ASPWebsite.App_Code.Control
             //    System.out.println(e);
             //}
         }
+        public Calculation getCalculation(String username, int count)
+        {
+            return null;
+        }
 
     }
 }
