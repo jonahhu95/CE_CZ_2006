@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using ASPWebsite.App_Code.Entity;
+using Newtonsoft.Json.Linq;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -18,9 +19,9 @@ namespace ASPWebsite.App_Code.Control
         private List<KeyValuePair<string,int>> planningAreaRiders = null;
         private int planningAreaRiders_expiryYear = 0;
 
-        public int getMedianSalary(String area)
+        public int getMedianSalary(string area)
         {
-            String url;
+            string url;
             int totalAreaPopulation = 0, median = 0, salaryRange = 0; ;
             int year = DateTime.Now.Year;
             List<string> key = new List<string> { "below_sgd_1000",
@@ -106,7 +107,7 @@ namespace ASPWebsite.App_Code.Control
             return total / ret.Count;
             
         }
-        public int getNumberOfRiders(String area)
+        public int getNumberOfRiders(string area)
         {
             string url;
             JObject obj = null;
@@ -141,15 +142,15 @@ namespace ASPWebsite.App_Code.Control
             }
             return total;
         }
-        public double[] getCoordinates(String locationName)
+        public double[] getCoordinates(string locationName)
         {
-            String url;
+            string url;
             JObject obj;
             double[] geo = new double[2];
             try
             {
                 url = generateCall_GetCoordinates(locationName);
-                String res = doGetRequest(url);
+                string res = doGetRequest(url);
                 obj = JObject.Parse(res);
                 JArray ar = (JArray)obj["results"];
                 JObject hold = (JObject)ar.First["geometry"]["location"];

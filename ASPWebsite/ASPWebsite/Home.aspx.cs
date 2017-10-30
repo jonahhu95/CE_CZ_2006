@@ -15,8 +15,8 @@ namespace ASPWebsite
         {
             //ApiManager apiFetch = new ApiManager();
             //apiFetch.getCoordinates("Evergreen Park Singapore");
-            DatabaseManager dbManager = new DatabaseManager();
-            dbManager.getConnection();
+            //DatabaseManager dbManager = new DatabaseManager();
+            //dbManager.getConnection();
         }
         protected void loginBtn_Click1(object sender, EventArgs e)
         {
