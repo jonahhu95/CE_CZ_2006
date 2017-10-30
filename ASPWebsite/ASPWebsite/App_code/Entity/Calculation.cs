@@ -9,7 +9,7 @@ namespace ASPWebsite.App_Code.Entity
     {
         private List<Criteria> criteriaList;
         private double JSIScore;
-        private long createdTime;
+        private DateTime createdTime;
         private Address workLocation;
         private Address homeLoction;
         private int salary;
@@ -27,7 +27,7 @@ namespace ASPWebsite.App_Code.Entity
         private Boolean initializationComplete = false;
 
         public Calculation(Address workLocation, Address homeLoction, int salary, char commuteType,
-                int jobInterest, int salarySatisfaction, long createdTime, int medianSalary,
+                int jobInterest, int salarySatisfaction, DateTime createdTime, int medianSalary,
                 int ridersArea, int aveRidersArea, double commuteTime, double aveCommuteTime,
                 double monthlyCommuteCost)
         {
@@ -93,7 +93,7 @@ namespace ASPWebsite.App_Code.Entity
         {
             return jobInterest;
         }
-        public long getCreatedTime()
+        public DateTime getCreatedTime()
         {
             return createdTime;
         }
@@ -154,7 +154,7 @@ namespace ASPWebsite.App_Code.Entity
         {
             this.salarySatisfaction = salarySatisfaction;
         }
-        public void setCreatedTime(long createdTime)
+        public void setCreatedTime(DateTime createdTime)
         {
             this.createdTime = createdTime;
         }

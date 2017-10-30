@@ -188,6 +188,10 @@ namespace ASPWebsite.App_Code.Control
             SQLiteDataReader reader = command.ExecuteReader();
             return reader;
         }
+        public Calculation getCalculation(String username, int count)
+        {
+            return null;
+        }
 
     }
 }
