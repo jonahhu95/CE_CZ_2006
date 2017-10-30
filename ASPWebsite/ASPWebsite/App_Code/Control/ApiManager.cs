@@ -107,28 +107,16 @@ namespace ASPWebsite.App_Code.Control
                 url = generateCall_GetCommuteTimeCost(homeLocation.getLongitude(), homeLocation.getLatitude(),
                         workLocation.getLongitude(), workLocation.getLatitude());
                 String res = doGetRequest(url);
-                //JArray res1 = JArray.Parse(res);
                 obj = new JObject(res);
-                ret[0] = (double)obj.GetValue("tm");
-                //JObject hold = obj.
-                //if (checkJsonResponse_streetDirectory(res1)){
-                    
-                //}
-                //if (checkJSONResponse_streetDirectory(res))
-                //{
-                //    obj = new JObject(res);
-                //    JObject hold = obj.getJSONObject("total_data");
-                //    ret[0] = (Double)hold.get("tm");
-                //    ret[1] = (Double)hold.get("tr");
-                //}
+                ret[0] = (double)obj["tc"]; // time cost
+                ret[1] = (double)obj["tr"] * 22.0; // cost
+                return ret;
             }
             catch (Exception ex)
             {
-                ret = null;
             }
-            return ret;
+            return null;
         }
-
         public int getAverageNumberOfRiders()
         {
             List<KeyValuePair<string, int>> ret = getAllAreaRiders();
