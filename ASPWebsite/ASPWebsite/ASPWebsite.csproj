@@ -144,28 +144,9 @@
     <Content Include="vendor\font-awesome\scss\_screen-reader.scss" />
     <Content Include="vendor\font-awesome\scss\_stacked.scss" />
     <Content Include="vendor\font-awesome\scss\_variables.scss" />
-    <Content Include="Service References\SEService\ASPWebsite.SEService.checkUserResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="MainPage.Master" />
-    <Content Include="Service References\SEService\ASPWebsite.SEService.changePasswordResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\SEService\ASPWebsite.SEService.createUserAccountResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="packages.config" />
-    <Content Include="Service References\SEService\ASPWebsite.SEService.calculateJSResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\SEService\ASPWebsite.SEService.calculation.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="App_Data\SqliteDatabase.db" />
-    <None Include="Service References\SEService\ServiceService.wsdl" />
-    <None Include="Service References\SEService\ServiceService.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -192,12 +173,6 @@
     <Content Include="js\freelancer.min.js" />
     <Content Include="js\httpRequest.js" />
     <Content Include="js\jqBootstrapValidation.js" />
-    <None Include="Service References\SEService\configuration91.svcinfo" />
-    <None Include="Service References\SEService\configuration.svcinfo" />
-    <None Include="Service References\SEService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="vendor\bootstrap\css\bootstrap-grid.css" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.min.css" />
     <Content Include="vendor\bootstrap\css\bootstrap-reboot.css" />
@@ -257,11 +232,6 @@
     <Compile Include="Result.aspx.designer.cs">
       <DependentUpon>Result.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Service References\SEService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="UserPage.aspx.cs">
       <DependentUpon>UserPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -273,12 +243,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\SEService\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="sds\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -63,16 +63,16 @@ namespace ASPWebsite
 
         protected void sendMessage_Click(object sender, EventArgs e)
         {
-           // String worklocate = txt_Destination.Text;
-           // String homelocate = txt_Source.Text;
-           // int salary = Convert.ToInt32(txt_Salary.Text);
-           // //char type;
-           // int interest = Convert.ToInt32(rbInterest.SelectedValue);
-           // int satisfaction = Convert.ToInt32(rbSalary.SelectedValue);
+            String worklocate = txt_Destination.Text;
+            String homelocate = txt_Source.Text;
+            int salary = Convert.ToInt32(txt_Salary.Text);
+            //char type;
+            int interest = Convert.ToInt32(rbInterest.SelectedValue);
+            int satisfaction = Convert.ToInt32(rbSalary.SelectedValue);
 
 
-           //se.calculateJS(worklocate, homelocate, salary, 'T', interest, salary);
-           // //Label9.Text = m
+            se.calculateJS(worklocate, homelocate, salary, 'T', interest, salary);
+            Label9.Text = m
 
         }
 
