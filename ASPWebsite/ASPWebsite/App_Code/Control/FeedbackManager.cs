@@ -4,26 +4,27 @@ namespace ASPWebsite.App_Code.Control
 {
     public class FeedbackManager
     {
+
+        private DatabaseManager dbManager = new DatabaseManager();
+
         public FeedbackManager()
         {
+
         }
-            DatabaseManager valid = new DatabaseManager();
-            private Feedback[] FeedbackList = new Feedback[100];
-
-        public Boolean addFeedback(User user, String message)
+            
+        public Boolean addFeedback(User user, string message)
         {
-            int i = 0;
-
-            for (i = 0; i < FeedbackList.Length; i++)
+            try
             {
-                if (FeedbackList[i] == null)
-                {
-                    FeedbackList[i] = new Feedback(user, message);
-                    //valid.addFeedback(user.getUsername(), message);
-                    return true;
-                }
+                long time = (long)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+                Feedback toSubmit = new Feedback(user.getUsername(), message, time);
+                return dbManager.saveFeedback(toSubmit);
             }
-            return false; //fail to get feedback
+            catch
+            {
+
+            }
+            return false;
         }
     }
 }
