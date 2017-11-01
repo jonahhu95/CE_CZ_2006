@@ -101,6 +101,8 @@ namespace ASPWebsite.App_Code.Control
             String url;
             JObject obj;
             double[] ret = new double[2];
+            ret[0] = 0;
+            ret[1] = 0;
             try
             {
                 url = generateCall_GetCommuteTimeCost(homeLocation.getLongitude(), homeLocation.getLatitude(),
@@ -109,12 +111,11 @@ namespace ASPWebsite.App_Code.Control
                 obj = new JObject(res);
                 ret[0] = (double)obj["tc"]; // time cost
                 ret[1] = (double)obj["tr"] * 22.0; // cost
-                return ret;
             }
             catch (Exception ex)
             {
             }
-            return null;
+            return ret;
         }
         public int getAverageNumberOfRiders()
         {
@@ -193,6 +194,7 @@ namespace ASPWebsite.App_Code.Control
             int year = DateTime.Now.Year;
             if (allPlanningArea == null || allPlanningArea_expiryYear < DateTime.Now.Year)
             {
+                allPlanningArea = new List<string>();
                 if (!checkOneMapAccessToken())
                     return null;
                 while (year > 1965)
@@ -213,6 +215,7 @@ namespace ASPWebsite.App_Code.Control
                         }
                         allPlanningArea = ret;
                         allPlanningArea_expiryYear = DateTime.Now.Year;
+                        break;
                     }
                     catch (Exception ex)
                     {
@@ -229,18 +232,23 @@ namespace ASPWebsite.App_Code.Control
             int year = DateTime.Now.Year;
             int totalRiders = 0;
             if(planningAreaRiders == null || allPlanningArea_expiryYear < DateTime.Now.Year)
-            for (int n = 0; n < areas.Count; n++)
             {
-                int temp = getNumberOfRiders(areas[n]);
-                if (temp > 0)
+                planningAreaRiders = new List<KeyValuePair<string, int>>();
+                for (int n = 0; n < areas.Count; n++)
                 {
-                    planningAreaRiders.Add(new KeyValuePair<string, int>(areas[n], temp));
-                }else
-                {
-                    //ERROR HANDLING
+                    int temp = getNumberOfRiders(areas[n]);
+                    if (temp > 0)
+                    {
+                        planningAreaRiders.Add(new KeyValuePair<string, int>(areas[n], temp));
+                    }
+                    else
+                    {
+                        //ERROR HANDLING
+                    }
                 }
+                planningAreaRiders_expiryYear = DateTime.Now.Year;
             }
-            planningAreaRiders_expiryYear = DateTime.Now.Year;
+            
             return planningAreaRiders;
         }
 
@@ -371,7 +379,7 @@ namespace ASPWebsite.App_Code.Control
             try
             {
                 obj = JObject.Parse(res.Content);
-                if (obj["info"] == null)
+                if (obj["info"] == null || obj["routes"] == null)
                     return false;
             }
             catch (Exception e)
