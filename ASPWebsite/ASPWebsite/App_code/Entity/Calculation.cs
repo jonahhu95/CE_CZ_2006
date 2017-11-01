@@ -25,7 +25,6 @@ namespace ASPWebsite.App_Code.Entity
         private double monthlyCommuteCost;
 
         private Boolean initializationComplete = false;
-
         public Calculation(Address workLocation, Address homeLoction, int salary, char commuteType,
                 int jobInterest, int salarySatisfaction, long createdTime, int medianSalary,
                 int ridersArea, int aveRidersArea, double commuteTime, double aveCommuteTime,

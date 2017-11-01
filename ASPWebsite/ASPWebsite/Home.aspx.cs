@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ASPWebsite.App_Code.Control;
+using ASPWebsite.App_Code.Entity;
 
 namespace ASPWebsite
 {
@@ -30,7 +31,7 @@ namespace ASPWebsite
             //    lblLoginWarning.Text = "Invalid username or password";
             //    tbPassword.Text = null;
             //}
-           
+
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -49,7 +50,7 @@ namespace ASPWebsite
             //        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
             //        LabelWarning.Text = "Username exist in database";
             //    }
-                    
+
             //}
             //else
             //{
@@ -70,10 +71,11 @@ namespace ASPWebsite
             int interest = Convert.ToInt32(rbInterest.SelectedValue);
             int satisfaction = Convert.ToInt32(rbSalary.SelectedValue);
 
-
-            se.calculateJS(worklocate, homelocate, salary, 'T', interest, salary);
-            Label9.Text = m
-
+            //createNewCalculation(String workLocation, String homeLocation,
+            //    int salary, char commuteType, int jobInterest, int salarySatisfaction)
+            CalculationManager cm = new CalculationManager();
+           double s = cm.createNewCalculation(worklocate, homelocate, salary, 'F', interest, satisfaction);
+            Label9.Text = s.ToString();
         }
 
     }

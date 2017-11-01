@@ -198,6 +198,7 @@
   <ItemGroup>
     <Compile Include="App_Code\Control\ApiManager.cs" />
     <Compile Include="App_Code\Control\DatabaseManager.cs" />
+    <Content Include="App_Code\Control\FeedbackManager.cs" />
     <Compile Include="App_Code\Entity\Criteria.cs" />
     <Compile Include="App_Code\Entity\Salary.cs" />
     <Compile Include="App_Code\Entity\CommuteComfort.cs" />

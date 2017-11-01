@@ -9,7 +9,8 @@ namespace ASPWebsite.App_Code.Control
     public class CalculationManager
     {
         ApiManager apiManager = new ApiManager();
-        public Calculation createNewCalculation(String workLocation, String homeLocation,
+
+        public double createNewCalculation(String workLocation, String homeLocation,
                 int salary, char commuteType, int jobInterest, int salarySatisfaction)
         {
 
@@ -34,7 +35,8 @@ namespace ASPWebsite.App_Code.Control
                 coordinates = apiManager.getCoordinates(homeLocation);
                 area = apiManager.getArea(coordinates[0], coordinates[1]);
                 homeLoc = new Address(homeLocation, coordinates[0], coordinates[1], area);
-                time = System.currentTimeMillis();
+                //time = System.currentTimeMillis();
+                time = Environment.TickCount;
                 medianSalary = apiManager.getMedianSalary(homeLoc.getArea());
                 ridersArea = apiManager.getNumberOfRiders(homeLoc.getArea());
                 aveRidersArea = apiManager.getAverageNumberOfRiders();
@@ -45,7 +47,7 @@ namespace ASPWebsite.App_Code.Control
             }
             catch (Exception e)
             {
-                return null;
+                return 0;
             }
 
             Calculation cal;
@@ -57,9 +59,11 @@ namespace ASPWebsite.App_Code.Control
             }
             catch (Exception e)
             {
-                return null;
+                return 0;
             }
-            return cal;
+            return cal.getJSIScore();
         }
+
+
     }
 }

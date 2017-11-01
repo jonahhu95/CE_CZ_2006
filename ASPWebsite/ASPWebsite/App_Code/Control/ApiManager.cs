@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using ASPWebsite.App_Code.Entity;
+using Newtonsoft.Json.Linq;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -94,6 +95,26 @@ namespace ASPWebsite.App_Code.Control
         public double getAverageCommuteTime()
         {
             return 40.0;
+        }
+        public double[] getCommuteTimeCost(Address homeLocation, Address workLocation)
+        {
+            String url;
+            JObject obj;
+            double[] ret = new double[2];
+            try
+            {
+                url = generateCall_GetCommuteTimeCost(homeLocation.getLongitude(), homeLocation.getLatitude(),
+                        workLocation.getLongitude(), workLocation.getLatitude());
+                String res = doGetRequest(url);
+                obj = new JObject(res);
+                ret[0] = (double)obj["tc"]; // time cost
+                ret[1] = (double)obj["tr"] * 22.0; // cost
+                return ret;
+            }
+            catch (Exception ex)
+            {
+            }
+            return null;
         }
         public int getAverageNumberOfRiders()
         {
