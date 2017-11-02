@@ -10,7 +10,7 @@ namespace ASPWebsite.App_Code.Control
     {
         ApiManager apiManager = new ApiManager();
 
-        public double createNewCalculation(String workLocation, String homeLocation,
+        public Calculation createNewCalculation(String workLocation, String homeLocation,
                 int salary, char commuteType, int jobInterest, int salarySatisfaction)
         {
 
@@ -47,7 +47,7 @@ namespace ASPWebsite.App_Code.Control
             }
             catch (Exception e)
             {
-                return 0;
+                return null;
             }
 
             Calculation cal;
@@ -59,9 +59,9 @@ namespace ASPWebsite.App_Code.Control
             }
             catch (Exception e)
             {
-                return 0;
+                return null;
             }
-            return cal.getJSIScore();
+            return cal;
         }
 
 
