@@ -32,7 +32,7 @@ namespace ASPWebsite.App_Code.Entity
         {
             setCreatedTime(createdTime);
             setWorkLocation(workLocation);
-            setHomeLoction(homeLoction);
+            setHomeLocation(homeLoction);
             setSalary(salary);
             setCommuteType(commuteType);
             setJobInterest(jobInterest);
@@ -77,7 +77,7 @@ namespace ASPWebsite.App_Code.Entity
         {
             return workLocation;
         }
-        public Address getHomeLoction()
+        public Address getHomeLocation()
         {
             return homeLoction;
         }
@@ -134,7 +134,7 @@ namespace ASPWebsite.App_Code.Entity
         {
             this.workLocation = workLocation;
         }
-        public void setHomeLoction(Address homeLoction)
+        public void setHomeLocation(Address homeLoction)
         {
             this.homeLoction = homeLoction;
         }

@@ -9,9 +9,9 @@ namespace ASPWebsite.App_Code.Entity
     {
         private string submitter;
         private string message;
-        private long submitTime;
+        private DateTime submitTime;
 
-        public Feedback(string submitter, string message, long submitTime)
+        public Feedback(string submitter, string message, DateTime submitTime)
         {
             setSubmitter(submitter);
             setMessage(message);
@@ -26,7 +26,7 @@ namespace ASPWebsite.App_Code.Entity
         {
             return message;
         }
-        public long getSubmitTime()
+        public DateTime getSubmitTime()
         {
             return submitTime;
         }
@@ -39,7 +39,7 @@ namespace ASPWebsite.App_Code.Entity
         {
             this.message = message;
         }
-        public void setSubmitTime(long submitTime)
+        public void setSubmitTime(DateTime submitTime)
         {
             this.submitTime = submitTime;
         }

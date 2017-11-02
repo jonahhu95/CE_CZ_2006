@@ -13,7 +13,7 @@ namespace ASPWebsite.App_Code.Entity
             explanations = new List<string> { "Description 1", "Description 2", "Description 3" };
             if (travelMode == 'p')
             {
-                int difference = ridersArea - averageRidersArea;
+                long difference = ridersArea - averageRidersArea;
                 if (difference > 8000)
                 {
                     point = 0;
