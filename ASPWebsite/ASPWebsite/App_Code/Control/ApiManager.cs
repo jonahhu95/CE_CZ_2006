@@ -274,7 +274,7 @@ namespace ASPWebsite.App_Code.Control
         {
             string url = "https://developers.onemap.sg/privateapi/popapi/getModeOfTransportWork?";
             url = url + "token=" + oneMapAccessToken;
-            url = url + "&year=" + year.Tostring();
+            url = url + "&year=" + year.ToString();
             url = url + "&planningArea=" + area;
             return url;
         }
@@ -282,7 +282,7 @@ namespace ASPWebsite.App_Code.Control
         {
             string url = "https://developers.onemap.sg/privateapi/popapi/getPlanningareaNames?";
             url = url + "token=" + oneMapAccessToken;
-            url = url + "&year=" + year.Tostring();
+            url = url + "&year=" + year.ToString();
             return url;
         }
         private string generateCall_GetMedianSalary(string area, int year)
@@ -290,16 +290,16 @@ namespace ASPWebsite.App_Code.Control
             string url = "https://developers.onemap.sg/privateapi/popapi/getIncomeFromWork?";
             url = url + "token=" + oneMapAccessToken;
             url = url + "&planningArea=" + area;
-            url = url + "&year=" + year.Tostring();
+            url = url + "&year=" + year.ToString();
             return url;
         }
         private string generateCall_GetArea(double longitude, double latitude, int year)
         {
             string url = "https://developers.onemap.sg/privateapi/popapi/getPlanningarea?";
             url = url + "token=" + oneMapAccessToken;
-            url = url + "&lat=" + latitude.Tostring();
-            url = url + "&lng=" + longitude.Tostring();
-            url = url + "&year=" + year.Tostring();
+            url = url + "&lat=" + latitude.ToString();
+            url = url + "&lng=" + longitude.ToString();
+            url = url + "&year=" + year.ToString();
             return url;
         }
         private string generateCall_GetCoordinates(string locationName)

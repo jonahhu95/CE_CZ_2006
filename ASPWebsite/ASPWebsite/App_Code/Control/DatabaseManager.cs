@@ -27,9 +27,9 @@ namespace ASPWebsite.App_Code.Control
             {
                 if (getConnection())
                 {
-                    string sqlStatement = "INSERT INTO `CALCULATION`(`id`,`user_name`,`created_time`,`work_location_lon`,`work_location_lat`,`work_location_name`,`work_location_area`,`home_location_lon`,`home_location_lat`,`home_location_name`,`home_location_area`,`salary`,`commute_type`,`job_interest`,`salary_satisfaction`,`median_salary`,`riders_area`,`ave_riders_area`,`commute_time`,`ave_commute_time`,`monthly_commute_cost`) VALUES (1,0,0,0,0,'','',0,0,'','',0,'',0,0,0,0,0,'','','');
-" +
-                        user.getUsername() + "," + user.getPassword() + ");";
+                    string sqlStatement = "INSERT INTO CALCULATION(user_name,created_time,work_location_lon,work_location_lat,work_location_name,work_location_area," +
+                        "home_location_lon,home_location_lat,home_location_name,home_location_area,salary,commute_type,job_interest,salary_satisfaction,median_salary," +
+                        "riders_area,ave_riders_area,commute_time,ave_commute_time,monthly_commute_cost) VALUES (" + user.getUsername() + "," + calculation.getCreatedTime() + " " + ")";
                     return insertToTable(sqlStatement);
                 }
 
@@ -104,7 +104,7 @@ namespace ASPWebsite.App_Code.Control
         }
         public List<Calculation> getCalculationsOfUser(User user)
         {
-            try
+            /*try
             {
                 if (getConnection())
                 {
@@ -118,7 +118,7 @@ namespace ASPWebsite.App_Code.Control
                         Address work = new Address((string)ret["work_location_name"], (double)ret["work_location_lon"],
                             (double)ret["work_location_lat"], (string)ret["work_location_area"]);
                         Calculation get = new Calculation(work, home, (int)ret["salary"], (char)ret["commute_type"],
-                            (int)ret["job_interest"], (int)ret["salary_satisfaction"], (long)ret["created_time"],
+                            (int)ret["job_interest"], (int)ret["salary_satisfaction"], new DateTime(ret["created_time"]),
                             (int)ret["median_salary"], (int)ret["riders_area"], (int)ret["ave_riders_area"],
                             (double)ret["commute_time"], (double)ret["ave_commute_time"], (double)ret["monthly_commute_cost"]);
                         calList.Add(get);
@@ -129,7 +129,7 @@ namespace ASPWebsite.App_Code.Control
             catch (Exception e)
             {
                 //Error Handling
-            }
+            }*/
             return null;
         }
         public List<Feedback> getFeedback()
