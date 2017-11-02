@@ -11,17 +11,17 @@ namespace ASPWebsite.App_Code.Control
 {
     public class ApiManager
     {
-        private String oneMapAccessToken = null;
+        private string oneMapAccessToken = null;
         private long oneMapAccessToken_expiryTime = 0;
-        private String googleApiKey = "AIzaSyDh0GkxyS2a9Sc1Uy-u0Z8Q-7_LBhYeHPk";
+        private string googleApiKey = "AIzaSyDh0GkxyS2a9Sc1Uy-u0Z8Q-7_LBhYeHPk";
         private List<string> allPlanningArea = null;
         private int allPlanningArea_expiryYear = 0;
         private List<KeyValuePair<string,int>> planningAreaRiders = null;
         private int planningAreaRiders_expiryYear = 0;
 
-        public int getMedianSalary(String area)
+        public int getMedianSalary(string area)
         {
-            String url;
+            string url;
             int totalAreaPopulation = 0, median = 0, salaryRange = 0; ;
             int year = DateTime.Now.Year;
             List<string> key = new List<string> { "below_sgd_1000",
@@ -98,7 +98,7 @@ namespace ASPWebsite.App_Code.Control
         }
         public double[] getCommuteTimeCost(Address homeLocation, Address workLocation)
         {
-            String url;
+            string url;
             JObject obj;
             double[] ret = new double[2];
             ret[0] = 0;
@@ -107,7 +107,7 @@ namespace ASPWebsite.App_Code.Control
             {
                 url = generateCall_GetCommuteTimeCost(homeLocation.getLongitude(), homeLocation.getLatitude(),
                         workLocation.getLongitude(), workLocation.getLatitude());
-                String res = doGetRequest(url);
+                string res = doGetRequest(url);
                 obj = new JObject(res);
                 ret[0] = (double)obj["tc"]; // time cost
                 ret[1] = (double)obj["tr"] * 22.0; // cost
@@ -128,7 +128,7 @@ namespace ASPWebsite.App_Code.Control
             return total / ret.Count;
             
         }
-        public int getNumberOfRiders(String area)
+        public int getNumberOfRiders(string area)
         {
             string url;
             JObject obj = null;
@@ -163,15 +163,15 @@ namespace ASPWebsite.App_Code.Control
             }
             return total;
         }
-        public double[] getCoordinates(String locationName)
+        public double[] getCoordinates(string locationName)
         {
-            String url;
+            string url;
             JObject obj;
             double[] geo = new double[2];
             try
             {
                 url = generateCall_GetCoordinates(locationName);
-                String res = doGetRequest(url);
+                string res = doGetRequest(url);
                 obj = JObject.Parse(res);
                 JArray ar = (JArray)obj["results"];
                 JObject hold = (JObject)ar.First["geometry"]["location"];
@@ -227,8 +227,8 @@ namespace ASPWebsite.App_Code.Control
         }
         private List<KeyValuePair<string, int>> getAllAreaRiders()
         {
-            String url;
-            List<String> areas = getAllPlanningArea();
+            string url;
+            List<string> areas = getAllPlanningArea();
             int year = DateTime.Now.Year;
             int totalRiders = 0;
             if(planningAreaRiders == null || allPlanningArea_expiryYear < DateTime.Now.Year)
@@ -274,7 +274,7 @@ namespace ASPWebsite.App_Code.Control
         {
             string url = "https://developers.onemap.sg/privateapi/popapi/getModeOfTransportWork?";
             url = url + "token=" + oneMapAccessToken;
-            url = url + "&year=" + year.ToString();
+            url = url + "&year=" + year.Tostring();
             url = url + "&planningArea=" + area;
             return url;
         }
@@ -282,7 +282,7 @@ namespace ASPWebsite.App_Code.Control
         {
             string url = "https://developers.onemap.sg/privateapi/popapi/getPlanningareaNames?";
             url = url + "token=" + oneMapAccessToken;
-            url = url + "&year=" + year.ToString();
+            url = url + "&year=" + year.Tostring();
             return url;
         }
         private string generateCall_GetMedianSalary(string area, int year)
@@ -290,16 +290,16 @@ namespace ASPWebsite.App_Code.Control
             string url = "https://developers.onemap.sg/privateapi/popapi/getIncomeFromWork?";
             url = url + "token=" + oneMapAccessToken;
             url = url + "&planningArea=" + area;
-            url = url + "&year=" + year.ToString();
+            url = url + "&year=" + year.Tostring();
             return url;
         }
         private string generateCall_GetArea(double longitude, double latitude, int year)
         {
             string url = "https://developers.onemap.sg/privateapi/popapi/getPlanningarea?";
             url = url + "token=" + oneMapAccessToken;
-            url = url + "&lat=" + latitude.ToString();
-            url = url + "&lng=" + longitude.ToString();
-            url = url + "&year=" + year.ToString();
+            url = url + "&lat=" + latitude.Tostring();
+            url = url + "&lng=" + longitude.Tostring();
+            url = url + "&year=" + year.Tostring();
             return url;
         }
         private string generateCall_GetCoordinates(string locationName)

@@ -17,7 +17,7 @@ namespace ASPWebsite.App_Code.Control
             double[] coordinates;
             double[] timeCost;
             String area;
-            long time = 0;
+            DateTime time; ;
             int medianSalary = 0;
             int ridersArea = 0;
             int aveRidersArea = 0;
@@ -35,8 +35,7 @@ namespace ASPWebsite.App_Code.Control
                 coordinates = apiManager.getCoordinates(homeLocation);
                 area = apiManager.getArea(coordinates[0], coordinates[1]);
                 homeLoc = new Address(homeLocation, coordinates[0], coordinates[1], area);
-                //time = System.currentTimeMillis();
-                time = Environment.TickCount;
+                time = DateTime.Now;
                 medianSalary = apiManager.getMedianSalary(homeLoc.getArea());
                 ridersArea = apiManager.getNumberOfRiders(homeLoc.getArea());
                 aveRidersArea = apiManager.getAverageNumberOfRiders();

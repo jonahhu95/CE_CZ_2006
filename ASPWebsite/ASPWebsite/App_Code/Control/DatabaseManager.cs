@@ -21,25 +21,24 @@ namespace ASPWebsite.App_Code.Control
             return true;
         }
 
-        public void saveCalculation(Calculation calculation, User user)
+        public Boolean saveCalculation(Calculation calculation, User user)
         {
-            //try
-            //{
-            //    Connection con = getConnection();
-            //    PreparedStatement update = con.prepareStatement("INSERT INTO score_t (username,datet,workLocation,workLongitude,workLatitude,workArea,homeLocation,homeLongitude,"
-            //            + "homeLatitude,homeArea,salary,salarySat,medianSalary,jobInterest,commuteType,ridersArea,AvgRidersArea,commuteTime,AvgCommuteTime,monthCost) VALUES "
-            //            + "('" + username + "','" + (new Timestamp(calculation.getCreatedTime())) + "','" + calculation.getWorkLocation().getLocationName() + "','" + calculation.getWorkLocation().getLongitude() + "','"
-            //            + calculation.getWorkLocation().getLatitude() + "','" + calculation.getWorkLocation().getArea() + "','" + calculation.getHomeLoction().getLocationName() + "','"
-            //            + calculation.getHomeLoction().getLongitude() + "','" + calculation.getHomeLoction().getLatitude() + "','" + calculation.getHomeLoction().getArea() + "','"
-            //            + calculation.getSalary() + "','" + calculation.getSalarySatisfaction() + "','" + calculation.getMedianSalary() + "','" + calculation.getJobInterest() + "','" + calculation.getCommuteType() + "','"
-            //            + calculation.getRidersArea() + "','" + calculation.getAveRidersArea() + "','" + calculation.getCommuteTime() + "','" + calculation.getAveCommuteTime() + "','"
-            //            + calculation.getMonthlyCommuteCost() + "')");
-            //    update.executeUpdate();
-            //}
-            //catch (Exception e)
-            //{
-            //    System.out.println(e);
-            //}
+            try
+            {
+                if (getConnection())
+                {
+                    string sqlStatement = "INSERT INTO `CALCULATION`(`id`,`user_name`,`created_time`,`work_location_lon`,`work_location_lat`,`work_location_name`,`work_location_area`,`home_location_lon`,`home_location_lat`,`home_location_name`,`home_location_area`,`salary`,`commute_type`,`job_interest`,`salary_satisfaction`,`median_salary`,`riders_area`,`ave_riders_area`,`commute_time`,`ave_commute_time`,`monthly_commute_cost`) VALUES (1,0,0,0,0,'','',0,0,'','',0,'',0,0,0,0,0,'','','');
+" +
+                        user.getUsername() + "," + user.getPassword() + ");";
+                    return insertToTable(sqlStatement);
+                }
+
+            }
+            catch (Exception e)
+            {
+
+            }
+            return false;
         }
 
         public Boolean saveUser(User user)
@@ -56,7 +55,7 @@ namespace ASPWebsite.App_Code.Control
             }
             catch (Exception e)
             {
-                //Error Handling
+                
             }
             return false;
         }
