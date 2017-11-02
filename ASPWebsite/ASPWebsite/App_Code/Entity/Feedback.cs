@@ -7,16 +7,18 @@ namespace ASPWebsite.App_Code.Entity
 {
     public class Feedback
     {
-        private User submitter;
+        private string submitter;
         private string message;
+        private long submitTime;
 
-        public Feedback(User submitter, string message)
+        public Feedback(string submitter, string message, long submitTime)
         {
             setSubmitter(submitter);
             setMessage(message);
+            setSubmitTime(submitTime);
         }
 
-        public User getSubmitter()
+        public string getSubmitter()
         {
             return submitter;
         }
@@ -24,14 +26,22 @@ namespace ASPWebsite.App_Code.Entity
         {
             return message;
         }
+        public long getSubmitTime()
+        {
+            return submitTime;
+        }
 
-        public void setSubmitter(User submitter)
+        public void setSubmitter(string submitter)
         {
             this.submitter = submitter;
         }
         public void setMessage(string message)
         {
             this.message = message;
+        }
+        public void setSubmitTime(long submitTime)
+        {
+            this.submitTime = submitTime;
         }
     }
 }
