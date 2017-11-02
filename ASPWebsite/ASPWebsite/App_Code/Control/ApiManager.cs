@@ -118,12 +118,17 @@ namespace ASPWebsite.App_Code.Control
         public int getAverageNumberOfRiders()
         {
             List<KeyValuePair<string, int>> ret = getAllAreaRiders();
-            int total = 0;
+            int total = 0, countedAreas = 0;
             for (int n = 0; n < ret.Count; n++)
             {
-                total = total + ret[n].Value;
+                if(ret[n].Value != 0)
+                {
+                    total = total + ret[n].Value;
+                    countedAreas++;
+                }
+                
             }
-            return total / ret.Count;
+            return total / countedAreas;
 
         }
         public int getNumberOfRiders(string area)
@@ -134,6 +139,15 @@ namespace ASPWebsite.App_Code.Control
             int year = DateTime.Now.Year;
             List<string> key = new List<string> { "mrt_bus", "mrt", "bus", "mrt_car", "mrt_other" };
 
+            List<KeyValuePair<string, int>> areas = dbManager.getArea();
+            if (areas != null)
+            {
+                for(int n = 0; n < areas.Count; n++)
+                {
+                    if (areas[n].Key == area)
+                        return areas[n].Value;
+                }
+            }
             if (!checkOneMapAccessToken())
                 return -1;
             while (year > 1965)
@@ -182,6 +196,7 @@ namespace ASPWebsite.App_Code.Control
             }
             return geo;
         }
+
         private List<string> getAllPlanningArea()
         {
             string url;
