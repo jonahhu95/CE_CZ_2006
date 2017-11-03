@@ -127,7 +127,7 @@ namespace ASPWebsite.App_Code.Entity
         }
         public double getJSIScore()
         {
-            return JSIScore;
+            return formatDoubleDecimalPoint(JSIScore);
         }
 
         private void setWorkLocation(Address workLocation)
@@ -307,8 +307,9 @@ namespace ASPWebsite.App_Code.Entity
             {
                 if (criteriaList[n] is Salary)
                 {
-                    ret[0] = criteriaList[n].getSubScore();
-                    ret[1] = criteriaList[n].getWeightage();
+
+                    ret[0] = formatDoubleDecimalPoint(criteriaList[n].getSubScore());
+                    ret[1] = formatDoubleDecimalPoint(criteriaList[n].getWeightage());
                 }
             }
             return ret;
@@ -320,8 +321,8 @@ namespace ASPWebsite.App_Code.Entity
             {
                 if (criteriaList[n] is CommuteComfort)
                 {
-                    ret[0] = criteriaList[n].getSubScore();
-                    ret[1] = criteriaList[n].getWeightage();
+                    ret[0] = formatDoubleDecimalPoint(criteriaList[n].getSubScore());
+                    ret[1] = formatDoubleDecimalPoint(criteriaList[n].getWeightage());
                 }
 
             }
@@ -334,8 +335,8 @@ namespace ASPWebsite.App_Code.Entity
             {
                 if (criteriaList[n] is CommuteTime)
                 {
-                    ret[0] = criteriaList[n].getSubScore();
-                    ret[1] = criteriaList[n].getWeightage();
+                    ret[0] = formatDoubleDecimalPoint(criteriaList[n].getSubScore());
+                    ret[1] = formatDoubleDecimalPoint(criteriaList[n].getWeightage());
                 }
             }
             return ret;
@@ -347,8 +348,8 @@ namespace ASPWebsite.App_Code.Entity
             {
                 if (criteriaList[n] is CommuteCost)
                 {
-                    ret[0] = criteriaList[n].getSubScore();
-                    ret[1] = criteriaList[n].getWeightage();
+                    ret[0] = formatDoubleDecimalPoint(criteriaList[n].getSubScore());
+                    ret[1] = formatDoubleDecimalPoint(criteriaList[n].getWeightage());
                 }
             }
             return ret;
@@ -360,8 +361,8 @@ namespace ASPWebsite.App_Code.Entity
             {
                 if (criteriaList[n] is JobInterest)
                 {
-                    ret[0] = criteriaList[n].getSubScore();
-                    ret[1] = criteriaList[n].getWeightage();
+                    ret[0] = formatDoubleDecimalPoint(criteriaList[n].getSubScore());
+                    ret[1] = formatDoubleDecimalPoint(criteriaList[n].getWeightage());
                 }
             }
             return ret;
@@ -373,8 +374,8 @@ namespace ASPWebsite.App_Code.Entity
             {
                 if (criteriaList[n] is SalarySatisfaction)
                 {
-                    ret[0] = criteriaList[n].getSubScore();
-                    ret[1] = criteriaList[n].getWeightage();
+                    ret[0] = formatDoubleDecimalPoint(criteriaList[n].getSubScore());
+                    ret[1] = formatDoubleDecimalPoint(criteriaList[n].getWeightage());
                 }
             }
             return ret;
@@ -387,6 +388,12 @@ namespace ASPWebsite.App_Code.Entity
                 throw new Exception("Please initialize all criteria");
             }
             return true;
+        }
+        private double formatDoubleDecimalPoint(double input)
+        {
+            decimal d = (decimal)input;
+            d = decimal.Round(d, 2);
+            return (double)d;
         }
     }
 }

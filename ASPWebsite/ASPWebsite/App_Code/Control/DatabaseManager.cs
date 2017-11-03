@@ -125,7 +125,6 @@ namespace ASPWebsite.App_Code.Control
                     }
                     if (userList.Count == 1)
                     {
-                        Debug.WriteLine("Error: Duplicate user in Database!!");
                         return userList[0];
                     }
                 }
@@ -134,6 +133,7 @@ namespace ASPWebsite.App_Code.Control
             {
                 Debug.WriteLine(e.Message);
             }
+            Debug.WriteLine("Error: Duplicate user in Database!!");
             return null;
         }
         public List<Calculation> getCalculationsOfUser(User user)

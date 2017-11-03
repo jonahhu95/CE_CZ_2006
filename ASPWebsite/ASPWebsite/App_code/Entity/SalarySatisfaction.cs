@@ -9,7 +9,7 @@ namespace ASPWebsite.App_Code.Entity
     {
         public SalarySatisfaction(int salaryInterest)
         {
-            weightage = 10;
+            weightage = 15;
             explanations = new List<string> { "Description 1", "Description 2", "Description 3",
                 "Description 4", "Description 5", "Description 6", "Description 7", "Description 8",
                 "Description 9", "Description 10" };

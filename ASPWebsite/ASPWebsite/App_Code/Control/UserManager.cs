@@ -12,7 +12,7 @@ namespace ASPWebsite.App_Code.Control
 
         public Boolean createUser(string userName, string password)
         {
-            if (dbManager.getUser(userName) != null)
+            if (checkIfUserExist(userName))
                 return false;
             User newUser = new User(userName, BCrypt.Net.BCrypt.HashPassword(password));
             return dbManager.saveUser(newUser);
@@ -24,6 +24,12 @@ namespace ASPWebsite.App_Code.Control
             {
                 return BCrypt.Net.BCrypt.Verify(password, user.getPassword());
             }
+            return false;
+        }
+        public Boolean checkIfUserExist(string userName)
+        {
+            if (dbManager.getUser(userName) != null)
+                return true;
             return false;
         }
 
