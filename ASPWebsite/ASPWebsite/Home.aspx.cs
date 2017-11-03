@@ -18,8 +18,12 @@ namespace ASPWebsite
             //apiFetch.getCoordinates("Evergreen Park Singapore");
             //DatabaseManager dbManager = new DatabaseManager();
             //dbManager.getArea();
-            //UserManager userManager = new UserManager();
-            //userManager.createUser("qingyao", "lala");
+            UserManager userManager = new UserManager();
+            userManager.createUser("qingyao", "lala");
+            AddressManager adManager = new AddressManager();
+            userManager.saveUserHomeLocation("qingyao", "NTU HALL OF RESIDENCE 16");
+            string ret = userManager.getUserHomeLocation("qingyao");
+
             //Boolean bo = userManager.loginUser("qingyao", "lala");
 
         }

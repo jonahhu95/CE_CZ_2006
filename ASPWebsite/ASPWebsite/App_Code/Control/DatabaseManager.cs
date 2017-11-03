@@ -43,7 +43,7 @@ namespace ASPWebsite.App_Code.Control
                         "," + calculation.getHomeLocation().getLatitude() + ",'" + calculation.getHomeLocation().getLocationName() + "','" + calculation.getHomeLocation().getArea() + 
                         "'," +  calculation.getSalary() + ",'" + calculation.getCommuteType() + "'," + calculation.getJobInterest() + "," + calculation.getSalarySatisfaction() +
                         "," + calculation.getMedianSalary() + "," + calculation.getRidersArea() + "," + calculation.getAveRidersArea() +"," + calculation.getCommuteTime() + "," + 
-                        calculation.getAveCommuteTime() + "," + calculation.getMonthlyCommuteCost() + ")";
+                        calculation.getAveCommuteTime() + "," + calculation.getMonthlyCommuteCost() + ");";
                     return insertToTable(sqlStatement);
                 }
 
@@ -72,6 +72,26 @@ namespace ASPWebsite.App_Code.Control
                 Debug.WriteLine(e.Message);
             }
             return false;
+        }
+        public Boolean saveUserHomeLocation(User user, Address add)
+        {
+            try
+            {
+                if (getConnection())
+                {
+                    string sqlStatement = "UPDATE USER SET" + " home_location_lon = " + add.getLongitude() + ", home_location_lat = " + add.getLatitude() + 
+                        ", home_location_name = '" + add.getLocationName() + "', home_location_area = '" + add.getArea() + "' WHERE user_name = '" + user.getUsername() + "';";
+                    return insertToTable(sqlStatement);
+                }
+
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+
+            }
+            return false;
+
         }
         public Boolean saveFeedback(Feedback feedback)
         {
@@ -121,7 +141,16 @@ namespace ASPWebsite.App_Code.Control
                     List<User> userList = new List<User>();
                     while (ret.Read())
                     {
-                        userList.Add(new User((string)ret["user_name"], (string)ret["password"]));
+                        if(ret["home_location_name"].GetType() != typeof(DBNull))
+                        {
+                            userList.Add(new User((string)ret["user_name"], (string)ret["password"],
+                            new Address((string)ret["home_location_name"], (double)ret["home_location_lon"],
+                            (double)ret["home_location_lat"], (string)ret["home_location_area"])));
+                        }else
+                        {
+                            userList.Add(new User((string)ret["user_name"], (string)ret["password"]));
+                        }
+                        
                     }
                     if (userList.Count == 1)
                     {

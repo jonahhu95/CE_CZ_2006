@@ -204,6 +204,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Code\Control\AddressManager.cs" />
     <Compile Include="App_Code\Control\ApiManager.cs" />
     <Compile Include="App_Code\Control\DatabaseManager.cs" />
     <Content Include="App_Code\Control\FeedbackManager.cs" />

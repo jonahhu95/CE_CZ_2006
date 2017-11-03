@@ -11,14 +11,13 @@ namespace ASPWebsite.App_Code.Control
     {
         private ApiManager apiManager = new ApiManager();
         private DatabaseManager dbManager = new DatabaseManager();
+        private AddressManager addManager = new AddressManager();
 
         public Calculation createNewCalculation(String workLocation, String homeLocation,
                 int salary, char commuteType, int jobInterest, int salarySatisfaction)
         {
 
-            double[] coordinates;
             double[] timeCost;
-            String area;
             DateTime time; ;
             int medianSalary = 0;
             int ridersArea = 0;
@@ -32,12 +31,8 @@ namespace ASPWebsite.App_Code.Control
 
             try
             {
-                coordinates = apiManager.getCoordinates(workLocation);
-                area = apiManager.getArea(coordinates[0], coordinates[1]);
-                workLoc = new Address(workLocation, coordinates[0], coordinates[1], area);
-                coordinates = apiManager.getCoordinates(homeLocation);
-                area = apiManager.getArea(coordinates[0], coordinates[1]);
-                homeLoc = new Address(homeLocation, coordinates[0], coordinates[1], area);
+                workLoc = addManager.createNewAddress(workLocation);
+                homeLoc = addManager.createNewAddress(homeLocation);
                 time = DateTime.Now;
                 medianSalary = apiManager.getMedianSalary(homeLoc.getArea());
                 ridersArea = apiManager.getNumberOfRiders(homeLoc.getArea());
