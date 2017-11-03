@@ -36,19 +36,20 @@ namespace ASPWebsite.App_Code.Entity
         {
             return area;
         }
-        public void setLongitude(double longitude)
+
+        private void setLongitude(double longitude)
         {
             this.longitude = longitude;
         }
-        public void setLatitude(double latitude)
+        private void setLatitude(double latitude)
         {
             this.latitude = latitude;
         }
-        public void setLocationName(string locationName)
+        private void setLocationName(string locationName)
         {
             this.locationName = locationName;
         }
-        public void setArea(string area)
+        private void setArea(string area)
         {
             this.area = area;
         }

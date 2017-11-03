@@ -24,11 +24,11 @@ namespace ASPWebsite.App_Code.Entity
         {
             return password;
         }
-        public void setUserName(string userName)
+        private void setUserName(string userName)
         {
             this.userName = userName;
         }
-        public void setPassword(string password)
+        private void setPassword(string password)
         {
             this.password = password;
         }

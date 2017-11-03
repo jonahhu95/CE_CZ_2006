@@ -130,85 +130,85 @@ namespace ASPWebsite.App_Code.Entity
             return JSIScore;
         }
 
-        public void setWorkLocation(Address workLocation)
+        private void setWorkLocation(Address workLocation)
         {
             this.workLocation = workLocation;
         }
-        public void setHomeLocation(Address homeLoction)
+        private void setHomeLocation(Address homeLoction)
         {
             this.homeLoction = homeLoction;
         }
-        public void setSalary(int salary)
+        private void setSalary(int salary)
         {
             this.salary = salary;
         }
-        public void setCommuteType(char commuteType)
+        private void setCommuteType(char commuteType)
         {
             this.commuteType = commuteType;
         }
-        public void setJobInterest(int jobInterest)
+        private void setJobInterest(int jobInterest)
         {
             this.jobInterest = jobInterest;
         }
-        public void setSalarySatisfaction(int salarySatisfaction)
+        private void setSalarySatisfaction(int salarySatisfaction)
         {
             this.salarySatisfaction = salarySatisfaction;
         }
-        public void setCreatedTime(DateTime createdTime)
+        private void setCreatedTime(DateTime createdTime)
         {
             this.createdTime = createdTime;
         }
-        public void setMedianSalary(int medianSalary)
+        private void setMedianSalary(int medianSalary)
         {
             this.medianSalary = medianSalary;
         }
-        public void setRidersArea(int ridersArea)
+        private void setRidersArea(int ridersArea)
         {
             this.ridersArea = ridersArea;
         }
-        public void setAveRidersArea(int aveRidersArea)
+        private void setAveRidersArea(int aveRidersArea)
         {
             this.aveRidersArea = aveRidersArea;
         }
-        public void setCommuteTime(double commuteTime)
+        private void setCommuteTime(double commuteTime)
         {
             this.commuteTime = commuteTime;
         }
-        public void setAveCommuteTime(double aveCommuteTime)
+        private void setAveCommuteTime(double aveCommuteTime)
         {
             this.aveCommuteTime = aveCommuteTime;
         }
-        public void setMonthlyCommuteCost(double monthlyCommuteCost)
+        private void setMonthlyCommuteCost(double monthlyCommuteCost)
         {
             this.monthlyCommuteCost = monthlyCommuteCost;
         }
 
-        public void createCriteria_Salary()
+        private void createCriteria_Salary()
         {
             Criteria hold = new Salary(medianSalary, salary);
             criteriaList.Add(hold);
         }
-        public void createCriteria_CommuteComfort()
+        private void createCriteria_CommuteComfort()
         {
             Criteria hold = new CommuteComfort(aveRidersArea, ridersArea, commuteType);
             criteriaList.Add(hold);
         }
-        public void createCriteria_CommuteTime()
+        private void createCriteria_CommuteTime()
         {
             Criteria hold = new CommuteTime(aveCommuteTime, commuteTime);
             criteriaList.Add(hold);
         }
-        public void createCriteria_CommuteCost()
+        private void createCriteria_CommuteCost()
         {
             Criteria hold = new CommuteCost(monthlyCommuteCost, salary);
             criteriaList.Add(hold);
         }
-        public void createCriteria_JobInterest()
+        private void createCriteria_JobInterest()
         {
             Criteria hold = new JobInterest(jobInterest);
             criteriaList.Add(hold);
         }
-        public void createCriteria_SalarySatisfaction()
+        private void createCriteria_SalarySatisfaction()
         {
             Criteria hold = new SalarySatisfaction(salarySatisfaction);
             criteriaList.Add(hold);

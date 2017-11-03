@@ -18,6 +18,10 @@ namespace ASPWebsite
             //apiFetch.getCoordinates("Evergreen Park Singapore");
             //DatabaseManager dbManager = new DatabaseManager();
             //dbManager.getArea();
+            UserManager userManager = new UserManager();
+            userManager.createUser("qingyao", "lala");
+            Boolean bo = userManager.loginUser("qingyao", "lala");
+
         }
         protected void loginBtn_Click1(object sender, EventArgs e)
         {

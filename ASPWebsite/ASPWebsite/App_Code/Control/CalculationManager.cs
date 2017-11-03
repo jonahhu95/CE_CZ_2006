@@ -1,6 +1,7 @@
 ﻿using ASPWebsite.App_Code.Entity;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 
@@ -8,7 +9,8 @@ namespace ASPWebsite.App_Code.Control
 {
     public class CalculationManager
     {
-        ApiManager apiManager = new ApiManager();
+        private ApiManager apiManager = new ApiManager();
+        private DatabaseManager dbManager = new DatabaseManager();
 
         public Calculation createNewCalculation(String workLocation, String homeLocation,
                 int salary, char commuteType, int jobInterest, int salarySatisfaction)
@@ -26,6 +28,7 @@ namespace ASPWebsite.App_Code.Control
             double monthlyCommuteCost = 0;
             Address workLoc = null;
             Address homeLoc = null;
+            Calculation cal;
 
             try
             {
@@ -43,24 +46,20 @@ namespace ASPWebsite.App_Code.Control
                 commuteTime = timeCost[0];
                 aveCommuteTime = apiManager.getAverageCommuteTime();
                 monthlyCommuteCost = timeCost[1];
-            }
-            catch (Exception e)
-            {
-                return null;
-            }
-
-            Calculation cal;
-            try
-            {
                 cal = new Calculation(workLoc, homeLoc,
-                        salary, 'p', jobInterest, salarySatisfaction, time, medianSalary,
-                        ridersArea, aveRidersArea, commuteTime, aveCommuteTime, monthlyCommuteCost);
+                       salary, 'p', jobInterest, salarySatisfaction, time, medianSalary,
+                       ridersArea, aveRidersArea, commuteTime, aveCommuteTime, monthlyCommuteCost);
             }
             catch (Exception e)
             {
+                Debug.WriteLine(e.Message);
                 return null;
             }
             return cal;
+        }
+        public Boolean saveCalculation(Calculation calculation, User user)
+        {
+            return dbManager.saveCalculation(calculation, user);
         }
 
 

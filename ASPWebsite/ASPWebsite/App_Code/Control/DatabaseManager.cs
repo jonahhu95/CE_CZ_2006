@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 
@@ -14,10 +15,17 @@ namespace ASPWebsite.App_Code.Control
 
         private Boolean getConnection()
         {
-            string dbLocation = HttpContext.Current.Server.MapPath("/App_Data");
-            dbLocation = dbLocation + "\\SqliteDatabase.db";
-            dbConnection = new SQLiteConnection("Data Source=" + dbLocation + ";Version=3;");
-            dbConnection.Open();
+            try
+            {
+                string dbLocation = HttpContext.Current.Server.MapPath("/App_Data");
+                dbLocation = dbLocation + "\\SqliteDatabase.db";
+                dbConnection = new SQLiteConnection("Data Source=" + dbLocation + ";Version=3;");
+                dbConnection.Open();
+            }catch(Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                return false;
+            }
             return true;
         }
 
@@ -42,6 +50,7 @@ namespace ASPWebsite.App_Code.Control
             }
             catch (Exception e)
             {
+                Debug.WriteLine(e.Message);
 
             }
             return false;
@@ -60,7 +69,7 @@ namespace ASPWebsite.App_Code.Control
             }
             catch (Exception e)
             {
-                
+                Debug.WriteLine(e.Message);
             }
             return false;
         }
@@ -78,7 +87,7 @@ namespace ASPWebsite.App_Code.Control
             }
             catch (Exception e)
             {
-                //Error Handling
+                Debug.WriteLine(e.Message);
             }
             return false;
         }
@@ -96,7 +105,7 @@ namespace ASPWebsite.App_Code.Control
             }
             catch (Exception e)
             {
-                //Error Handling
+                Debug.WriteLine(e.Message);
             }
             return false;
 
@@ -116,13 +125,14 @@ namespace ASPWebsite.App_Code.Control
                     }
                     if (userList.Count == 1)
                     {
+                        Debug.WriteLine("Error: Duplicate user in Database!!");
                         return userList[0];
                     }
                 }
             }
             catch (Exception e)
             {
-                //Error Handling
+                Debug.WriteLine(e.Message);
             }
             return null;
         }
@@ -152,7 +162,7 @@ namespace ASPWebsite.App_Code.Control
             }
             catch (Exception e)
             {
-                //Error Handling
+                Debug.WriteLine(e.Message);
             }
             return null;
         }
@@ -174,7 +184,7 @@ namespace ASPWebsite.App_Code.Control
             }
             catch (Exception e)
             {
-                //Error Handling
+                Debug.WriteLine(e.Message);
             }
             return null;
         }
@@ -206,37 +216,60 @@ namespace ASPWebsite.App_Code.Control
             }
             catch (Exception e)
             {
-                //Error Handling
+                Debug.WriteLine(e.Message);
             }
             return null;
         }
 
         private Boolean insertToTable(string sqlStatement)
         {
-            command = new SQLiteCommand(sqlStatement, dbConnection);
-            int rowAffected = command.ExecuteNonQuery();
-            if (rowAffected == 1)
+            try
             {
-                return true;
+                command = new SQLiteCommand(sqlStatement, dbConnection);
+                int rowAffected = command.ExecuteNonQuery();
+                if (rowAffected == 1)
+                {
+                    return true;
+                }
+            }catch(Exception e)
+            {
+                Debug.WriteLine(e.Message);
             }
+            
             return false;
         }
         private Boolean clearTable(string tableName)
         {
-            string sqlStatement = "DELETE * from " + tableName;
-            command = new SQLiteCommand(sqlStatement, dbConnection);
-            int rowAffected = command.ExecuteNonQuery();
-            if (rowAffected <= 0)
+            try
             {
-                return false;
+                string sqlStatement = "DELETE * from " + tableName;
+                command = new SQLiteCommand(sqlStatement, dbConnection);
+                int rowAffected = command.ExecuteNonQuery();
+                if (rowAffected <= 0)
+                {
+                    return false;
+                }
             }
+            catch(Exception e)
+            {
+                
+            }
+            
             return true;
         }
         private SQLiteDataReader getFromTable(string sqlStatement)
         {
-            command = new SQLiteCommand(sqlStatement, dbConnection);
-            SQLiteDataReader reader = command.ExecuteReader();
-            return reader;
+            try
+            {
+                command = new SQLiteCommand(sqlStatement, dbConnection);
+                SQLiteDataReader reader = command.ExecuteReader();
+                return reader;
+            }
+            catch(Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+            return null;
         }
 
     }

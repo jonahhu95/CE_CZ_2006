@@ -31,15 +31,15 @@ namespace ASPWebsite.App_Code.Entity
             return submitTime;
         }
 
-        public void setSubmitter(string submitter)
+        private void setSubmitter(string submitter)
         {
             this.submitter = submitter;
         }
-        public void setMessage(string message)
+        private void setMessage(string message)
         {
             this.message = message;
         }
-        public void setSubmitTime(DateTime submitTime)
+        private void setSubmitTime(DateTime submitTime)
         {
             this.submitTime = submitTime;
         }
