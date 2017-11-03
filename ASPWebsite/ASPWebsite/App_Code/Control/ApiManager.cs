@@ -29,7 +29,7 @@ namespace ASPWebsite.App_Code.Control
             if (!checkOneMapAccessToken())
                 return -1;
 
-            while (year > 1990)
+            while (year > 1989)
             {
                 try
                 {
@@ -72,7 +72,7 @@ namespace ASPWebsite.App_Code.Control
             if (!checkOneMapAccessToken())
                 return null;
 
-            while (year > 1990)
+            while (year > 1989)
             {
                 try
                 {
@@ -150,7 +150,7 @@ namespace ASPWebsite.App_Code.Control
             }
             if (!checkOneMapAccessToken())
                 return -1;
-            while (year > 1990)
+            while (year > 1989)
             {
                 try
                 {
@@ -205,7 +205,7 @@ namespace ASPWebsite.App_Code.Control
             int year = DateTime.Now.Year;
             if (!checkOneMapAccessToken())
                 return null;
-            while (year > 1990)
+            while (year > 1989)
             {
                 try
                 {
