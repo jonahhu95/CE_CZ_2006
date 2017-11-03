@@ -57,6 +57,10 @@ namespace ASPWebsite.App_Code.Control
             }
             return cal;
         }
+        public List<Calculation> getCalculations(User user)
+        {
+            return dbManager.getCalculationsOfUser(user);
+        }
         public Boolean saveCalculation(Calculation calculation, User user)
         {
             return dbManager.saveCalculation(calculation, user);
