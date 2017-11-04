@@ -99,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Home.aspx" />
+    <Content Include="js\jquery.js" />
     <Content Include="mail\contact_me.php" />
     <Content Include="Result.aspx" />
     <Content Include="scss\freelancer.scss" />

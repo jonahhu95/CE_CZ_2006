@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MainPage.Master" AutoEventWireup="true" CodeBehind="Result.aspx.cs" Inherits="ASPWebsite.Result" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table style="width: 100%;">
+    <table style="width: 100%; font-family:Consolas;">
         <tr>
             <td>Commute Cost</td>
             <td><asp:Label ID="lbl3" runat="server" Text="Label"></asp:Label></td>

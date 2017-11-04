@@ -76,7 +76,6 @@ namespace ASPWebsite
             CalculationManager cm = new CalculationManager();
            Calculation s = cm.createNewCalculation(worklocate, homelocate, salary, 'F', interest, satisfaction);
            Session["CalculationJSIObject"] = s;
-           Label9.Text = s.getJSIScore().ToString();
            Response.Redirect("Result.aspx");
         }
          

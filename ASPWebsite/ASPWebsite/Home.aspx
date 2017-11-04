@@ -46,6 +46,8 @@
 
     <!-- Custom styles for this template -->
     <link href="css/freelancer.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/rating.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/rating.css" />
 
     <style type="text/css">
         ::-webkit-scrollbar {
@@ -293,9 +295,16 @@
                                 <asp:ListItem>9</asp:ListItem>
                                 <asp:ListItem>10</asp:ListItem>
                             </asp:RadioButtonList><br />
+                            <script type="text/javascript">
+                                $(function () {
+                                    $('.rating').rating();
 
-                            <asp:Label ID="Label9" runat="server" Text="Label"></asp:Label>
-
+                                    $('.ratingEvent').rating({ rateEnd: function (v) { $('#result').text(v); } });
+                                });
+                            </script> Public Method, After voted trige the event "rateEnd"
+    <input type="text" class="ratingEvent rating9" value="5" />
+    <div><b id="result">5</b> start(s)</div>
+
                             <asp:Button ID="sendMessage" class="btn btn-success btn-lg" runat="server" Text="Submit" OnClick="sendMessage_Click" /><br />
 
 
