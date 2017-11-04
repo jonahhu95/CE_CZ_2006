@@ -16,8 +16,16 @@ namespace ASPWebsite
         {
             //ApiManager apiFetch = new ApiManager();
             //apiFetch.getCoordinates("Evergreen Park Singapore");
-            DatabaseManager dbManager = new DatabaseManager();
-            dbManager.getConnection();
+            //DatabaseManager dbManager = new DatabaseManager();
+            //dbManager.getArea();
+            //UserManager userManager = new UserManager();
+            //userManager.createUser("qingyao", "lala");
+            //AddressManager adManager = new AddressManager();
+            //userManager.saveUserHomeLocation("qingyao", "NTU HALL OF RESIDENCE 16");
+            //string ret = userManager.getUserHomeLocation("qingyao");
+
+            //Boolean bo = userManager.loginUser("qingyao", "lala");
+
         }
         protected void loginBtn_Click1(object sender, EventArgs e)
         {

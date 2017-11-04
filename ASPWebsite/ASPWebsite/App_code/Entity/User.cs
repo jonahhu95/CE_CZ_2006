@@ -9,11 +9,19 @@ namespace ASPWebsite.App_Code.Entity
     {
         private string userName;
         private string password;
+        private Address homeLocation;
 
         public User(string userName, string password)
         {
             setUserName(userName);
             setPassword(password);
+        }
+
+        public User(string userName, string password, Address homeLocation)
+        {
+            setUserName(userName);
+            setPassword(password);
+            setHomeLocation(homeLocation);
         }
 
         public string getUsername()
@@ -24,13 +32,21 @@ namespace ASPWebsite.App_Code.Entity
         {
             return password;
         }
-        public void setUserName(string userName)
+        public Address getHomeLocation()
+        {
+            return homeLocation;
+        }
+        private void setUserName(string userName)
         {
             this.userName = userName;
         }
-        public void setPassword(string password)
+        private void setPassword(string password)
         {
             this.password = password;
+        }
+        private void setHomeLocation(Address homeLocation)
+        {
+            this.homeLocation = homeLocation;
         }
     }
 }
