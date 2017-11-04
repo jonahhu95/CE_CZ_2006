@@ -8,6 +8,9 @@ using System.Web;
 
 namespace ASPWebsite.App_Code.Control
 {
+    /// <summary>
+    /// Database manager.
+    /// </summary>
     public class DatabaseManager
     {
         private SQLiteCommand command;
@@ -28,7 +31,12 @@ namespace ASPWebsite.App_Code.Control
             }
             return true;
         }
-
+        /// <summary>
+        /// Saves the calculation.
+        /// </summary>
+        /// <returns><c>true</c>, if calculation was saved, <c>false</c> otherwise.</returns>
+        /// <param name="calculation">Calculation.</param>
+        /// <param name="user">User.</param>
         public Boolean saveCalculation(Calculation calculation, User user)
         {
             try
@@ -55,6 +63,11 @@ namespace ASPWebsite.App_Code.Control
             }
             return false;
         }
+        /// <summary>
+        /// Saves the user.
+        /// </summary>
+        /// <returns><c>true</c>, if user was saved, <c>false</c> otherwise.</returns>
+        /// <param name="user">User.</param>
         public Boolean saveUser(User user)
         {
             try
@@ -73,6 +86,12 @@ namespace ASPWebsite.App_Code.Control
             }
             return false;
         }
+        /// <summary>
+        /// Saves the user home location.
+        /// </summary>
+        /// <returns><c>true</c>, if user home location was saved, <c>false</c> otherwise.</returns>
+        /// <param name="user">User.</param>
+        /// <param name="add">Add.</param>
         public Boolean saveUserHomeLocation(User user, Address add)
         {
             try
@@ -93,6 +112,11 @@ namespace ASPWebsite.App_Code.Control
             return false;
 
         }
+        /// <summary>
+        /// Saves the feedback.
+        /// </summary>
+        /// <returns><c>true</c>, if feedback was saved, <c>false</c> otherwise.</returns>
+        /// <param name="feedback">Feedback.</param>
         public Boolean saveFeedback(Feedback feedback)
         {
             try
@@ -111,6 +135,13 @@ namespace ASPWebsite.App_Code.Control
             }
             return false;
         }
+        /// <summary>
+        /// Saves the area.
+        /// </summary>
+        /// <returns><c>true</c>, if area was saved, <c>false</c> otherwise.</returns>
+        /// <param name="area">Area.</param>
+        /// <param name="riders">Riders.</param>
+        /// <param name="expiry">Expiry.</param>
         public Boolean saveArea(string area, int riders, DateTime expiry)
         {
             try
@@ -130,6 +161,11 @@ namespace ASPWebsite.App_Code.Control
             return false;
 
         }
+        /// <summary>
+        /// Gets the user.
+        /// </summary>
+        /// <returns>The user.</returns>
+        /// <param name="userName">User name.</param>
         public User getUser(string userName)
         {
             try
@@ -165,6 +201,11 @@ namespace ASPWebsite.App_Code.Control
             Debug.WriteLine("Error: Duplicate user in Database!!");
             return null;
         }
+        /// <summary>
+        /// Gets the calculations of user.
+        /// </summary>
+        /// <returns>The calculations of user.</returns>
+        /// <param name="user">User.</param>
         public List<Calculation> getCalculationsOfUser(User user)
         {
             try
@@ -195,6 +236,10 @@ namespace ASPWebsite.App_Code.Control
             }
             return null;
         }
+        /// <summary>
+        /// Gets the feedback.
+        /// </summary>
+        /// <returns>The feedback.</returns>
         public List<Feedback> getFeedback()
         {
             try
@@ -217,6 +262,10 @@ namespace ASPWebsite.App_Code.Control
             }
             return null;
         }
+        /// <summary>
+        /// Gets the area.
+        /// </summary>
+        /// <returns>The area.</returns>
         public List<KeyValuePair<string, int>> getArea()
         {
             try
@@ -249,7 +298,11 @@ namespace ASPWebsite.App_Code.Control
             }
             return null;
         }
-
+        /// <summary>
+        /// Inserts to table.
+        /// </summary>
+        /// <returns><c>true</c>, if to table was inserted, <c>false</c> otherwise.</returns>
+        /// <param name="sqlStatement">Sql statement.</param>
         private Boolean insertToTable(string sqlStatement)
         {
             try
@@ -267,6 +320,11 @@ namespace ASPWebsite.App_Code.Control
             
             return false;
         }
+        /// <summary>
+        /// Clears the table.
+        /// </summary>
+        /// <returns><c>true</c>, if table was cleared, <c>false</c> otherwise.</returns>
+        /// <param name="tableName">Table name.</param>
         private Boolean clearTable(string tableName)
         {
             try

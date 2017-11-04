@@ -7,12 +7,25 @@ using System.Web;
 
 namespace ASPWebsite.App_Code.Control
 {
+    /// <summary>
+    /// Calculation manager.
+    /// </summary>
     public class CalculationManager
     {
         private ApiManager apiManager = new ApiManager();
         private DatabaseManager dbManager = new DatabaseManager();
         private AddressManager addManager = new AddressManager();
 
+        /// <summary>
+        /// Creates the new calculation.
+        /// </summary>
+        /// <returns>The new calculation.</returns>
+        /// <param name="workLocation">Work location.</param>
+        /// <param name="homeLocation">Home location.</param>
+        /// <param name="salary">Salary.</param>
+        /// <param name="commuteType">Commute type.</param>
+        /// <param name="jobInterest">Job interest.</param>
+        /// <param name="salarySatisfaction">Salary satisfaction.</param>
         public Calculation createNewCalculation(String workLocation, String homeLocation,
                 int salary, char commuteType, int jobInterest, int salarySatisfaction)
         {
@@ -52,10 +65,21 @@ namespace ASPWebsite.App_Code.Control
             }
             return cal;
         }
+        /// <summary>
+        /// Gets the calculations.
+        /// </summary>
+        /// <returns>The calculations.</returns>
+        /// <param name="user">User.</param>
         public List<Calculation> getCalculations(User user)
         {
             return dbManager.getCalculationsOfUser(user);
         }
+        /// <summary>
+        /// Saves the calculation.
+        /// </summary>
+        /// <returns><c>true</c>, if calculation was saved, <c>false</c> otherwise.</returns>
+        /// <param name="calculation">Calculation.</param>
+        /// <param name="user">User.</param>
         public Boolean saveCalculation(Calculation calculation, User user)
         {
             return dbManager.saveCalculation(calculation, user);

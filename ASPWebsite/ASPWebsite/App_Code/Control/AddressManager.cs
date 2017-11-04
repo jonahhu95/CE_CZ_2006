@@ -6,10 +6,18 @@ using ASPWebsite.App_Code.Entity;
 
 namespace ASPWebsite.App_Code.Control
 {
+    /// <summary>
+    /// Address manager.
+    /// </summary>
     public class AddressManager
     {
         private ApiManager apiManager = new ApiManager();
 
+        /// <summary>
+        /// Creates the new address.
+        /// </summary>
+        /// <returns>The new address.</returns>
+        /// <param name="locationName">Location name.</param>
         public Address createNewAddress(string locationName)
         {
             double[] coordinates;

@@ -1,0 +1,32 @@
+﻿<Properties StartupConfiguration="{1712BC36-A3A7-4ED3-A01D-01C7BA727164}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ASPWebsite/App_Code/Control/FeedbackManager.cs">
+    <Files>
+      <File FileName="ASPWebsite/Home.aspx" Line="1" Column="1" />
+      <File FileName="ASPWebsite/Home.aspx.cs" Line="83" Column="42" />
+      <File FileName="ASPWebsite/App_Code/Control/ApiManager.cs" Line="519" Column="13" />
+      <File FileName="ASPWebsite/App_Code/Control/AddressManager.cs" Line="13" Column="6" />
+      <File FileName="ASPWebsite/App_Code/Control/CalculationManager.cs" Line="78" Column="13" />
+      <File FileName="ASPWebsite/App_Code/Control/DatabaseManager.cs" Line="324" Column="13" />
+      <File FileName="ASPWebsite/App_Code/Control/FeedbackManager.cs" Line="9" Column="9" />
+      <File FileName="ASPWebsite/App_Code/Control/UserManager.cs" Line="71" Column="13" />
+      <File FileName="ASPWebsite/App_Code/Entity/Address.cs" Line="73" Column="13" />
+      <File FileName="ASPWebsite/App_Code/Entity/Calculation.cs" Line="96" Column="13" />
+      <File FileName="ASPWebsite/App_Code/Entity/CommuteComfort.cs" Line="14" Column="13" />
+      <File FileName="ASPWebsite/App_Code/Entity/CommuteCost.cs" Line="14" Column="13" />
+      <File FileName="ASPWebsite/App_Code/Entity/CommuteTime.cs" Line="14" Column="13" />
+      <File FileName="ASPWebsite/App_Code/Entity/Criteria.cs" Line="32" Column="9" />
+      <File FileName="ASPWebsite/App_Code/Entity/Feedback.cs" Line="70" Column="13" />
+      <File FileName="ASPWebsite/App_Code/Entity/JobInterest.cs" Line="14" Column="13" />
+      <File FileName="ASPWebsite/App_Code/Entity/Salary.cs" Line="9" Column="9" />
+      <File FileName="ASPWebsite/App_Code/Entity/SalarySatisfaction.cs" Line="9" Column="9" />
+      <File FileName="ASPWebsite/App_Code/Entity/User.cs" Line="25" Column="15" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.ASPWebsite PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

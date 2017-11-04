@@ -5,14 +5,32 @@ using System.Web;
 
 namespace ASPWebsite.App_Code.Entity
 {
+    /// <summary>
+    /// Commute cost.
+    /// </summary>
     public class CommuteCost : Criteria
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:ASPWebsite.App_Code.Entity.CommuteCost"/> class.
+        /// </summary>
+        /// <param name="monthlyTravelCost">Monthly travel cost.</param>
+        /// <param name="salary">Salary.</param>
         public CommuteCost(double monthlyTravelCost, int salary)
         {
             weightage = 10;
-            explanations = new List<string> {"Description 1", "Description 2", "Description 3",
-                "Description 4", "Description 5", "Description 6", "Description 7", "Description 8",
-                "Description 9", "Description 10", "Description 11" };
+            explanations = new List<string> {
+                "Highest cost of travelling.",
+                "Very high cost of travelling.",
+                "High cost of travelling.",
+                "Moderate cost of travelling.",
+                "Average cost of travelling.",
+                "Ordinary cost of travelling.",
+                "Little cost of travelling.",
+                "Very little cost of travelling.",
+                "Low cost of travelling.",
+                "Very low cost of travelling.",
+                "Lowest cost of travelling." };
+
             double ratio = monthlyTravelCost / salary;
             if (ratio < 1.75)
             {

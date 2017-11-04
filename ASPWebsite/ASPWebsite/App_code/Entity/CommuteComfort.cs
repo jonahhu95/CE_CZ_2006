@@ -5,12 +5,27 @@ using System.Web;
 
 namespace ASPWebsite.App_Code.Entity
 {
+    /// <summary>
+    /// Commute comfort.
+    /// </summary>
     public class CommuteComfort : Criteria
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:ASPWebsite.App_Code.Entity.CommuteComfort"/> class.
+        /// </summary>
+        /// <param name="averageRidersArea">Average riders area.</param>
+        /// <param name="ridersArea">Riders area.</param>
+        /// <param name="travelMode">Travel mode.</param>
         public CommuteComfort(int averageRidersArea, int ridersArea, char travelMode)
         {
             weightage = 15;
-            explanations = new List<string> { "Description 1", "Description 2", "Description 3", "Description 4", "Description 5"};
+            explanations = new List<string> { 
+                "Least commute comfort, high tendency to get held up by traffic.", 
+                "Low commute comfort, may encounter pushing and shoving.", 
+                "Average commute comfort, may encounter occasional hiccups.", 
+                "High commute comfort, may have a pleasant journey most of the time.", 
+                "Most commute comfort, having a smooth journey all the time."};
+
             if (travelMode == 'p')
             {
                 long difference = ridersArea - averageRidersArea;
