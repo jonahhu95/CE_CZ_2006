@@ -109,6 +109,7 @@
   <ItemGroup>
     <Content Include="css\sidenav.css" />
     <Content Include="Home.aspx" />
+    <Content Include="HomePage.aspx" />
     <Content Include="js\jquery.js" />
     <Content Include="mail\contact_me.php" />
     <Content Include="Result.aspx" />
@@ -121,7 +122,6 @@
     <Content Include="scss\_navbar.scss" />
     <Content Include="scss\_portfolio.scss" />
     <Content Include="scss\_variables.scss" />
-    <Content Include="UserPage.aspx" />
     <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.ttf" />
     <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.woff" />
@@ -155,9 +155,9 @@
     <Content Include="vendor\font-awesome\scss\_screen-reader.scss" />
     <Content Include="vendor\font-awesome\scss\_stacked.scss" />
     <Content Include="vendor\font-awesome\scss\_variables.scss" />
-    <Content Include="MainPage.Master" />
     <Content Include="packages.config" />
     <Content Include="App_Data\SqliteDatabase.db" />
+    <Content Include="Anonymous.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -207,6 +207,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Anonymous.Master.cs">
+      <DependentUpon>Anonymous.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Anonymous.Master.designer.cs">
+      <DependentUpon>Anonymous.Master</DependentUpon>
+    </Compile>
     <Compile Include="App_Code\Control\AddressManager.cs" />
     <Compile Include="App_Code\Control\ApiManager.cs" />
     <Compile Include="App_Code\Control\DatabaseManager.cs" />
@@ -231,12 +238,12 @@
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.Master.cs">
-      <DependentUpon>MainPage.Master</DependentUpon>
+    <Compile Include="HomePage.aspx.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MainPage.Master.designer.cs">
-      <DependentUpon>MainPage.Master</DependentUpon>
+    <Compile Include="HomePage.aspx.designer.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Result.aspx.cs">
@@ -245,13 +252,6 @@
     </Compile>
     <Compile Include="Result.aspx.designer.cs">
       <DependentUpon>Result.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UserPage.aspx.cs">
-      <DependentUpon>UserPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserPage.aspx.designer.cs">
-      <DependentUpon>UserPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

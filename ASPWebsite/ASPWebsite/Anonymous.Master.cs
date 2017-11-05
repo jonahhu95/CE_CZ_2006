@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace ASPWebsite
 {
-    public partial class UserPage : System.Web.UI.Page
+    public partial class Anonymous : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblUsername.Text = Request.QueryString["Username"];
+
         }
     }
 }

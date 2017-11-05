@@ -4,6 +4,42 @@
         <name>ASPWebsite</name>
     </assembly>
     <members>
+        <member name="F:ASPWebsite.Anonymous.head1">
+            <summary>
+            head1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.Anonymous.head">
+            <summary>
+            head control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.Anonymous.form1">
+            <summary>
+            form1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.Anonymous.ContentPlaceHolder1">
+            <summary>
+            ContentPlaceHolder1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
         <member name="T:ASPWebsite.App_Code.Control.AddressManager">
             <summary>
             Address manager.
@@ -290,38 +326,6 @@
             </summary>
             <returns>The user home location.</returns>
             <param name="userName">User name.</param>
-        </member>
-        <member name="T:ASPWebsite.App_Code.Control.CalculationManager">
-            <summary>
-            Calculation manager.
-            </summary>
-        </member>
-        <member name="M:ASPWebsite.App_Code.Control.CalculationManager.createNewCalculation(System.String,System.String,System.Int32,System.Char,System.Int32,System.Int32)">
-            <summary>
-            Creates the new calculation.
-            </summary>
-            <returns>The new calculation.</returns>
-            <param name="workLocation">Work location.</param>
-            <param name="homeLocation">Home location.</param>
-            <param name="salary">Salary.</param>
-            <param name="commuteType">Commute type.</param>
-            <param name="jobInterest">Job interest.</param>
-            <param name="salarySatisfaction">Salary satisfaction.</param>
-        </member>
-        <member name="M:ASPWebsite.App_Code.Control.CalculationManager.getCalculations(ASPWebsite.App_Code.Entity.User)">
-            <summary>
-            Gets the calculations.
-            </summary>
-            <returns>The calculations.</returns>
-            <param name="user">User.</param>
-        </member>
-        <member name="M:ASPWebsite.App_Code.Control.CalculationManager.saveCalculation(ASPWebsite.App_Code.Entity.Calculation,ASPWebsite.App_Code.Entity.User)">
-            <summary>
-            Saves the calculation.
-            </summary>
-            <returns><c>true</c>, if calculation was saved, <c>false</c> otherwise.</returns>
-            <param name="calculation">Calculation.</param>
-            <param name="user">User.</param>
         </member>
         <member name="T:ASPWebsite.App_Code.Entity.Criteria">
             <summary>
@@ -898,6 +902,38 @@
             </summary>
             <param name="submitTime">Submit time.</param>
         </member>
+        <member name="T:ASPWebsite.App_Code.Control.CalculationManager">
+            <summary>
+            Calculation manager.
+            </summary>
+        </member>
+        <member name="M:ASPWebsite.App_Code.Control.CalculationManager.createNewCalculation(System.String,System.String,System.Int32,System.Char,System.Int32,System.Int32)">
+            <summary>
+            Creates the new calculation.
+            </summary>
+            <returns>The new calculation.</returns>
+            <param name="workLocation">Work location.</param>
+            <param name="homeLocation">Home location.</param>
+            <param name="salary">Salary.</param>
+            <param name="commuteType">Commute type.</param>
+            <param name="jobInterest">Job interest.</param>
+            <param name="salarySatisfaction">Salary satisfaction.</param>
+        </member>
+        <member name="M:ASPWebsite.App_Code.Control.CalculationManager.getCalculations(ASPWebsite.App_Code.Entity.User)">
+            <summary>
+            Gets the calculations.
+            </summary>
+            <returns>The calculations.</returns>
+            <param name="user">User.</param>
+        </member>
+        <member name="M:ASPWebsite.App_Code.Control.CalculationManager.saveCalculation(ASPWebsite.App_Code.Entity.Calculation,ASPWebsite.App_Code.Entity.User)">
+            <summary>
+            Saves the calculation.
+            </summary>
+            <returns><c>true</c>, if calculation was saved, <c>false</c> otherwise.</returns>
+            <param name="calculation">Calculation.</param>
+            <param name="user">User.</param>
+        </member>
         <member name="F:ASPWebsite.Home.head1">
             <summary>
             head1 control.
@@ -1150,18 +1186,288 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
-        <member name="F:ASPWebsite.MainPage.form1">
+        <member name="F:ASPWebsite.HomePage.lblWelcomeUser">
             <summary>
-            form1 control.
+            lblWelcomeUser control.
             </summary>
             <remarks>
             Auto-generated field.
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
-        <member name="F:ASPWebsite.MainPage.ContentPlaceHolder1">
+        <member name="F:ASPWebsite.HomePage.LoginLink">
             <summary>
-            ContentPlaceHolder1 control.
+            LoginLink control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.HomePage.RegisterLink">
+            <summary>
+            RegisterLink control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.HomePage.SignOutLink">
+            <summary>
+            SignOutLink control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.HomePage.Label9">
+            <summary>
+            Label9 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.HomePage.exampleInputEmail1">
+            <summary>
+            exampleInputEmail1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.HomePage.tbEmail">
+            <summary>
+            tbEmail control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.HomePage.exampleInputPassword1">
+            <summary>
+            exampleInputPassword1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.HomePage.tbPassword">
+            <summary>
+            tbPassword control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.HomePage.lblLoginWarning">
+            <summary>
+            lblLoginWarning control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.HomePage.loginBtn">
+            <summary>
+            loginBtn control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.HomePage.Label1">
+            <summary>
+            Label1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.HomePage.tbEmail2">
+            <summary>
+            tbEmail2 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.HomePage.Label2">
+            <summary>
+            Label2 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.HomePage.tbPassword2">
+            <summary>
+            tbPassword2 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.HomePage.Label3">
+            <summary>
+            Label3 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.HomePage.tbConfirmPW">
+            <summary>
+            tbConfirmPW control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.HomePage.LabelWarning">
+            <summary>
+            LabelWarning control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.HomePage.Button1">
+            <summary>
+            Button1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.HomePage.Image1">
+            <summary>
+            Image1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.HomePage.Label4">
+            <summary>
+            Label4 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.HomePage.txt_Source">
+            <summary>
+            txt_Source control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.HomePage.Label5">
+            <summary>
+            Label5 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.HomePage.txt_Destination">
+            <summary>
+            txt_Destination control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.HomePage.Label6">
+            <summary>
+            Label6 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.HomePage.txt_Salary">
+            <summary>
+            txt_Salary control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.HomePage.Label7">
+            <summary>
+            Label7 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.HomePage.rbSalary">
+            <summary>
+            rbSalary control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.HomePage.Label8">
+            <summary>
+            Label8 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.HomePage.rbInterest">
+            <summary>
+            rbInterest control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.HomePage.sendMessage">
+            <summary>
+            sendMessage control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.Result.lblUsername">
+            <summary>
+            lblUsername control.
             </summary>
             <remarks>
             Auto-generated field.
@@ -1285,9 +1591,144 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
-        <member name="F:ASPWebsite.UserPage.lblUsername">
+        <member name="F:ASPWebsite.Result.Button1">
             <summary>
-            lblUsername control.
+            Button1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.Result.Button2">
+            <summary>
+            Button2 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.Result.exampleInputEmail1">
+            <summary>
+            exampleInputEmail1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.Result.tbEmail">
+            <summary>
+            tbEmail control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.Result.exampleInputPassword1">
+            <summary>
+            exampleInputPassword1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.Result.tbPassword">
+            <summary>
+            tbPassword control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.Result.lblLoginWarning">
+            <summary>
+            lblLoginWarning control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.Result.loginBtn">
+            <summary>
+            loginBtn control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.Result.Label1">
+            <summary>
+            Label1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.Result.tbEmail2">
+            <summary>
+            tbEmail2 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.Result.Label2">
+            <summary>
+            Label2 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.Result.tbPassword2">
+            <summary>
+            tbPassword2 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.Result.Label3">
+            <summary>
+            Label3 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.Result.tbConfirmPW">
+            <summary>
+            tbConfirmPW control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.Result.LabelWarning">
+            <summary>
+            LabelWarning control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.Result.Button3">
+            <summary>
+            Button3 control.
             </summary>
             <remarks>
             Auto-generated field.

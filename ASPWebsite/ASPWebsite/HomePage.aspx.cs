@@ -6,34 +6,33 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using ASPWebsite.App_Code.Control;
 using ASPWebsite.App_Code.Entity;
-
 namespace ASPWebsite
 {
-    public partial class Home : System.Web.UI.Page
+    public partial class HomePage : System.Web.UI.Page
     {
-        //SEService.ServiceClient se = new SEService.ServiceClient();
         protected void Page_Load(object sender, EventArgs e)
         {
-            //ApiManager apiFetch = new ApiManager();
-            //apiFetch.getCoordinates("Evergreen Park Singapore");
-            //DatabaseManager dbManager = new DatabaseManager();
-            //dbManager.getArea();
-            //UserManager userManager = new UserManager();
-            //userManager.createUser("qingyao", "lala");
-            //AddressManager adManager = new AddressManager();
-            //userManager.saveUserHomeLocation("qingyao", "NTU HALL OF RESIDENCE 16");
-            //string ret = userManager.getUserHomeLocation("qingyao");
+            if (Session["Username"] == null)
+            {
 
-            //Boolean bo = userManager.loginUser("qingyao", "lala");
-
+            }
+            else
+            {
+                lblWelcomeUser.Text = Session["Username"].ToString();
+                LoginLink.Visible = false;
+                RegisterLink.Visible = false;
+                SignOutLink.Visible = true;
+                lblWelcomeUser.Visible = true;
+            }
         }
+
         protected void loginBtn_Click1(object sender, EventArgs e)
         {
             UserManager um = new UserManager();
             Boolean t = um.loginUser(tbEmail.Text, tbPassword.Text);
 
             if (t)
-                Response.Redirect("UserPage.aspx?Username=" + tbEmail.Text);
+                Response.Redirect("HomePage.aspx?Username=" + tbEmail.Text);
             else
             {
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openLoginModal();", true);
@@ -50,7 +49,9 @@ namespace ASPWebsite
             {
                 if (um.createUser(tbEmail2.Text, tbPassword2.Text))
                 {
-                    Response.Redirect("UserPage.aspx?Username=" + tbEmail2.Text);
+                    Session["Username"] = tbEmail2.Text;
+                    //Response.Redirect("UserPage.aspx?Username=" + tbEmail2.Text);
+                    Response.Redirect("UserPage.aspx");
                 }
 
                 else
