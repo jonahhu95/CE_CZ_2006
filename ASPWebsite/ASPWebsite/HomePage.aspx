@@ -14,16 +14,32 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <asp:Label ID="lblWelcomeUser" runat="server" Text="Welcome User"></asp:Label>
-                        <asp:HyperLink ID="LoginLink" class="nav-link" data-toggle="modal" style="margin-right: 10px;" href="#Login" runat="server">Login</asp:HyperLink>
+                        <asp:Label ID="lblWelcomeUser" runat="server" Text="Welcome User" Visible="False"></asp:Label>
+                        <asp:HyperLink ID="LoginLink" class="nav-link" data-toggle="modal" Style="margin-right: 10px;" href="#Login" runat="server">Login</asp:HyperLink>
                         <%--<a class="nav-link" data-toggle="modal" style="margin-right: 10px;" href="#Login">Login</a>--%>
                     </li>
                     <li class="nav-item">
                         <asp:HyperLink ID="RegisterLink" class="nav-link" data-toggle="modal" href="#Sign" runat="server">Sign Up</asp:HyperLink>
-                         <asp:HyperLink ID="SignOutLink" class="nav-link" data-toggle="modal" runat="server" Visible="False">Sign Out</asp:HyperLink>
+                        <asp:HyperLink ID="SignOutLink" class="nav-link" data-toggle="modal" runat="server" Visible="False">Sign Out</asp:HyperLink>
                         <%--<a class="nav-link" data-toggle="modal" href="#Sign">Sign Up</a>--%>
                     </li>
-                    
+                    <li>
+                        <nav class="cd-stretchy-nav navbar-toggler-right" style="margin: 0; padding: 0px; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; display: block;">
+                            <a class="cd-nav-trigger" href="#0"><span aria-hidden="true"></span>
+                            </a>
+
+                            <ul>
+                                <li><a href="#0" class="active"><span>Home</span></a></li>
+                                <li><a href="#0"><span>Portfolio</span></a></li>
+                                <li><a href="#0"><span>Services</span></a></li>
+                                <li><a href="#0"><span>Store</span></a></li>
+                                <li><a href="#0"><span>Contact</span></a></li>
+                            </ul>
+
+                            <span aria-hidden="true" class="stretchy-nav-bg"></span>
+                        </nav>
+                    </li>
+
                 </ul>
             </div>
         </div>
@@ -112,8 +128,6 @@
             </div>
         </div>
     </div>
-
-
 
 
     <%--<img src="img/scrolldown.gif" style="position: fixed; bottom: 20px; height: 50px; width: 50px; right: 20px; background-color: black; opacity: 0.7; border-radius: 50%; border: 3px solid white;"></img>--%>

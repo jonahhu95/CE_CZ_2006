@@ -1,43 +1,5 @@
-<<<<<<< HEAD
-C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\bin\ASPWebsite.dll.config
-C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\bin\ASPWebsite.dll
-C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\bin\ASPWebsite.pdb
-C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\bin\AjaxControlToolkit.dll
-C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\bin\BCrypt.Net-Core.dll
-C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\bin\EntityFramework.dll
-C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\bin\EntityFramework.SqlServer.dll
-C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\bin\MVC.Utilities.dll
-C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\bin\RestSharp.dll
-C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\bin\System.Data.SQLite.dll
-C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\bin\System.Data.SQLite.EF6.dll
-C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\bin\System.Data.SQLite.Linq.dll
-C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\bin\EntityFramework.xml
-C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\bin\EntityFramework.SqlServer.xml
-C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\bin\RestSharp.xml
-C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\bin\System.Data.SQLite.xml
-C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\obj\Debug\ASPWebsite.dll
-C:\Users\jonah\Box Sync\NTU Learning Stuffs\201718 Sem1\CE2006 SOFTWARE ENGINEERING\Assignment_Files\ASPWebsite\ASPWebsite\obj\Debug\ASPWebsite.pdb
-E:\CX2006\ASPWebsite\ASPWebsite\bin\ASPWebsite.dll.config
-E:\CX2006\ASPWebsite\ASPWebsite\bin\ASPWebsite.dll
-E:\CX2006\ASPWebsite\ASPWebsite\bin\ASPWebsite.pdb
-E:\CX2006\ASPWebsite\ASPWebsite\bin\AjaxControlToolkit.dll
-E:\CX2006\ASPWebsite\ASPWebsite\bin\EntityFramework.dll
-E:\CX2006\ASPWebsite\ASPWebsite\bin\EntityFramework.SqlServer.dll
-E:\CX2006\ASPWebsite\ASPWebsite\bin\MVC.Utilities.dll
-E:\CX2006\ASPWebsite\ASPWebsite\bin\RestSharp.dll
-E:\CX2006\ASPWebsite\ASPWebsite\bin\System.Data.SQLite.dll
-E:\CX2006\ASPWebsite\ASPWebsite\bin\System.Data.SQLite.EF6.dll
-E:\CX2006\ASPWebsite\ASPWebsite\bin\System.Data.SQLite.Linq.dll
-E:\CX2006\ASPWebsite\ASPWebsite\bin\EntityFramework.xml
-E:\CX2006\ASPWebsite\ASPWebsite\bin\EntityFramework.SqlServer.xml
-E:\CX2006\ASPWebsite\ASPWebsite\bin\RestSharp.xml
-E:\CX2006\ASPWebsite\ASPWebsite\bin\System.Data.SQLite.xml
-E:\CX2006\ASPWebsite\ASPWebsite\obj\Debug\ASPWebsite.csprojResolveAssemblyReference.cache
-E:\CX2006\ASPWebsite\ASPWebsite\obj\Debug\ASPWebsite.dll
-E:\CX2006\ASPWebsite\ASPWebsite\obj\Debug\ASPWebsite.pdb
-E:\CX2006\ASPWebsite\ASPWebsite\bin\BCrypt.Net-Next.dll
-E:\CX2006\ASPWebsite\ASPWebsite\bin\BCrypt.Net-Next.xml
 C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\ASPWebsite.dll.config
+C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\ASPWebsite.xml
 C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\ASPWebsite.dll
 C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\ASPWebsite.pdb
 C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\AjaxControlToolkit.dll
@@ -45,6 +7,7 @@ C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\BCrypt.Net-Next.dll
 C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\EntityFramework.dll
 C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\EntityFramework.SqlServer.dll
 C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\MVC.Utilities.dll
+C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\Newtonsoft.Json.dll
 C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\RestSharp.dll
 C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\System.Data.SQLite.dll
 C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\System.Data.SQLite.EF6.dll
@@ -52,91 +15,9 @@ C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\System.Data.SQLite.
 C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\BCrypt.Net-Next.xml
 C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\EntityFramework.xml
 C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\EntityFramework.SqlServer.xml
+C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\Newtonsoft.Json.xml
 C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\RestSharp.xml
 C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\System.Data.SQLite.xml
 C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\obj\Debug\ASPWebsite.dll
 C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\obj\Debug\ASPWebsite.pdb
 C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\obj\Debug\ASPWebsite.csprojResolveAssemblyReference.cache
-=======
-C:/Users/Joey/Documents/CE_CZ_2006/ASPWebsite/ASPWebsite/bin/ASPWebsite.dll.config
-C:/Users/Joey/Documents/CE_CZ_2006/ASPWebsite/ASPWebsite/bin/ASPWebsite.dll
-C:/Users/Joey/Documents/CE_CZ_2006/ASPWebsite/ASPWebsite/bin/ASPWebsite.pdb
-C:/Users/Joey/Documents/CE_CZ_2006/ASPWebsite/ASPWebsite/bin/AjaxControlToolkit.dll
-C:/Users/Joey/Documents/CE_CZ_2006/ASPWebsite/ASPWebsite/bin/EntityFramework.dll
-C:/Users/Joey/Documents/CE_CZ_2006/ASPWebsite/ASPWebsite/bin/EntityFramework.SqlServer.dll
-C:/Users/Joey/Documents/CE_CZ_2006/ASPWebsite/ASPWebsite/bin/RestSharp.dll
-C:/Users/Joey/Documents/CE_CZ_2006/ASPWebsite/ASPWebsite/bin/System.Data.SQLite.dll
-C:/Users/Joey/Documents/CE_CZ_2006/ASPWebsite/ASPWebsite/bin/System.Data.SQLite.EF6.dll
-C:/Users/Joey/Documents/CE_CZ_2006/ASPWebsite/ASPWebsite/bin/System.Data.SQLite.Linq.dll
-C:/Users/Joey/Documents/CE_CZ_2006/ASPWebsite/ASPWebsite/bin/EntityFramework.xml
-C:/Users/Joey/Documents/CE_CZ_2006/ASPWebsite/ASPWebsite/bin/EntityFramework.SqlServer.xml
-C:/Users/Joey/Documents/CE_CZ_2006/ASPWebsite/ASPWebsite/bin/RestSharp.xml
-C:/Users/Joey/Documents/CE_CZ_2006/ASPWebsite/ASPWebsite/bin/System.Data.SQLite.xml
-C:/Users/Joey/Documents/CE_CZ_2006/ASPWebsite/ASPWebsite/obj/Debug/ASPWebsite.dll
-C:/Users/Joey/Documents/CE_CZ_2006/ASPWebsite/ASPWebsite/obj/Debug/ASPWebsite.pdb
-C:/Users/Joey/Documents/CE_CZ_2006/ASPWebsite/ASPWebsite/obj/Debug/ASPWebsite.csprojResolveAssemblyReference.cache
-C:/Users/jonah/Box Sync/NTU Learning Stuffs/201718 Sem1/CE2006 SOFTWARE ENGINEERING/Assignment_Files/ASPWebsite/ASPWebsite/bin/ASPWebsite.dll.config
-C:/Users/jonah/Box Sync/NTU Learning Stuffs/201718 Sem1/CE2006 SOFTWARE ENGINEERING/Assignment_Files/ASPWebsite/ASPWebsite/bin/ASPWebsite.dll
-C:/Users/jonah/Box Sync/NTU Learning Stuffs/201718 Sem1/CE2006 SOFTWARE ENGINEERING/Assignment_Files/ASPWebsite/ASPWebsite/bin/ASPWebsite.pdb
-C:/Users/jonah/Box Sync/NTU Learning Stuffs/201718 Sem1/CE2006 SOFTWARE ENGINEERING/Assignment_Files/ASPWebsite/ASPWebsite/bin/AjaxControlToolkit.dll
-C:/Users/jonah/Box Sync/NTU Learning Stuffs/201718 Sem1/CE2006 SOFTWARE ENGINEERING/Assignment_Files/ASPWebsite/ASPWebsite/bin/BCrypt.Net-Core.dll
-C:/Users/jonah/Box Sync/NTU Learning Stuffs/201718 Sem1/CE2006 SOFTWARE ENGINEERING/Assignment_Files/ASPWebsite/ASPWebsite/bin/EntityFramework.dll
-C:/Users/jonah/Box Sync/NTU Learning Stuffs/201718 Sem1/CE2006 SOFTWARE ENGINEERING/Assignment_Files/ASPWebsite/ASPWebsite/bin/EntityFramework.SqlServer.dll
-C:/Users/jonah/Box Sync/NTU Learning Stuffs/201718 Sem1/CE2006 SOFTWARE ENGINEERING/Assignment_Files/ASPWebsite/ASPWebsite/bin/MVC.Utilities.dll
-C:/Users/jonah/Box Sync/NTU Learning Stuffs/201718 Sem1/CE2006 SOFTWARE ENGINEERING/Assignment_Files/ASPWebsite/ASPWebsite/bin/RestSharp.dll
-C:/Users/jonah/Box Sync/NTU Learning Stuffs/201718 Sem1/CE2006 SOFTWARE ENGINEERING/Assignment_Files/ASPWebsite/ASPWebsite/bin/System.Data.SQLite.dll
-C:/Users/jonah/Box Sync/NTU Learning Stuffs/201718 Sem1/CE2006 SOFTWARE ENGINEERING/Assignment_Files/ASPWebsite/ASPWebsite/bin/System.Data.SQLite.EF6.dll
-C:/Users/jonah/Box Sync/NTU Learning Stuffs/201718 Sem1/CE2006 SOFTWARE ENGINEERING/Assignment_Files/ASPWebsite/ASPWebsite/bin/System.Data.SQLite.Linq.dll
-C:/Users/jonah/Box Sync/NTU Learning Stuffs/201718 Sem1/CE2006 SOFTWARE ENGINEERING/Assignment_Files/ASPWebsite/ASPWebsite/bin/EntityFramework.xml
-C:/Users/jonah/Box Sync/NTU Learning Stuffs/201718 Sem1/CE2006 SOFTWARE ENGINEERING/Assignment_Files/ASPWebsite/ASPWebsite/bin/EntityFramework.SqlServer.xml
-C:/Users/jonah/Box Sync/NTU Learning Stuffs/201718 Sem1/CE2006 SOFTWARE ENGINEERING/Assignment_Files/ASPWebsite/ASPWebsite/bin/RestSharp.xml
-C:/Users/jonah/Box Sync/NTU Learning Stuffs/201718 Sem1/CE2006 SOFTWARE ENGINEERING/Assignment_Files/ASPWebsite/ASPWebsite/bin/System.Data.SQLite.xml
-C:/Users/jonah/Box Sync/NTU Learning Stuffs/201718 Sem1/CE2006 SOFTWARE ENGINEERING/Assignment_Files/ASPWebsite/ASPWebsite/obj/Debug/ASPWebsite.dll
-C:/Users/jonah/Box Sync/NTU Learning Stuffs/201718 Sem1/CE2006 SOFTWARE ENGINEERING/Assignment_Files/ASPWebsite/ASPWebsite/obj/Debug/ASPWebsite.pdb
-E:/CX2006/ASPWebsite/ASPWebsite/bin/ASPWebsite.dll.config
-E:/CX2006/ASPWebsite/ASPWebsite/bin/ASPWebsite.dll
-E:/CX2006/ASPWebsite/ASPWebsite/bin/ASPWebsite.pdb
-E:/CX2006/ASPWebsite/ASPWebsite/bin/AjaxControlToolkit.dll
-E:/CX2006/ASPWebsite/ASPWebsite/bin/EntityFramework.dll
-E:/CX2006/ASPWebsite/ASPWebsite/bin/EntityFramework.SqlServer.dll
-E:/CX2006/ASPWebsite/ASPWebsite/bin/MVC.Utilities.dll
-E:/CX2006/ASPWebsite/ASPWebsite/bin/RestSharp.dll
-E:/CX2006/ASPWebsite/ASPWebsite/bin/System.Data.SQLite.dll
-E:/CX2006/ASPWebsite/ASPWebsite/bin/System.Data.SQLite.EF6.dll
-E:/CX2006/ASPWebsite/ASPWebsite/bin/System.Data.SQLite.Linq.dll
-E:/CX2006/ASPWebsite/ASPWebsite/bin/EntityFramework.xml
-E:/CX2006/ASPWebsite/ASPWebsite/bin/EntityFramework.SqlServer.xml
-E:/CX2006/ASPWebsite/ASPWebsite/bin/RestSharp.xml
-E:/CX2006/ASPWebsite/ASPWebsite/bin/System.Data.SQLite.xml
-E:/CX2006/ASPWebsite/ASPWebsite/obj/Debug/ASPWebsite.csprojResolveAssemblyReference.cache
-E:/CX2006/ASPWebsite/ASPWebsite/obj/Debug/ASPWebsite.dll
-E:/CX2006/ASPWebsite/ASPWebsite/obj/Debug/ASPWebsite.pdb
-E:/CX2006/ASPWebsite/ASPWebsite/bin/BCrypt.Net-Next.dll
-E:/CX2006/ASPWebsite/ASPWebsite/bin/BCrypt.Net-Next.xml
-/Users/xy/Desktop/CE2006/ASPWebsite/ASPWebsite/bin/ASPWebsite.xml
-/Users/xy/Desktop/CE2006/ASPWebsite/ASPWebsite/bin/ASPWebsite.dll
-/Users/xy/Desktop/CE2006/ASPWebsite/ASPWebsite/bin/ASPWebsite.pdb
-/Users/xy/Desktop/CE2006/ASPWebsite/ASPWebsite/bin/AjaxControlToolkit.dll
-/Users/xy/Desktop/CE2006/ASPWebsite/ASPWebsite/bin/BCrypt.Net-Next.dll
-/Users/xy/Desktop/CE2006/ASPWebsite/ASPWebsite/bin/EntityFramework.dll
-/Users/xy/Desktop/CE2006/ASPWebsite/ASPWebsite/bin/EntityFramework.SqlServer.dll
-/Users/xy/Desktop/CE2006/ASPWebsite/ASPWebsite/bin/MVC.Utilities.dll
-/Users/xy/Desktop/CE2006/ASPWebsite/ASPWebsite/bin/Newtonsoft.Json.dll
-/Users/xy/Desktop/CE2006/ASPWebsite/ASPWebsite/bin/RestSharp.dll
-/Users/xy/Desktop/CE2006/ASPWebsite/ASPWebsite/bin/System.Data.SQLite.dll
-/Users/xy/Desktop/CE2006/ASPWebsite/ASPWebsite/bin/System.Data.SQLite.EF6.dll
-/Users/xy/Desktop/CE2006/ASPWebsite/ASPWebsite/bin/System.Data.SQLite.Linq.dll
-/Users/xy/Desktop/CE2006/ASPWebsite/ASPWebsite/bin/BCrypt.Net-Next.xml
-/Users/xy/Desktop/CE2006/ASPWebsite/ASPWebsite/bin/EntityFramework.xml
-/Users/xy/Desktop/CE2006/ASPWebsite/ASPWebsite/bin/EntityFramework.SqlServer.xml
-/Users/xy/Desktop/CE2006/ASPWebsite/ASPWebsite/bin/Newtonsoft.Json.xml
-/Users/xy/Desktop/CE2006/ASPWebsite/ASPWebsite/bin/RestSharp.xml
-/Users/xy/Desktop/CE2006/ASPWebsite/ASPWebsite/bin/System.Data.SQLite.xml
-/Users/xy/Desktop/CE2006/ASPWebsite/ASPWebsite/bin/System.Data.SQLite.dll.config
-/Users/xy/Desktop/CE2006/ASPWebsite/ASPWebsite/obj/Debug/ASPWebsite.csproj.CoreCompileInputs.cache
-/Users/xy/Desktop/CE2006/ASPWebsite/ASPWebsite/obj/Debug/ASPWebsite.dll
-/Users/xy/Desktop/CE2006/ASPWebsite/ASPWebsite/obj/Debug/ASPWebsite.pdb
->>>>>>> a13a9fde8af62f4610b94a223b196ab2fdd05e53
-C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\ASPWebsite.xml
-C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\Newtonsoft.Json.dll
-C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\Newtonsoft.Json.xml

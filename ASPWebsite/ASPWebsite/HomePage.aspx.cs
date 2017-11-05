@@ -12,13 +12,9 @@ namespace ASPWebsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Username"] == null)
+            if (Session["Username"] != null)
             {
-
-            }
-            else
-            {
-                lblWelcomeUser.Text = Session["Username"].ToString();
+                lblWelcomeUser.Text = "Welcome " + Session["Username"].ToString();
                 LoginLink.Visible = false;
                 RegisterLink.Visible = false;
                 SignOutLink.Visible = true;
@@ -32,7 +28,11 @@ namespace ASPWebsite
             Boolean t = um.loginUser(tbEmail.Text, tbPassword.Text);
 
             if (t)
-                Response.Redirect("HomePage.aspx?Username=" + tbEmail.Text);
+            {
+                Session["Username"] = tbEmail.Text;
+                Response.Redirect(Request.RawUrl);
+                //Response.Redirect("HomePage.aspx?Username=" + tbEmail.Text);
+            }
             else
             {
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openLoginModal();", true);

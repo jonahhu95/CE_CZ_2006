@@ -1222,15 +1222,6 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
-        <member name="F:ASPWebsite.HomePage.Label9">
-            <summary>
-            Label9 control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
         <member name="F:ASPWebsite.HomePage.exampleInputEmail1">
             <summary>
             exampleInputEmail1 control.

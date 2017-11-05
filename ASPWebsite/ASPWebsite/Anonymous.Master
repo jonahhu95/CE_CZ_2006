@@ -47,7 +47,16 @@
     <!-- Custom styles for this template -->
     <link href="css/freelancer.min.css" rel="stylesheet" />
 
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Resource style -->
+    <script src="js/modernizr.js"></script>
+    <!-- Modernizr -->
+
     <style type="text/css">
+        ol, ul {
+            list-style: none;
+        }
+
         ::-webkit-scrollbar {
             display: none;
         }
@@ -72,6 +81,9 @@
             $('#Login').modal({ show: true });
         }
     </script>
+
+    <script src="js/main.js"></script>
+    <!-- Resource jQuery -->
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
