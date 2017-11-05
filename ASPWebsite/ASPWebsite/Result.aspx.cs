@@ -1,4 +1,5 @@
-﻿using ASPWebsite.App_Code.Entity;
+﻿using ASPWebsite.App_Code.Control;
+using ASPWebsite.App_Code.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,56 @@ namespace ASPWebsite
             lblji.Text = c.getCriteriaMark_JobInterest()[0].ToString() + "/" + c.getCriteriaMark_JobInterest()[1].ToString();
             lblms.Text = c.getCriteriaMark_Salary()[0].ToString() + "/" + c.getCriteriaMark_Salary()[1].ToString();
             lblct.Text = c.getCriteriaMark_CommuteTime()[0].ToString() + "/" + c.getCriteriaMark_CommuteTime()[1].ToString();
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openLoginModal();", true);
+        }
+
+        protected void loginBtn_Click1(object sender, EventArgs e)
+        {
+            UserManager um = new UserManager();
+            Boolean t = um.loginUser(tbEmail.Text, tbPassword.Text);
+
+            if (t)
+                Response.Redirect("UserPage.aspx?Username=" + tbEmail.Text);
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openLoginModal();", true);
+                lblLoginWarning.Text = "Invalid username or password";
+                tbPassword.Text = null;
+            }
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            UserManager um = new UserManager();
+            if (tbPassword2.Text == tbConfirmPW.Text)
+            {
+                if (um.createUser(tbEmail2.Text, tbPassword2.Text))
+                {
+                    Response.Redirect("UserPage.aspx?Username=" + tbEmail2.Text);
+                }
+
+                else
+                {
+                    //when email exist in database
+                    //need a method here to check
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                    LabelWarning.Text = "Username exist in database";
+                }
+
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                LabelWarning.Text = "Password does not match confirm password!";
+                tbConfirmPW.Text = null;
+                tbPassword2.Text = null;
+            }
+
         }
     }
 }

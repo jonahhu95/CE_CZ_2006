@@ -106,6 +106,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\sidenav.css" />
     <Content Include="Home.aspx" />
     <Content Include="js\jquery.js" />
     <Content Include="mail\contact_me.php" />
