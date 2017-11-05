@@ -9,6 +9,9 @@ using System.Web;
 
 namespace ASPWebsite.App_Code.Control
 {
+    /// <summary>
+    /// API manager.
+    /// </summary>
     public class ApiManager
     {
         private string oneMapAccessToken = null;
@@ -16,6 +19,11 @@ namespace ASPWebsite.App_Code.Control
         private string googleApiKey = "AIzaSyDh0GkxyS2a9Sc1Uy-u0Z8Q-7_LBhYeHPk";
         private DatabaseManager dbManager = new DatabaseManager();
 
+        /// <summary>
+        /// Gets the median salary.
+        /// </summary>
+        /// <returns>The median salary.</returns>
+        /// <param name="area">Area.</param>
         public int getMedianSalary(string area)
         {
             string url;
@@ -64,6 +72,12 @@ namespace ASPWebsite.App_Code.Control
             }
             return 4000;
         }
+        /// <summary>
+        /// Gets the area.
+        /// </summary>
+        /// <returns>The area.</returns>
+        /// <param name="longitude">Longitude.</param>
+        /// <param name="latitude">Latitude.</param>
         public string getArea(double longitude, double latitude)
         {
             string url;
@@ -89,10 +103,20 @@ namespace ASPWebsite.App_Code.Control
             }
             return null;
         }
+        /// <summary>
+        /// Gets the average commute time.
+        /// </summary>
+        /// <returns>The average commute time.</returns>
         public double getAverageCommuteTime()
         {
             return 40.0;
         }
+        /// <summary>
+        /// Gets the commute time cost.
+        /// </summary>
+        /// <returns>The commute time cost.</returns>
+        /// <param name="homeLocation">Home location.</param>
+        /// <param name="workLocation">Work location.</param>
         public double[] getCommuteTimeCost(Address homeLocation, Address workLocation)
         {
             string url;
@@ -115,6 +139,10 @@ namespace ASPWebsite.App_Code.Control
             }
             return ret;
         }
+        /// <summary>
+        /// Gets the average number of riders.
+        /// </summary>
+        /// <returns>The average number of riders.</returns>
         public int getAverageNumberOfRiders()
         {
             List<KeyValuePair<string, int>> ret = getAllAreaRiders();
@@ -131,6 +159,11 @@ namespace ASPWebsite.App_Code.Control
             return total / countedAreas;
 
         }
+        /// <summary>
+        /// Gets the number of riders.
+        /// </summary>
+        /// <returns>The number of riders.</returns>
+        /// <param name="area">Area.</param>
         public int getNumberOfRiders(string area)
         {
             string url;
@@ -175,6 +208,11 @@ namespace ASPWebsite.App_Code.Control
             }
             return total;
         }
+        /// <summary>
+        /// Gets the coordinates.
+        /// </summary>
+        /// <returns>The coordinates.</returns>
+        /// <param name="locationName">Location name.</param>
         public double[] getCoordinates(string locationName)
         {
             string url;
@@ -186,6 +224,10 @@ namespace ASPWebsite.App_Code.Control
                 string res = doGetRequest(url);
                 obj = JObject.Parse(res);
                 JArray ar = (JArray)obj["results"];
+                String formattedAddress = ar.First["formatted_address"].ToString();
+                Boolean contain = formattedAddress.Contains("Singapore");
+                if (!contain)//return null for address not in singapore
+                    return null;
                 JObject hold = (JObject)ar.First["geometry"]["location"];
                 geo[0] = (Double)hold["lng"];
                 geo[1] = (Double)hold["lat"];
@@ -196,7 +238,10 @@ namespace ASPWebsite.App_Code.Control
             }
             return geo;
         }
-
+        /// <summary>
+        /// Gets all planning area.
+        /// </summary>
+        /// <returns>The all planning area.</returns>
         private List<string> getAllPlanningArea()
         {
             string url;
@@ -230,6 +275,10 @@ namespace ASPWebsite.App_Code.Control
             }
             return ret;
         }
+        /// <summary>
+        /// Gets all area riders.
+        /// </summary>
+        /// <returns>The all area riders.</returns>
         private List<KeyValuePair<string, int>> getAllAreaRiders()
         {
             List<KeyValuePair<string, int>> areas = dbManager.getArea();
@@ -269,7 +318,12 @@ namespace ASPWebsite.App_Code.Control
                 return response.Content;
             return null;
         }
-
+        /// <summary>
+        /// Generates the call number of riders.
+        /// </summary>
+        /// <returns>The call number of riders.</returns>
+        /// <param name="area">Area.</param>
+        /// <param name="year">Year.</param>
         private string generateCall_NumberOfRiders(string area, int year)
         {
             string url = "https://developers.onemap.sg/privateapi/popapi/getModeOfTransportWork?";
@@ -278,6 +332,11 @@ namespace ASPWebsite.App_Code.Control
             url = url + "&planningArea=" + area;
             return url;
         }
+        /// <summary>
+        /// Generates the call get all planning area.
+        /// </summary>
+        /// <returns>The call get all planning area.</returns>
+        /// <param name="year">Year.</param>
         private string generateCall_GetAllPlanningArea(int year)
         {
             string url = "https://developers.onemap.sg/privateapi/popapi/getPlanningareaNames?";
@@ -285,6 +344,12 @@ namespace ASPWebsite.App_Code.Control
             url = url + "&year=" + year.ToString();
             return url;
         }
+        /// <summary>
+        /// Generates the call get median salary.
+        /// </summary>
+        /// <returns>The call get median salary.</returns>
+        /// <param name="area">Area.</param>
+        /// <param name="year">Year.</param>
         private string generateCall_GetMedianSalary(string area, int year)
         {
             string url = "https://developers.onemap.sg/privateapi/popapi/getIncomeFromWork?";
@@ -293,6 +358,13 @@ namespace ASPWebsite.App_Code.Control
             url = url + "&year=" + year.ToString();
             return url;
         }
+        /// <summary>
+        /// Generates the call get area.
+        /// </summary>
+        /// <returns>The call get area.</returns>
+        /// <param name="longitude">Longitude.</param>
+        /// <param name="latitude">Latitude.</param>
+        /// <param name="year">Year.</param>
         private string generateCall_GetArea(double longitude, double latitude, int year)
         {
             string url = "https://developers.onemap.sg/privateapi/popapi/getPlanningarea?";
@@ -302,6 +374,11 @@ namespace ASPWebsite.App_Code.Control
             url = url + "&year=" + year.ToString();
             return url;
         }
+        /// <summary>
+        /// Generates the call get coordinates.
+        /// </summary>
+        /// <returns>The call get coordinates.</returns>
+        /// <param name="locationName">Location name.</param>
         private string generateCall_GetCoordinates(string locationName)
         {
             string url = "https://maps.googleapis.com/maps/api/place/textsearch/json?";
@@ -309,6 +386,14 @@ namespace ASPWebsite.App_Code.Control
             url = url + "&key=" + googleApiKey;
             return url;
         }
+        /// <summary>
+        /// Generates the call get commute time cost.
+        /// </summary>
+        /// <returns>The call get commute time cost.</returns>
+        /// <param name="start_lng">Start lng.</param>
+        /// <param name="start_lat">Start lat.</param>
+        /// <param name="end_lng">End lng.</param>
+        /// <param name="end_lat">End lat.</param>
         private string generateCall_GetCommuteTimeCost(double start_lng, double start_lat, double end_lng, double end_lat)
         {
 
@@ -317,7 +402,11 @@ namespace ASPWebsite.App_Code.Control
             url = url + "&methods=bustrain&vehicle=both&info=1&time=12:00%20PM&date=" + DateTime.Now.Month + "/" + DateTime.Now.Day + "/" + DateTime.Now.Year;
             return url;
         }
-
+        /// <summary>
+        /// Checks the json response.
+        /// </summary>
+        /// <returns><c>true</c>, if json response was checked, <c>false</c> otherwise.</returns>
+        /// <param name="res">Res.</param>
         private Boolean checkJsonResponse(IRestResponse res)
         {
             if (!(res.ResponseStatus == ResponseStatus.Completed))
@@ -348,6 +437,11 @@ namespace ASPWebsite.App_Code.Control
             }
             return true;
         }
+        /// <summary>
+        /// Checks the json response one map.
+        /// </summary>
+        /// <returns><c>true</c>, if json response one map was checked, <c>false</c> otherwise.</returns>
+        /// <param name="res">Res.</param>
         private Boolean checkJsonResponse_oneMap(IRestResponse res)
         {
             JObject obj = null;
@@ -373,6 +467,11 @@ namespace ASPWebsite.App_Code.Control
             }
             return true;
         }
+        /// <summary>
+        /// Checks the json response street directory.
+        /// </summary>
+        /// <returns><c>true</c>, if json response street directory was checked, <c>false</c> otherwise.</returns>
+        /// <param name="res">Res.</param>
         private Boolean checkJsonResponse_streetDirectory(IRestResponse res)
         {
             JObject obj = null;
@@ -388,7 +487,10 @@ namespace ASPWebsite.App_Code.Control
             }
             return true;
         }
-
+        /// <summary>
+        /// Gets the one map access token.
+        /// </summary>
+        /// <returns><c>true</c>, if one map access token was gotten, <c>false</c> otherwise.</returns>
         private Boolean getOneMapAccessToken()
         {
             try
@@ -413,6 +515,10 @@ namespace ASPWebsite.App_Code.Control
             }
             return true;
         }
+        /// <summary>
+        /// Checks the one map access token.
+        /// </summary>
+        /// <returns><c>true</c>, if one map access token was checked, <c>false</c> otherwise.</returns>
         private Boolean checkOneMapAccessToken()
         {
             if ((long)(DateTime.Now.Subtract(new DateTime(1970, 1, 1))).TotalSeconds > oneMapAccessToken_expiryTime)

@@ -5,14 +5,31 @@ using System.Web;
 
 namespace ASPWebsite.App_Code.Entity
 {
+    /// <summary>
+    /// Salary.
+    /// </summary>
     public class Salary : Criteria
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:ASPWebsite.App_Code.Entity.Salary"/> class.
+        /// </summary>
+        /// <param name="medianSalary">Median salary.</param>
+        /// <param name="salary">Salary.</param>
         public Salary(int medianSalary, int salary)
         {
             weightage = 20;
-            explanations = new List<string> { "Description 1", "Description 2", "Description 3",
-                "Description 4", "Description 5", "Description 6", "Description 7", "Description 8",
-                "Description 9", "Description 10" };
+            explanations = new List<String> {
+                "Highest difference between current and median salary",
+                "Very high difference between current and median salary",
+                "High difference between current and median salary",
+                "Significant difference between current and median salary",
+                "Mild difference between current and median salary",
+                "Moderate difference between current and median salary",
+                "Little difference between current and median salary",
+                "Very Little difference between current and median salary",
+                "Very low difference between current and median salary",
+                "Lowest difference between current and median salary" };
+
             int difference = 0;
             difference = salary - medianSalary;
             difference = difference / 1000;

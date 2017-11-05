@@ -6,7 +6,7 @@ namespace ASPWebsite.App_Code.Control
 {
     public class FeedbackManager
     {
-
+        
         private DatabaseManager dbManager = new DatabaseManager();
         public Boolean addFeedback(User user, string message)
         {

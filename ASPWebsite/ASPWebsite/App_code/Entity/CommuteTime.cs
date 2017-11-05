@@ -5,14 +5,30 @@ using System.Web;
 
 namespace ASPWebsite.App_Code.Entity
 {
+    /// <summary>
+    /// Commute time.
+    /// </summary>
     public class CommuteTime : Criteria
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:ASPWebsite.App_Code.Entity.CommuteTime"/> class.
+        /// </summary>
+        /// <param name="averageTravelTime">Average travel time.</param>
+        /// <param name="travelTime">Travel time.</param>
         public CommuteTime(double averageTravelTime, double travelTime)
         {
             weightage = 20;
-            explanations = new List<string> { "Description 1", "Description 2", "Description 3",
-                "Description 4", "Description 5", "Description 6", "Description 7", "Description 8",
-                "Description 9" };
+            explanations = new List<String> {
+                "Most amount of time needed for commuting, may affect overall health.",
+                "Very high amount of time needed for commuting, may increase strain in health.",
+                "High amount of time needed for commuting, leisure time may be reduced.",
+                "Significant amount of time needed for commuting, may get impatient.",
+                "Moderate amount of time needed for commuting, may have feelings of stress.",
+                "Considerate amount of time needed for commuting, generally comfortable.",
+                "Little time needed for commuting, happy most of the time.",
+                "Very little time needed for commuting, very satisfied.",
+                "Least time needed for commmuting, extremely satisfied. " };
+
             double difference = travelTime - averageTravelTime;
             if (difference >= -15)
             {
