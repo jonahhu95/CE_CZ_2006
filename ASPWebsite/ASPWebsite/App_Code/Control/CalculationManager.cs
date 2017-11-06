@@ -79,10 +79,10 @@ namespace ASPWebsite.App_Code.Control
         /// </summary>
         /// <returns><c>true</c>, if calculation was saved, <c>false</c> otherwise.</returns>
         /// <param name="calculation">Calculation.</param>
-        /// <param name="user">User.</param>
-        public Boolean saveCalculation(Calculation calculation, User user)
+        /// <param name="userName">User name</param>
+        public Boolean saveCalculation(Calculation calculation, string userName)
         {
-            return dbManager.saveCalculation(calculation, user);
+            return dbManager.saveCalculation(calculation, userName);
         }
 
 

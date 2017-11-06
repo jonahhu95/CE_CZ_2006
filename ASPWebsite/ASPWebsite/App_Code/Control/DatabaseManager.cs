@@ -36,8 +36,8 @@ namespace ASPWebsite.App_Code.Control
         /// </summary>
         /// <returns><c>true</c>, if calculation was saved, <c>false</c> otherwise.</returns>
         /// <param name="calculation">Calculation.</param>
-        /// <param name="user">User.</param>
-        public Boolean saveCalculation(Calculation calculation, User user)
+        /// <param name="userName">User name</param>
+        public Boolean saveCalculation(Calculation calculation, string userName)
         {
             try
             {
@@ -45,7 +45,7 @@ namespace ASPWebsite.App_Code.Control
                 {
                     string sqlStatement = "INSERT INTO CALCULATION(user_name,created_time,work_location_lon,work_location_lat,work_location_name,work_location_area," +
                         "home_location_lon,home_location_lat,home_location_name,home_location_area,salary,commute_type,job_interest,salary_satisfaction,median_salary," +
-                        "riders_area,ave_riders_area,commute_time,ave_commute_time,monthly_commute_cost) VALUES ('" + user.getUsername() + "'," + 
+                        "riders_area,ave_riders_area,commute_time,ave_commute_time,monthly_commute_cost) VALUES ('" + userName + "'," + 
                         calculation.getCreatedTime().Ticks + "," + calculation.getWorkLocation().getLongitude() + "," + calculation.getWorkLocation().getLatitude() + ",'" + 
                         calculation.getWorkLocation().getLocationName() + "','" + calculation.getWorkLocation().getArea() + "'," + calculation.getHomeLocation().getLongitude() + 
                         "," + calculation.getHomeLocation().getLatitude() + ",'" + calculation.getHomeLocation().getLocationName() + "','" + calculation.getHomeLocation().getArea() + 
