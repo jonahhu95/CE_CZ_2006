@@ -212,20 +212,20 @@ namespace ASPWebsite.App_Code.Control
         /// <param name="userName">User Name.</param>
         public List<Calculation> getCalculationsOfUser(string userName)
         {
+            List<Calculation> calList = new List<Calculation>();
             try
             {
                 if (getConnection())
                 {
                     string sql = "SELECT * from CALCULATION WHERE user_name = '" + userName + "'";
                     SQLiteDataReader ret = getFromTable(sql);
-                    List<Calculation> calList = new List<Calculation>();
                     while (ret.Read())
                     {
                         Address home = new Address((string)ret["home_location_name"], (double)ret["home_location_lon"],
                             (double)ret["home_location_lat"], (string)ret["home_location_area"]);
                         Address work = new Address((string)ret["work_location_name"], (double)ret["work_location_lon"],
                             (double)ret["work_location_lat"], (string)ret["work_location_area"]);
-                        Calculation get = new Calculation(work, home, (int)(long)ret["salary"], (char)ret["commute_type"],
+                        Calculation get = new Calculation(work, home, (int)(long)ret["salary"], ((string)ret["commute_type"])[0],
                             (int)(long)ret["job_interest"], (int)(long)ret["salary_satisfaction"], new DateTime((long)ret["created_time"]),
                             (int)(long)ret["median_salary"], (int)(long)ret["riders_area"], (int)(long)ret["ave_riders_area"],
                             (double)ret["commute_time"], (double)ret["ave_commute_time"], (double)ret["monthly_commute_cost"]);
@@ -238,7 +238,7 @@ namespace ASPWebsite.App_Code.Control
             {
                 Debug.WriteLine(e.Message);
             }
-            return null;
+            return calList;
         }
         /// <summary>
         /// Gets the feedback.
