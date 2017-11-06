@@ -205,14 +205,14 @@ namespace ASPWebsite.App_Code.Control
         /// Gets the calculations of user.
         /// </summary>
         /// <returns>The calculations of user.</returns>
-        /// <param name="user">User.</param>
-        public List<Calculation> getCalculationsOfUser(User user)
+        /// <param name="userName">User Name.</param>
+        public List<Calculation> getCalculationsOfUser(string userName)
         {
             try
             {
                 if (getConnection())
                 {
-                    string sql = "SELECT * from CALCULATION WHERE user_name = '" + user.getUsername() + "'";
+                    string sql = "SELECT * from CALCULATION WHERE user_name = '" + userName + "'";
                     SQLiteDataReader ret = getFromTable(sql);
                     List<Calculation> calList = new List<Calculation>();
                     while (ret.Read())
