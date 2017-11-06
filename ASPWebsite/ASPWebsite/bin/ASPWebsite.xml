@@ -517,6 +517,7 @@
         </member>
         <member name="M:ASPWebsite.App_Code.Control.CalculationManager.getCalculations(System.String)">
             <summary>
+<<<<<<< HEAD
             Gets the calculations.
             </summary>
             <returns>The calculations.</returns>
@@ -529,6 +530,22 @@
             <returns><c>true</c>, if calculation was saved, <c>false</c> otherwise.</returns>
             <param name="calculation">Calculation.</param>
             <param name="userName">User name</param>
+=======
+            
+            </summary>
+            <returns>The calculations.</returns>
+            <param name="userName">User Name.</param>
+            <param name="userName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASPWebsite.App_Code.Control.CalculationManager.saveCalculation(ASPWebsite.App_Code.Entity.Calculation,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="calculation"></param>
+            <param name="userName"></param>
+            <returns></returns>
+>>>>>>> 56dc8f31f29d738a7baf50300ab7a2348fda31b8
         </member>
         <member name="T:ASPWebsite.App_Code.Entity.Criteria">
             <summary>

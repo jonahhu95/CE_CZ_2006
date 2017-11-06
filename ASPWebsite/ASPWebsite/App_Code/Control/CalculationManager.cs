@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Web;
+using Newtonsoft.Json.Linq;
 
 namespace ASPWebsite.App_Code.Control
 {
@@ -66,10 +67,12 @@ namespace ASPWebsite.App_Code.Control
             return cal;
         }
         /// <summary>
-        /// Gets the calculations.
+        /// 
         /// </summary>
         /// <returns>The calculations.</returns>
         /// <param name="userName">User Name.</param>
+        /// <param name="userName"></param>
+        /// <returns></returns>
         public Boolean getCalculations(string userName)
         {
             if (dbManager.getCalculationsOfUser(userName) == null)
@@ -81,16 +84,38 @@ namespace ASPWebsite.App_Code.Control
             //return dbManager.getCalculationsOfUser(userName);
         }
         /// <summary>
-        /// Saves the calculation.
+        /// 
         /// </summary>
-        /// <returns><c>true</c>, if calculation was saved, <c>false</c> otherwise.</returns>
-        /// <param name="calculation">Calculation.</param>
-        /// <param name="userName">User name</param>
+        /// <param name="calculation"></param>
+        /// <param name="userName"></param>
+        /// <returns></returns>
         public Boolean saveCalculation(Calculation calculation, string userName)
         {
             return dbManager.saveCalculation(calculation, userName);
         }
 
+        public Boolean getAddressValid(string address)
+        {
 
+            string url;
+            JObject obj;
+            try
+            {
+                url = apiManager.generateCall_GetCoordinates(address);
+                string res = apiManager.doGetRequest(url);
+                obj = JObject.Parse(res);
+                JArray ar = (JArray)obj["results"];
+                String formattedAddress = ar.First["formatted_address"].ToString();
+                Boolean contain = formattedAddress.Contains("Singapore");
+                if (contain)//return true for address in singapore
+                    return true;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return false;
+
+        }
     }
 }
