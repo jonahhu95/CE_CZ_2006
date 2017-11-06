@@ -221,9 +221,9 @@ namespace ASPWebsite.App_Code.Control
                             (double)ret["home_location_lat"], (string)ret["home_location_area"]);
                         Address work = new Address((string)ret["work_location_name"], (double)ret["work_location_lon"],
                             (double)ret["work_location_lat"], (string)ret["work_location_area"]);
-                        Calculation get = new Calculation(work, home, (int)ret["salary"], (char)ret["commute_type"],
-                            (int)ret["job_interest"], (int)ret["salary_satisfaction"], new DateTime((long)ret["created_time"]),
-                            (int)ret["median_salary"], (int)ret["riders_area"], (int)ret["ave_riders_area"],
+                        Calculation get = new Calculation(work, home, (int)(long)ret["salary"], (char)ret["commute_type"],
+                            (int)(long)ret["job_interest"], (int)(long)ret["salary_satisfaction"], new DateTime((long)ret["created_time"]),
+                            (int)(long)ret["median_salary"], (int)(long)ret["riders_area"], (int)(long)ret["ave_riders_area"],
                             (double)ret["commute_time"], (double)ret["ave_commute_time"], (double)ret["monthly_commute_cost"]);
                         calList.Add(get);
                     }
