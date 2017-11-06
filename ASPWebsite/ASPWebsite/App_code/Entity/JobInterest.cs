@@ -26,7 +26,7 @@ namespace ASPWebsite.App_Code.Entity
                 "A job that is in line with your interest will help you to move up faster in your career.",
                 "This may be your dream job",
                 "This job offer may be a fulfiling career for you.",
-				"This job will be a perfect fit for you."
+				"This job will be a perfect fit for you.",
                 "You are born for the job.",
                 };
             point = jobInterest - 1;

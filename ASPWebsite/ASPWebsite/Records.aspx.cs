@@ -1,4 +1,5 @@
 ﻿using ASPWebsite.App_Code.Control;
+using ASPWebsite.App_Code.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,12 @@ namespace ASPWebsite
         protected void Page_Load(object sender, EventArgs e)
         {
             CalculationManager cm = new CalculationManager();
-            cm.getCalculations(Session["Username"]);
+            //List<Calculation> c = cm.getCalculations(Session["Username"].ToString());
+            //gvData.DataSource = c;
+            //gvData.DataBind();
+
+            Label1.Text = cm.getCalculations(Session["Username"].ToString()).ToString();
+
         }
 
 
