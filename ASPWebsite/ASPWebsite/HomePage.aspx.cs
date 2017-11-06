@@ -20,24 +20,25 @@ namespace ASPWebsite
             String worklocate;
             String homelocate;
             int salary;
-            //char type;=
-            int interest = Convert.ToInt32(rbInterest.SelectedValue);
-            int satisfaction = Convert.ToInt32(rbSalary.SelectedValue);
+            int interest;
+            int satisfaction;
+            CalculationManager cm = new CalculationManager();
             try
             {
                 worklocate = txt_Destination.Text;
                 homelocate = txt_Source.Text;
-                salary = Convert.ToInt32(txt_Salary.Text);
-                //char type;
-                interest = Convert.ToInt32(rbInterest.SelectedValue);
-                satisfaction = Convert.ToInt32(rbSalary.SelectedValue);
+                if (cm.getAddressValid(homelocate) && cm.getAddressValid(worklocate))
+                {
+                    salary = Convert.ToInt32(txt_Salary.Text);
+                    interest = Convert.ToInt32(rbInterest.SelectedValue);
+                    satisfaction = Convert.ToInt32(rbSalary.SelectedValue);
 
-                //createNewCalculation(String workLocation, String homeLocation,
-                //    int salary, char commuteType, int jobInterest, int salarySatisfaction)
-                CalculationManager cm = new CalculationManager();
-                Calculation s = cm.createNewCalculation(worklocate, homelocate, salary, 'F', interest, satisfaction);
-                Session["CalculationJSIObject"] = s;
-                Response.Redirect("CalculationResult.aspx");
+                    //createNewCalculation(String workLocation, String homeLocation,
+                    //    int salary, char commuteType, int jobInterest, int salarySatisfaction)
+                    Calculation s = cm.createNewCalculation(worklocate, homelocate, salary, 'F', interest, satisfaction);
+                    Session["CalculationJSIObject"] = s;
+                    Response.Redirect("CalculationResult.aspx");
+                }
             }
             catch (Exception ex)
             {
