@@ -18,16 +18,17 @@ namespace ASPWebsite.App_Code.Entity
         {
             weightage = 20;
             explanations = new List<String> {
-                "Least interest in jobscope",
-                "Very low interest in jobscope",
-                "Low interest in jobscope",
-                "little interest in jobscope",
-                "Moderate interest in jobscope",
-                "Mild interest in jobscope",
-                "Quite interested in jobscope",
-                "high interest in jobscope",
-                "Very high interest in jobscope",
-                "Most interest in jobscope" };
+                "Your interest level towards the job offer is the lowest as compared to other who is offered the same job.",
+                "You work value may not match the job offer.",
+                "You may have some worries about taking up the offer.",
+                "You can consider to accept the job offer if salary and work location is not a concern.",
+                "You may find the 'eureka' moment in this job",
+                "A job that is in line with your interest will help you to move up faster in your career.",
+                "This may be your dream job",
+                "This job offer may be a fulfiling career for you.",
+				"This job will be a perfect fit for you."
+                "You are born for the job.",
+                };
             point = jobInterest - 1;
             subScore = ((double)point / 9.0) * weightage;
         }

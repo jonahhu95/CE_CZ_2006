@@ -19,12 +19,12 @@ namespace ASPWebsite.App_Code.Entity
         public CommuteComfort(int averageRidersArea, int ridersArea, char travelMode)
         {
             weightage = 15;
-            explanations = new List<string> { 
-                "Least commute comfort, high tendency to get held up by traffic.", 
-                "Low commute comfort, may encounter pushing and shoving.", 
-                "Average commute comfort, may encounter occasional hiccups.", 
-                "High commute comfort, may have a pleasant journey most of the time.", 
-                "Most commute comfort, having a smooth journey all the time."};
+            explanations = new List<string> {
+                "There is a high tendency of you to get squeezed into public transport if you decide to accept the job offer.",
+                "You may not always be on time to work as there are time when the number of transport is not enough to cater to the publics.",
+                "You will experience the same commute comfortability as other working adults. Waking up a little early in the morning may help to avoid the crowdedness at the waiting area.",
+                "You will have a pleasant journey to work most of the time.",
+                "You will have a good start at work everyday as you are excluded from squeezing in public transport especially under hot and humid weather." };
 
             if (travelMode == 'p')
             {
