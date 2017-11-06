@@ -376,13 +376,13 @@
             Database manager.
             </summary>
         </member>
-        <member name="M:ASPWebsite.App_Code.Control.DatabaseManager.saveCalculation(ASPWebsite.App_Code.Entity.Calculation,ASPWebsite.App_Code.Entity.User)">
+        <member name="M:ASPWebsite.App_Code.Control.DatabaseManager.saveCalculation(ASPWebsite.App_Code.Entity.Calculation,System.String)">
             <summary>
             Saves the calculation.
             </summary>
             <returns><c>true</c>, if calculation was saved, <c>false</c> otherwise.</returns>
             <param name="calculation">Calculation.</param>
-            <param name="user">User.</param>
+            <param name="userName">User name</param>
         </member>
         <member name="M:ASPWebsite.App_Code.Control.DatabaseManager.saveUser(ASPWebsite.App_Code.Entity.User)">
             <summary>
@@ -1097,13 +1097,13 @@
             <returns>The calculations.</returns>
             <param name="user">User.</param>
         </member>
-        <member name="M:ASPWebsite.App_Code.Control.CalculationManager.saveCalculation(ASPWebsite.App_Code.Entity.Calculation,ASPWebsite.App_Code.Entity.User)">
+        <member name="M:ASPWebsite.App_Code.Control.CalculationManager.saveCalculation(ASPWebsite.App_Code.Entity.Calculation,System.String)">
             <summary>
             Saves the calculation.
             </summary>
             <returns><c>true</c>, if calculation was saved, <c>false</c> otherwise.</returns>
             <param name="calculation">Calculation.</param>
-            <param name="user">User.</param>
+            <param name="userName">User name</param>
         </member>
         <member name="F:ASPWebsite.CalculationResult.lblHome">
             <summary>
@@ -1243,6 +1243,15 @@
         <member name="F:ASPWebsite.CalculationResult.Button2">
             <summary>
             Button2 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.CalculationResult.Label1">
+            <summary>
+            Label1 control.
             </summary>
             <remarks>
             Auto-generated field.
