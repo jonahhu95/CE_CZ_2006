@@ -379,7 +379,7 @@ namespace ASPWebsite.App_Code.Control
         /// </summary>
         /// <returns>The call get coordinates.</returns>
         /// <param name="locationName">Location name.</param>
-        private string generateCall_GetCoordinates(string locationName)
+        public string generateCall_GetCoordinates(string locationName)
         {
             string url = "https://maps.googleapis.com/maps/api/place/textsearch/json?";
             url = url + "query=" + locationName.Replace(" ", "+");
