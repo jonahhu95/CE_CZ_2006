@@ -75,7 +75,6 @@ namespace ASPWebsite.App_Code.Control
             if (dbManager.getCalculationsOfUser(userName) == null)
                 return false;
             else
-
                 return true;
 
             //return dbManager.getCalculationsOfUser(userName);
