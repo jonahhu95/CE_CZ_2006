@@ -1,6 +1,7 @@
 ﻿using ASPWebsite.App_Code.Entity;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SQLite;
 using System.Diagnostics;
 using System.Linq;
@@ -24,7 +25,8 @@ namespace ASPWebsite.App_Code.Control
                 dbLocation = dbLocation + "\\SqliteDatabase.db";
                 dbConnection = new SQLiteConnection("Data Source=" + dbLocation + ";Version=3;");
                 dbConnection.Open();
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 Debug.WriteLine(e.Message);
                 return false;
@@ -45,12 +47,12 @@ namespace ASPWebsite.App_Code.Control
                 {
                     string sqlStatement = "INSERT INTO CALCULATION(user_name,created_time,work_location_lon,work_location_lat,work_location_name,work_location_area," +
                         "home_location_lon,home_location_lat,home_location_name,home_location_area,salary,commute_type,job_interest,salary_satisfaction,median_salary," +
-                        "riders_area,ave_riders_area,commute_time,ave_commute_time,monthly_commute_cost) VALUES ('" + userName + "'," + 
-                        calculation.getCreatedTime().Ticks + "," + calculation.getWorkLocation().getLongitude() + "," + calculation.getWorkLocation().getLatitude() + ",'" + 
-                        calculation.getWorkLocation().getLocationName() + "','" + calculation.getWorkLocation().getArea() + "'," + calculation.getHomeLocation().getLongitude() + 
-                        "," + calculation.getHomeLocation().getLatitude() + ",'" + calculation.getHomeLocation().getLocationName() + "','" + calculation.getHomeLocation().getArea() + 
-                        "'," +  calculation.getSalary() + ",'" + calculation.getCommuteType() + "'," + calculation.getJobInterest() + "," + calculation.getSalarySatisfaction() +
-                        "," + calculation.getMedianSalary() + "," + calculation.getRidersArea() + "," + calculation.getAveRidersArea() +"," + calculation.getCommuteTime() + "," + 
+                        "riders_area,ave_riders_area,commute_time,ave_commute_time,monthly_commute_cost) VALUES ('" + userName + "'," +
+                        calculation.getCreatedTime().Ticks + "," + calculation.getWorkLocation().getLongitude() + "," + calculation.getWorkLocation().getLatitude() + ",'" +
+                        calculation.getWorkLocation().getLocationName() + "','" + calculation.getWorkLocation().getArea() + "'," + calculation.getHomeLocation().getLongitude() +
+                        "," + calculation.getHomeLocation().getLatitude() + ",'" + calculation.getHomeLocation().getLocationName() + "','" + calculation.getHomeLocation().getArea() +
+                        "'," + calculation.getSalary() + ",'" + calculation.getCommuteType() + "'," + calculation.getJobInterest() + "," + calculation.getSalarySatisfaction() +
+                        "," + calculation.getMedianSalary() + "," + calculation.getRidersArea() + "," + calculation.getAveRidersArea() + "," + calculation.getCommuteTime() + "," +
                         calculation.getAveCommuteTime() + "," + calculation.getMonthlyCommuteCost() + ");";
                     return insertToTable(sqlStatement);
                 }
@@ -86,6 +88,7 @@ namespace ASPWebsite.App_Code.Control
             }
             return false;
         }
+
         /// <summary>
         /// Saves the user home location.
         /// </summary>
@@ -98,7 +101,7 @@ namespace ASPWebsite.App_Code.Control
             {
                 if (getConnection())
                 {
-                    string sqlStatement = "UPDATE USER SET" + " home_location_lon = " + add.getLongitude() + ", home_location_lat = " + add.getLatitude() + 
+                    string sqlStatement = "UPDATE USER SET" + " home_location_lon = " + add.getLongitude() + ", home_location_lat = " + add.getLatitude() +
                         ", home_location_name = '" + add.getLocationName() + "', home_location_area = '" + add.getArea() + "' WHERE user_name = '" + user.getUsername() + "';";
                     return insertToTable(sqlStatement);
                 }
@@ -177,16 +180,17 @@ namespace ASPWebsite.App_Code.Control
                     List<User> userList = new List<User>();
                     while (ret.Read())
                     {
-                        if(ret["home_location_name"].GetType() != typeof(DBNull))
+                        if (ret["home_location_name"].GetType() != typeof(DBNull))
                         {
                             userList.Add(new User((string)ret["user_name"], (string)ret["password"],
                             new Address((string)ret["home_location_name"], (double)ret["home_location_lon"],
                             (double)ret["home_location_lat"], (string)ret["home_location_area"])));
-                        }else
+                        }
+                        else
                         {
                             userList.Add(new User((string)ret["user_name"], (string)ret["password"]));
                         }
-                        
+
                     }
                     if (userList.Count == 1)
                     {
@@ -262,6 +266,7 @@ namespace ASPWebsite.App_Code.Control
             }
             return null;
         }
+       
         /// <summary>
         /// Gets the area.
         /// </summary>
@@ -278,15 +283,15 @@ namespace ASPWebsite.App_Code.Control
                     List<KeyValuePair<string, int>> feedbackList = new List<KeyValuePair<string, int>>();
                     while (ret.Read())
                     {
-                        if(new DateTime((long)ret["expiry"]).CompareTo(DateTime.Now) < 0)
+                        if (new DateTime((long)ret["expiry"]).CompareTo(DateTime.Now) < 0)
                         {
                             clearTable("API");
                             return null;
                         }
-                        feedbackList.Add(new KeyValuePair<string, int>((string)ret["area"],(int)(long)ret["riders"]));
+                        feedbackList.Add(new KeyValuePair<string, int>((string)ret["area"], (int)(long)ret["riders"]));
                         numOfData++;
                     }
-                    if(numOfData != 0)
+                    if (numOfData != 0)
                     {
                         return feedbackList;
                     }
@@ -313,11 +318,12 @@ namespace ASPWebsite.App_Code.Control
                 {
                     return true;
                 }
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 Debug.WriteLine(e.Message);
             }
-            
+
             return false;
         }
         /// <summary>
@@ -337,11 +343,11 @@ namespace ASPWebsite.App_Code.Control
                     return false;
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                
+
             }
-            
+
             return true;
         }
         private SQLiteDataReader getFromTable(string sqlStatement)
@@ -352,7 +358,7 @@ namespace ASPWebsite.App_Code.Control
                 SQLiteDataReader reader = command.ExecuteReader();
                 return reader;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Debug.WriteLine(e.Message);
             }

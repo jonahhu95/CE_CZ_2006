@@ -70,9 +70,15 @@ namespace ASPWebsite.App_Code.Control
         /// </summary>
         /// <returns>The calculations.</returns>
         /// <param name="userName">User Name.</param>
-        public List<Calculation> getCalculations(string userName)
+        public Boolean getCalculations(string userName)
         {
-            return dbManager.getCalculationsOfUser(user);
+            if (dbManager.getCalculationsOfUser(userName) == null)
+                return false;
+            else
+
+                return true;
+
+            //return dbManager.getCalculationsOfUser(userName);
         }
         /// <summary>
         /// Saves the calculation.

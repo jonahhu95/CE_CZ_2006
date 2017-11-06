@@ -19,16 +19,17 @@ namespace ASPWebsite.App_Code.Entity
         {
             weightage = 20;
             explanations = new List<String> {
-                "Highest difference between current and median salary",
-                "Very high difference between current and median salary",
-                "High difference between current and median salary",
-                "Significant difference between current and median salary",
-                "Mild difference between current and median salary",
-                "Moderate difference between current and median salary",
-                "Little difference between current and median salary",
-                "Very Little difference between current and median salary",
-                "Very low difference between current and median salary",
-                "Lowest difference between current and median salary" };
+			"You will be severely underpaid in this offer.",
+			"The salary may not be sufficient to cover your monthly utility bill.",
+			"The less than average salary may not be ideal if you want to have a comfortable lifestyle.",
+			"You may need to find some ways to stretch your money if you decide to take up the offer.",
+			"The salary may not be what you are looking for.",
+			"The salary is of the same rate as what your peers have.",
+			"The salary helps to strike the balance in the rising cost of living.",
+			"The salary is good enough that you will afford to save a small amount for future emergency use.",
+			"The salary is sufficient to afford you an avocado toast and coffee every morning.",
+            "The job salary is on the top of the salary level."
+                 };
 
             int difference = 0;
             difference = salary - medianSalary;

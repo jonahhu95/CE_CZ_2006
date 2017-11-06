@@ -120,7 +120,7 @@
 
                                         <ul>
                                             <li><a href="HomePage.aspx"><span>Home</span></a></li>
-                                            <li><a href="#0"><span>View Past Records</span></a></li>
+                                            <li><a href="Records.aspx"><span>View Past Records</span></a></li>
                                             <li><a href="HomePage.aspx#JSI"><span>Calculate Satisfaction Index</span></a></li>
                                             <li><a href="#0"><span>LALALALLALAA</span></a></li>
                                             <li><a href="#0"><span>LALALALALALL</span></a></li>

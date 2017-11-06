@@ -117,6 +117,7 @@
     <Content Include="js\main.js" />
     <Content Include="js\modernizr.js" />
     <Content Include="mail\contact_me.php" />
+    <Content Include="Records.aspx" />
     <Content Include="scss\freelancer.scss" />
     <Content Include="scss\_bootstrap-overrides.scss" />
     <Content Include="scss\_contact.scss" />
@@ -220,6 +221,13 @@
     <Compile Include="App_Code\Control\AddressManager.cs" />
     <Compile Include="App_Code\Control\ApiManager.cs" />
     <Compile Include="App_Code\Control\DatabaseManager.cs" />
+    <Compile Include="Records.aspx.cs">
+      <DependentUpon>Records.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Records.aspx.designer.cs">
+      <DependentUpon>Records.aspx</DependentUpon>
+    </Compile>
     <Content Include="App_Code\Control\FeedbackManager.cs" />
     <Compile Include="App_Code\Control\UserManager.cs" />
     <Compile Include="App_Code\Entity\Criteria.cs" />

@@ -37,6 +37,14 @@ namespace ASPWebsite
             else
             {
                 CalculationManager cm = new CalculationManager();
+                Boolean t = cm.saveCalculation(c, Session["Username"].ToString());
+                if (t)
+                {
+                    Label1.Text = "Success";
+                }
+                else
+                    Label1.Text = "Failed";
+
             }
 
         }

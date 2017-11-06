@@ -19,15 +19,15 @@ namespace ASPWebsite.App_Code.Entity
         {
             weightage = 20;
             explanations = new List<String> {
-                "Most amount of time needed for commuting, may affect overall health.",
-                "Very high amount of time needed for commuting, may increase strain in health.",
-                "High amount of time needed for commuting, leisure time may be reduced.",
-                "Significant amount of time needed for commuting, may get impatient.",
-                "Moderate amount of time needed for commuting, may have feelings of stress.",
-                "Considerate amount of time needed for commuting, generally comfortable.",
-                "Little time needed for commuting, happy most of the time.",
-                "Very little time needed for commuting, very satisfied.",
-                "Least time needed for commmuting, extremely satisfied. " };
+                "You commute time is the highest among the group and it might affect overall health in long term.",
+                "Physical and psycological exhaustion may be a possible outcome due to the travel time in between home and work locstion.",
+                "Your work performance may be affected due to the lengthy commute time.",
+                "The length of travelling between two location which is higher than the average of 40 minutes may result in decrease of patience. In the worst case it can ruin your day.",
+                "Stress may be a concern during the long time between travelling.",
+                "Commute time is not a big issue to consider whether to take up the offer.",
+                "You can expect to save some time for other tasks as your commute time is lower than the average.",
+                "The amount of time you save by taking up the job will allow you to have sufficient time to prepare your breakfast.",
+                "An ideal home and work location which you will have sufficient sleeping time before work starts" };
 
             double difference = travelTime - averageTravelTime;
             if (difference >= -15)
