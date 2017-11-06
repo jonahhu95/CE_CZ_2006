@@ -10,24 +10,24 @@ namespace ASPWebsite.App_Code.Entity
     /// </summary>
     public class Calculation
     {
-        private List<Criteria> criteriaList;
-        private double JSIScore;
-        private DateTime createdTime;
-        private Address workLocation;
-        private Address homeLoction;
-        private int salary;
-        private char commuteType;
-        private int jobInterest;
-        private int salarySatisfaction;
+        public List<Criteria> criteriaList;
+        public double JSIScore { get; set; }
+        public DateTime createdTime;
+        public Address workLocation { get; set; }
+        public Address homeLoction { get; set; }
+        public int salary { get; set; }
+        public char commuteType;
+        public int jobInterest;
+        public int salarySatisfaction;
 
-        private int medianSalary;
-        private int ridersArea;
-        private int aveRidersArea;
-        private double commuteTime;
-        private double aveCommuteTime;
-        private double monthlyCommuteCost;
+        public int medianSalary;
+        public int ridersArea;
+        public int aveRidersArea;
+        public double commuteTime;
+        public double aveCommuteTime;
+        public double monthlyCommuteCost;
 
-        private Boolean initializationComplete = false;
+        public Boolean initializationComplete = false;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:ASPWebsite.App_Code.Entity.Calculation"/> class.

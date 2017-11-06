@@ -73,14 +73,9 @@ namespace ASPWebsite.App_Code.Control
         /// <param name="userName">User Name.</param>
         /// <param name="userName"></param>
         /// <returns></returns>
-        public Boolean getCalculations(string userName)
+        public List<Calculation> getCalculations(string userName)
         {
-            if (dbManager.getCalculationsOfUser(userName) == null)
-                return false;
-            else
-                return true;
-
-            //return dbManager.getCalculationsOfUser(userName);
+            return dbManager.getCalculationsOfUser(userName);
         }
         /// <summary>
         /// 
@@ -96,23 +91,23 @@ namespace ASPWebsite.App_Code.Control
         public Boolean getAddressValid(string address)
         {
 
-            string url;
-            JObject obj;
-            try
-            {
-                url = apiManager.generateCall_GetCoordinates(address);
-                string res = apiManager.doGetRequest(url);
-                obj = JObject.Parse(res);
-                JArray ar = (JArray)obj["results"];
-                String formattedAddress = ar.First["formatted_address"].ToString();
-                Boolean contain = formattedAddress.Contains("Singapore");
-                if (contain)//return true for address in singapore
-                    return true;
-            }
-            catch (Exception ex)
-            {
+            //string url;
+            //JObject obj;
+            //try
+            //{
+            //    url = apiManager.generateCall_GetCoordinates(address);
+            //    string res = apiManager.doGetRequest(url);
+            //    obj = JObject.Parse(res);
+            //    JArray ar = (JArray)obj["results"];
+            //    String formattedAddress = ar.First["formatted_address"].ToString();
+            //    Boolean contain = formattedAddress.Contains("Singapore");
+            //    if (contain)//return true for address in singapore
+            //        return true;
+            //}
+            //catch (Exception ex)
+            //{
 
-            }
+            //}
             return false;
 
         }

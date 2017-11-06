@@ -10,10 +10,10 @@ namespace ASPWebsite.App_Code.Entity
     /// </summary>
     public class Address
     {
-        private double longitude;
-        private double latitude;
-        private string locationName;
-        private string area;
+        public double longitude;
+        public double latitude;
+        public string locationName;
+        public string area { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:ASPWebsite.App_Code.Entity.Address"/> class.

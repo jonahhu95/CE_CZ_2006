@@ -13,18 +13,16 @@ namespace ASPWebsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            CalculationManager cm = new CalculationManager();
+           CalculationManager cm = new CalculationManager();
 
-            //List<Calculation> c = cm.getCalculations(Session["Username"].ToString());
-            //gvData.DataSource = c;
-            //gvData.DataBind();
-
-            Label1.Text = cm.getCalculations(Session["Username"].ToString()).ToString();
-
-
-            //c = cm.getCalculations(Session["Username"]);
+            //List<Calculation> c = cm.getCalculations("joey");
+            List<Calculation> c = cm.getCalculations(Session["Username"].ToString());
+            gvData.DataSource = c;
+            gvData.DataBind();
 
         }
+
+
 
 
     }
