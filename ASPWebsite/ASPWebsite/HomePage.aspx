@@ -1,135 +1,46 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Anonymous.Master" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="ASPWebsite.HomePage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyC7PqtJwkmY1fKaO0RE3qj7JWhA7m36jfk"></script>
+    <script type="text/javascript">
+        var source, destination;
+
+        var directionsService = new google.maps.DirectionsService();
+        google.maps.event.addDomListener(window, 'load', function () {
+            new google.maps.places.SearchBox(document.getElementById('txt_Source'));
+            new google.maps.places.SearchBox(document.getElementById('txt_Destination'));
+
+
+        });
+
+        function getdistance() {
+            source = document.getElementById("txt_Source").value;
+            destination = document.getElementById("txt_Destination").value;
+            var service = new google.maps.DistanceMatrixService();
+            service.getDistanceMatrix({
+                origins: [source],
+                destinations: [destination],
+                travelMode: google.maps.TravelMode.DRIVING,
+                unitSystem: google.maps.UnitSystem.METRIC,
+                avoidHighways: false,
+                avoidTolls: false
+            }, function (response, status) {
+                if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
+                    var distance = response.rows[0].elements[0].distance.text;
+                    // var duration = response.rows[0].elements[0].duration.text;  
+                    var lbl_distance = "Distance: " + distance;
+                    document.getElementById('lbl_distance').innerHTML = lbl_distance;
+
+
+                }
+                else {
+                    alert("Unable to calculate distance.");
+                }
+            });
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">3° Burn</a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fa fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <asp:Label ID="lblWelcomeUser" runat="server" Text="Welcome User" Visible="False"></asp:Label>
-                        <asp:HyperLink ID="LoginLink" class="nav-link" data-toggle="modal" Style="margin-right: 10px;" href="#Login" runat="server">Login</asp:HyperLink>
-                        <%--<a class="nav-link" data-toggle="modal" style="margin-right: 10px;" href="#Login">Login</a>--%>
-                    </li>
-                    <li class="nav-item">
-                        <asp:HyperLink ID="RegisterLink" class="nav-link" data-toggle="modal" href="#Sign" runat="server">Sign Up</asp:HyperLink>
-                        <asp:HyperLink ID="SignOutLink" class="nav-link" data-toggle="modal" runat="server" Visible="False">Sign Out</asp:HyperLink>
-                        <%--<a class="nav-link" data-toggle="modal" href="#Sign">Sign Up</a>--%>
-                    </li>
-                    <li>
-                        <nav class="cd-stretchy-nav navbar-toggler-right" style="margin: 0; padding: 0px; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; display: block;">
-                            <a class="cd-nav-trigger" href="#0"><span aria-hidden="true"></span>
-                            </a>
-
-                            <ul>
-                                <li><a href="#0" class="active"><span>Home</span></a></li>
-                                <li><a href="#0"><span>Portfolio</span></a></li>
-                                <li><a href="#0"><span>Services</span></a></li>
-                                <li><a href="#0"><span>Store</span></a></li>
-                                <li><a href="#0"><span>Contact</span></a></li>
-                            </ul>
-
-                            <span aria-hidden="true" class="stretchy-nav-bg"></span>
-                        </nav>
-                    </li>
-
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <nav>
-        <asp:Label ID="Label9" runat="server" Text="Label">Hello</asp:Label>
-    </nav>
-
-    <!-- Modal -->
-    <div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Login</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <asp:Label ID="exampleInputEmail1" runat="server" Text="Email address"></asp:Label>
-                    <asp:TextBox ID="tbEmail" class="form-control" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator runat="server"
-                        ControlToValidate="tbEmail"
-                        ErrorMessage="Email is required." CssClass="help-block text-danger" Font-Size="12px" ValidationGroup="group1"> Email is required
-                    </asp:RequiredFieldValidator>
-
-                    <br />
-                    <asp:Label ID="exampleInputPassword1" runat="server" Text="Password"></asp:Label>
-                    <asp:TextBox ID="tbPassword" class="form-control" runat="server" TextMode="Password"></asp:TextBox>
-                    <asp:RequiredFieldValidator runat="server"
-                        ControlToValidate="tbPassword"
-                        ErrorMessage="Password is required." CssClass="help-block text-danger" Font-Size="12px" ValidationGroup="group1"> Password is required
-                    </asp:RequiredFieldValidator>
-                    <br />
-                    <asp:Label ID="lblLoginWarning" runat="server"></asp:Label><br />
-                </div>
-                <div class="modal-footer">
-                    <asp:Button ID="loginBtn" class="btn btn-primary" runat="server" Text="Login" OnClick="loginBtn_Click1" ValidationGroup="group1" />
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="Sign" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Register</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <asp:Label ID="Label1" runat="server" Text="Email address"></asp:Label>
-                    <asp:TextBox ID="tbEmail2" class="form-control" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator runat="server"
-                        ControlToValidate="tbEmail2"
-                        ErrorMessage="Email is required." CssClass="help-block text-danger" Font-Size="12px" ValidationGroup="group2"> Email is required
-                    </asp:RequiredFieldValidator>
-
-                    <br />
-                    <asp:Label ID="Label2" runat="server" Text="Password"></asp:Label>
-                    <asp:TextBox ID="tbPassword2" class="form-control" runat="server" TextMode="Password"></asp:TextBox>
-                    <asp:RequiredFieldValidator runat="server"
-                        ControlToValidate="tbPassword2"
-                        ErrorMessage="Password is required." CssClass="help-block text-danger" Font-Size="12px" ValidationGroup="group2"> Password is required
-                    </asp:RequiredFieldValidator>
-
-                    <br />
-                    <asp:Label ID="Label3" runat="server" Text="Confirm Password"></asp:Label>
-                    <asp:TextBox ID="tbConfirmPW" class="form-control" runat="server" TextMode="Password"></asp:TextBox>
-                    <asp:RequiredFieldValidator runat="server"
-                        ControlToValidate="tbConfirmPW"
-                        ErrorMessage="Confirm password is required." CssClass="help-block text-danger" Font-Size="12px" ValidationGroup="group2"> Please enter confirm password
-                    </asp:RequiredFieldValidator><br />
-
-                    <asp:Label ID="LabelWarning" runat="server"></asp:Label>
-                </div>
-                <div class="modal-footer">
-                    <%--<asp:Button ID="Button2" class="btn btn-primary" runat="server" Text="Login" OnClick="loginBtn_Click1" />--%>
-                    <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Confirm" OnClick="Button1_Click" ValidationGroup="group2" />
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
     <%--<img src="img/scrolldown.gif" style="position: fixed; bottom: 20px; height: 50px; width: 50px; right: 20px; background-color: black; opacity: 0.7; border-radius: 50%; border: 3px solid white;"></img>--%>
     <!-- Header -->
     <header class="masthead">
@@ -165,55 +76,69 @@
                     <div id="success"></div>
                     <div class="form-group">
                         <label>
-                            <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyC7PqtJwkmY1fKaO0RE3qj7JWhA7m36jfk"></script>
-                            <script type="text/javascript">
-                                var source, destination;
-
-                                var directionsService = new google.maps.DirectionsService();
-                                google.maps.event.addDomListener(window, 'load', function () {
-                                    new google.maps.places.SearchBox(document.getElementById('txt_Source'));
-                                    new google.maps.places.SearchBox(document.getElementById('txt_Destination'));
-
-
-                                });
-
-                                function getdistance() {
-                                    source = document.getElementById("txt_Source").value;
-                                    destination = document.getElementById("txt_Destination").value;
-                                    var service = new google.maps.DistanceMatrixService();
-                                    service.getDistanceMatrix({
-                                        origins: [source],
-                                        destinations: [destination],
-                                        travelMode: google.maps.TravelMode.DRIVING,
-                                        unitSystem: google.maps.UnitSystem.METRIC,
-                                        avoidHighways: false,
-                                        avoidTolls: false
-                                    }, function (response, status) {
-                                        if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
-                                            var distance = response.rows[0].elements[0].distance.text;
-                                            // var duration = response.rows[0].elements[0].duration.text;  
-                                            var lbl_distance = "Distance: " + distance;
-                                            document.getElementById('lbl_distance').innerHTML = lbl_distance;
-
-
-                                        }
-                                        else {
-                                            alert("Unable to calculate distance.");
-                                        }
-                                    });
-                                }
-                            </script>
                             <asp:Label ID="Label4" runat="server" Text="Home Location"></asp:Label></label>
-                        <asp:TextBox ID="txt_Source" class="form-control" runat="server"></asp:TextBox><br />
+                        <asp:TextBox ID="txt_Source" class="form-control" runat="server" ClientIDMode="Static" Text=""></asp:TextBox><br />
 
                         <label>
                             <asp:Label ID="Label5" runat="server" Text="Job Location"></asp:Label></label>
-                        <asp:TextBox ID="txt_Destination" class="form-control" runat="server"></asp:TextBox><br />
+                        <asp:TextBox ID="txt_Destination" class="form-control" runat="server" ClientIDMode="Static" Text=""></asp:TextBox><br />
 
                         <label>
                             <asp:Label ID="Label6" runat="server" Text="Salary"></asp:Label></label>
                         <asp:TextBox ID="txt_Salary" class="form-control" runat="server"></asp:TextBox><br />
 
+                        <style>
+                            .radiocss td {
+                                /*display: inline-block;
+                                width: 200px;
+                                padding: 10px;
+                                border: solid 2px #ccc;
+                                transition: all 0.3s;*/
+                            }
+
+
+                                .radiocss td input[type="radio"] {
+                                    /*display: none;*/
+                                    -webkit-appearance: none;
+                                    -moz-appearance: none;
+                                    -ms-appearance: none;
+                                    -o-appearance: none;
+                                    position: relative;
+                                    top: 13.33333px;
+                                    right: 0;
+                                    bottom: 0;
+                                    left: 0;
+                                    height: 40px;
+                                    width: 40px;
+                                    transition: all 0.15s ease-out 0s;
+                                    /*background: #cbd1d8;*/
+                                    border: none;
+                                    /*color: #fff;*/
+                                    cursor: pointer;
+                                    display: inline-block;
+                                    margin-right: 0.5rem;
+                                    outline: none;
+                                    position: relative;
+                                    z-index: 1000;
+                                }
+
+                                    .radiocss td input[type="radio"]:checked + label {
+                                        font-weight: bolder;
+                                        border: 2px solid black;
+                                        padding: 10px;
+                                        border-radius: 50%;
+                                    }
+
+                                .radiocss td label {
+                                    position: relative;
+                                    left: -13px;
+                                    top: -3px;
+                                    font-size: 10pt;
+                                    opacity: .5;
+                                    color: black;
+                                }
+
+                        </style>
                         <asp:Label ID="Label7" runat="server" Text="Salary Satisfaction Rating "></asp:Label>
                         <asp:RadioButtonList ID="rbSalary" runat="server" RepeatDirection="Horizontal" CssClass="radiocss">
                             <asp:ListItem>1</asp:ListItem>
