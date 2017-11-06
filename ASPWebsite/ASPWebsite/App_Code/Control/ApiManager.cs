@@ -224,10 +224,10 @@ namespace ASPWebsite.App_Code.Control
                 string res = doGetRequest(url);
                 obj = JObject.Parse(res);
                 JArray ar = (JArray)obj["results"];
-                String formattedAddress = ar.First["formatted_address"].ToString();
-                Boolean contain = formattedAddress.Contains("Singapore");
-                if (!contain)//return null for address not in singapore
-                    return null;
+                //String formattedAddress = ar.First["formatted_address"].ToString();
+                //Boolean contain = formattedAddress.Contains("Singapore");
+                //if (!contain)//return null for address not in singapore
+                    //return null;
                 JObject hold = (JObject)ar.First["geometry"]["location"];
                 geo[0] = (Double)hold["lng"];
                 geo[1] = (Double)hold["lat"];

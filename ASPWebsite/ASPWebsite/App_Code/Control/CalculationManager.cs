@@ -69,8 +69,8 @@ namespace ASPWebsite.App_Code.Control
         /// Gets the calculations.
         /// </summary>
         /// <returns>The calculations.</returns>
-        /// <param name="user">User.</param>
-        public List<Calculation> getCalculations(User user)
+        /// <param name="userName">User Name.</param>
+        public List<Calculation> getCalculations(string userName)
         {
             return dbManager.getCalculationsOfUser(user);
         }

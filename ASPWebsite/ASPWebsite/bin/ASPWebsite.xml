@@ -498,6 +498,38 @@
             <returns>The user home location.</returns>
             <param name="userName">User name.</param>
         </member>
+        <member name="T:ASPWebsite.App_Code.Control.CalculationManager">
+            <summary>
+            Calculation manager.
+            </summary>
+        </member>
+        <member name="M:ASPWebsite.App_Code.Control.CalculationManager.createNewCalculation(System.String,System.String,System.Int32,System.Char,System.Int32,System.Int32)">
+            <summary>
+            Creates the new calculation.
+            </summary>
+            <returns>The new calculation.</returns>
+            <param name="workLocation">Work location.</param>
+            <param name="homeLocation">Home location.</param>
+            <param name="salary">Salary.</param>
+            <param name="commuteType">Commute type.</param>
+            <param name="jobInterest">Job interest.</param>
+            <param name="salarySatisfaction">Salary satisfaction.</param>
+        </member>
+        <member name="M:ASPWebsite.App_Code.Control.CalculationManager.getCalculations(ASPWebsite.App_Code.Entity.User)">
+            <summary>
+            Gets the calculations.
+            </summary>
+            <returns>The calculations.</returns>
+            <param name="user">User.</param>
+        </member>
+        <member name="M:ASPWebsite.App_Code.Control.CalculationManager.saveCalculation(ASPWebsite.App_Code.Entity.Calculation,System.String)">
+            <summary>
+            Saves the calculation.
+            </summary>
+            <returns><c>true</c>, if calculation was saved, <c>false</c> otherwise.</returns>
+            <param name="calculation">Calculation.</param>
+            <param name="userName">User name</param>
+        </member>
         <member name="T:ASPWebsite.App_Code.Entity.Criteria">
             <summary>
             Criteria.
@@ -1073,6 +1105,7 @@
             </summary>
             <param name="submitTime">Submit time.</param>
         </member>
+<<<<<<< HEAD
         <member name="T:ASPWebsite.App_Code.Control.CalculationManager">
             <summary>
             Calculation manager.
@@ -1105,6 +1138,8 @@
             <param name="calculation">Calculation.</param>
             <param name="userName">User name</param>
         </member>
+=======
+>>>>>>> 65a3a759a198b93d0c47c46c9c4086914f5047a8
         <member name="F:ASPWebsite.CalculationResult.lblHome">
             <summary>
             lblHome control.

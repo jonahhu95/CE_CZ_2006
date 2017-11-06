@@ -19,17 +19,17 @@ namespace ASPWebsite.App_Code.Entity
         {
             weightage = 10;
             explanations = new List<string> {
-                "Highest cost of travelling.",
-                "Very high cost of travelling.",
-                "High cost of travelling.",
-                "Moderate cost of travelling.",
-                "Average cost of travelling.",
-                "Ordinary cost of travelling.",
-                "Little cost of travelling.",
-                "Very little cost of travelling.",
-                "Low cost of travelling.",
-                "Very low cost of travelling.",
-                "Lowest cost of travelling." };
+                "You may need to sacrifice your some of your entertainment to cover the travelling cost. I would suggest you not to take up the offer.",
+                "The travelling cost is higher than the average ratio. You may need to reconsider in taking up the offer.",
+                "The cost on transportation does not fall within the desirable range but do go for it if you think the job is worth the money.",
+				"The monthly travel cost to salary ratio is just right. You might want to consider the other factors before you take up the job offer.",
+				"You can consider to take up this job offer as the transport cost will not burn a hole in your pocket.",
+                "Your monthly travelling cost to salary ratio is almost the same as your peer. Do consult your peer if you are not sure on whether to take up the offer.",
+                "You will be able to save the monthly travelling cost for that extra shot of coffee. The monthly travel cost is just within the ideal range",
+                "The monthly cost of travelling between work and home location is desirable.",
+                "You can expect to save some money for your future house if you take up the job offer. It falls within the ideal range.",
+                "You are highly recommended to take up the offer since you don't need to sacrifice your favourite entertainment. The monthly travel cost will allow you to save and get something good to treat yourself on a bad day.",
+                "Your travelling cost falls within the ideal range. Congratulation!" };
 
             double ratio = monthlyTravelCost / salary;
             if (ratio < 1.75)
