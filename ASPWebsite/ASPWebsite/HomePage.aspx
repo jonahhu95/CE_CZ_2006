@@ -144,7 +144,7 @@
                             <asp:ListItem>2</asp:ListItem>
                             <asp:ListItem>3</asp:ListItem>
                             <asp:ListItem>4</asp:ListItem>
-                            <asp:ListItem>5</asp:ListItem>
+                            <asp:ListItem Selected="True">5</asp:ListItem>
                             <asp:ListItem>6</asp:ListItem>
                             <asp:ListItem>7</asp:ListItem>
                             <asp:ListItem>8</asp:ListItem>
@@ -154,12 +154,12 @@
                         <br />
 
                         <asp:Label ID="Label8" runat="server" Text="Job Interest Rating "></asp:Label>
-                        <asp:RadioButtonList ID="rbInterest" runat="server" RepeatDirection="Horizontal" CssClass="radiocss">
+                        <asp:RadioButtonList ID="rbInterest" runat="server" RepeatDirection="Horizontal" CssClass="radiocss" >
                             <asp:ListItem>1</asp:ListItem>
                             <asp:ListItem>2</asp:ListItem>
                             <asp:ListItem>3</asp:ListItem>
                             <asp:ListItem>4</asp:ListItem>
-                            <asp:ListItem>5</asp:ListItem>
+                            <asp:ListItem Selected="True">5</asp:ListItem>
                             <asp:ListItem>6</asp:ListItem>
                             <asp:ListItem>7</asp:ListItem>
                             <asp:ListItem>8</asp:ListItem>
