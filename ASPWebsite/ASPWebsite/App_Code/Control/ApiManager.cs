@@ -301,7 +301,7 @@ namespace ASPWebsite.App_Code.Control
             return areas;
         }
 
-        private string doGetRequest(string url)
+        public string doGetRequest(string url)
         {
             IRestResponse response;
             try

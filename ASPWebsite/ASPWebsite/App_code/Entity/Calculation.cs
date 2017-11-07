@@ -17,8 +17,8 @@ namespace ASPWebsite.App_Code.Entity
         public Address homeLoction { get; set; }
         public int salary { get; set; }
         public char commuteType;
-        public int jobInterest;
-        public int salarySatisfaction;
+        public int jobInterest { get; set; }
+        public int salarySatisfaction { get; set; }
 
         public int medianSalary;
         public int ridersArea;

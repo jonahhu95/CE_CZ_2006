@@ -11,7 +11,7 @@ namespace ASPWebsite
 {
     public partial class CalculationResult : System.Web.UI.Page
     {
-        Calculation c; 
+        Calculation c;
         protected void Page_Load(object sender, EventArgs e)
         {
             c = (Calculation)Session["CalculationJSIObject"];
@@ -40,13 +40,20 @@ namespace ASPWebsite
                 Boolean t = cm.saveCalculation(c, Session["Username"].ToString());
                 if (t)
                 {
-                    Label1.Text = "Success";
+                    Response.Redirect("Records.aspx");
                 }
                 else
-                    Label1.Text = "Failed";
+                {
+
+                }
 
             }
 
+        }
+
+        protected void btnHome_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Home.aspx");
         }
     }
 }

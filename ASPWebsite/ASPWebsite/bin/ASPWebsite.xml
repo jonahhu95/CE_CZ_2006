@@ -464,9 +464,9 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
-        <member name="F:ASPWebsite.Records.Label1">
+        <member name="F:ASPWebsite.UserProfile.Button1">
             <summary>
-            Label1 control.
+            Button1 control.
             </summary>
             <remarks>
             Auto-generated field.
@@ -1260,18 +1260,18 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
-        <member name="F:ASPWebsite.CalculationResult.Button2">
+        <member name="F:ASPWebsite.CalculationResult.btnHome">
             <summary>
-            Button2 control.
+            btnHome control.
             </summary>
             <remarks>
             Auto-generated field.
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
-        <member name="F:ASPWebsite.CalculationResult.Label1">
+        <member name="F:ASPWebsite.CalculationResult.btnSave">
             <summary>
-            Label1 control.
+            btnSave control.
             </summary>
             <remarks>
             Auto-generated field.

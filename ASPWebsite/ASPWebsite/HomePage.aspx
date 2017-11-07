@@ -1,6 +1,57 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Anonymous.Master" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="ASPWebsite.HomePage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        .radiocss td {
+            /*display: inline-block;
+                                width: 200px;
+                                padding: 10px;
+                                border: solid 2px #ccc;
+                                transition: all 0.3s;*/
+        }
+
+
+            .radiocss td input[type="radio"] {
+                /*display: none;*/
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                -ms-appearance: none;
+                -o-appearance: none;
+                position: relative;
+                top: 13.33333px;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                height: 40px;
+                width: 40px;
+                transition: all 0.15s ease-out 0s;
+                /*background: #cbd1d8;*/
+                border: none;
+                /*color: #fff;*/
+                cursor: pointer;
+                display: inline-block;
+                margin-right: 0.5rem;
+                outline: none;
+                position: relative;
+                z-index: 1000;
+            }
+
+                .radiocss td input[type="radio"]:checked + label {
+                    font-weight: bolder;
+                    border: 2px solid black;
+                    padding: 10px;
+                    border-radius: 50%;
+                }
+
+            .radiocss td label {
+                position: relative;
+                left: -13px;
+                top: -3px;
+                font-size: 10pt;
+                opacity: .5;
+                color: black;
+            }
+    </style>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyC7PqtJwkmY1fKaO0RE3qj7JWhA7m36jfk"></script>
     <script type="text/javascript">
         var source, destination;
@@ -87,58 +138,6 @@
                             <asp:Label ID="Label6" runat="server" Text="Salary"></asp:Label></label>
                         <asp:TextBox ID="txt_Salary" class="form-control" runat="server"></asp:TextBox><br />
 
-                        <style>
-                            .radiocss td {
-                                /*display: inline-block;
-                                width: 200px;
-                                padding: 10px;
-                                border: solid 2px #ccc;
-                                transition: all 0.3s;*/
-                            }
-
-
-                                .radiocss td input[type="radio"] {
-                                    /*display: none;*/
-                                    -webkit-appearance: none;
-                                    -moz-appearance: none;
-                                    -ms-appearance: none;
-                                    -o-appearance: none;
-                                    position: relative;
-                                    top: 13.33333px;
-                                    right: 0;
-                                    bottom: 0;
-                                    left: 0;
-                                    height: 40px;
-                                    width: 40px;
-                                    transition: all 0.15s ease-out 0s;
-                                    /*background: #cbd1d8;*/
-                                    border: none;
-                                    /*color: #fff;*/
-                                    cursor: pointer;
-                                    display: inline-block;
-                                    margin-right: 0.5rem;
-                                    outline: none;
-                                    position: relative;
-                                    z-index: 1000;
-                                }
-
-                                    .radiocss td input[type="radio"]:checked + label {
-                                        font-weight: bolder;
-                                        border: 2px solid black;
-                                        padding: 10px;
-                                        border-radius: 50%;
-                                    }
-
-                                .radiocss td label {
-                                    position: relative;
-                                    left: -13px;
-                                    top: -3px;
-                                    font-size: 10pt;
-                                    opacity: .5;
-                                    color: black;
-                                }
-
-                        </style>
                         <asp:Label ID="Label7" runat="server" Text="Salary Satisfaction Rating "></asp:Label>
                         <asp:RadioButtonList ID="rbSalary" runat="server" RepeatDirection="Horizontal" CssClass="radiocss">
                             <asp:ListItem>1</asp:ListItem>

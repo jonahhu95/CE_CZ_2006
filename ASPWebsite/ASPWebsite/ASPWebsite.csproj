@@ -127,6 +127,7 @@
     <Content Include="scss\_navbar.scss" />
     <Content Include="scss\_portfolio.scss" />
     <Content Include="scss\_variables.scss" />
+    <Content Include="UserProfile.aspx" />
     <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.ttf" />
     <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.woff" />
@@ -227,6 +228,13 @@
     </Compile>
     <Compile Include="Records.aspx.designer.cs">
       <DependentUpon>Records.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserProfile.aspx.cs">
+      <DependentUpon>UserProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserProfile.aspx.designer.cs">
+      <DependentUpon>UserProfile.aspx</DependentUpon>
     </Compile>
     <Content Include="App_Code\Control\FeedbackManager.cs" />
     <Compile Include="App_Code\Control\UserManager.cs" />

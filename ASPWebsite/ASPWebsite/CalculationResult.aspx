@@ -66,7 +66,9 @@
     </table>
 
         <br />
-    <asp:Button ID="Button2" runat="server" Text="Save Calculation" OnClick="Button2_Click" /><asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        <asp:Button ID="btnHome" runat="server" OnClick="btnHome_Click" Text="Bring me back!" />
+&nbsp;&nbsp;&nbsp;
+    <asp:Button ID="btnSave" runat="server" Text="Save Calculation" OnClick="Button2_Click" />&nbsp;&nbsp;&nbsp;&nbsp;
     <br />
     <br />
         </div>
