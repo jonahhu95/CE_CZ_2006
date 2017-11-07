@@ -14,7 +14,7 @@ namespace ASPWebsite
         {
            
         }
-        
+
         protected void sendMessage_Click(object sender, EventArgs e)
         {
             String worklocate;
@@ -25,20 +25,54 @@ namespace ASPWebsite
             CalculationManager cm = new CalculationManager();
             try
             {
-                worklocate = txt_Destination.Text;
-                homelocate = txt_Source.Text;
-                if (cm.getAddressValid(homelocate) && cm.getAddressValid(worklocate))
+                bool workAddValid = false, homeAddValid = false, salaryValid = false;
+                workAddValid = (txt_Destination.Text).Length != 0;
+                homeAddValid = (txt_Source.Text).Length != 0;
+                salaryValid = int.TryParse(txt_Salary.Text, out salary);
+                //value is passed into salary if int.TryParse return true
+                
+                if (workAddValid && homeAddValid)
                 {
-                    salary = Convert.ToInt32(txt_Salary.Text);
-                    interest = Convert.ToInt32(rbInterest.SelectedValue);
-                    satisfaction = Convert.ToInt32(rbSalary.SelectedValue);
+                    worklocate = txt_Destination.Text;
+                    homelocate = txt_Source.Text;
 
-                    //createNewCalculation(String workLocation, String homeLocation,
-                    //    int salary, char commuteType, int jobInterest, int salarySatisfaction)
-                    Calculation s = cm.createNewCalculation(worklocate, homelocate, salary, 'F', interest, satisfaction);
-                    Session["CalculationJSIObject"] = s;
-                    Response.Redirect("CalculationResult.aspx");
+                    workAddValid = cm.getAddressValid(worklocate);
+                    homeAddValid = cm.getAddressValid(homelocate);
+
+                    if (!workAddValid && !homeAddValid)
+                        MessageBox.Show(Page, "Please enter a valid work and home address in Singapore");
+                    else if (!workAddValid)
+                        MessageBox.Show(Page, "Please enter a valid work address in Singapore");
+                    else if (!homeAddValid)
+                        MessageBox.Show(Page, "Please enter a valid home address in Singapore");
+
+                    if (!workAddValid || !homeAddValid)
+                        return;
                 }
+                else
+                {
+                    if (!workAddValid && !homeAddValid)
+                        MessageBox.Show(Page, "Please enter a valid work and home address");
+                    else if (!workAddValid)
+                        MessageBox.Show(Page, "Please enter a valid work address");
+                    else if (!homeAddValid)
+                        MessageBox.Show(Page, "Please enter a valid home address");
+                    return;
+                }
+                if (!salaryValid)
+                {
+                    MessageBox.Show(Page, "Please enter a valid salary value");
+                    return;
+                }
+
+                interest = Convert.ToInt32(rbInterest.SelectedValue);
+                satisfaction = Convert.ToInt32(rbSalary.SelectedValue);
+                
+                Calculation s = cm.createNewCalculation(worklocate, homelocate, salary, 'F', interest, satisfaction);
+                Session["CalculationJSIObject"] = s;
+                Response.Redirect("CalculationResult.aspx");
+                
+
             }
             catch (Exception ex)
             {
@@ -47,5 +81,16 @@ namespace ASPWebsite
             }
         }
 
+    }
+    public static class MessageBox
+    {
+        public static void Show(this Page Page, String Message)
+        {
+            Page.ClientScript.RegisterStartupScript(
+               Page.GetType(),
+               "MessageBox",
+               "<script language='javascript'>alert('" + Message + "');</script>"
+            );
+        }
     }
 }

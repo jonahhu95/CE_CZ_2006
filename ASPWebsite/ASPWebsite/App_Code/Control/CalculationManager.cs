@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using Newtonsoft.Json.Linq;
+using RestSharp;
 
 namespace ASPWebsite.App_Code.Control
 {
@@ -90,26 +91,25 @@ namespace ASPWebsite.App_Code.Control
 
         public Boolean getAddressValid(string address)
         {
+            try
+            {
+                String url = apiManager.generateCall_GetCoordinates(address);
+                var client = new RestClient(url);
+                var request = new RestRequest(Method.GET);
+                IRestResponse response = client.Execute(request);;
+                JObject obj = JObject.Parse(response.Content);
+                JArray ar = (JArray)obj["results"];
+                String formattedAddress = ar.First["formatted_address"].ToString();
+                Boolean contain = formattedAddress.Contains("Singapore");
+                if (contain)//return true for address in singapore
+                    return true;
+            }
+            catch (Exception ex)
+            {
 
-            //string url;
-            //JObject obj;
-            //try
-            //{
-            //    url = apiManager.generateCall_GetCoordinates(address);
-            //    string res = apiManager.doGetRequest(url);
-            //    obj = JObject.Parse(res);
-            //    JArray ar = (JArray)obj["results"];
-            //    String formattedAddress = ar.First["formatted_address"].ToString();
-            //    Boolean contain = formattedAddress.Contains("Singapore");
-            //    if (contain)//return true for address in singapore
-            //        return true;
-            //}
-            //catch (Exception ex)
-            //{
-
-            //}
+            }
             return false;
-
+            
         }
     }
 }
