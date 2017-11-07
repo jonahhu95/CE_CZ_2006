@@ -16,6 +16,14 @@
                  <asp:BoundField HeaderText="Money is important to me" />
                  <asp:BoundField HeaderText="Interest is important to me" />
                  <asp:BoundField HeaderText="Both money and interest is important to me" />
+                 <asp:TemplateField>
+                     <EditItemTemplate>
+                         <asp:CheckBox ID="CheckBox1" runat="server" />
+                     </EditItemTemplate>
+                     <ItemTemplate>
+                         <asp:CheckBox ID="CheckBox1" runat="server" />
+                     </ItemTemplate>
+                 </asp:TemplateField>
              </Columns>
          </asp:GridView><br />
          </div>

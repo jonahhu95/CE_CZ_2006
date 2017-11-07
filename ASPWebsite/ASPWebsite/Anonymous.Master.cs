@@ -10,8 +10,10 @@ namespace ASPWebsite
 {
     public partial class Anonymous : System.Web.UI.MasterPage
     {
+        UserManager um = new UserManager();
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (Session["Username"] != null)
             {
                 lblWelcomeUser.Text = "Welcome " + Session["Username"].ToString();
@@ -20,12 +22,14 @@ namespace ASPWebsite
                 SignOut.Visible = true;
                 lblWelcomeUser.Visible = true;
                 userPanel.Visible = true;
+                lblUsername.Text = "Username: " + Session["Username"].ToString();
+                //lblHomeLocation.Text = "Home Location: " + um.getUserHomeLocation(Session["Username"].ToString());
             }
         }
 
         protected void loginBtn_Click1(object sender, EventArgs e)
         {
-            UserManager um = new UserManager();
+
             Boolean t = um.loginUser(tbEmail.Text, tbPassword.Text);
 
             if (t)
@@ -77,7 +81,7 @@ namespace ASPWebsite
 
         protected void SignOut_Click(object sender, EventArgs e)
         {
-            if(Session["Username"] != null)
+            if (Session["Username"] != null)
             {
                 SignOut.Visible = false;
                 lblWelcomeUser.Text = null;
