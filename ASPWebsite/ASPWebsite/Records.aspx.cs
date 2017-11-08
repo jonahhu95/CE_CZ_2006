@@ -15,8 +15,8 @@ namespace ASPWebsite
         {
             CalculationManager cm = new CalculationManager();
 
-            List<Calculation> c = cm.getCalculations("joey");
-            //List<Calculation> c = cm.getCalculations(Session["Username"].ToString());
+            //List<Calculation> c = cm.getCalculations("joey");
+            List<Calculation> c = cm.getCalculations(Session["Username"].ToString());
             gvData.DataSource = c;
             gvData.DataBind();
 
@@ -80,6 +80,11 @@ namespace ASPWebsite
 
                 }
             }
+
+        }
+
+        protected void btnCompare_Click(object sender, EventArgs e)
+        {
 
         }
 

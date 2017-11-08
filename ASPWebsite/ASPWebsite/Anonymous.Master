@@ -102,7 +102,7 @@
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                <asp:Label ID="lblWelcomeUser" runat="server" Visible="False"></asp:Label>
+                                <asp:Label ID="lblWelcomeUser" runat="server" Visible="False" CssClass="nav-link" ></asp:Label>
                                 <asp:HyperLink ID="LoginLink" class="nav-link" data-toggle="modal" Style="margin-right: 10px;" href="#Login" runat="server">Login</asp:HyperLink>
                                 <%--<a class="nav-link" data-toggle="modal" style="margin-right: 10px;" href="#Login">Login</a>--%>
                             </li>
@@ -120,10 +120,9 @@
 
                                         <ul>
                                             <li><a href="HomePage.aspx"><span>Home</span></a></li>
+                                            <li><a href="#Profile" data-toggle="modal"><span>Profile</span></a></li>
                                             <li><a href="Records.aspx"><span>View Past Records</span></a></li>
                                             <li><a href="HomePage.aspx#JSI"><span>Calculate Satisfaction Index</span></a></li>
-                                            <li><a href="#0"><span>LALALALLALAA</span></a></li>
-                                            <li><a href="#0"><span>LALALALALALL</span></a></li>
                                         </ul>
 
                                         <span aria-hidden="true" class="stretchy-nav-bg"></span>
@@ -215,10 +214,59 @@
                     </div>
                 </div>
             </div>
-            
+
+            <%--Profile Modal--%>
+            <div class="portfolio-modal modal fade" id="Profile" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="close-modal" data-dismiss="modal">
+                            <div class="lr">
+                                <div class="rl"></div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-8 mx-auto">
+                                    <div class="modal-body">
+                                        <h2>Profile</h2>
+                                        <hr class="star-primary">
+                                        <%--<img class="img-fluid img-centered" src="img/portfolio/circus.png" alt="">--%>
+                                        <p>
+                                            <asp:Label ID="lblUsername" runat="server"></asp:Label>
+                                            <asp:Label ID="lblHomeLocation" runat="server"></asp:Label>
+                                        </p>
+                                       <%-- <ul class="list-inline item-details">
+                                            <li>Client:
+                                        <strong>
+                                            <a href="http://startbootstrap.com">Start Bootstrap</a>
+                                        </strong>
+                                            </li>
+                                            <li>Date:
+                                        <strong>
+                                            <a href="http://startbootstrap.com">April 2014</a>
+                                        </strong>
+                                            </li>
+                                            <li>Service:
+                                        <strong>
+                                            <a href="http://startbootstrap.com">Web Development</a>
+                                        </strong>
+                                            </li>
+                                        </ul>--%>
+                                        <button class="btn btn-success" type="button" data-dismiss="modal">
+                                            <i class="fa fa-times"></i>
+                                            Close
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
-         </div>
+        </div>
     </form>
 </body>
 </html>
