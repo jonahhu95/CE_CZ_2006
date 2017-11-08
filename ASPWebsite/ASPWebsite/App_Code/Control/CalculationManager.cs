@@ -91,12 +91,15 @@ namespace ASPWebsite.App_Code.Control
 
         public Boolean getAddressValid(string address)
         {
-          
+            if (apiManager.getCoordinates(address) == null)
+                return false;
+            return true;
 
-            string url;
+            /*string url;
             JObject obj;
             try
             {
+               
                 url = apiManager.generateCall_GetCoordinates(address);
                 string res = apiManager.doGetRequest(url);
                 obj = JObject.Parse(res);
@@ -110,7 +113,7 @@ namespace ASPWebsite.App_Code.Control
             {
 
             }
-            return false;
+            return false;*/
             
         }
     }
