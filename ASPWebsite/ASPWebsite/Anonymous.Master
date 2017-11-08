@@ -102,7 +102,7 @@
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                <asp:Label ID="lblWelcomeUser" runat="server" Visible="False"></asp:Label>
+                                <asp:Label ID="lblWelcomeUser" runat="server" Visible="False" CssClass="nav-link" ></asp:Label>
                                 <asp:HyperLink ID="LoginLink" class="nav-link" data-toggle="modal" Style="margin-right: 10px;" href="#Login" runat="server">Login</asp:HyperLink>
                                 <%--<a class="nav-link" data-toggle="modal" style="margin-right: 10px;" href="#Login">Login</a>--%>
                             </li>
@@ -119,12 +119,10 @@
                                         </a>
 
                                         <ul>
-                                            <li><a href="#Profile" data-toggle="modal"><span>Profile</span></a></li>
                                             <li><a href="HomePage.aspx"><span>Home</span></a></li>
+                                            <li><a href="#Profile" data-toggle="modal"><span>Profile</span></a></li>
                                             <li><a href="Records.aspx"><span>View Past Records</span></a></li>
                                             <li><a href="HomePage.aspx#JSI"><span>Calculate Satisfaction Index</span></a></li>
-                                            <li><a href="#0"><span>LALALALLALAA</span></a></li>
-                                            <li><a href="#0"><span>LALALALALALL</span></a></li>
                                         </ul>
 
                                         <span aria-hidden="true" class="stretchy-nav-bg"></span>
