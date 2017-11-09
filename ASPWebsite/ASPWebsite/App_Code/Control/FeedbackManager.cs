@@ -8,9 +8,9 @@ namespace ASPWebsite.App_Code.Control
     {
         
         private DatabaseManager dbManager = new DatabaseManager();
-        public Boolean addFeedback(User user, string message)
+        public Boolean addFeedback(string userName, string message)
         {
-            Feedback toSubmit = new Feedback(user.getUsername(), message, DateTime.Now);
+            Feedback toSubmit = new Feedback(userName, message, DateTime.Now);
             return dbManager.saveFeedback(toSubmit);
         }
         public List<Feedback> getAllFeedback()

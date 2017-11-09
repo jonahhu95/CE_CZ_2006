@@ -27,7 +27,7 @@ namespace ASPWebsite.App_Code.Entity
         /// <summary>
         /// Initializes a new instance of the <see cref="T:ASPWebsite.App_Code.Entity.User"/> class.
         /// </summary>
-        /// <param name="userName">User name.</param>
+        /// <param name="userName">User name.<u/param>
         /// <param name="password">Password.</param>
         /// <param name="homeLocation">Home location.</param>
         public User(string userName, string password, Address homeLocation)

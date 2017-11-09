@@ -28,7 +28,7 @@ namespace ASPWebsite.App_Code.Control
         /// <param name="commuteType">Commute type.</param>
         /// <param name="jobInterest">Job interest.</param>
         /// <param name="salarySatisfaction">Salary satisfaction.</param>
-        public Calculation createNewCalculation(String workLocation, String homeLocation,
+        public Calculation createNewCalculation(string workLocation, string homeLocation,
                 int salary, char commuteType, int jobInterest, int salarySatisfaction)
         {
 
