@@ -12,8 +12,15 @@ namespace ASPWebsite
     public partial class CalculationResult : System.Web.UI.Page
     {
         Calculation c;
+        // static variable
+        static string prevPage = String.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                prevPage = Request.UrlReferrer.ToString();
+            }
+
             if (Session["Username"] != null)
             {
                 pnlFeedback.Visible = true;
@@ -25,8 +32,11 @@ namespace ASPWebsite
             }
             else
             {
-                if(Session["DetailObject"]!= null)
+                if (Session["DetailObject"] != null)
                     c = (Calculation)Session["DetailObject"];
+
+                btnSave.Visible = false;
+                pnlFeedback.Visible = false;
             }
 
             lblJSI.Text = "Job Satisfaction Score: " + c.getJSIScore().ToString();
@@ -42,8 +52,6 @@ namespace ASPWebsite
             lblji.Text = c.getCriteriaMark_JobInterest()[0].ToString() + "/" + c.getCriteriaMark_JobInterest()[1].ToString();
             lblms.Text = c.getCriteriaMark_Salary()[0].ToString() + "/" + c.getCriteriaMark_Salary()[1].ToString();
             lblct.Text = c.getCriteriaMark_CommuteTime()[0].ToString() + "/" + c.getCriteriaMark_CommuteTime()[1].ToString();
-            lblHome.Text = "From " + c.getHomeLocation().getArea().ToString();
-            lblJob.Text = "To " + c.getWorkLocation().getArea().ToString();
         }
         protected void Button2_Click(object sender, EventArgs e)
         {
@@ -67,7 +75,7 @@ namespace ASPWebsite
 
         protected void btnHome_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Home.aspx");
+            Response.Redirect(prevPage);
         }
 
         protected void btnFeedback_Click(object sender, EventArgs e)

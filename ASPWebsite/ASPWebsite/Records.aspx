@@ -49,16 +49,13 @@
     
      <div class="container" style="padding: 100px; padding-top: 200px;";>
          <h4> View Past Records </h4><br />
-         <asp:GridView ID="gvData" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="gvData_SelectedIndexChanged">
+         <asp:GridView ID="gvData" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="gvData_SelectedIndexChanged" AllowPaging="True" PageSize="5" OnPageIndexChanging="gvData_PageIndexChanging" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
              <Columns>
                  <asp:BoundField DataField="workLocation.area" HeaderText="Work location" />
                  <asp:BoundField DataField="salary" HeaderText="Salary" />
                  <asp:BoundField DataField="salarySatisfaction" HeaderText="Salary Rating" />
                  <asp:BoundField DataField="jobInterest" HeaderText="Job Rating" />
                  <asp:BoundField DataField="JSIScore" HeaderText="Satisfaction Index" />
-                 <asp:BoundField HeaderText="Money is important to me" />
-                 <asp:BoundField HeaderText="Interest is important to me" />
-                 <asp:BoundField HeaderText="Both money and interest is important to me" />
                  <asp:TemplateField>
                      <EditItemTemplate>
                          <asp:CheckBox ID="CheckBox1" runat="server" />
@@ -74,6 +71,14 @@
                      </ItemTemplate>
                  </asp:TemplateField>
              </Columns>
+             <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+             <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+             <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+             <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+             <SortedAscendingCellStyle BackColor="#F7F7F7" />
+             <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+             <SortedDescendingCellStyle BackColor="#E5E5E5" />
+             <SortedDescendingHeaderStyle BackColor="#242121" />
          </asp:GridView><br />
          <asp:Button ID="btnCompare" runat="server" Text="Compare Records" OnClick="btnCompare_Click" />
          </div>
@@ -87,54 +92,92 @@
                                 <div class="rl"></div>
                             </div>
                         </div>
+                        <style>
+                            #recordtable tr td {
+                                text-align: left;
+                            }
+
+                            .row1 {
+                            }
+
+                            #recordtable th {
+                                border: 1px solid black;
+                            }
+
+                            #recordtable td {
+                                border: 1px solid black;
+                            }
+
+                            .table1{
+                                width: 300px;
+                            }
+                            .table2{
+                                width: 300px;
+                            }
+                        </style>
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-8 mx-auto">
                                     <div class="modal-body">
                                         <h2>Compare two records</h2>
                                         <hr class="star-primary">
-                                        <table>
+                                        <table id="recordtable">
                                             <tr>
-                                                <td>
+                                                <th style="border: none;"></th>
+                                                <th>Work Location 1: ..... </th>
+                                                <th style="border: none;"></th>
+                                                <th>Work Location 2: .....</th>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: none; font-weight: bold;">Commute Cost</td>
+                                                <td class="table1">
                                                     <asp:Label ID="firstcc" runat="server" Text="Label"></asp:Label></td>
-                                                <td>
+                                                <td style="border: none; padding: 20px;">
                                                     <asp:Label ID="ccCompare" runat="server" Text="Label"></asp:Label>
-                                                </td>
+                                                </td class="table2"> 
                                                 <td><asp:Label ID="secondcc" runat="server" Text="Label"></asp:Label></td>
                                             </tr>
                                             <tr>
-                                                <td><asp:Label ID="firstss" runat="server" Text="Label"></asp:Label></td>
-                                                <td>
-                                                    <asp:Label ID="ssCompare" runat="server" Text="Label"></asp:Label></td>
-                                                <td><asp:Label ID="secondss" runat="server" Text="Label"></asp:Label></td>
+                                                <td style="border: none; font-weight: bold;">Salary Satisfaction</td>
+                                                <td class="table1"><asp:Label ID="firstss" runat="server" Text="Label"></asp:Label></td>
+                                                <td style="border: none; padding: 20px;">
+                                                    <asp:Label ID="ssCompare" runat="server" Text="Label" CssClass="mid"></asp:Label></td>
+                                                <td class="table2"><asp:Label ID="secondss" runat="server" Text="Label"></asp:Label></td>
                                             </tr>
                                              <tr>
-                                                <td><asp:Label ID="firstji" runat="server" Text="Label"></asp:Label></td>
-                                                 <td>
+                                                 <td style="border: none; font-weight: bold;">Job Interest</td>
+                                                <td class="table1"><asp:Label ID="firstji" runat="server" Text="Label"></asp:Label></td>
+                                                 <td style="border: none; padding: 20px;">
                                                      <asp:Label ID="jiCompare" runat="server" Text="Label"></asp:Label></td>
-                                                <td><asp:Label ID="secondji" runat="server" Text="Label"></asp:Label></td>
+                                                <td class="table2"><asp:Label ID="secondji" runat="server" Text="Label"></asp:Label></td>
                                             </tr>
                                             <tr>
+                                                <td style="border: none; font-weight: bold;">Monthly Salary</td>
                                                 <td><asp:Label ID="firstms" runat="server" Text="Label"></asp:Label></td>
-                                                <td>
+                                                <td style="border: none; padding: 20px;">
                                                     <asp:Label ID="msCompare" runat="server" Text="Label"></asp:Label></td>
                                                 <td><asp:Label ID="secondms" runat="server" Text="Label"></asp:Label></td>
                                             </tr>
                                              <tr>
-                                                <td><asp:Label ID="firstct" runat="server" Text="Label"></asp:Label></td>
-                                                 <td>
+                                                 <td style="border: none; font-weight: bold;">Commute Time</td>
+                                                <td class="table1"><asp:Label ID="firstct" runat="server" Text="Label"></asp:Label></td>
+                                                 <td style="border: none; padding: 20px;">
                                                      <asp:Label ID="ctCompare" runat="server" Text="Label"></asp:Label></td>
-                                                <td><asp:Label ID="secondct" runat="server" Text="Label"></asp:Label></td>
+                                                <td class="table2"><asp:Label ID="secondct" runat="server" Text="Label"></asp:Label></td>
                                             </tr>
                                             <tr>
-                                                <td>
+                                                <td style="border: none; font-weight: bold;">Commute Comfort</td>
+                                                <td class="table1">
                                                     <asp:Label ID="firstcco" runat="server" Text="Label"></asp:Label></td>
-                                                <td>
+                                                <td style="border: none; padding: 20px;">
                                                     <asp:Label ID="ccoCompare" runat="server" Text="Label"></asp:Label></td>
-                                                <td>
+                                                <td class="table2">
                                                     <asp:Label ID="secondcco" runat="server" Text="Label"></asp:Label></td>
                                             </tr>
                                         </table>
+                                        <br />
+                                        <br />
+
                                         <button class="btn btn-success" type="button" data-dismiss="modal">
                                             <i class="fa fa-times"></i>
                                             Close

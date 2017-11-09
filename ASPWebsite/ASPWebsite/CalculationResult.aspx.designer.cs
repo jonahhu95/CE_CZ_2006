@@ -13,24 +13,6 @@ namespace ASPWebsite {
     public partial class CalculationResult {
         
         /// <summary>
-        /// lblHome control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHome;
-        
-        /// <summary>
-        /// lblJob control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblJob;
-        
-        /// <summary>
         /// lblJSI control.
         /// </summary>
         /// <remarks>
@@ -146,6 +128,15 @@ namespace ASPWebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl2;
+        
+        /// <summary>
+        /// pnlUserRecord control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlUserRecord;
         
         /// <summary>
         /// btnHome control.

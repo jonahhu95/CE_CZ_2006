@@ -202,27 +202,9 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
-        <member name="F:ASPWebsite.Anonymous.Label4">
-            <summary>
-            Label4 control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
         <member name="F:ASPWebsite.Anonymous.lblUsername">
             <summary>
             lblUsername control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:ASPWebsite.Anonymous.Label5">
-            <summary>
-            Label5 control.
             </summary>
             <remarks>
             Auto-generated field.
@@ -1352,24 +1334,6 @@
             <param name="userName"></param>
             <returns></returns>
         </member>
-        <member name="F:ASPWebsite.CalculationResult.lblHome">
-            <summary>
-            lblHome control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:ASPWebsite.CalculationResult.lblJob">
-            <summary>
-            lblJob control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
         <member name="F:ASPWebsite.CalculationResult.lblJSI">
             <summary>
             lblJSI control.
@@ -1481,6 +1445,15 @@
         <member name="F:ASPWebsite.CalculationResult.lbl2">
             <summary>
             lbl2 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.CalculationResult.pnlUserRecord">
+            <summary>
+            pnlUserRecord control.
             </summary>
             <remarks>
             Auto-generated field.

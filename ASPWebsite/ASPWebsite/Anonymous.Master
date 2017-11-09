@@ -240,36 +240,40 @@
             </script>
 
             <%--Profile Modal--%>
-                <div class="portfolio-modal modal fade" id="Profile" tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="close-modal" data-dismiss="modal">
-                                <div class="lr">
-                                    <div class="rl"></div>
-                                </div>
+            <div class="portfolio-modal modal fade" id="Profile" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="close-modal" data-dismiss="modal">
+                            <div class="lr">
+                                <div class="rl"></div>
                             </div>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-8 mx-auto">
-                                        <div class="modal-body">
-                                            <h2>Profile</h2>
-                                            <hr class="star-primary">
-                                            <img class="img-fluid img-centered" src="img/portfolio/circus.png" alt="">
-                                            <p style="text-align: left;">
-                                                <asp:Label ID="Label4" runat="server" Text="Username: "></asp:Label><asp:Label ID="lblUsername" runat="server"></asp:Label><br />
-                                                <asp:Label ID="Label5" runat="server" Text="Home Location: "></asp:Label><asp:Label ID="lblHome" runat="server" Text="No home location data "></asp:Label><asp:TextBox ID="tbHome" runat="server" Visible="false"></asp:TextBox><asp:Button ID="btnSaveHome" runat="server" Text="Save" Visible="false" OnClick="btnSaveHome_Click" /><asp:Button ID="btnChangeHome" runat="server" Text="Change Home Location" OnClick="btnChangeHome_Click" /><asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" Visible="False" />
-                                            </p>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-8 mx-auto">
+                                    <div class="modal-body">
+                                        <h2>Profile</h2>
+                                        <hr class="star-primary">
+                                        <p style="text-align: left;">
+                                             Username:       <asp:Label ID="lblUsername" runat="server"></asp:Label><br />
+                                             Home Location:  
+                                            <asp:Label ID="lblHome" runat="server" Text="No home location data "></asp:Label>
+                                            <asp:TextBox ID="tbHome" runat="server" Visible="false"></asp:TextBox>
+                                            <asp:Button ID="btnSaveHome" runat="server" Text="Save" Visible="false" OnClick="btnSaveHome_Click" class="btn btn-default" />
+                                            <asp:Button ID="btnChangeHome" runat="server" Text="Change Home Location" OnClick="btnChangeHome_Click" class="btn btn-default" />
+                                            <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" Visible="False" class="btn btn-default" />
+                                        </p>
 
-                                            <button class="btn btn-success" type="button" data-dismiss="modal">
-                                                <i class="fa fa-times"></i>
-                                                Close</button>
-                                        </div>
+                                        <button class="btn btn-success" type="button" data-dismiss="modal">
+                                            <i class="fa fa-times"></i>
+                                            Close</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
