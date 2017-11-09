@@ -23,6 +23,8 @@ namespace ASPWebsite.App_Code.Control
             double[] coordinates;
             String area;
             coordinates = apiManager.getCoordinates(locationName);
+            if (coordinates == null)
+                return null;
             area = apiManager.getArea(coordinates[0], coordinates[1]);
             return new Address(locationName, coordinates[0], coordinates[1], area);
         }
