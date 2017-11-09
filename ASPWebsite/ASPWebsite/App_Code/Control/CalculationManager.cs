@@ -28,7 +28,7 @@ namespace ASPWebsite.App_Code.Control
         /// <param name="commuteType">Commute type.</param>
         /// <param name="jobInterest">Job interest.</param>
         /// <param name="salarySatisfaction">Salary satisfaction.</param>
-        public Calculation createNewCalculation(String workLocation, String homeLocation,
+        public Calculation createNewCalculation(string workLocation, string homeLocation,
                 int salary, char commuteType, int jobInterest, int salarySatisfaction)
         {
 
@@ -91,42 +91,30 @@ namespace ASPWebsite.App_Code.Control
 
         public Boolean getAddressValid(string address)
         {
+            if (apiManager.getCoordinates(address) == null)
+                return false;
+            return true;
+
+            /*string url;
+            JObject obj;
             try
             {
-                String url = apiManager.generateCall_GetCoordinates(address);
-                var client = new RestClient(url);
-                var request = new RestRequest(Method.GET);
-                IRestResponse response = client.Execute(request); ;
-                JObject obj = JObject.Parse(response.Content);
+               
+                url = apiManager.generateCall_GetCoordinates(address);
+                string res = apiManager.doGetRequest(url);
+                obj = JObject.Parse(res);
                 JArray ar = (JArray)obj["results"];
                 String formattedAddress = ar.First["formatted_address"].ToString();
                 Boolean contain = formattedAddress.Contains("Singapore");
                 if (contain)//return true for address in singapore
                     return true;
-                else
-                    return false;
             }
             catch (Exception ex)
             {
-                string url;
-                JObject obj;
-                try
-                {
-                    url = apiManager.generateCall_GetCoordinates(address);
-                    string res = apiManager.doGetRequest(url);
-                    obj = JObject.Parse(res);
-                    JArray ar = (JArray)obj["results"];
-                    String formattedAddress = ar.First["formatted_address"].ToString();
-                    Boolean contain = formattedAddress.Contains("Singapore");
-                    if (contain)//return true for address in singapore
-                        return true;
-                }
-                catch (Exception e)
-                {
 
-                }
-                return false;
             }
+            return false;*/
+            
         }
     }
 }

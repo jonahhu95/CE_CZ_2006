@@ -187,7 +187,7 @@ namespace ASPWebsite.App_Code.Control
             {
                 try
                 {
-                    url = generateCall_NumberOfRiders(area, year);
+                    url = generateCall_GetNumberOfRiders(area, year);
                     string res = doGetRequest(url);
                     obj = (JObject)(JArray.Parse(res)).First;
                     total = 0;
@@ -301,7 +301,7 @@ namespace ASPWebsite.App_Code.Control
             return areas;
         }
 
-        public string doGetRequest(string url)
+        private string doGetRequest(string url)
         {
             IRestResponse response;
             try
@@ -324,7 +324,7 @@ namespace ASPWebsite.App_Code.Control
         /// <returns>The call number of riders.</returns>
         /// <param name="area">Area.</param>
         /// <param name="year">Year.</param>
-        private string generateCall_NumberOfRiders(string area, int year)
+        private string generateCall_GetNumberOfRiders(string area, int year)
         {
             string url = "https://developers.onemap.sg/privateapi/popapi/getModeOfTransportWork?";
             url = url + "token=" + oneMapAccessToken;
@@ -379,7 +379,7 @@ namespace ASPWebsite.App_Code.Control
         /// </summary>
         /// <returns>The call get coordinates.</returns>
         /// <param name="locationName">Location name.</param>
-        public string generateCall_GetCoordinates(string locationName)
+        private string generateCall_GetCoordinates(string locationName)
         {
             string url = "https://maps.googleapis.com/maps/api/place/textsearch/json?";
             url = url + "query=" + locationName.Replace(" ", "+");
@@ -429,6 +429,10 @@ namespace ASPWebsite.App_Code.Control
             {
                 obj = JObject.Parse(res.Content);
                 if (!(((string)obj["status"]).Equals("OK")))
+                    return false;
+                JArray ar = (JArray)obj["results"];
+                String formattedAddress = ar.First["formatted_address"].ToString();
+                if (!formattedAddress.Contains("Singapore"))
                     return false;
             }
             catch (Exception e)

@@ -45,14 +45,14 @@ namespace ASPWebsite.App_Code.Entity
         /// <param name="commuteTime">Commute time.</param>
         /// <param name="aveCommuteTime">Ave commute time.</param>
         /// <param name="monthlyCommuteCost">Monthly commute cost.</param>
-        public Calculation(Address workLocation, Address homeLoction, int salary, char commuteType,
+        public Calculation(Address workLocation, Address homeLocation, int salary, char commuteType,
                 int jobInterest, int salarySatisfaction, DateTime createdTime, int medianSalary,
                 int ridersArea, int aveRidersArea, double commuteTime, double aveCommuteTime,
                 double monthlyCommuteCost)
         {
             setCreatedTime(createdTime);
             setWorkLocation(workLocation);
-            setHomeLocation(homeLoction);
+            setHomeLocation(homeLocation);
             setSalary(salary);
             setCommuteType(commuteType);
             setJobInterest(jobInterest);

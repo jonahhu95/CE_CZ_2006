@@ -74,8 +74,18 @@ namespace ASPWebsite.App_Code.Control
         /// <param name="userName">User name.</param>
         public string getUserHomeLocation(string userName)
         {
-            User user = dbManager.getUser(userName);
-            return user.getHomeLocation().getLocationName();
+            try
+            {
+                User user = dbManager.getUser(userName);
+                return user.getHomeLocation().getLocationName();
+            }
+            catch
+            {
+                //ERROR HANDLING
+            }
+            return null;
+            
+            
         }
 
     }
