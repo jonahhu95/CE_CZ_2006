@@ -42,8 +42,8 @@ namespace ASPWebsite
             lblji.Text = c.getCriteriaMark_JobInterest()[0].ToString() + "/" + c.getCriteriaMark_JobInterest()[1].ToString();
             lblms.Text = c.getCriteriaMark_Salary()[0].ToString() + "/" + c.getCriteriaMark_Salary()[1].ToString();
             lblct.Text = c.getCriteriaMark_CommuteTime()[0].ToString() + "/" + c.getCriteriaMark_CommuteTime()[1].ToString();
-            lblHome.Text = "From " + c.getHomeLocation().ToString();
-            lblJob.Text = "To " + c.getWorkLocation().ToString();
+            lblHome.Text = "From " + c.getHomeLocation().getArea().ToString();
+            lblJob.Text = "To " + c.getWorkLocation().getArea().ToString();
         }
         protected void Button2_Click(object sender, EventArgs e)
         {
