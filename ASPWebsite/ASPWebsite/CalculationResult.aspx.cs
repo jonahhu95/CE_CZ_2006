@@ -14,11 +14,21 @@ namespace ASPWebsite
         Calculation c;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["Username"] != null)
+            if (Session["Username"] != null)
             {
                 pnlFeedback.Visible = true;
             }
-            c = (Calculation)Session["CalculationJSIObject"];
+
+            if (Session["CalculationJSIObject"] != null)
+            {
+                c = (Calculation)Session["CalculationJSIObject"];
+            }
+            else
+            {
+                if(Session["DetailObject"]!= null)
+                    c = (Calculation)Session["DetailObject"];
+            }
+
             lblJSI.Text = "Job Satisfaction Score: " + c.getJSIScore().ToString();
             lbl2.Text = c.getCriteriaMark_CommuteComfort()[0].ToString() + "/" + c.getCriteriaMark_CommuteComfort()[1].ToString();
             lbl1.Text = c.getCriteriaExplanation_CommuteComfort().ToString();
@@ -58,6 +68,16 @@ namespace ASPWebsite
         protected void btnHome_Click(object sender, EventArgs e)
         {
             Response.Redirect("Home.aspx");
+        }
+
+        protected void btnFeedback_Click(object sender, EventArgs e)
+        {
+            FeedbackManager fm = new FeedbackManager();
+            fm.addFeedback(Session["Username"].ToString(), tbFeedbackMessage.Text);
+            pnlFeedback.Visible = false;
+            lblFeedbackMessage.Visible = true;
+            lblFeedbackMessage.Text = "Feedback Sent!";
+
         }
     }
 }

@@ -11,23 +11,27 @@ namespace ASPWebsite
 {
     public partial class Records : System.Web.UI.Page
     {
-        List<Calculation> cal = null;
+        //List<Calculation> cal = null;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-                BindGridData();
-            }
+                CalculationManager cm = new CalculationManager();
+                //List<Calculation> c = cm.getCalculations("joey");
+                List<Calculation> c = cm.getCalculations(Session["Username"].ToString());
+                gvData.DataSource = c;
+                gvData.DataBind();
 
-            compareRecords();
-        }
-        protected void BindGridData()
-        {
-            CalculationManager cm = new CalculationManager();
-            List<Calculation> c = cm.getCalculations("joey");
-            //List<Calculation> c = cm.getCalculations(Session["Username"].ToString());
-            gvData.DataSource = c;
-            gvData.DataBind();
+                if (gvData.Rows.Count != 0)
+                {
+                    compareRecords();
+                }
+                else
+                {
+
+                    btnCompare.Visible = false;
+                }
+            }
         }
 
         protected void compareRecords()
@@ -235,7 +239,18 @@ namespace ASPWebsite
                 ssCompare.Text = " = ";
                 secondss.Text = cal2.getCriteriaMark_SalarySatisfaction()[0].ToString();
             }
-           
+
+        }
+
+        protected void gvData_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CalculationManager cm = new CalculationManager();
+            //List<Calculation> c = cm.getCalculations("joey");
+            List<Calculation> c = cm.getCalculations(Session["Username"].ToString());
+            Calculation ca = c[gvData.SelectedIndex];
+            Session["DetailObject"] = ca;
+
+            Response.Redirect("CalculationResult.aspx");
         }
 
     }

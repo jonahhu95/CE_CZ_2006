@@ -83,18 +83,11 @@
         <br />
         <br />
         <asp:Panel ID="pnlFeedback" runat="server" Visible="false">
-            <table>
-                <tr>
-                    What do you think about the index generated?
-                </tr>
-                <tr>
-                    <td>Message: </td>
-                    <td>
-                        <asp:TextBox ID="tbFeedbackMessage" runat="server" TextMode="MultiLine"></asp:TextBox></td>
-                </tr>
-            </table>
+            Give us suggestion on how we can improve!☺ <br />
+            <asp:TextBox ID="tbFeedbackMessage" runat="server" TextMode="MultiLine"></asp:TextBox><br />
+            <asp:Button ID="btnFeedback" runat="server" Text="Submit Feedback" OnClick="btnFeedback_Click" />
         </asp:Panel>
-
+        <asp:Label ID="lblFeedbackMessage" runat="server" Text="" Visible="false"></asp:Label>
         <br />
         <br />
     </div>

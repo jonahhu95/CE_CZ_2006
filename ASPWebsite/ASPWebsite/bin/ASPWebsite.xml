@@ -202,15 +202,6 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
-        <member name="F:ASPWebsite.Anonymous.pnlProfile">
-            <summary>
-            pnlProfile control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
         <member name="F:ASPWebsite.Anonymous.Label4">
             <summary>
             Label4 control.
@@ -268,6 +259,15 @@
         <member name="F:ASPWebsite.Anonymous.btnChangeHome">
             <summary>
             btnChangeHome control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.Anonymous.btnCancel">
+            <summary>
+            btnCancel control.
             </summary>
             <remarks>
             Auto-generated field.
@@ -1517,6 +1517,24 @@
         <member name="F:ASPWebsite.CalculationResult.tbFeedbackMessage">
             <summary>
             tbFeedbackMessage control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.CalculationResult.btnFeedback">
+            <summary>
+            btnFeedback control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.CalculationResult.lblFeedbackMessage">
+            <summary>
+            lblFeedbackMessage control.
             </summary>
             <remarks>
             Auto-generated field.

@@ -221,6 +221,7 @@
     <Compile Include="App_Code\Control\AddressManager.cs" />
     <Compile Include="App_Code\Control\ApiManager.cs" />
     <Compile Include="App_Code\Control\DatabaseManager.cs" />
+    <Compile Include="App_Code\Control\FeedbackManager.cs" />
     <Compile Include="Records.aspx.cs">
       <DependentUpon>Records.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -228,7 +229,6 @@
     <Compile Include="Records.aspx.designer.cs">
       <DependentUpon>Records.aspx</DependentUpon>
     </Compile>
-    <Content Include="App_Code\Control\FeedbackManager.cs" />
     <Compile Include="App_Code\Control\UserManager.cs" />
     <Compile Include="App_Code\Entity\Criteria.cs" />
     <Compile Include="App_Code\Entity\Salary.cs" />

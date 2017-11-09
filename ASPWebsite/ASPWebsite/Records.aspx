@@ -49,7 +49,7 @@
     
      <div class="container" style="padding: 100px; padding-top: 200px;";>
          <h4> View Past Records </h4><br />
-         <asp:GridView ID="gvData" runat="server" AutoGenerateColumns="False">
+         <asp:GridView ID="gvData" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="gvData_SelectedIndexChanged">
              <Columns>
                  <asp:BoundField DataField="workLocation.area" HeaderText="Work location" />
                  <asp:BoundField DataField="salary" HeaderText="Salary" />
@@ -66,6 +66,11 @@
                      <ItemTemplate>
                          <%--<asp:CheckBox ID="checkBoxSelect" runat="server" ClientIDMode="Static"/>--%>
                          <asp:CheckBox ID="checkBoxSelect" runat="server" ClientIDMode="Static" onclick = "Check_Click(this)"/>
+                     </ItemTemplate>
+                 </asp:TemplateField>
+                 <asp:TemplateField ShowHeader="False">
+                     <ItemTemplate>
+                         <asp:LinkButton ID="btnLinkDetail" runat="server" CausesValidation="False" CommandName="Select" Text="View Record"></asp:LinkButton>
                      </ItemTemplate>
                  </asp:TemplateField>
              </Columns>

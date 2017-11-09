@@ -15,7 +15,6 @@ namespace ASPWebsite
         {
             if(!Page.IsPostBack)
             {
-                pnlProfile.Visible = true;
             }
             if (Session["Username"] != null)
             {
@@ -26,7 +25,7 @@ namespace ASPWebsite
                 lblWelcomeUser.Visible = true;
                 userPanel.Visible = true;
                 lblUsername.Text = Session["Username"].ToString();
-                tbHome.Text = um.getUserHomeLocation(Session["Username"].ToString());
+                lblHome.Text = um.getUserHomeLocation(Session["Username"].ToString()) + " ";
             }
         }
 
@@ -105,12 +104,27 @@ namespace ASPWebsite
             lblHome.Visible = false;
             btnChangeHome.Visible = false;
             btnSaveHome.Visible = true;
+            btnCancel.Visible = true;
         }
 
         protected void btnSaveHome_Click(object sender, EventArgs e)
         {
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "showProfileModal();", true);
-            um.saveUserHomeLocation(Session["Username"].ToString(), tbHome.Text);
+            string loc = tbHome.Text;
+            um.saveUserHomeLocation(Session["Username"].ToString(), loc);
+            btnCancel.Visible = false;
+            tbHome.Visible = false;
+            lblHome.Visible = true;
+            btnChangeHome.Visible = true;
+            btnSaveHome.Visible = false;
+
+            lblHome.Text = um.getUserHomeLocation(Session["Username"].ToString()) + " ";
+        }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "showProfileModal();", true);
+            btnCancel.Visible = false;
             tbHome.Visible = false;
             lblHome.Visible = true;
             btnChangeHome.Visible = true;

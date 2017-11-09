@@ -240,7 +240,6 @@
             </script>
 
             <%--Profile Modal--%>
-            <asp:Panel ID="pnlProfile" runat="server">
                 <div class="portfolio-modal modal fade" id="Profile" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -258,13 +257,12 @@
                                             <img class="img-fluid img-centered" src="img/portfolio/circus.png" alt="">
                                             <p style="text-align: left;">
                                                 <asp:Label ID="Label4" runat="server" Text="Username: "></asp:Label><asp:Label ID="lblUsername" runat="server"></asp:Label><br />
-                                                <asp:Label ID="Label5" runat="server" Text="Home Location: "></asp:Label><asp:Label ID="lblHome" runat="server" Text="No home location data "></asp:Label><asp:TextBox ID="tbHome" runat="server" Visible="false"></asp:TextBox><asp:Button ID="btnSaveHome" runat="server" Text="Save" Visible="false" OnClick="btnSaveHome_Click" /><asp:Button ID="btnChangeHome" runat="server" Text="Change Home Location" OnClick="btnChangeHome_Click" />
+                                                <asp:Label ID="Label5" runat="server" Text="Home Location: "></asp:Label><asp:Label ID="lblHome" runat="server" Text="No home location data "></asp:Label><asp:TextBox ID="tbHome" runat="server" Visible="false"></asp:TextBox><asp:Button ID="btnSaveHome" runat="server" Text="Save" Visible="false" OnClick="btnSaveHome_Click" /><asp:Button ID="btnChangeHome" runat="server" Text="Change Home Location" OnClick="btnChangeHome_Click" /><asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" Visible="False" />
                                             </p>
 
                                             <button class="btn btn-success" type="button" data-dismiss="modal">
                                                 <i class="fa fa-times"></i>
-                                                Close
-                                            </button>
+                                                Close</button>
                                         </div>
                                     </div>
                                 </div>
@@ -272,8 +270,6 @@
                         </div>
                     </div>
                 </div>
-            </asp:Panel>
-
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
