@@ -52,7 +52,6 @@
                 color: black;
             }
     </style>
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyC7PqtJwkmY1fKaO0RE3qj7JWhA7m36jfk"></script>
     <script type="text/javascript">
         var source, destination;
 

@@ -13,7 +13,10 @@ namespace ASPWebsite
         UserManager um = new UserManager();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(!Page.IsPostBack)
+            {
+                pnlProfile.Visible = true;
+            }
             if (Session["Username"] != null)
             {
                 lblWelcomeUser.Text = "Welcome " + Session["Username"].ToString();
@@ -89,12 +92,29 @@ namespace ASPWebsite
                 RegisterLink.Visible = true;
                 lblWelcomeUser.Visible = false;
                 userPanel.Visible = false;
+
+                Session["Username"] = null;
+                Response.Redirect("HomePage.aspx");
             }
         }
 
         protected void btnChangeHome_Click(object sender, EventArgs e)
         {
-            tbHome.ReadOnly = false;
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "showProfileModal();", true);
+            tbHome.Visible = true;
+            lblHome.Visible = false;
+            btnChangeHome.Visible = false;
+            btnSaveHome.Visible = true;
+        }
+
+        protected void btnSaveHome_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "showProfileModal();", true);
+            um.saveUserHomeLocation(Session["Username"].ToString(), tbHome.Text);
+            tbHome.Visible = false;
+            lblHome.Visible = true;
+            btnChangeHome.Visible = true;
+            btnSaveHome.Visible = false;
         }
 
     }

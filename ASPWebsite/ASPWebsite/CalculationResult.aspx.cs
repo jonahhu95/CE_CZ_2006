@@ -14,6 +14,10 @@ namespace ASPWebsite
         Calculation c;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(Session["Username"] != null)
+            {
+                pnlFeedback.Visible = true;
+            }
             c = (Calculation)Session["CalculationJSIObject"];
             lblJSI.Text = "Job Satisfaction Score: " + c.getJSIScore().ToString();
             lbl2.Text = c.getCriteriaMark_CommuteComfort()[0].ToString() + "/" + c.getCriteriaMark_CommuteComfort()[1].ToString();
