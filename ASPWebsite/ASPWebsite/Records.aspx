@@ -39,6 +39,10 @@
                 }
             }
         }
+
+        function openCompareModal() {
+            $('#compareTwo').modal({ show: true });
+        }
 </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -60,11 +64,81 @@
                          <asp:CheckBox ID="CheckBox1" runat="server" />
                      </EditItemTemplate>
                      <ItemTemplate>
+                         <%--<asp:CheckBox ID="checkBoxSelect" runat="server" ClientIDMode="Static"/>--%>
                          <asp:CheckBox ID="checkBoxSelect" runat="server" ClientIDMode="Static" onclick = "Check_Click(this)"/>
                      </ItemTemplate>
                  </asp:TemplateField>
              </Columns>
          </asp:GridView><br />
-         <asp:Button ID="Button1" runat="server" Text="Compare Records" OnClick="btnCompare_Click" />
+         <asp:Button ID="btnCompare" runat="server" Text="Compare Records" OnClick="btnCompare_Click" />
          </div>
+
+    <%--Compare Records Modal--%>
+     <div class="portfolio-modal modal fade" id="compareTwo" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="close-modal" data-dismiss="modal">
+                            <div class="lr">
+                                <div class="rl"></div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-8 mx-auto">
+                                    <div class="modal-body">
+                                        <h2>Compare two records</h2>
+                                        <hr class="star-primary">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <asp:Label ID="firstcc" runat="server" Text="Label"></asp:Label></td>
+                                                <td>
+                                                    <asp:Label ID="ccCompare" runat="server" Text="Label"></asp:Label>
+                                                </td>
+                                                <td><asp:Label ID="secondcc" runat="server" Text="Label"></asp:Label></td>
+                                            </tr>
+                                            <tr>
+                                                <td><asp:Label ID="firstss" runat="server" Text="Label"></asp:Label></td>
+                                                <td>
+                                                    <asp:Label ID="ssCompare" runat="server" Text="Label"></asp:Label></td>
+                                                <td><asp:Label ID="secondss" runat="server" Text="Label"></asp:Label></td>
+                                            </tr>
+                                             <tr>
+                                                <td><asp:Label ID="firstji" runat="server" Text="Label"></asp:Label></td>
+                                                 <td>
+                                                     <asp:Label ID="jiCompare" runat="server" Text="Label"></asp:Label></td>
+                                                <td><asp:Label ID="secondji" runat="server" Text="Label"></asp:Label></td>
+                                            </tr>
+                                            <tr>
+                                                <td><asp:Label ID="firstms" runat="server" Text="Label"></asp:Label></td>
+                                                <td>
+                                                    <asp:Label ID="msCompare" runat="server" Text="Label"></asp:Label></td>
+                                                <td><asp:Label ID="secondms" runat="server" Text="Label"></asp:Label></td>
+                                            </tr>
+                                             <tr>
+                                                <td><asp:Label ID="firstct" runat="server" Text="Label"></asp:Label></td>
+                                                 <td>
+                                                     <asp:Label ID="ctCompare" runat="server" Text="Label"></asp:Label></td>
+                                                <td><asp:Label ID="secondct" runat="server" Text="Label"></asp:Label></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <asp:Label ID="firstcco" runat="server" Text="Label"></asp:Label></td>
+                                                <td>
+                                                    <asp:Label ID="ccoCompare" runat="server" Text="Label"></asp:Label></td>
+                                                <td>
+                                                    <asp:Label ID="secondcco" runat="server" Text="Label"></asp:Label></td>
+                                            </tr>
+                                        </table>
+                                        <button class="btn btn-success" type="button" data-dismiss="modal">
+                                            <i class="fa fa-times"></i>
+                                            Close
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 </asp:Content>
