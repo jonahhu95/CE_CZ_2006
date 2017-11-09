@@ -211,6 +211,15 @@ namespace ASPWebsite {
         protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
+        /// Label4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label4;
+        
+        /// <summary>
         /// lblUsername control.
         /// </summary>
         /// <remarks>
@@ -220,13 +229,31 @@ namespace ASPWebsite {
         protected global::System.Web.UI.WebControls.Label lblUsername;
         
         /// <summary>
-        /// lblHomeLocation control.
+        /// Label5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHomeLocation;
+        protected global::System.Web.UI.WebControls.Label Label5;
+        
+        /// <summary>
+        /// tbHome control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbHome;
+        
+        /// <summary>
+        /// btnChangeHome control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnChangeHome;
         
         /// <summary>
         /// ContentPlaceHolder1 control.

@@ -22,8 +22,8 @@ namespace ASPWebsite
                 SignOut.Visible = true;
                 lblWelcomeUser.Visible = true;
                 userPanel.Visible = true;
-                lblUsername.Text = "Username: " + Session["Username"].ToString();
-                //lblHomeLocation.Text = "Home Location: " + um.getUserHomeLocation(Session["Username"].ToString());
+                lblUsername.Text = Session["Username"].ToString();
+                tbHome.Text = um.getUserHomeLocation(Session["Username"].ToString());
             }
         }
 
@@ -90,6 +90,11 @@ namespace ASPWebsite
                 lblWelcomeUser.Visible = false;
                 userPanel.Visible = false;
             }
+        }
+
+        protected void btnChangeHome_Click(object sender, EventArgs e)
+        {
+            tbHome.ReadOnly = false;
         }
 
     }

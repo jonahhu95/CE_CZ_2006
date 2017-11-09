@@ -202,6 +202,15 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
+        <member name="F:ASPWebsite.Anonymous.Label4">
+            <summary>
+            Label4 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
         <member name="F:ASPWebsite.Anonymous.lblUsername">
             <summary>
             lblUsername control.
@@ -211,9 +220,27 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
-        <member name="F:ASPWebsite.Anonymous.lblHomeLocation">
+        <member name="F:ASPWebsite.Anonymous.Label5">
             <summary>
-            lblHomeLocation control.
+            Label5 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.Anonymous.tbHome">
+            <summary>
+            tbHome control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.Anonymous.btnChangeHome">
+            <summary>
+            btnChangeHome control.
             </summary>
             <remarks>
             Auto-generated field.
@@ -307,7 +334,7 @@
             </summary>
             <returns>The all area riders.</returns>
         </member>
-        <member name="M:ASPWebsite.App_Code.Control.ApiManager.generateCall_NumberOfRiders(System.String,System.Int32)">
+        <member name="M:ASPWebsite.App_Code.Control.ApiManager.generateCall_GetNumberOfRiders(System.String,System.Int32)">
             <summary>
             Generates the call number of riders.
             </summary>
@@ -473,8 +500,6 @@
             <returns><c>true</c>, if table was cleared, <c>false</c> otherwise.</returns>
             <param name="tableName">Table name.</param>
         </member>
-<<<<<<< HEAD
-=======
         <member name="F:ASPWebsite.Records.gvData">
             <summary>
             gvData control.
@@ -655,7 +680,6 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
->>>>>>> a1730418809ca1a715c4b6f272490dc0eacff360
         <member name="T:ASPWebsite.App_Code.Control.UserManager">
             <summary>
             User manager.
@@ -825,14 +849,7 @@
             <param name="userName">User name.</param>
             <param name="password">Password.</param>
         </member>
-        <member name="M:ASPWebsite.App_Code.Entity.User.#ctor(System.String,System.String,ASPWebsite.App_Code.Entity.Address)">
-            <summary>
-            Initializes a new instance of the <see cref="T:ASPWebsite.App_Code.Entity.User"/> class.
-            </summary>
-            <param name="userName">User name.</param>
-            <param name="password">Password.</param>
-            <param name="homeLocation">Home location.</param>
-        </member>
+        <!-- Badly formed XML comment ignored for member "M:ASPWebsite.App_Code.Entity.User.#ctor(System.String,System.String,ASPWebsite.App_Code.Entity.Address)" -->
         <member name="M:ASPWebsite.App_Code.Entity.User.getUsername">
             <summary>
             Gets the username.
@@ -1307,15 +1324,6 @@
             <param name="calculation"></param>
             <param name="userName"></param>
             <returns></returns>
-        </member>
-        <member name="F:ASPWebsite.UserProfile.Button1">
-            <summary>
-            Button1 control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
         </member>
         <member name="F:ASPWebsite.CalculationResult.lblHome">
             <summary>
