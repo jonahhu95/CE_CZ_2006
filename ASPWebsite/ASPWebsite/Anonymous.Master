@@ -51,6 +51,7 @@
 
     <!-- Pushy Menu -->
     <link rel="stylesheet" href="css/normalize.css">
+     <link rel="stylesheet" href="css/demo.css">
     <!-- Pushy CSS -->
     <link rel="stylesheet" href="css/pushy.css">
 
