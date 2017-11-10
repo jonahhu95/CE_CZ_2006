@@ -76,13 +76,13 @@ namespace ASPWebsite {
         protected global::System.Web.UI.WebControls.LinkButton SignOut;
         
         /// <summary>
-        /// userPanel control.
+        /// btnMenuClick control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel userPanel;
+        protected global::System.Web.UI.WebControls.Button btnMenuClick;
         
         /// <summary>
         /// exampleInputEmail1 control.
@@ -211,6 +211,15 @@ namespace ASPWebsite {
         protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
+        /// userPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel userPanel;
+        
+        /// <summary>
         /// lblUsername control.
         /// </summary>
         /// <remarks>
@@ -238,15 +247,6 @@ namespace ASPWebsite {
         protected global::System.Web.UI.WebControls.TextBox tbHome;
         
         /// <summary>
-        /// btnSaveHome control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveHome;
-        
-        /// <summary>
         /// btnChangeHome control.
         /// </summary>
         /// <remarks>
@@ -254,6 +254,15 @@ namespace ASPWebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnChangeHome;
+        
+        /// <summary>
+        /// btnSaveHome control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSaveHome;
         
         /// <summary>
         /// btnCancel control.
