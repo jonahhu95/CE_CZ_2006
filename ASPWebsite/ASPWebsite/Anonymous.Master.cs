@@ -142,7 +142,6 @@ namespace ASPWebsite
         /// <param name="e">E.</param>
         protected void btnSaveHome_Click(object sender, EventArgs e)
         {
-            //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "showProfileModal();", true);
             string loc = tbHome.Text;
             um.saveUserHomeLocation(Session["Username"].ToString(), loc);
             btnCancel.Visible = false;

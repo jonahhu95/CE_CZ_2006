@@ -119,6 +119,7 @@
             font-size: 12px;
             font-weight: 600;
             margin-bottom: 15px;
+            padding: 5px;
         }
 
         .profile-userbuttons {
@@ -309,8 +310,7 @@
                                     <asp:TextBox ID="tbHome" runat="server" Visible="false"></asp:TextBox>
                                     <div class="profile-userbuttons">
                                         <asp:Button ID="btnChangeHome" runat="server" Text="Change Home Location" OnClick="btnChangeHome_Click" class="btn btn-default" />
-
-                                        <asp:Button ID="btnSaveHome" runat="server" Text="Save" Visible="false" class="btn btn-success btn-sm" />
+                                        <asp:Button ID="btnSaveHome" runat="server" Text="Save" Visible="false" class="btn btn-success btn-sm" OnClick="btnSaveHome_Click"/>
                                         <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" Visible="False" class="btn btn-danger btn-sm" />
                                     </div>
                                 </div>
@@ -334,10 +334,10 @@
                         var address = place.formatted_address;
                         var latitude = place.geometry.location.A;
                         var longitude = place.geometry.location.F;
-                        var mesg = "Address: " + address;
-                        mesg += "\nLatitude: " + latitude;
-                        mesg += "\nLongitude: " + longitude;
-                        alert(mesg);
+                        //var mesg = "Address: " + address;
+                        //mesg += "\nLatitude: " + latitude;
+                        //mesg += "\nLongitude: " + longitude;
+                        //alert(mesg);
                     });
                 });
             </script>
