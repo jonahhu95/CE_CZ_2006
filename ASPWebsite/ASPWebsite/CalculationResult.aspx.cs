@@ -53,6 +53,12 @@ namespace ASPWebsite
             lblms.Text = c.getCriteriaMark_Salary()[0].ToString() + "/" + c.getCriteriaMark_Salary()[1].ToString();
             lblct.Text = c.getCriteriaMark_CommuteTime()[0].ToString() + "/" + c.getCriteriaMark_CommuteTime()[1].ToString();
         }
+
+        /// <summary>
+        /// Button2 Record click.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">E.</param>
         protected void Button2_Click(object sender, EventArgs e)
         {
             if (Session["Username"] == null) { ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openLoginModal();", true); }
@@ -78,6 +84,11 @@ namespace ASPWebsite
             Response.Redirect(prevPage);
         }
 
+        /// <summary>
+        /// Buttons feedback click.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">E.</param>
         protected void btnFeedback_Click(object sender, EventArgs e)
         {
             FeedbackManager fm = new FeedbackManager();

@@ -9,9 +9,17 @@ using System.Web.UI.WebControls;
 
 namespace ASPWebsite
 {
+    /// <summary>
+    /// Records.
+    /// </summary>
     public partial class Records : System.Web.UI.Page
     {
         //List<Calculation> cal = null;
+        /// <summary>
+        /// Load the page
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">E.</param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack)
@@ -36,6 +44,9 @@ namespace ASPWebsite
             gvData.DataSource = c;
             gvData.DataBind();
         }
+        /// <summary>
+        /// Compares the records.
+        /// </summary>
         protected void compareRecords()
         {
             //int salaryRating = 0;
@@ -100,6 +111,11 @@ namespace ASPWebsite
             //}
         }
 
+        /// <summary>
+        /// Buttons compare click.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">E.</param>
         protected void btnCompare_Click(object sender, EventArgs e)
         {
             CalculationManager cm = new CalculationManager();
@@ -253,6 +269,11 @@ namespace ASPWebsite
             }
         }
 
+        /// <summary>
+        /// Gvive the data selected index changed.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">E.</param>
         protected void gvData_SelectedIndexChanged(object sender, EventArgs e)
         {
             CalculationManager cm = new CalculationManager();
@@ -264,6 +285,11 @@ namespace ASPWebsite
             Response.Redirect("CalculationResult.aspx");
         }
 
+        /// <summary>
+        /// Give the data page index changing.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">E.</param>
         protected void gvData_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvData.PageIndex = e.NewPageIndex;
