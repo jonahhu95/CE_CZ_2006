@@ -11,6 +11,12 @@ namespace ASPWebsite
     public partial class Anonymous : System.Web.UI.MasterPage
     {
         UserManager um = new UserManager();
+
+        /// <summary>
+        /// Load the page
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">E.</param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -30,6 +36,11 @@ namespace ASPWebsite
             }
         }
 
+        /// <summary>
+        /// Button login click.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">E.</param>
         protected void loginBtn_Click1(object sender, EventArgs e)
         {
 
@@ -50,6 +61,11 @@ namespace ASPWebsite
 
         }
 
+        /// <summary>
+        /// Button1 create account click.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">E.</param>
         protected void Button1_Click(object sender, EventArgs e)
         {
             UserManager um = new UserManager();
@@ -82,6 +98,11 @@ namespace ASPWebsite
 
         }
 
+        /// <summary>
+        /// Button Sign out click.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">E.</param>
         protected void SignOut_Click(object sender, EventArgs e)
         {
 
@@ -100,6 +121,11 @@ namespace ASPWebsite
             }
         }
 
+        /// <summary>
+        /// Buttons change home click.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">E.</param>
         protected void btnChangeHome_Click(object sender, EventArgs e)
         {
             tbHome.Visible = true;
@@ -109,6 +135,11 @@ namespace ASPWebsite
             btnCancel.Visible = true;
         }
 
+        /// <summary>
+        /// Buttons save home click.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">E.</param>
         protected void btnSaveHome_Click(object sender, EventArgs e)
         {
             //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "showProfileModal();", true);
@@ -123,6 +154,11 @@ namespace ASPWebsite
             lblHome.Text = "LIVES AT " + um.getUserHomeLocation(Session["Username"].ToString()) + " ";
         }
 
+        /// <summary>
+        /// Buttons cancel click.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">E.</param>
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "showProfileModal();", true);

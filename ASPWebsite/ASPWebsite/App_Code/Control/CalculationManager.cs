@@ -89,6 +89,11 @@ namespace ASPWebsite.App_Code.Control
             return dbManager.saveCalculation(calculation, userName);
         }
 
+        /// <summary>
+        /// Gets if address is valid.
+        /// </summary>
+        /// <returns><c>true</c>, if input address is valid, <c>false</c> otherwise.</returns>
+        /// <param name="address">Address.</param>
         public Boolean getAddressValid(string address)
         {
             if (apiManager.getCoordinates(address) == null)

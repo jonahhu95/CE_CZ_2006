@@ -301,6 +301,11 @@ namespace ASPWebsite.App_Code.Control
             return areas;
         }
 
+        /// <summary>
+        /// Get request from URL
+        /// </summary>
+        /// <returns>The request result.</returns>
+        /// <param name="url">URL.</param>
         private string doGetRequest(string url)
         {
             IRestResponse response;

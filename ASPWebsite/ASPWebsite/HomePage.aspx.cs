@@ -8,6 +8,9 @@ using ASPWebsite.App_Code.Control;
 using ASPWebsite.App_Code.Entity;
 namespace ASPWebsite
 {
+    /// <summary>
+    /// Home page.
+    /// </summary>
     public partial class HomePage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
@@ -15,6 +18,11 @@ namespace ASPWebsite
            
         }
 
+        /// <summary>
+        /// Button calculation click.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">E.</param>
         protected void sendMessage_Click(object sender, EventArgs e)
         {
             String worklocate;
@@ -83,6 +91,10 @@ namespace ASPWebsite
         }
 
     }
+
+    /// <summary>
+    /// Message box.
+    /// </summary>
     public static class MessageBox
     {
         public static void Show(this Page Page, String Message)

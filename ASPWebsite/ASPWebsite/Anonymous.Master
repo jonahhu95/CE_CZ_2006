@@ -49,16 +49,8 @@
     <!-- Custom styles for this template -->
     <link href="css/freelancer.min.css" rel="stylesheet" />
 
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Resource style -->
-    <script src="js/modernizr.js"></script>
-    <!-- Modernizr -->
-    <script src="js/main.js"></script>
-    <!-- Resource jQuery -->
-
     <!-- Pushy Menu -->
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/demo.css">
     <!-- Pushy CSS -->
     <link rel="stylesheet" href="css/pushy.css">
 
@@ -315,13 +307,13 @@
                                     <asp:Label ID="lblHome" runat="server" Text="No home location data "></asp:Label>
                                     <asp:TextBox ID="tbHome" runat="server" Visible="false"></asp:TextBox>
                                     <div class="profile-userbuttons">
-                                    <asp:Button ID="btnChangeHome" runat="server" Text="Change Home Location" OnClick="btnChangeHome_Click" class="btn btn-default" />
+                                        <asp:Button ID="btnChangeHome" runat="server" Text="Change Home Location" OnClick="btnChangeHome_Click" class="btn btn-default" />
 
                                         <asp:Button ID="btnSaveHome" runat="server" Text="Save" Visible="false" class="btn btn-success btn-sm" />
                                         <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" Visible="False" class="btn btn-danger btn-sm" />
                                     </div>
-                    </div>
-                    </div>
+                                </div>
+                            </div>
 
 
                             <ul>

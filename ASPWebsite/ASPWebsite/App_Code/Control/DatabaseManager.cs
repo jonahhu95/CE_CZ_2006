@@ -350,6 +350,12 @@ namespace ASPWebsite.App_Code.Control
 
             return true;
         }
+
+        /// <summary>
+        /// Gets result from table.
+        /// </summary>
+        /// <returns>The result from table.</returns>
+        /// <param name="sqlStatement">Sql statement.</param>
         private SQLiteDataReader getFromTable(string sqlStatement)
         {
             try

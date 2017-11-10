@@ -4,6 +4,55 @@
         <name>ASPWebsite</name>
     </assembly>
     <members>
+        <member name="M:ASPWebsite.Anonymous.Page_Load(System.Object,System.EventArgs)">
+            <summary>
+            Load the page
+            </summary>
+            <param name="sender">Sender.</param>
+            <param name="e">E.</param>
+        </member>
+        <member name="M:ASPWebsite.Anonymous.loginBtn_Click1(System.Object,System.EventArgs)">
+            <summary>
+            Button login click.
+            </summary>
+            <param name="sender">Sender.</param>
+            <param name="e">E.</param>
+        </member>
+        <member name="M:ASPWebsite.Anonymous.Button1_Click(System.Object,System.EventArgs)">
+            <summary>
+            Button1 create account click.
+            </summary>
+            <param name="sender">Sender.</param>
+            <param name="e">E.</param>
+        </member>
+        <member name="M:ASPWebsite.Anonymous.SignOut_Click(System.Object,System.EventArgs)">
+            <summary>
+            Button Sign out click.
+            </summary>
+            <param name="sender">Sender.</param>
+            <param name="e">E.</param>
+        </member>
+        <member name="M:ASPWebsite.Anonymous.btnChangeHome_Click(System.Object,System.EventArgs)">
+            <summary>
+            Buttons change home click.
+            </summary>
+            <param name="sender">Sender.</param>
+            <param name="e">E.</param>
+        </member>
+        <member name="M:ASPWebsite.Anonymous.btnSaveHome_Click(System.Object,System.EventArgs)">
+            <summary>
+            Buttons save home click.
+            </summary>
+            <param name="sender">Sender.</param>
+            <param name="e">E.</param>
+        </member>
+        <member name="M:ASPWebsite.Anonymous.btnCancel_Click(System.Object,System.EventArgs)">
+            <summary>
+            Buttons cancel click.
+            </summary>
+            <param name="sender">Sender.</param>
+            <param name="e">E.</param>
+        </member>
         <member name="F:ASPWebsite.Anonymous.head1">
             <summary>
             head1 control.
@@ -352,6 +401,13 @@
             </summary>
             <returns>The all area riders.</returns>
         </member>
+        <member name="M:ASPWebsite.App_Code.Control.ApiManager.doGetRequest(System.String)">
+            <summary>
+            Get request from URL
+            </summary>
+            <returns>The request result.</returns>
+            <param name="url">URL.</param>
+        </member>
         <member name="M:ASPWebsite.App_Code.Control.ApiManager.generateCall_GetNumberOfRiders(System.String,System.Int32)">
             <summary>
             Generates the call number of riders.
@@ -517,6 +573,70 @@
             </summary>
             <returns><c>true</c>, if table was cleared, <c>false</c> otherwise.</returns>
             <param name="tableName">Table name.</param>
+        </member>
+        <member name="M:ASPWebsite.App_Code.Control.DatabaseManager.getFromTable(System.String)">
+            <summary>
+            Gets result from table.
+            </summary>
+            <returns>The result from table.</returns>
+            <param name="sqlStatement">Sql statement.</param>
+        </member>
+        <member name="T:ASPWebsite.App_Code.Control.FeedbackManager">
+            <summary>
+            Feedback manager.
+            </summary>
+        </member>
+        <member name="M:ASPWebsite.App_Code.Control.FeedbackManager.addFeedback(System.String,System.String)">
+            <summary>
+            Adds the feedback.
+            </summary>
+            <returns><c>true</c>, if feedback was added, <c>false</c> otherwise.</returns>
+            <param name="userName">User name.</param>
+            <param name="message">Message.</param>
+        </member>
+        <member name="M:ASPWebsite.App_Code.Control.FeedbackManager.getAllFeedback">
+            <summary>
+            Gets all feedback.
+            </summary>
+            <returns>The list of all feedback.</returns>
+        </member>
+        <member name="T:ASPWebsite.Records">
+            <summary>
+            Records.
+            </summary>
+        </member>
+        <member name="M:ASPWebsite.Records.Page_Load(System.Object,System.EventArgs)">
+            <summary>
+            Load the page
+            </summary>
+            <param name="sender">Sender.</param>
+            <param name="e">E.</param>
+        </member>
+        <member name="M:ASPWebsite.Records.compareRecords">
+            <summary>
+            Compares the records.
+            </summary>
+        </member>
+        <member name="M:ASPWebsite.Records.btnCompare_Click(System.Object,System.EventArgs)">
+            <summary>
+            Buttons compare click.
+            </summary>
+            <param name="sender">Sender.</param>
+            <param name="e">E.</param>
+        </member>
+        <member name="M:ASPWebsite.Records.gvData_SelectedIndexChanged(System.Object,System.EventArgs)">
+            <summary>
+            Gvive the data selected index changed.
+            </summary>
+            <param name="sender">Sender.</param>
+            <param name="e">E.</param>
+        </member>
+        <member name="M:ASPWebsite.Records.gvData_PageIndexChanging(System.Object,System.Web.UI.WebControls.GridViewPageEventArgs)">
+            <summary>
+            Give the data page index changing.
+            </summary>
+            <param name="sender">Sender.</param>
+            <param name="e">E.</param>
         </member>
         <member name="F:ASPWebsite.Records.gvData">
             <summary>
@@ -1343,6 +1463,27 @@
             <param name="userName"></param>
             <returns></returns>
         </member>
+        <member name="M:ASPWebsite.App_Code.Control.CalculationManager.getAddressValid(System.String)">
+            <summary>
+            Gets if address is valid.
+            </summary>
+            <returns><c>true</c>, if input address is valid, <c>false</c> otherwise.</returns>
+            <param name="address">Address.</param>
+        </member>
+        <member name="M:ASPWebsite.CalculationResult.Button2_Click(System.Object,System.EventArgs)">
+            <summary>
+            Button2 Record click.
+            </summary>
+            <param name="sender">Sender.</param>
+            <param name="e">E.</param>
+        </member>
+        <member name="M:ASPWebsite.CalculationResult.btnFeedback_Click(System.Object,System.EventArgs)">
+            <summary>
+            Buttons feedback click.
+            </summary>
+            <param name="sender">Sender.</param>
+            <param name="e">E.</param>
+        </member>
         <member name="F:ASPWebsite.CalculationResult.lblJSI">
             <summary>
             lblJSI control.
@@ -1523,6 +1664,18 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
+        <member name="T:ASPWebsite.HomePage">
+            <summary>
+            Home page.
+            </summary>
+        </member>
+        <member name="M:ASPWebsite.HomePage.sendMessage_Click(System.Object,System.EventArgs)">
+            <summary>
+            Button calculation click.
+            </summary>
+            <param name="sender">Sender.</param>
+            <param name="e">E.</param>
+        </member>
         <member name="F:ASPWebsite.HomePage.Image1">
             <summary>
             Image1 control.
@@ -1630,6 +1783,11 @@
             Auto-generated field.
             To modify move field declaration from designer file to code-behind file.
             </remarks>
+        </member>
+        <member name="T:ASPWebsite.MessageBox">
+            <summary>
+            Message box.
+            </summary>
         </member>
     </members>
 </doc>
