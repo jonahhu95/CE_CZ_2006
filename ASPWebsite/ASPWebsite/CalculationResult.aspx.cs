@@ -33,13 +33,15 @@ namespace ASPWebsite
             else
             {
                 if (Session["DetailObject"] != null)
+                {
                     c = (Calculation)Session["DetailObject"];
+                    btnSave.Visible = false;
+                    pnlFeedback.Visible = false;
+                }
 
-                btnSave.Visible = false;
-                pnlFeedback.Visible = false;
             }
 
-            lblJSI.Text = "Job Satisfaction Score: " + c.getJSIScore().ToString();
+            lblJSI.Text = c.getJSIScore().ToString() + "/100";
             lbl2.Text = c.getCriteriaMark_CommuteComfort()[0].ToString() + "/" + c.getCriteriaMark_CommuteComfort()[1].ToString();
             lbl1.Text = c.getCriteriaExplanation_CommuteComfort().ToString();
             lbl3.Text = c.getCriteriaExplanation_CommuteCost().ToString();

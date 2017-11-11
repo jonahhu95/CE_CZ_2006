@@ -51,7 +51,7 @@
 
     <!-- Pushy Menu -->
     <link rel="stylesheet" href="css/normalize.css">
-     <link rel="stylesheet" href="css/demo.css">
+    <link rel="stylesheet" href="css/demo.css">
     <!-- Pushy CSS -->
     <link rel="stylesheet" href="css/pushy.css">
 
@@ -117,7 +117,7 @@
             text-transform: uppercase;
             color: #5b9bd1;
             font-size: 12px;
-            font-weight: 600;
+            font-weight: 400;
             margin-bottom: 15px;
             padding: 5px;
         }
@@ -169,24 +169,23 @@
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                <asp:Label ID="lblWelcomeUser" runat="server" Visible="False" CssClass="nav-link" ForeColor="#FFFFCC"></asp:Label>
+                                <%--<asp:Label ID="lblWelcomeUser" runat="server" Visible="False" CssClass="nav-link" ForeColor="#FFFFCC"></asp:Label>--%>
                                 <asp:HyperLink ID="LoginLink" class="nav-link" data-toggle="modal" Style="margin-right: 10px;" href="#Login" runat="server">Login</asp:HyperLink>
                                 <%--<a class="nav-link" data-toggle="modal" style="margin-right: 10px;" href="#Login">Login</a>--%>
                             </li>
                             <li class="nav-item">
                                 <asp:HyperLink ID="RegisterLink" class="nav-link" data-toggle="modal" href="#Sign" runat="server">Sign Up</asp:HyperLink>
-                                <%--<asp:HyperLink ID="SignOutLink" class="nav-link" data-toggle="modal" runat="server" Visible="False">Sign Out</asp:HyperLink>--%>
-                                <asp:LinkButton ID="SignOut" runat="server" class="nav-link" OnClick="SignOut_Click" Visible="False">Sign Out</asp:LinkButton>
-                                <%--<a class="nav-link" data-toggle="modal" href="#Sign">Sign Up</a>--%>
+                                <%--<asp:LinkButton ID="SignOut" runat="server" class="nav-link" OnClick="SignOut_Click" Visible="False">Sign Out</asp:LinkButton>--%>
                             </li>
                             <li class="nav-item">
-                                <asp:Button ID="btnMenuClick" runat="server" Text="&#9776; Menu" class="menu-btn" OnClientClick="return false" Visible="false" />
-                                <%--<button class="menu-btn" onClientClick="return false">&#9776; Menu</button>--%>
+                                <asp:Button ID="btnMenuClick" runat="server" Text="&#9776;" class="menu-btn" OnClientClick="return false" Visible="false" />
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
+
+
             <!-- Modal -->
             <div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -270,57 +269,78 @@
 
 
 
+            <style>
+                .navlink {
+                    font-family: "Segoe UI";
+                    color: #aaabae;
+                }
+
+                .navlbl {
+                    /*color: rgba(69, 74, 84, 0.7);*/
+                    color: #D5EDEF;
+                    
+                }
+
+                .navlbl2 {
+                    color: #D5EDEF;
+                }
+            </style>
             <asp:Panel ID="userPanel" runat="server" Visible="false">
-                <nav class="pushy pushy-left" data-focus="#first-link">
+                <nav class="pushy pushy-left" data-focus="#first-link" style="opacity: 0.9;">
                     <div class="pushy-content">
                         <div class="profile-sidebar">
-                            <div class="profile-userpic">
-                                <img src="http://images6.fanpop.com/image/photos/36100000/Sloths-image-sloths-36191131-625-469.jpg" class="img-responsive" alt="">
-                            </div>
-                            <div class="profile-userlocation">
-                                <div class="profile-userlocation-name">
-                                    <asp:Label ID="lblUsername" runat="server"></asp:Label>
+                            <div style="border-bottom:1px solid rgba(69, 74, 84, 0.7)">
+                                <div class="profile-userpic" style="padding-top: 150px;">
+                                    <img src="http://images6.fanpop.com/image/photos/36100000/Sloths-image-sloths-36191131-625-469.jpg" class="img-responsive" alt="">
                                 </div>
-                                <script type="text/javascript">
-                                    // Specificaties
-                                    $(document).ready(function () {
-                                        $("#btnChangeHome").click(function () {
-                                            sessionStorage.reloadAfterPageLoad = true;
-                                            window.location.reload();
-                                        });
-                                        $("#btnSaveHome").click(function () {
-                                            sessionStorage.reloadAfterPageLoad = true;
-                                            window.location.reload();
-                                        });
-                                        $("#btnCancel").click(function () {
-                                            sessionStorage.reloadAfterPageLoad = true;
-                                            window.location.reload();
-                                        });
+                                <div class="profile-userlocation">
+                                    <div class="profile-userlocation-name" style="text-transform: uppercase;">
+                                        <asp:Label ID="lblUsername" runat="server" CssClass="navlbl"></asp:Label>
+                                    </div>
+                                    <script type="text/javascript">
+                                        // Specificaties
+                                        $(document).ready(function () {
+                                            $("#btnChangeHome").click(function () {
+                                                sessionStorage.reloadAfterPageLoad = true;
+                                                window.location.reload();
+                                            });
+                                            $("#btnSaveHome").click(function () {
+                                                sessionStorage.reloadAfterPageLoad = true;
+                                                window.location.reload();
+                                            });
+                                            $("#btnCancel").click(function () {
+                                                sessionStorage.reloadAfterPageLoad = true;
+                                                window.location.reload();
+                                            });
 
-                                        $(function () {
-                                            if (sessionStorage.reloadAfterPageLoad) {
-                                                sessionStorage.reloadAfterPageLoad = false;
-                                                $("#btnMenuClick").trigger('click');
-                                            }
+                                            $(function () {
+                                                if (sessionStorage.reloadAfterPageLoad) {
+                                                    sessionStorage.reloadAfterPageLoad = false;
+                                                    $("#btnMenuClick").trigger('click');
+                                                }
+                                            });
                                         });
-                                    });
-                                </script>
-                                <div class="profile-userlocation-job">
-                                    <asp:Label ID="lblHome" runat="server" Text="No home location data "></asp:Label>
-                                    <asp:TextBox ID="tbHome" runat="server" Visible="false"></asp:TextBox>
-                                    <div class="profile-userbuttons">
-                                        <asp:Button ID="btnChangeHome" runat="server" Text="Change Home Location" OnClick="btnChangeHome_Click" class="btn btn-default" />
-                                        <asp:Button ID="btnSaveHome" runat="server" Text="Save" Visible="false" class="btn btn-success btn-sm" OnClick="btnSaveHome_Click"/>
-                                        <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" Visible="False" class="btn btn-danger btn-sm" />
+                                    </script>
+                                    <div class="profile-userlocation-job">
+                                        <asp:Label ID="lblHome" runat="server" Text="No home location data " CssClass="navlbl2"></asp:Label>
+                                        <asp:TextBox ID="tbHome" runat="server" Visible="false"></asp:TextBox>
+                                        <div class="profile-userbuttons">
+                                            <asp:Button ID="btnChangeHome" runat="server" Text="Change Home Location" OnClick="btnChangeHome_Click" class="btn btn-default" Style="text-transform: none; font-style: italic; font-weight: normal;" />
+                                            <asp:Button ID="btnSaveHome" runat="server" Text="Save" Visible="false" class="btn btn-success btn-sm" OnClick="btnSaveHome_Click" />
+                                            <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" Visible="False" class="btn btn-danger btn-sm" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-
                             <ul>
-                                <li class="pushy-link"><a href="HomePage.aspx"><span>Home</span></a></li>
-                                <li class="pushy-link"><a href="Records.aspx"><span>View Past Records</span></a></li>
-                                <li class="pushy-link"><a href="HomePage.aspx#JSI"><span>Calculate Satisfaction Index</span></a></li>
+                                <li class="pushy-link">
+                                    <a href="HomePage.aspx" class="navlink"><span>Home</span></a></li>
+                                <li class="pushy-link"><a href="Records.aspx" class="navlink"><span>View Past Records</span></a></li>
+                                <li class="pushy-link"><a href="HomePage.aspx#JSI" class="navlink"><span>Calculate Satisfaction Index</span></a></li>
+                            </ul>
+                            <ul>
+                                <asp:LinkButton ID="SignOut" runat="server" class="navlink" OnClick="SignOut_Click" Visible="False">Sign Out</asp:LinkButton>
                             </ul>
                         </div>
                 </nav>
@@ -341,6 +361,9 @@
                     });
                 });
             </script>
+
+            <!-- Site Overlay -->
+            <div class="site-overlay"></div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>

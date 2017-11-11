@@ -15,7 +15,11 @@ namespace ASPWebsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            UserManager um = new UserManager();
+            if (Session["Username"] != null)
+            {
+                txt_Source.Text = um.getUserHomeLocation(Session["Username"].ToString());
+            }
         }
 
         /// <summary>

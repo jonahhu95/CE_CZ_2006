@@ -80,15 +80,6 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
-        <member name="F:ASPWebsite.Anonymous.lblWelcomeUser">
-            <summary>
-            lblWelcomeUser control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
         <member name="F:ASPWebsite.Anonymous.LoginLink">
             <summary>
             LoginLink control.
@@ -101,15 +92,6 @@
         <member name="F:ASPWebsite.Anonymous.RegisterLink">
             <summary>
             RegisterLink control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:ASPWebsite.Anonymous.SignOut">
-            <summary>
-            SignOut control.
             </summary>
             <remarks>
             Auto-generated field.
@@ -308,6 +290,15 @@
         <member name="F:ASPWebsite.Anonymous.btnCancel">
             <summary>
             btnCancel control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:ASPWebsite.Anonymous.SignOut">
+            <summary>
+            SignOut control.
             </summary>
             <remarks>
             Auto-generated field.

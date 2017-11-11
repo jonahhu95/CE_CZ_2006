@@ -8,7 +8,11 @@
 
         .score {
             font-size: 20pt;
-            color: rgb(68, 114, 196);
+            background: #D5EDEF;
+            border-radius: 100%;
+            padding: 50px;
+            display: inline-block;
+            text-align: center;
         }
 
         #t1 td {
@@ -22,10 +26,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container" style="padding: 100px; padding-top: 200px;">
-
-        <h4>Calculation Result</h4>
+        <h2 class="text-center">Job Satisfaction Index</h2>
+        <hr class="star-primary">
         <br />
-        <asp:Label ID="lblJSI" runat="server" Text="Label" CssClass="score"></asp:Label><br />
+        <div class="text-center"><asp:Label ID="lblJSI" runat="server" Text="Label" CssClass="score"></asp:Label></div>
+        <br />
         <br />
         <table id="t1" style="width: 100%; font-family: Gadugi;">
             <tr>
@@ -79,15 +84,16 @@
 
         <br />
         <asp:Panel ID="pnlUserRecord" runat="server">
-        <asp:Button ID="btnHome" runat="server" class="btn btn-default" OnClick="btnHome_Click" Text="	← Bring me back!" />
-        &nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnHome" runat="server" class="btn btn-default" OnClick="btnHome_Click" Text="	← Bring me back!" />
+            &nbsp;&nbsp;&nbsp;
     <asp:Button ID="btnSave" runat="server" class="btn btn-default" Text="Save Calculation" OnClick="Button2_Click" />&nbsp;&nbsp;&nbsp;&nbsp;
         </asp:Panel>
-            <br />
+        <br />
         <br />
         <asp:Panel ID="pnlFeedback" runat="server" Visible="false">
-            Give us suggestion on how we can improve!☺ <br />
-            <asp:TextBox ID="tbFeedbackMessage" runat="server" TextMode="MultiLine"></asp:TextBox><br />
+            Give us suggestion on how we can improve!☺
+            <br />
+            <asp:TextBox ID="tbFeedbackMessage" runat="server" TextMode="MultiLine" CssClass="form-control"></asp:TextBox><br />
             <asp:Button ID="btnFeedback" runat="server" Text="Submit Feedback" OnClick="btnFeedback_Click" />
         </asp:Panel>
         <asp:Label ID="lblFeedbackMessage" runat="server" Text="" Visible="false"></asp:Label>

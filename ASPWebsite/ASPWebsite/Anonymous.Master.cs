@@ -24,15 +24,16 @@ namespace ASPWebsite
             }
             if (Session["Username"] != null)
             {
-                lblWelcomeUser.Text = "Welcome " + Session["Username"].ToString();
+                //lblWelcomeUser.Text = "Welcome " + Session["Username"].ToString();
                 LoginLink.Visible = false;
                 RegisterLink.Visible = false;
                 SignOut.Visible = true;
-                lblWelcomeUser.Visible = true;
+                //lblWelcomeUser.Visible = true;
                 userPanel.Visible = true;
                 lblUsername.Text = Session["Username"].ToString();
                 lblHome.Text = "LIVES AT " + um.getUserHomeLocation(Session["Username"].ToString()) + " ";
                 btnMenuClick.Visible = true;
+                
             }
         }
 
@@ -109,10 +110,10 @@ namespace ASPWebsite
             if (Session["Username"] != null)
             {
                 SignOut.Visible = false;
-                lblWelcomeUser.Text = null;
+                //lblWelcomeUser.Text = null;
                 LoginLink.Visible = true;
                 RegisterLink.Visible = true;
-                lblWelcomeUser.Visible = false;
+                //lblWelcomeUser.Visible = false;
                 userPanel.Visible = false;
                 btnMenuClick.Visible = false;
 
