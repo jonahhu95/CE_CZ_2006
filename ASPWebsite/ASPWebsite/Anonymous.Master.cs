@@ -31,9 +31,10 @@ namespace ASPWebsite
                 //lblWelcomeUser.Visible = true;
                 userPanel.Visible = true;
                 lblUsername.Text = Session["Username"].ToString();
-                lblHome.Text = "LIVES AT " + um.getUserHomeLocation(Session["Username"].ToString()) + " ";
+                if (um.getUserHomeLocation(Session["Username"].ToString()) != null) { lblHome.Text = "LIVES AT " + um.getUserHomeLocation(Session["Username"].ToString()) + " "; }
+
                 btnMenuClick.Visible = true;
-                
+
             }
         }
 

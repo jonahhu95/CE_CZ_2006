@@ -31,6 +31,15 @@ namespace ASPWebsite {
         protected global::System.Web.UI.WebControls.Button btnCompare;
         
         /// <summary>
+        /// pnlNoRecords control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlNoRecords;
+        
+        /// <summary>
         /// lbl1 control.
         /// </summary>
         /// <remarks>

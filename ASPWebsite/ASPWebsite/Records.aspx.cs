@@ -32,16 +32,17 @@ namespace ASPWebsite
                 }
                 else
                 {
-
+                    pnlNoRecords.Visible = true;
                     btnCompare.Visible = false;
                 }
+
             }
         }
         private void bindGv()
         {
             CalculationManager cm = new CalculationManager();
-            List<Calculation> c = cm.getCalculations("joey");
-            //List<Calculation> c = cm.getCalculations(Session["Username"].ToString());
+            //List<Calculation> c = cm.getCalculations("joey");
+            List<Calculation> c = cm.getCalculations(Session["Username"].ToString());
             gvData.DataSource = c;
             gvData.DataBind();
         }
@@ -120,8 +121,8 @@ namespace ASPWebsite
         protected void btnCompare_Click(object sender, EventArgs e)
         {
             CalculationManager cm = new CalculationManager();
-            List<Calculation> c = cm.getCalculations("joey");
-            //List<Calculation> c = cm.getCalculations(Session["Username"].ToString());
+            //List<Calculation> c = cm.getCalculations("joey");
+            List<Calculation> c = cm.getCalculations(Session["Username"].ToString());
 
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openCompareModal();", true);
             string str = string.Empty;
@@ -280,8 +281,8 @@ namespace ASPWebsite
         protected void gvData_SelectedIndexChanged(object sender, EventArgs e)
         {
             CalculationManager cm = new CalculationManager();
-            List<Calculation> c = cm.getCalculations("joey");
-            //List<Calculation> c = cm.getCalculations(Session["Username"].ToString());
+            //List<Calculation> c = cm.getCalculations("joey");
+            List<Calculation> c = cm.getCalculations(Session["Username"].ToString());
             Calculation ca = c[gvData.SelectedIndex];
             Session["DetailObject"] = ca;
 
