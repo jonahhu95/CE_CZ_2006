@@ -89,14 +89,13 @@
         }
 
         .gobackbtn{
-            background: silver;
             border: none;
-            color: black;
             font-weight: normal;
             padding: 10px;
             font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
-            color: #4f6b72;
+            color: white;
             border-radius: 10%;
+            background-color: #81a59b;
         }
     </style>
 </asp:Content>
@@ -162,7 +161,7 @@
 
         <br />
         <asp:Panel ID="pnlUserRecord" runat="server">
-            <asp:Button ID="btnHome" runat="server" class="gobackbtn btn-default" OnClick="btnHome_Click" Text="← Bring me back!" />
+            <asp:Button ID="btnHome" runat="server" class="gobackbtn" OnClick="btnHome_Click" Text="← Bring me back!" />
             &nbsp;&nbsp;&nbsp;
     <asp:Button ID="btnSave" runat="server" class="savecalculationbtn" Text="Save Calculation" OnClick="Button2_Click" />&nbsp;&nbsp;&nbsp;&nbsp;
         </asp:Panel>

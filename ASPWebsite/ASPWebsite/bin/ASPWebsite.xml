@@ -652,6 +652,15 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
+        <member name="F:ASPWebsite.Records.pnlNoRecords">
+            <summary>
+            pnlNoRecords control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
         <member name="F:ASPWebsite.Records.lbl1">
             <summary>
             lbl1 control.

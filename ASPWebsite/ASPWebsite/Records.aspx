@@ -166,18 +166,20 @@
          <asp:Button ID="btnCompare" runat="server" Text="Compare Records" OnClick="btnCompare_Click" CssClass="try btn btn-success"/>
          </div>
          </div>
+    <asp:Panel ID="pnlNoRecords" runat="server" Visible="false"><h2 class="text-center" style="text-transform:none; font-weight: normal;">No Records! <br /> <a href="HomePage.aspx#JSI">Go compute and save Job Satisfaction Index</a></h2></asp:Panel>
 
     <style>
-        .try{
+        .try {
             background: #D5EDEF;
             border: none;
             color: #4f6b72;
             font-weight: normal;
         }
-        .try:hover{
-            background-color: lightblue;
-            color: #336699;
-        }
+
+            .try:hover {
+                background-color: lightblue;
+                color: #336699;
+            }
     </style>
     <%--Compare Records Modal--%>
      <div class="portfolio-modal modal fade" id="compareTwo" tabindex="-1" role="dialog" aria-hidden="true">
@@ -289,4 +291,5 @@
                     </div>
                 </div>
             </div>
+    
 </asp:Content>
