@@ -17,7 +17,10 @@ namespace ASPWebsite.App_Code.Control
     {
         private string oneMapAccessToken = null;
         private long oneMapAccessToken_expiryTime = 0;
-        private string googleApiKey = "AIzaSyDh0GkxyS2a9Sc1Uy-u0Z8Q-7_LBhYeHPk";
+        private string googleApiKey = "AIzaSyAg4v8JrP-XT_QMAqcRFKUkPxkPJBIXUQo";
+        private string backup_googleApiKey_1 = "AIzaSyDvV_82cpSrVjDJwgjfXqT_bPwmvKUVuV8";
+        private string backup_googleApiKey_2 = "AIzaSyDfurHQxbFP79bgqfWrp07mDhUIsW6Nj4A";
+
         private DatabaseManager dbManager = new DatabaseManager();
 
         /// <summary>
@@ -389,7 +392,22 @@ namespace ASPWebsite.App_Code.Control
         {
             string url = "https://maps.googleapis.com/maps/api/place/textsearch/json?";
             url = url + "query=" + locationName.Replace(" ", "+");
-            url = url + "&key=" + googleApiKey;
+            int ran = new Random().Next(0, 2);
+            switch (ran)
+            {
+                case 0:
+                    url = url + "&key=" + googleApiKey;
+                    break;
+                case 1:
+                    url = url + "&key=" + backup_googleApiKey_1;
+                    break;
+                case 2:
+                    url = url + "&key=" + backup_googleApiKey_2;
+                    break;
+                default:
+                    url = url + "&key=" + backup_googleApiKey_1;
+                    break;
+            }
             return url;
         }
         /// <summary>
@@ -405,7 +423,8 @@ namespace ASPWebsite.App_Code.Control
 
             string url = "http://www.streetdirectory.com/api/?mode=journey&output=json&country=sg&";
             url = url + "q=" + start_lng + "," + start_lat + "%20to%20" + end_lng + "," + end_lat;
-            url = url + "&methods=bustrain&vehicle=both&info=1&time=12:00%20PM&date=" + DateTime.Now.Month + "/" + DateTime.Now.Day + "/" + DateTime.Now.Year;
+            //url = url + "&methods=bustrain&vehicle=both&info=1&time=12:00%20PM&date=" + DateTime.Now.Month + "/" + DateTime.Now.Day + "/" + DateTime.Now.Year;
+            url = url + "&methods=bustrain&vehicle=both&info=1&time=12:00%20PM";
             return url;
         }
         /// <summary>
