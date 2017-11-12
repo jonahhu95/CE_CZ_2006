@@ -330,7 +330,7 @@
         <member name="T:ASPWebsite.App_Code.Control.ApiManager">
             <summary>
             API manager.
-            Responsible to fetch dat from remote APIs.
+            Responsible to fetch data from remote APIs.
             </summary>
         </member>
         <member name="M:ASPWebsite.App_Code.Control.ApiManager.getMedianSalary(System.String)">
@@ -581,35 +581,21 @@
             <returns>Queried data.</returns>
             <param name="sqlStatement">Sql statement.</param>
         </member>
-        <member name="T:ASPWebsite.App_Code.Control.UserManager">
-            <summary>
-            User manager.
-            Responsible for managing User objects.
-            <summary>
-            Gets result from table.
-            </summary>
-            <returns>The result from table.</returns>
-            <param name="sqlStatement">Sql statement.</param>
-        </member>
         <member name="T:ASPWebsite.App_Code.Control.FeedbackManager">
             <summary>
             Feedback manager.
+            Responsible for managing Feedback objects.
             </summary>
         </member>
         <member name="M:ASPWebsite.App_Code.Control.FeedbackManager.addFeedback(System.String,System.String)">
             <summary>
-            Adds the feedback.
+            Adds Feedback
             </summary>
-            <returns><c>true</c>, if feedback was added, <c>false</c> otherwise.</returns>
-            <param name="userName">User name.</param>
-            <param name="message">Message.</param>
+            <returns><c>true</c>, if successful, <c>false</c> otherwise.</returns>
+            <param name="username">User name.</param>
+            <param name="message">Feedback message.</param>
         </member>
-        <member name="M:ASPWebsite.App_Code.Control.FeedbackManager.getAllFeedback">
-            <summary>
-            Gets all feedback.
-            </summary>
-            <returns>The list of all feedback.</returns>
-        </member>
+        <!-- Badly formed XML comment ignored for member "M:ASPWebsite.App_Code.Control.FeedbackManager.getAllFeedback" -->
         <member name="T:ASPWebsite.Records">
             <summary>
             Records.
@@ -849,6 +835,7 @@
         <member name="T:ASPWebsite.App_Code.Control.UserManager">
             <summary>
             User manager.
+            Responsible for managing User objects.
             </summary>
         </member>
         <member name="M:ASPWebsite.App_Code.Control.UserManager.createUser(System.String,System.String)">
@@ -861,12 +848,7 @@
         </member>
         <member name="M:ASPWebsite.App_Code.Control.UserManager.loginUser(System.String,System.String)">
             <summary>
-<<<<<<< HEAD
-            Calculation manager.
-            Reponsible for managing Calculation objects.
-=======
             Logins the user.
->>>>>>> 0e55555886c2d462f0ddc99d9089470a2dcc4215
             </summary>
             <returns><c>true</c>, if user was logined, <c>false</c> otherwise.</returns>
             <param name="userName">User name.</param>
@@ -881,40 +863,18 @@
         </member>
         <member name="M:ASPWebsite.App_Code.Control.UserManager.saveUserHomeLocation(System.String,System.String)">
             <summary>
-<<<<<<< HEAD
-            Get calculations of the user
-            </summary>
-            <returns>All saved calculations of the user.</returns>
-            <param name="userName">User Name.</param>
-=======
             Saves the user home location.
             </summary>
             <returns><c>true</c>, if user home location was saved, <c>false</c> otherwise.</returns>
             <param name="userName">User name.</param>
             <param name="locationName">Location name.</param>
->>>>>>> 0e55555886c2d462f0ddc99d9089470a2dcc4215
         </member>
         <member name="M:ASPWebsite.App_Code.Control.UserManager.getUserHomeLocation(System.String)">
             <summary>
-<<<<<<< HEAD
-            Saves calculation of the user
-            </summary>
-            <returns><c>true</c>, if successfully saved, <c>false</c> otherwise.</returns>
-            <param name="calculation">Calculation.</param>
-            <param name="userName">User Name.</param>
-        </member>
-        <member name="M:ASPWebsite.App_Code.Control.CalculationManager.checkAddressValid(System.String)">
-            <summary>
-            Checks if location name is valid
-            </summary>
-            <returns><c>true</c>, if location name is valid, <c>false</c> otherwise.</returns>
-            <param name="locationName">Location Name.</param>
-=======
             Gets the user home location.
             </summary>
             <returns>The user home location.</returns>
             <param name="userName">User name.</param>
->>>>>>> 0e55555886c2d462f0ddc99d9089470a2dcc4215
         </member>
         <member name="T:ASPWebsite.App_Code.Entity.Criteria">
             <summary>
@@ -1487,6 +1447,7 @@
         <member name="T:ASPWebsite.App_Code.Control.CalculationManager">
             <summary>
             Calculation manager.
+            Reponsible for managing Calculation objects.
             </summary>
         </member>
         <member name="M:ASPWebsite.App_Code.Control.CalculationManager.createNewCalculation(System.String,System.String,System.Int32,System.Char,System.Int32,System.Int32)">
@@ -1503,27 +1464,25 @@
         </member>
         <member name="M:ASPWebsite.App_Code.Control.CalculationManager.getCalculations(System.String)">
             <summary>
-            
+            Get calculations of the user
             </summary>
-            <returns>The calculations.</returns>
+            <returns>All saved calculations of the user.</returns>
             <param name="userName">User Name.</param>
-            <param name="userName"></param>
-            <returns></returns>
         </member>
         <member name="M:ASPWebsite.App_Code.Control.CalculationManager.saveCalculation(ASPWebsite.App_Code.Entity.Calculation,System.String)">
             <summary>
-            
+            Saves calculation of the user
             </summary>
-            <param name="calculation"></param>
-            <param name="userName"></param>
-            <returns></returns>
+            <returns><c>true</c>, if successfully saved, <c>false</c> otherwise.</returns>
+            <param name="calculation">Calculation.</param>
+            <param name="userName">User Name.</param>
         </member>
-        <member name="M:ASPWebsite.App_Code.Control.CalculationManager.getAddressValid(System.String)">
+        <member name="M:ASPWebsite.App_Code.Control.CalculationManager.checkAddressValid(System.String)">
             <summary>
-            Gets if address is valid.
+            Checks if location name is valid
             </summary>
-            <returns><c>true</c>, if input address is valid, <c>false</c> otherwise.</returns>
-            <param name="address">Address.</param>
+            <returns><c>true</c>, if location name is valid, <c>false</c> otherwise.</returns>
+            <param name="locationName">Location Name.</param>
         </member>
         <member name="M:ASPWebsite.CalculationResult.Button2_Click(System.Object,System.EventArgs)">
             <summary>
