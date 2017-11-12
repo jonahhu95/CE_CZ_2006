@@ -24,6 +24,7 @@ namespace ASPWebsite
         {
             if (!this.IsPostBack)
             {
+                Session["CalculationJSIObject"] = null;
                 bindGv();
                 if (gvData.Rows.Count != 0)
                 {
@@ -146,6 +147,8 @@ namespace ASPWebsite
 
             if (cal1 != null && cal2 != null)
             {
+                lbl1.Text = cal1.getWorkLocation().getArea().ToString();
+                lbl2.Text = cal2.getWorkLocation().getArea().ToString();
                 //Commute Comfort
                 if (cal1.getCriteriaMark_CommuteComfort()[0] > cal2.getCriteriaMark_CommuteComfort()[0])
                 {

@@ -168,8 +168,6 @@
 
                         <asp:Button ID="sendMessage" class="btn btn-success btn-lg" runat="server" Text="Submit" OnClick="sendMessage_Click" />
                         <br />
-
-
                     </div>
                 </div>
             </div>

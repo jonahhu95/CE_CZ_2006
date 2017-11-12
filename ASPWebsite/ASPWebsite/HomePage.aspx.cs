@@ -35,6 +35,11 @@ namespace ASPWebsite
             int interest;
             int satisfaction;
             CalculationManager cm = new CalculationManager();
+
+            if (txt_Destination.Text == null || txt_Salary.Text == null || txt_Source.Text == null)
+            {
+                MessageBox.Show(Page, "No empty fields allowed!");
+            }
             try
             {
                 bool workAddValid = false, homeAddValid = false, salaryValid = false;
@@ -42,7 +47,7 @@ namespace ASPWebsite
                 homeAddValid = (txt_Source.Text).Length != 0;
                 salaryValid = int.TryParse(txt_Salary.Text, out salary);
                 //value is passed into salary if int.TryParse return true
-                
+
                 if (workAddValid && homeAddValid)
                 {
                     worklocate = txt_Destination.Text;
@@ -79,17 +84,17 @@ namespace ASPWebsite
 
                 interest = Convert.ToInt32(rbInterest.SelectedValue);
                 satisfaction = Convert.ToInt32(rbSalary.SelectedValue);
-                
+
                 Calculation s = cm.createNewCalculation(worklocate, homelocate, salary, 'F', interest, satisfaction);
                 Session["CalculationJSIObject"] = s;
                 Response.Redirect("CalculationResult.aspx");
-                
+
 
             }
             catch (Exception ex)
             {
                 //error in input
-
+                MessageBox.Show(Page, "Invalid input!");
 
             }
         }

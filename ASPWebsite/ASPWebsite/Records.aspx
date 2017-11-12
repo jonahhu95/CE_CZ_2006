@@ -54,7 +54,7 @@
                 }
             }
             if (tot > 1) {
-                document.getElementById('<%=btnCompare.ClientID %>').style.display = 'inherit';
+                document.getElementById('<%=btnCompare.ClientID %>').style.display = 'inline-block';
             }
             else {
                 document.getElementById('<%=btnCompare.ClientID %>').style.display = 'none';
@@ -144,10 +144,10 @@
                      </ItemTemplate>
                  </asp:TemplateField>
                  <asp:BoundField DataField="workLocation.area" HeaderText="Work location" />
-                 <asp:BoundField DataField="salary" HeaderText="Salary" />
+                 <asp:BoundField DataField="salary" HeaderText="Salary" DataFormatString="{0:C}" />
                  <asp:BoundField DataField="salarySatisfaction" HeaderText="Salary Rating" />
                  <asp:BoundField DataField="jobInterest" HeaderText="Job Rating" />
-                 <asp:BoundField DataField="JSIScore" HeaderText="Satisfaction Index" />
+                 <asp:BoundField DataField="JSIScore" HeaderText="Satisfaction Index" DataFormatString="{0:0.00}" />
                  <asp:TemplateField ShowHeader="False">
                      <ItemTemplate>
                          <asp:LinkButton ID="btnLinkDetail" runat="server" CausesValidation="False" CommandName="Select" Text="View Record"></asp:LinkButton>
@@ -163,14 +163,27 @@
              <SortedDescendingCellStyle BackColor="#E5E5E5" />
              <SortedDescendingHeaderStyle BackColor="#242121" />
          </asp:GridView><br />
-         <asp:Button ID="btnCompare" runat="server" Text="Compare Records" OnClick="btnCompare_Click"/>
+         <asp:Button ID="btnCompare" runat="server" Text="Compare Records" OnClick="btnCompare_Click" CssClass="try btn btn-success"/>
          </div>
          </div>
+
+    <style>
+        .try{
+            background: #D5EDEF;
+            border: none;
+            color: #4f6b72;
+            font-weight: normal;
+        }
+        .try:hover{
+            background-color: lightblue;
+            color: #336699;
+        }
+    </style>
     <%--Compare Records Modal--%>
      <div class="portfolio-modal modal fade" id="compareTwo" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                        <div class="close-modal" data-dismiss="modal">
+                        <div class="close-modal" data-dismiss="modal" onclick="uncheckAll()">
                             <div class="lr">
                                 <div class="rl"></div>
                             </div>
@@ -207,14 +220,14 @@
                             <div class="row">
                                 <div class="col-lg-8 mx-auto">
                                     <div class="modal-body">
-                                        <h4>Compare two records</h4>
-                                        <hr class="star-primary">
+                                       <%-- <h2 class="text-center">Compare two records</h2>
+                                        <hr class="star-primary">--%>
                                         <table id="recordtable">
                                             <tr>
                                                 <th style="border: none; background: none;"></th>
-                                                <th>Work Location 1: ..... </th>
+                                                <th>Work Location 1: <asp:Label ID="lbl1" runat="server" Text="Label"></asp:Label> </th>
                                                 <th style="border: none; background: none;"></th>
-                                                <th>Work Location 2: .....</th>
+                                                <th>Work Location 2: <asp:Label ID="lbl2" runat="server" Text="Label"></asp:Label></th>
                                             </tr>
                                             <tr>
                                                 <td style="border: none; font-weight: bold; padding-right: 10px;">Commute Cost</td>
@@ -265,10 +278,10 @@
                                         </table>
                                         <br />
                                         <br />
-                                        <button class="btn btn-success" type="button" data-dismiss="modal" onclick="uncheckAll()">
+                                        <%--<button class="btn btn-success" type="button" data-dismiss="modal" onclick="uncheckAll()">
                                             <i class="fa fa-times"></i>
                                             Close
-                                        </button>
+                                        </button>--%>
                                     </div>
                                 </div>
                             </div>
