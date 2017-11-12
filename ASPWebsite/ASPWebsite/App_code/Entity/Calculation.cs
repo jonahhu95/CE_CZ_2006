@@ -33,7 +33,7 @@ namespace ASPWebsite.App_Code.Entity
         /// Initializes a new instance of the <see cref="T:ASPWebsite.App_Code.Entity.Calculation"/> class.
         /// </summary>
         /// <param name="workLocation">Work location.</param>
-        /// <param name="homeLoction">Home loction.</param>
+        /// <param name="homeLocation">Home loction.</param>
         /// <param name="salary">Salary.</param>
         /// <param name="commuteType">Commute type.</param>
         /// <param name="jobInterest">Job interest.</param>
