@@ -17,9 +17,9 @@ namespace ASPWebsite.App_Code.Control
     {
         private string oneMapAccessToken = null;
         private long oneMapAccessToken_expiryTime = 0;
-        private string googleApiKey = "AIzaSyAg4v8JrP-XT_QMAqcRFKUkPxkPJBIXUQo";
-        private string backup_googleApiKey_1 = "AIzaSyDvV_82cpSrVjDJwgjfXqT_bPwmvKUVuV8";
-        private string backup_googleApiKey_2 = "AIzaSyDfurHQxbFP79bgqfWrp07mDhUIsW6Nj4A";
+        private string googleApiKey = "AIzaSyAoFLrsRj7fD5p595ujDXOpLK2PMW6sn_g";
+        private string backup_googleApiKey_1 = "AIzaSyCH1jcOokZwTgvVQJrXJgM5yRpa7KGZSo4";
+        private string backup_googleApiKey_2 = "AIzaSyC8Du_4Q8k-i9WBLyUXjQmGap1waNlI7ys";
 
         private DatabaseManager dbManager = new DatabaseManager();
 
