@@ -17,7 +17,7 @@ namespace ASPWebsite.App_Code.Control
     {
         private string oneMapAccessToken = null;
         private long oneMapAccessToken_expiryTime = 0;
-        private string googleApiKey = "AIzaSyDh0GkxyS2a9Sc1Uy-u0Z8Q-7_LBhYeHPk";
+        private string googleApiKey = "AIzaSyAg4v8JrP-XT_QMAqcRFKUkPxkPJBIXUQo";
         private string backup_googleApiKey_1 = "AIzaSyDvV_82cpSrVjDJwgjfXqT_bPwmvKUVuV8";
         private string backup_googleApiKey_2 = "AIzaSyDfurHQxbFP79bgqfWrp07mDhUIsW6Nj4A";
 
