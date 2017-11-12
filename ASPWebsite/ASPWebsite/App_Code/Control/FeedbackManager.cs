@@ -32,12 +32,6 @@ namespace ASPWebsite.App_Code.Control
         /// <returns>All feedbacks submitted.</returns>
         /// <param name="username">User name.</param>
         /// <param name="message">Feedback message.</param>
-<<<<<<< HEAD
-        /// Gets all feedback.
-        /// </summary>
-        /// <returns>The list of all feedback.</returns>
-=======
->>>>>>> f9e77a422db324445aca0c4da5cff0353ed3de45
         public List<Feedback> getAllFeedback()
         {
             return dbManager.getFeedback();
