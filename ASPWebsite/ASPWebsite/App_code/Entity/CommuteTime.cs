@@ -30,15 +30,15 @@ namespace ASPWebsite.App_Code.Entity
                 "An ideal home and work location which you will have sufficient sleeping time before work starts" };
 
             double difference = travelTime - averageTravelTime;
-            if (difference >= -15)
+            if (difference >= -10)
             {
-                if (difference <= 15)
+                if (difference <= 10)
                 {
                     point = 4;
                 }
-                else if (difference <= 45)
+                else if (difference <= 30)
                 {
-                    if (difference <= 30)
+                    if (difference <= 20)
                     {
                         point = 3;
                     }
@@ -47,7 +47,7 @@ namespace ASPWebsite.App_Code.Entity
                         point = 2;
                     }
                 }
-                else if (difference <= 60)
+                else if (difference <= 40)
                 {
                     point = 1;
                 }
@@ -58,9 +58,9 @@ namespace ASPWebsite.App_Code.Entity
             }
             else
             {
-                if (difference >= -45)
+                if (difference >= -30)
                 {
-                    if (difference >= -30)
+                    if (difference >= -20)
                     {
                         point = 5;
                     }
@@ -69,7 +69,7 @@ namespace ASPWebsite.App_Code.Entity
                         point = 6;
                     }
                 }
-                else if (difference <= -60)
+                else if (difference >= -40)
                 {
                     point = 7;
                 }

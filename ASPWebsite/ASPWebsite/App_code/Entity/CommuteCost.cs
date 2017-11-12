@@ -31,7 +31,7 @@ namespace ASPWebsite.App_Code.Entity
                 "You are highly recommended to take up the offer since you don't need to sacrifice your favourite entertainment. The monthly travel cost will allow you to save and get something good to treat yourself on a bad day.",
                 "Your travelling cost falls within the ideal range. Congratulation!" };
 
-            double ratio = monthlyTravelCost / salary;
+            double ratio = (monthlyTravelCost / salary) * 100;
             if (ratio < 1.75)
             {
                 if (ratio < 1.35)
