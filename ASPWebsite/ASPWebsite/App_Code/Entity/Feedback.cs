@@ -10,9 +10,9 @@ namespace ASPWebsite.App_Code.Entity
     /// </summary>
     public class Feedback
     {
-        private string submitter;
-        private string message;
-        private DateTime submitTime;
+        private string submitter { get; set; }
+        private string message { get; set; }
+        private DateTime submitTime { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:ASPWebsite.App_Code.Entity.Feedback"/> class.

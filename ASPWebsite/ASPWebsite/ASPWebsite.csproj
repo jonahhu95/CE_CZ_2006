@@ -108,14 +108,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CalculationResult.aspx" />
-    <Content Include="css\style.css" />
+    <Content Include="css\demo.css" />
+    <Content Include="css\normalize.css" />
+    <Content Include="css\pushy.css" />
     <Content Include="HomePage.aspx" />
     <Content Include="img\cd-sprite-1.svg" />
     <Content Include="img\cd-sprite-2.svg" />
     <Content Include="img\cd-sprite-3.svg" />
     <Content Include="js\jquery.js" />
-    <Content Include="js\main.js" />
-    <Content Include="js\modernizr.js" />
+    <Content Include="js\pushy.js" />
+    <Content Include="js\pushy.min.js" />
     <Content Include="mail\contact_me.php" />
     <Content Include="Records.aspx" />
     <Content Include="scss\freelancer.scss" />
@@ -221,6 +223,7 @@
     <Compile Include="App_Code\Control\AddressManager.cs" />
     <Compile Include="App_Code\Control\ApiManager.cs" />
     <Compile Include="App_Code\Control\DatabaseManager.cs" />
+    <Compile Include="App_Code\Control\FeedbackManager.cs" />
     <Compile Include="Records.aspx.cs">
       <DependentUpon>Records.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -228,7 +231,6 @@
     <Compile Include="Records.aspx.designer.cs">
       <DependentUpon>Records.aspx</DependentUpon>
     </Compile>
-    <Content Include="App_Code\Control\FeedbackManager.cs" />
     <Compile Include="App_Code\Control\UserManager.cs" />
     <Compile Include="App_Code\Entity\Criteria.cs" />
     <Compile Include="App_Code\Entity\Salary.cs" />

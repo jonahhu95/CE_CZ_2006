@@ -1,6 +1,8 @@
-﻿using System;
-using ASPWebsite.App_Code.Entity;
+﻿using ASPWebsite.App_Code.Entity;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 
 namespace ASPWebsite.App_Code.Control
 {
@@ -10,7 +12,6 @@ namespace ASPWebsite.App_Code.Control
     /// </summary>
     public class FeedbackManager
     {
-        
         private DatabaseManager dbManager = new DatabaseManager();
 
         /// <summary>
@@ -26,15 +27,20 @@ namespace ASPWebsite.App_Code.Control
         }
 
         /// <summary>
+<<<<<<< HEAD
         /// Get Feedbacks
         /// </summary>
         /// <returns>All feedbacks submitted.</returns>
         /// <param name="username">User name.</param>
         /// <param name="message">Feedback message.</param>
+=======
+        /// Gets all feedback.
+        /// </summary>
+        /// <returns>The list of all feedback.</returns>
+>>>>>>> 0e55555886c2d462f0ddc99d9089470a2dcc4215
         public List<Feedback> getAllFeedback()
         {
             return dbManager.getFeedback();
         }
     }
 }
-

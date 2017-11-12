@@ -12,14 +12,36 @@ namespace ASPWebsite
     public partial class CalculationResult : System.Web.UI.Page
     {
         Calculation c;
+        // static variable
+        static string prevPage = String.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["Username"] != null)
+            if (!IsPostBack)
+            {
+                prevPage = Request.UrlReferrer.ToString();
+            }
+
+            if (Session["Username"] != null)
             {
                 pnlFeedback.Visible = true;
             }
-            c = (Calculation)Session["CalculationJSIObject"];
-            lblJSI.Text = "Job Satisfaction Score: " + c.getJSIScore().ToString();
+
+            if (Session["CalculationJSIObject"] != null)
+            {
+                c = (Calculation)Session["CalculationJSIObject"];
+            }
+            else
+            {
+                if (Session["DetailObject"] != null)
+                {
+                    c = (Calculation)Session["DetailObject"];
+                    btnSave.Visible = false;
+                    pnlFeedback.Visible = false;
+                }
+
+            }
+
+            lblJSI.Text = c.getJSIScore().ToString() + "/100";
             lbl2.Text = c.getCriteriaMark_CommuteComfort()[0].ToString() + "/" + c.getCriteriaMark_CommuteComfort()[1].ToString();
             lbl1.Text = c.getCriteriaExplanation_CommuteComfort().ToString();
             lbl3.Text = c.getCriteriaExplanation_CommuteCost().ToString();
@@ -32,9 +54,13 @@ namespace ASPWebsite
             lblji.Text = c.getCriteriaMark_JobInterest()[0].ToString() + "/" + c.getCriteriaMark_JobInterest()[1].ToString();
             lblms.Text = c.getCriteriaMark_Salary()[0].ToString() + "/" + c.getCriteriaMark_Salary()[1].ToString();
             lblct.Text = c.getCriteriaMark_CommuteTime()[0].ToString() + "/" + c.getCriteriaMark_CommuteTime()[1].ToString();
-            lblHome.Text = "From " + c.getHomeLocation().ToString();
-            lblJob.Text = "To " + c.getWorkLocation().ToString();
         }
+
+        /// <summary>
+        /// Button2 Record click.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">E.</param>
         protected void Button2_Click(object sender, EventArgs e)
         {
             if (Session["Username"] == null) { ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openLoginModal();", true); }
@@ -57,7 +83,22 @@ namespace ASPWebsite
 
         protected void btnHome_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Home.aspx");
+            Response.Redirect(prevPage);
+        }
+
+        /// <summary>
+        /// Buttons feedback click.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">E.</param>
+        protected void btnFeedback_Click(object sender, EventArgs e)
+        {
+            FeedbackManager fm = new FeedbackManager();
+            fm.addFeedback(Session["Username"].ToString(), tbFeedbackMessage.Text);
+            pnlFeedback.Visible = false;
+            lblFeedbackMessage.Visible = true;
+            lblFeedbackMessage.Text = "Feedback Sent!";
+
         }
     }
 }

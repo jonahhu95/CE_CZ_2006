@@ -40,15 +40,6 @@ namespace ASPWebsite {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// lblWelcomeUser control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblWelcomeUser;
-        
-        /// <summary>
         /// LoginLink control.
         /// </summary>
         /// <remarks>
@@ -67,22 +58,13 @@ namespace ASPWebsite {
         protected global::System.Web.UI.WebControls.HyperLink RegisterLink;
         
         /// <summary>
-        /// SignOut control.
+        /// btnMenuClick control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton SignOut;
-        
-        /// <summary>
-        /// userPanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel userPanel;
+        protected global::System.Web.UI.WebControls.Button btnMenuClick;
         
         /// <summary>
         /// exampleInputEmail1 control.
@@ -211,22 +193,13 @@ namespace ASPWebsite {
         protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// pnlProfile control.
+        /// userPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlProfile;
-        
-        /// <summary>
-        /// Label4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.Panel userPanel;
         
         /// <summary>
         /// lblUsername control.
@@ -236,15 +209,6 @@ namespace ASPWebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblUsername;
-        
-        /// <summary>
-        /// Label5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
         /// lblHome control.
@@ -265,6 +229,15 @@ namespace ASPWebsite {
         protected global::System.Web.UI.WebControls.TextBox tbHome;
         
         /// <summary>
+        /// btnChangeHome control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnChangeHome;
+        
+        /// <summary>
         /// btnSaveHome control.
         /// </summary>
         /// <remarks>
@@ -274,13 +247,22 @@ namespace ASPWebsite {
         protected global::System.Web.UI.WebControls.Button btnSaveHome;
         
         /// <summary>
-        /// btnChangeHome control.
+        /// btnCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnChangeHome;
+        protected global::System.Web.UI.WebControls.Button btnCancel;
+        
+        /// <summary>
+        /// SignOut control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton SignOut;
         
         /// <summary>
         /// ContentPlaceHolder1 control.
