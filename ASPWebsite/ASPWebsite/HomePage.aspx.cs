@@ -36,8 +36,8 @@ namespace ASPWebsite
                     worklocate = txt_Destination.Text;
                     homelocate = txt_Source.Text;
 
-                    workAddValid = cm.getAddressValid(worklocate);
-                    homeAddValid = cm.getAddressValid(homelocate);
+                    workAddValid = cm.checkAddressValid(worklocate);
+                    homeAddValid = cm.checkAddressValid(homelocate);
 
                     if (!workAddValid && !homeAddValid)
                         MessageBox.Show(Page, "Please enter a valid work and home address in Singapore");

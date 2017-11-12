@@ -11,6 +11,7 @@ namespace ASPWebsite.App_Code.Control
 {
     /// <summary>
     /// Calculation manager.
+    /// Reponsible for managing Calculation objects.
     /// </summary>
     public class CalculationManager
     {
@@ -67,54 +68,38 @@ namespace ASPWebsite.App_Code.Control
             }
             return cal;
         }
+
         /// <summary>
-        /// 
+        /// Get calculations of the user
         /// </summary>
-        /// <returns>The calculations.</returns>
+        /// <returns>All saved calculations of the user.</returns>
         /// <param name="userName">User Name.</param>
-        /// <param name="userName"></param>
-        /// <returns></returns>
         public List<Calculation> getCalculations(string userName)
         {
             return dbManager.getCalculationsOfUser(userName);
         }
+
         /// <summary>
-        /// 
+        /// Saves calculation of the user
         /// </summary>
-        /// <param name="calculation"></param>
-        /// <param name="userName"></param>
-        /// <returns></returns>
+        /// <returns><c>true</c>, if successfully saved, <c>false</c> otherwise.</returns>
+        /// <param name="calculation">Calculation.</param>
+        /// <param name="userName">User Name.</param>
         public Boolean saveCalculation(Calculation calculation, string userName)
         {
             return dbManager.saveCalculation(calculation, userName);
         }
 
-        public Boolean getAddressValid(string address)
+        /// <summary>
+        /// Checks if location name is valid
+        /// </summary>
+        /// <returns><c>true</c>, if location name is valid, <c>false</c> otherwise.</returns>
+        /// <param name="locationName">Location Name.</param>
+        public Boolean checkAddressValid(string locationName)
         {
-            if (apiManager.getCoordinates(address) == null)
+            if (apiManager.getCoordinates(locationName) == null)
                 return false;
             return true;
-
-            /*string url;
-            JObject obj;
-            try
-            {
-               
-                url = apiManager.generateCall_GetCoordinates(address);
-                string res = apiManager.doGetRequest(url);
-                obj = JObject.Parse(res);
-                JArray ar = (JArray)obj["results"];
-                String formattedAddress = ar.First["formatted_address"].ToString();
-                Boolean contain = formattedAddress.Contains("Singapore");
-                if (contain)//return true for address in singapore
-                    return true;
-            }
-            catch (Exception ex)
-            {
-
-            }
-            return false;*/
-            
         }
     }
 }

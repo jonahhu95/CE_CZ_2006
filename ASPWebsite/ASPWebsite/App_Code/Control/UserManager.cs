@@ -8,6 +8,7 @@ namespace ASPWebsite.App_Code.Control
 {
     /// <summary>
     /// User manager.
+    /// Responsible for managing User objects.
     /// </summary>
     public class UserManager
     {

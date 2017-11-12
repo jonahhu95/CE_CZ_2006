@@ -286,6 +286,7 @@
         <member name="T:ASPWebsite.App_Code.Control.AddressManager">
             <summary>
             Address manager.
+            Responsible for managing Address objects.
             </summary>
         </member>
         <member name="M:ASPWebsite.App_Code.Control.AddressManager.createNewAddress(System.String)">
@@ -298,6 +299,7 @@
         <member name="T:ASPWebsite.App_Code.Control.ApiManager">
             <summary>
             API manager.
+            Responsible to fetch dat from remote APIs.
             </summary>
         </member>
         <member name="M:ASPWebsite.App_Code.Control.ApiManager.getMedianSalary(System.String)">
@@ -446,7 +448,14 @@
         <member name="T:ASPWebsite.App_Code.Control.DatabaseManager">
             <summary>
             Database manager.
+            Responsible for managing SQLite Database transactions.
             </summary>
+        </member>
+        <member name="M:ASPWebsite.App_Code.Control.DatabaseManager.getConnection">
+            <summary>
+            Gets connection to the local SQLite Database file
+            </summary>
+            <returns><c>true</c>, if successful, <c>false</c> otherwise.</returns>
         </member>
         <member name="M:ASPWebsite.App_Code.Control.DatabaseManager.saveCalculation(ASPWebsite.App_Code.Entity.Calculation,System.String)">
             <summary>
@@ -527,9 +536,17 @@
             <returns><c>true</c>, if table was cleared, <c>false</c> otherwise.</returns>
             <param name="tableName">Table name.</param>
         </member>
+        <member name="M:ASPWebsite.App_Code.Control.DatabaseManager.getFromTable(System.String)">
+            <summary>
+            Execute query statement from database
+            </summary>
+            <returns>Queried data.</returns>
+            <param name="sqlStatement">Sql statement.</param>
+        </member>
         <member name="T:ASPWebsite.App_Code.Control.UserManager">
             <summary>
             User manager.
+            Responsible for managing User objects.
             </summary>
         </member>
         <member name="M:ASPWebsite.App_Code.Control.UserManager.createUser(System.String,System.String)">
@@ -573,6 +590,7 @@
         <member name="T:ASPWebsite.App_Code.Control.CalculationManager">
             <summary>
             Calculation manager.
+            Reponsible for managing Calculation objects.
             </summary>
         </member>
         <member name="M:ASPWebsite.App_Code.Control.CalculationManager.createNewCalculation(System.String,System.String,System.Int32,System.Char,System.Int32,System.Int32)">
@@ -589,20 +607,25 @@
         </member>
         <member name="M:ASPWebsite.App_Code.Control.CalculationManager.getCalculations(System.String)">
             <summary>
-            
+            Get calculations of the user
             </summary>
-            <returns>The calculations.</returns>
+            <returns>All saved calculations of the user.</returns>
             <param name="userName">User Name.</param>
-            <param name="userName"></param>
-            <returns></returns>
         </member>
         <member name="M:ASPWebsite.App_Code.Control.CalculationManager.saveCalculation(ASPWebsite.App_Code.Entity.Calculation,System.String)">
             <summary>
-            
+            Saves calculation of the user
             </summary>
-            <param name="calculation"></param>
-            <param name="userName"></param>
-            <returns></returns>
+            <returns><c>true</c>, if successfully saved, <c>false</c> otherwise.</returns>
+            <param name="calculation">Calculation.</param>
+            <param name="userName">User Name.</param>
+        </member>
+        <member name="M:ASPWebsite.App_Code.Control.CalculationManager.checkAddressValid(System.String)">
+            <summary>
+            Checks if location name is valid
+            </summary>
+            <returns><c>true</c>, if location name is valid, <c>false</c> otherwise.</returns>
+            <param name="locationName">Location Name.</param>
         </member>
         <member name="T:ASPWebsite.App_Code.Entity.Criteria">
             <summary>
@@ -839,7 +862,7 @@
             Initializes a new instance of the <see cref="T:ASPWebsite.App_Code.Entity.Calculation"/> class.
             </summary>
             <param name="workLocation">Work location.</param>
-            <param name="homeLoction">Home loction.</param>
+            <param name="homeLocation">Home loction.</param>
             <param name="salary">Salary.</param>
             <param name="commuteType">Commute type.</param>
             <param name="jobInterest">Job interest.</param>

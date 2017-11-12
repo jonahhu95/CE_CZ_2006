@@ -11,12 +11,17 @@ namespace ASPWebsite.App_Code.Control
 {
     /// <summary>
     /// Database manager.
+    /// Responsible for managing SQLite Database transactions.
     /// </summary>
     public class DatabaseManager
     {
         private SQLiteCommand command;
         private SQLiteConnection dbConnection;
 
+        /// <summary>
+        /// Gets connection to the local SQLite Database file
+        /// </summary>
+        /// <returns><c>true</c>, if successful, <c>false</c> otherwise.</returns>
         private Boolean getConnection()
         {
             try
@@ -33,6 +38,7 @@ namespace ASPWebsite.App_Code.Control
             }
             return true;
         }
+
         /// <summary>
         /// Saves the calculation.
         /// </summary>
@@ -65,6 +71,7 @@ namespace ASPWebsite.App_Code.Control
             }
             return false;
         }
+
         /// <summary>
         /// Saves the user.
         /// </summary>
@@ -115,6 +122,7 @@ namespace ASPWebsite.App_Code.Control
             return false;
 
         }
+
         /// <summary>
         /// Saves the feedback.
         /// </summary>
@@ -138,6 +146,7 @@ namespace ASPWebsite.App_Code.Control
             }
             return false;
         }
+
         /// <summary>
         /// Saves the area.
         /// </summary>
@@ -164,6 +173,7 @@ namespace ASPWebsite.App_Code.Control
             return false;
 
         }
+
         /// <summary>
         /// Gets the user.
         /// </summary>
@@ -205,6 +215,7 @@ namespace ASPWebsite.App_Code.Control
             Debug.WriteLine("Error: Duplicate user in Database!!");
             return null;
         }
+
         /// <summary>
         /// Gets the calculations of user.
         /// </summary>
@@ -240,6 +251,7 @@ namespace ASPWebsite.App_Code.Control
             }
             return calList;
         }
+
         /// <summary>
         /// Gets the feedback.
         /// </summary>
@@ -303,6 +315,7 @@ namespace ASPWebsite.App_Code.Control
             }
             return null;
         }
+
         /// <summary>
         /// Inserts to table.
         /// </summary>
@@ -326,6 +339,7 @@ namespace ASPWebsite.App_Code.Control
 
             return false;
         }
+
         /// <summary>
         /// Clears the table.
         /// </summary>
@@ -350,6 +364,12 @@ namespace ASPWebsite.App_Code.Control
 
             return true;
         }
+
+        /// <summary>
+        /// Execute query statement from database
+        /// </summary>
+        /// <returns>Queried data.</returns>
+        /// <param name="sqlStatement">Sql statement.</param>
         private SQLiteDataReader getFromTable(string sqlStatement)
         {
             try

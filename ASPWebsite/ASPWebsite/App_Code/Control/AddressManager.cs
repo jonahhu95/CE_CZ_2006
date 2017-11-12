@@ -8,6 +8,7 @@ namespace ASPWebsite.App_Code.Control
 {
     /// <summary>
     /// Address manager.
+    /// Responsible for managing Address objects.
     /// </summary>
     public class AddressManager
     {

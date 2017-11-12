@@ -11,6 +11,7 @@ namespace ASPWebsite.App_Code.Control
 {
     /// <summary>
     /// API manager.
+    /// Responsible to fetch data from remote APIs.
     /// </summary>
     public class ApiManager
     {
