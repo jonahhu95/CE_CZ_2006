@@ -228,10 +228,10 @@ namespace ASPWebsite.App_Code.Control
                 string res = doGetRequest(url);
                 obj = JObject.Parse(res);
                 JArray ar = (JArray)obj["results"];
-                //String formattedAddress = ar.First["formatted_address"].ToString();
-                //Boolean contain = formattedAddress.Contains("Singapore");
-                //if (!contain)//return null for address not in singapore
-                    //return null;
+                String formattedAddress = ar.First["formatted_address"].ToString();
+                Boolean contain = formattedAddress.Contains("Singapore");
+                if (!contain)
+                    return null;
                 JObject hold = (JObject)ar.First["geometry"]["location"];
                 geo[0] = (Double)hold["lng"];
                 geo[1] = (Double)hold["lat"];
@@ -392,7 +392,7 @@ namespace ASPWebsite.App_Code.Control
         {
             string url = "https://maps.googleapis.com/maps/api/place/textsearch/json?";
             url = url + "query=" + locationName.Replace(" ", "+");
-            int ran = new Random().Next(0, 2);
+            int ran = new Random().Next(0, 3);
             switch (ran)
             {
                 case 0:
@@ -455,10 +455,11 @@ namespace ASPWebsite.App_Code.Control
                 obj = JObject.Parse(res.Content);
                 if (!(((string)obj["status"]).Equals("OK")))
                     return false;
-                JArray ar = (JArray)obj["results"];
+                /*JArray ar = (JArray)obj["results"];
                 String formattedAddress = ar.First["formatted_address"].ToString();
                 if (!formattedAddress.Contains("Singapore"))
                     return false;
+                */
             }
             catch (Exception e)
             {
