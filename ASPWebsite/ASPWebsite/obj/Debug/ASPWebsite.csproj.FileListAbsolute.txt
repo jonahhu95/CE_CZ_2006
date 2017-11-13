@@ -1,4 +1,3 @@
-C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\obj\Debug\ASPWebsite.csprojResolveAssemblyReference.cache
 C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\ASPWebsite.dll.config
 C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\ASPWebsite.xml
 C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\bin\ASPWebsite.dll

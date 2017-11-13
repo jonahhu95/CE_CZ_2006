@@ -54,11 +54,13 @@
     </style>
     <script type="text/javascript">
         var source, destination;
-
+        var options = {
+            componentRestrictions: { country: 'sg' }
+        };
         var directionsService = new google.maps.DirectionsService();
         google.maps.event.addDomListener(window, 'load', function () {
-            new google.maps.places.SearchBox(document.getElementById('txt_Source'));
-            new google.maps.places.SearchBox(document.getElementById('txt_Destination'));
+            new google.maps.places.Autocomplete(document.getElementById('txt_Source'), options);
+            new google.maps.places.Autocomplete(document.getElementById('txt_Destination'), options);
 
 
         });

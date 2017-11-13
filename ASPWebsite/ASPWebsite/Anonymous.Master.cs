@@ -144,15 +144,38 @@ namespace ASPWebsite
         /// <param name="e">E.</param>
         protected void btnSaveHome_Click(object sender, EventArgs e)
         {
-            string loc = tbHome.Text;
-            um.saveUserHomeLocation(Session["Username"].ToString(), loc);
-            btnCancel.Visible = false;
-            tbHome.Visible = false;
-            lblHome.Visible = true;
-            btnChangeHome.Visible = true;
-            btnSaveHome.Visible = false;
+            string locate;
+            CalculationManager cm = new CalculationManager();
+            try
+            {
+                bool addValid = false;
+                addValid = (tbHome.Text).Length != 0;
+                if (addValid)
+                {
+                    locate = tbHome.Text;
+                    addValid = cm.checkAddressValid(locate);
 
-            lblHome.Text = "LIVES AT " + um.getUserHomeLocation(Session["Username"].ToString()) + " ";
+                    if (!addValid)
+                    {
+                        MessageBox.Show(Page, "Please enter a valid Singapore Address");
+                        return;
+                    }
+                    else
+                    {
+                        string loc = tbHome.Text;
+                        um.saveUserHomeLocation(Session["Username"].ToString(), loc);
+                        btnCancel.Visible = false;
+                        tbHome.Visible = false;
+                        lblHome.Visible = true;
+                        btnChangeHome.Visible = true;
+                        btnSaveHome.Visible = false;
+
+                        lblHome.Text = "LIVES AT " + um.getUserHomeLocation(Session["Username"].ToString()) + " ";
+
+                    }
+                }
+            }
+            catch { }
         }
 
         /// <summary>

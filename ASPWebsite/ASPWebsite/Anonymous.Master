@@ -57,7 +57,7 @@
     <link rel="stylesheet" href="css/pushy.css">
 
 
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyC7PqtJwkmY1fKaO0RE3qj7JWhA7m36jfk"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&region=SG&libraries=places&key=AIzaSyC7PqtJwkmY1fKaO0RE3qj7JWhA7m36jfk"></script>
 
     <style type="text/css">
         ol, ul {
@@ -348,7 +348,10 @@
 
             <script type="text/javascript">
                 google.maps.event.addDomListener(window, 'load', function () {
-                    var places = new google.maps.places.Autocomplete(document.getElementById('tbHome'));
+                    var options = {
+                        componentRestrictions: { country: 'sg' }
+                    };
+                    var places = new google.maps.places.Autocomplete(document.getElementById('tbHome'), options);
                     google.maps.event.addListener(places, 'place_changed', function () {
                         var place = places.getPlace();
                         var address = place.formatted_address;
