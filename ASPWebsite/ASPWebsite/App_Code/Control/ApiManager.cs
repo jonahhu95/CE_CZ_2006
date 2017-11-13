@@ -126,8 +126,8 @@ namespace ASPWebsite.App_Code.Control
             string url;
             JObject obj;
             double[] ret = new double[2];
-            ret[0] = 0;
-            ret[1] = 0;
+            ret[0] = 45;
+            ret[1] = 40;
             try
             {
                 url = generateCall_GetCommuteTimeCost(homeLocation.getLongitude(), homeLocation.getLatitude(),
