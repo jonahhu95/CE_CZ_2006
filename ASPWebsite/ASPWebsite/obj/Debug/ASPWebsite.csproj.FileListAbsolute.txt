@@ -43,3 +43,4 @@ E:\CX2006\ASPWebsite\ASPWebsite\bin\System.Data.SQLite.xml
 E:\CX2006\ASPWebsite\ASPWebsite\obj\Debug\ASPWebsite.csprojResolveAssemblyReference.cache
 E:\CX2006\ASPWebsite\ASPWebsite\obj\Debug\ASPWebsite.dll
 E:\CX2006\ASPWebsite\ASPWebsite\obj\Debug\ASPWebsite.pdb
+C:\Users\Joey\Documents\CE_CZ_2006\ASPWebsite\ASPWebsite\obj\Debug\ASPWebsite.csprojResolveAssemblyReference.cache

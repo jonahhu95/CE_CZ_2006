@@ -18,7 +18,11 @@ namespace ASPWebsite
             UserManager um = new UserManager();
             if (Session["Username"] != null)
             {
-                txt_Source.Text = um.getUserHomeLocation(Session["Username"].ToString());
+                if (um.getUserHomeLocation(Session["Username"].ToString()) != null)
+                {
+                    txt_Source.Text = um.getUserHomeLocation(Session["Username"].ToString());
+                }
+
             }
         }
 
