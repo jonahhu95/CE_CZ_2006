@@ -391,7 +391,9 @@ namespace ASPWebsite.App_Code.Control
         private string generateCall_GetCoordinates(string locationName)
         {
             string url = "https://maps.googleapis.com/maps/api/place/textsearch/json?";
-            url = url + "query=" + locationName.Replace(" ", "+");
+			string locationNameHold = locationName.Replace("&", "%26");
+			locationNameHold = locationNameHold.Replace("-", "%2D");
+			url = url + "query=" + locationNameHold.Replace(" ", "+");
             int ran = new Random().Next(0, 3);
             switch (ran)
             {
