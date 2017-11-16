@@ -109,13 +109,13 @@
   <ItemGroup>
     <Content Include="CalculationResult.aspx" />
     <Content Include="css\demo.css" />
+    <Content Include="css\jquery.reject.css" />
     <Content Include="css\normalize.css" />
     <Content Include="css\pushy.css" />
     <Content Include="HomePage.aspx" />
     <Content Include="img\cd-sprite-1.svg" />
     <Content Include="img\cd-sprite-2.svg" />
     <Content Include="img\cd-sprite-3.svg" />
-    <Content Include="js\jquery.numscroller-1.0.js" />
     <Content Include="js\pushy.js" />
     <Content Include="js\pushy.min.js" />
     <Content Include="mail\contact_me.php" />

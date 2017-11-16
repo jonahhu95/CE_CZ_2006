@@ -152,6 +152,11 @@
         }
     </script>
 
+    <script type="text/javascript">
+        if (navigator.appName == 'Microsoft Internet Explorer' || !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)) || (typeof $.browser !== "undefined" && $.browser.msie == 1)) {
+            alert("Please dont use IE.");
+        }
+    </script>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -291,7 +296,7 @@
                         <div class="profile-sidebar">
                             <div style="border-bottom: 1px solid rgba(69, 74, 84, 0.7)">
                                 <div class="profile-userpic" style="padding-top: 150px;">
-                                    <img src="http://images6.fanpop.com/image/photos/36100000/Sloths-image-sloths-36191131-625-469.jpg" class="img-responsive" alt="">
+                                    <img src="http://lionhallattorneys.com.ng/wp-content/uploads/2015/12/empty-profile.png" class="img-responsive" alt="">
                                 </div>
                                 <div class="profile-userlocation">
                                     <div class="profile-userlocation-name" style="text-transform: uppercase;">

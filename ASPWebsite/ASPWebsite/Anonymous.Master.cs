@@ -171,7 +171,7 @@ namespace ASPWebsite
                         btnSaveHome.Visible = false;
 
                         lblHome.Text = "LIVES AT " + um.getUserHomeLocation(Session["Username"].ToString()) + " ";
-
+                        Response.Redirect(Request.UrlReferrer.ToString());
                     }
                 }
             }
