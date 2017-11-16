@@ -62,14 +62,22 @@ namespace ASPWebsite
                     homeAddValid = cm.checkAddressValid(homelocate);
 
                     if (!workAddValid && !homeAddValid)
+                    {
                         MessageBox.Show(Page, "Please enter a valid work and home address in Singapore");
-                    else if (!workAddValid)
-                        MessageBox.Show(Page, "Please enter a valid work address in Singapore");
-                    else if (!homeAddValid)
-                        MessageBox.Show(Page, "Please enter a valid home address in Singapore");
-
-                    if (!workAddValid || !homeAddValid)
                         return;
+                    }
+                    else if (!workAddValid)
+                    {
+                        MessageBox.Show(Page, "Please enter a valid work address in Singapore");
+                        return;
+                    }
+                    else if (!homeAddValid)
+                    {
+                        MessageBox.Show(Page, "Please enter a valid home address in Singapore");
+                        return;
+                    }
+
+
                 }
                 else
                 {
