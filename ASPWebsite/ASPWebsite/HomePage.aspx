@@ -9,50 +9,60 @@
                                 border: solid 2px #ccc;
                                 transition: all 0.3s;*/
         }
+        .radiocss td input[type="radio"]:checked {
+            visibility: hidden;
+        }
+        .radiocss td input[type="radio"] {
+            visibility: hidden;
+        }
 
+        .radiocss td input[type="radio"] {
+            /*display: none;*/
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -ms-appearance: none;
+            -o-appearance: none;
+            display: none;
+            position: relative;
+            top: 13.33333px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 40px;
+            width: 40px;
+            transition: all 0.15s ease-out 0s;
+            /*background: #cbd1d8;*/
+            border: none;
+            /*color: #fff;*/
+            cursor: pointer;
+            display: inline-block;
+            margin-right: 0.5rem;
+            outline: none;
+            position: relative;
+            z-index: 1000;
+        }
 
-            .radiocss td input[type="radio"] {
-                /*display: none;*/
-                -webkit-appearance: none;
-                -moz-appearance: none;
-                -ms-appearance: none;
-                -o-appearance: none;
-                position: relative;
-                top: 13.33333px;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                height: 40px;
-                width: 40px;
-                transition: all 0.15s ease-out 0s;
-                /*background: #cbd1d8;*/
-                border: none;
-                /*color: #fff;*/
-                cursor: pointer;
-                display: inline-block;
-                margin-right: 0.5rem;
-                outline: none;
-                position: relative;
-                z-index: 1000;
+            .radiocss td input[type="radio"]:checked + label {
+                font-weight: bolder;
+                border: 2px solid black;
+                padding: 10px;
+                border-radius: 50%;
             }
 
-                .radiocss td input[type="radio"]:checked + label {
-                    font-weight: bolder;
-                    border: 2px solid black;
-                    padding: 10px;
-                    border-radius: 50%;
-                }
-
-            .radiocss td label {
-                position: relative;
-                left: -13px;
-                top: -3px;
-                font-size: 10pt;
-                opacity: .5;
-                color: black;
-            }
+        .radiocss td label {
+            position: relative;
+            left: -13px;
+            top: -3px;
+            font-size: 10pt;
+            opacity: .5;
+            color: black;
+        }
     </style>
     <script type="text/javascript">
+        $(function () {
+            $("[id$='rbSalary']").css("-webkit-appearance", "none");
+        });
+
         var source, destination;
         var options = {
             componentRestrictions: { country: 'sg' }
@@ -90,6 +100,7 @@
                 }
             });
         }
+
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -155,7 +166,7 @@
                         <br />
 
                         <asp:Label ID="Label8" runat="server" Text="Job Interest Rating "></asp:Label>
-                        <asp:RadioButtonList ID="rbInterest" runat="server" RepeatDirection="Horizontal" CssClass="radiocss" >
+                        <asp:RadioButtonList ID="rbInterest" runat="server" RepeatDirection="Horizontal" CssClass="radiocss">
                             <asp:ListItem>1</asp:ListItem>
                             <asp:ListItem>2</asp:ListItem>
                             <asp:ListItem>3</asp:ListItem>
