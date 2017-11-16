@@ -51,7 +51,8 @@ namespace ASPWebsite
                 homeAddValid = (txt_Source.Text).Length != 0;
                 salaryValid = int.TryParse(txt_Salary.Text, out salary);
                 //value is passed into salary if int.TryParse return true
-
+                if (salary < 0)
+                    salaryValid = false;
                 if (workAddValid && homeAddValid)
                 {
                     worklocate = txt_Destination.Text;

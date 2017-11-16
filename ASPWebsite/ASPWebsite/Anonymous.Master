@@ -298,8 +298,8 @@
                                         <asp:Label ID="lblUsername" runat="server" CssClass="navlbl"></asp:Label>
                                     </div>
                                     <script type="text/javascript">
-                                        // Specificaties
                                         $(document).ready(function () {
+                                            var done;
                                             $("#btnChangeHome").click(function () {
                                                 sessionStorage.reloadAfterPageLoad = true;
                                                 window.location.reload();
